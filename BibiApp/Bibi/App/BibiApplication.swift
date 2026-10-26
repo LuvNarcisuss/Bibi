@@ -132,6 +132,7 @@ private final class DockItem: UIControl {
     ])
     isAccessibilityElement = true
     accessibilityLabel = title
+    accessibilityIdentifier = "tab.\(title)"
     accessibilityTraits = .button
     addTarget(self, action: #selector(pressDown), for: .touchDown)
     addTarget(self, action: #selector(pressUp), for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])

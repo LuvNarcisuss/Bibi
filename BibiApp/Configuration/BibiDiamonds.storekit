@@ -1,0 +1,122 @@
+{
+  "identifier": "BibiDiamonds",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "0.99",
+      "familyShareable": false,
+      "internalID": "Bibi400",
+      "localizations": [
+        {
+          "description": "Add 400 diamonds to your Bibi wallet.",
+          "displayName": "400 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "ldbsrbbhebevxdjf",
+      "referenceName": "400 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "Bibi800",
+      "localizations": [
+        {
+          "description": "Add 800 diamonds to your Bibi wallet.",
+          "displayName": "800 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "fxvrdbmlwopeasti",
+      "referenceName": "800 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "Bibi2450",
+      "localizations": [
+        {
+          "description": "Add 2,450 diamonds to your Bibi wallet.",
+          "displayName": "2,450 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "akafhhbydyymfpzk",
+      "referenceName": "2,450 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "9.99",
+      "familyShareable": false,
+      "internalID": "Bibi5150",
+      "localizations": [
+        {
+          "description": "Add 5,150 diamonds to your Bibi wallet.",
+          "displayName": "5,150 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "ffzwgpuvsyyhaeeg",
+      "referenceName": "5,150 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "19.99",
+      "familyShareable": false,
+      "internalID": "Bibi10800",
+      "localizations": [
+        {
+          "description": "Add 10,800 diamonds to your Bibi wallet.",
+          "displayName": "10,800 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "ofgjvlbwtzchgvbx",
+      "referenceName": "10,800 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "49.99",
+      "familyShareable": false,
+      "internalID": "Bibi29400",
+      "localizations": [
+        {
+          "description": "Add 29,400 diamonds to your Bibi wallet.",
+          "displayName": "29,400 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "azacbzpzvvvpblzu",
+      "referenceName": "29,400 Diamonds",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "99.99",
+      "familyShareable": false,
+      "internalID": "Bibi63700",
+      "localizations": [
+        {
+          "description": "Add 63,700 diamonds to your Bibi wallet.",
+          "displayName": "63,700 Diamonds",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "lghwqjsuuxivrdrf",
+      "referenceName": "63,700 Diamonds",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_developerTeamID": "JPTS6M4T5B",
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA"
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

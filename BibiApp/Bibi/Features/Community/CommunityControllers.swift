@@ -341,7 +341,9 @@ final class WalletController: StackScreen {
     image.contentMode = .scaleAspectFit
     image.height(76)
     content.addArrangedSubview(image)
-    heading("\(store.wallet.snapshot.diamonds.formatted()) Diamonds")
+    let balance = heading("\(store.wallet.snapshot.diamonds.formatted()) Diamonds")
+    balance.accessibilityIdentifier = "wallet.balance"
+    balance.accessibilityValue = String(store.wallet.snapshot.diamonds)
     content.addArrangedSubview(
       label(
         "Your diamond balance is stored on this device. Messages, circle posts and challenge entries are free.",
@@ -388,6 +390,7 @@ final class WalletController: StackScreen {
           }
         }
         b.isEnabled = !store.wallet.isBusy && store.wallet.isAvailable(package)
+        b.accessibilityIdentifier = "wallet.package.\(package.amount)"
         row.addArrangedSubview(b)
       }
       for _ in 0..<(3 - (end - start)) {

@@ -16,6 +16,10 @@ final class ArtworkCreditsController: StackScreen {
     content.addArrangedSubview(label("Spring © Blender Foundation. Directed by Andy Goralczyk. The project's release page specifies CC BY 4.0; the official video host additionally marks the download Attribution–ShareAlike. Bibi distributes its selected excerpts and extracted covers under CC BY-SA 4.0. Excerpts are resized and encoded as H.264; speed and audio are preserved. No endorsement is implied.", 15))
     sourceLink("Spring · original film", "https://studio.blender.org/projects/spring/pages/about/")
     sourceLink("CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/")
+    heading("Lettering & Fonts")
+    content.addArrangedSubview(label("The five illustrated page titles were created with OpenAI image generation for Bibi. Display text uses Fredoka by the Fredoka Project Authors. Reading and controls use Nunito by the Nunito Project Authors. Both fonts are distributed unchanged under the SIL Open Font License 1.1. Their full licenses are included in the app bundle.", 15))
+    sourceLink("Fredoka · font & license", "https://github.com/google/fonts/tree/main/ofl/fredoka")
+    sourceLink("Nunito · font & license", "https://github.com/google/fonts/tree/main/ofl/nunito")
     heading("On this device")
     content.addArrangedSubview(label("Shorts play local videos. Circle posts, replies and challenge entries are saved on this device. Chats and uploads remain pending. A video call shows your own camera. Online publishing, messaging delivery and challenge judging are not connected.", 15, BibiPalette.muted))
   }

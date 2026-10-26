@@ -69,6 +69,11 @@
 		<key>UIColorName</key>
 		<string>BibiLaunchBackground</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fredoka-Variable.ttf</string>
+		<string>Nunito-Variable.ttf</string>
+	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>

@@ -1,3 +1,4 @@
+import CoreText
 import UIKit
 
 /// Bibi's semantic palette. Product components consume roles rather than brand color names.
@@ -19,10 +20,15 @@ enum BibiPalette {
             blue: CGFloat(hex & 255) / 255, alpha: 1)
   }
   static func font(_ size: CGFloat = 16, title: Bool = false) -> UIFont {
-    let base = UIFont.systemFont(ofSize: size, weight: title ? .bold : .medium)
-    let rounded = base.fontDescriptor.withDesign(.rounded) ?? base.fontDescriptor
+    // The bundled variable fonts retain their original PostScript names.
+    let name = title ? "Fredoka-Light" : "Nunito-ExtraLight"
+    let weightAxis = NSNumber(value: 0x77676874) // OpenType wght axis.
+    let variations: [NSNumber: NSNumber] = [weightAxis: NSNumber(value: title ? 600 : 500)]
+    let descriptor = UIFontDescriptor(name: name, size: size).addingAttributes([
+      UIFontDescriptor.AttributeName(rawValue: kCTFontVariationAttribute as String): variations,
+    ])
     return UIFontMetrics(forTextStyle: title ? .title2 : .body)
-      .scaledFont(for: UIFont(descriptor: rounded, size: size))
+      .scaledFont(for: UIFont(descriptor: descriptor, size: size))
   }
 }
 

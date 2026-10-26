@@ -4,6 +4,8 @@ A native anime social application built from the complete local feature baseline
 
 Open **Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `im.seex.sao2-neiku-30` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and project.yml.
 
+The app supports iPhone only. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. A standalone `simctl launch` does not activate that scheme configuration. Use **BibiAppStore** only when verifying Apple's catalog; local test success does not establish App Store Connect availability.
+
 ## Implemented source flows
 
 - **Shorts**: the default tab; vertical video feed, search, likes, saves, comments, floating comments, sharing and local upload submissions.
@@ -24,7 +26,11 @@ Community data participates in the existing atomic library write and local accou
 - 16 nonoverlapping animation excerpts from the Blender Foundation films Hero and Spring: eight active Shorts clips and eight retained legacy catalog entries. Each cover is extracted from its corresponding video.
 - The original dance videos, photographic portraits, icons, fonts, merchant configuration, and agreement links are removed from runtime resources.
 
-**Settings → Artwork & Credits** provides attribution, licenses, and source links. Development artwork and provenance records are in `Design/`; these files are excluded from the app resource build phase.
+**Settings → Artwork & Credits** provides attribution, licenses, and source links. All asset sources, including development artwork and provenance records, live directly in the repository-root `Assets/` directory. Only runtime files are included in the app resource build phase.
+
+`xcodegen generate --spec BibiApp/project.yml` regenerates the project from the repository root. Its pre-generation command and the app's pre-build phase recreate the ignored `BibiApp/.generated/Assets.xcassets` catalog from flat source files. This directory contains disposable metadata and links; edit the named files in `Assets/`, never the generated catalog. The app icon and launch color retain native asset-catalog compilation. No image editor or third-party Python package is needed to generate or build the project.
+
+`Assets/asset-migration.json` maps every previous asset location to its flat filename and records original and migrated SHA-256 hashes. `Assets/asset-catalog-index.json` maps native asset names to metadata and image sources. `Assets/runtime-asset-inventory.json` lists resources that runtime tests expect in the app. New loose runtime files must also be added to `project.yml`.
 
 ## Code differentiation
 
@@ -50,4 +56,4 @@ All authored application and project content, including comments, explanations, 
 
 ## Agreements
 
-The consent and Settings screens open the user-provided [Terms of Service](https://docs.google.com/document/d/1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I) and [Privacy Policy](https://docs.google.com/document/d/1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c). Bundled English snapshots provide a Saved copy fallback for network or access failures. Snapshot provenance is in Design/Agreements/provenance.json. Cloud edits require resynchronizing the bundled snapshots. Connected-account readability was verified; anonymous access was not.
+The consent and Settings screens open the user-provided [Terms of Service](https://docs.google.com/document/d/1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I) and [Privacy Policy](https://docs.google.com/document/d/1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c). Bundled English snapshots provide a Saved copy fallback for network or access failures. Snapshot provenance is in Assets/agreement-source-provenance.json. Cloud edits require resynchronizing the bundled snapshots. Connected-account readability was verified; anonymous access was not.

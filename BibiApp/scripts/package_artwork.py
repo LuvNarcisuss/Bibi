@@ -1,21 +1,22 @@
 """Mechanical atlas extraction and asset catalog packaging; no generated artwork is redrawn."""
 from pathlib import Path
 from PIL import Image
-import json, shutil, plistlib
-ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'Design/Generated'
-DEST=ROOT/'Bibi/Resources/Assets.xcassets'
-# This directory contains bundled project artwork only, never user data.
-if DEST.exists(): shutil.rmtree(DEST)
-DEST.mkdir(parents=True)
-(DEST/'Contents.json').write_text(json.dumps({'info':{'author':'xcode','version':1}},indent=2))
+import json
+ROOT=Path(__file__).resolve().parents[2]
+SOURCE=ROOT/'Assets'
+DEST=SOURCE
+index_path=DEST/'asset-catalog-index.json'
+index={entry['directory']:entry for entry in json.loads(index_path.read_text())}
+def metadata(directory,content,images):
+ name='catalog-'+directory+'.json'
+ (DEST/name).write_text(json.dumps(content,indent=2)+'\n')
+ index[directory]={'directory':directory,'metadata':name,'images':images}
 def save_asset(name,image,opaque=False):
- folder=DEST/(name+'.imageset');folder.mkdir()
  image=image.convert('RGB' if opaque else 'RGBA')
- image.save(folder/'art.png')
- (folder/'Contents.json').write_text(json.dumps({'images':[{'filename':'art.png','idiom':'universal'}],'info':{'author':'xcode','version':1}},indent=2))
+ image.save(DEST/(name+'.png'))
+ metadata(name+'.imageset',{'images':[{'filename':'art.png','idiom':'universal'}],'info':{'author':'xcode','version':1}},{'art.png':name+'.png'})
 def cells(filename,columns,rows):
- im=Image.open(SOURCE/filename).convert('RGBA'); w,h=im.size
+ im=Image.open(SOURCE/('generated-'+filename)).convert('RGBA'); w,h=im.size
  xs=[round(x*w/columns) for x in range(columns+1)]
  ys=[round(y*h/rows) for y in range(rows+1)]
  if 'atlas' in filename and filename!='rooms-atlas.png':
@@ -54,11 +55,12 @@ for i,im in enumerate(portraits,1):
 for i,im in enumerate(cells('rooms-atlas.png',4,2),1):
  im.thumbnail((640,640),Image.Resampling.LANCZOS)
  save_asset(f'BibiRoom{i}',im,True)
-welcome=Image.open(SOURCE/'welcome.png');welcome.thumbnail((900,1350),Image.Resampling.LANCZOS);save_asset('BibiWelcome',welcome,True)
-logo=Image.open(SOURCE/'app-icon.png').convert('RGB').resize((1024,1024),Image.Resampling.LANCZOS)
+welcome=Image.open(SOURCE/'generated-welcome.png');welcome.thumbnail((900,1350),Image.Resampling.LANCZOS);save_asset('BibiWelcome',welcome,True)
+logo=Image.open(SOURCE/'generated-app-icon.png').convert('RGB').resize((1024,1024),Image.Resampling.LANCZOS)
 for name in ['BibiMark','BibiWordmark']:save_asset(name,logo.resize((256,256),Image.Resampling.LANCZOS),True)
-folder=DEST/'AppIcon.appiconset';folder.mkdir();logo.save(folder/'AppIcon.png');(folder/'Contents.json').write_text(json.dumps({'images':[{'filename':'AppIcon.png','idiom':'universal','platform':'ios','size':'1024x1024'}],'info':{'author':'xcode','version':1}},indent=2))
-folder=DEST/'BibiLaunchBackground.colorset';folder.mkdir();(folder/'Contents.json').write_text(json.dumps({'colors':[{'idiom':'universal','color':{'color-space':'srgb','components':{'red':'0.973','green':'0.961','blue':'1.000','alpha':'1.000'}}}],'info':{'author':'xcode','version':1}},indent=2))
-# Rounded system fonts are Bibi's own typographic choice; no prior brand font registrations.
-p=ROOT/'Bibi/Support/Info.plist';info=plistlib.loads(p.read_bytes());info.pop('UIAppFonts',None);p.write_bytes(plistlib.dumps(info))
+logo.save(DEST/'AppIcon.png')
+metadata('AppIcon.appiconset',{'images':[{'filename':'AppIcon.png','idiom':'universal','platform':'ios','size':'1024x1024'}],'info':{'author':'xcode','version':1}},{'AppIcon.png':'AppIcon.png'})
+metadata('BibiLaunchBackground.colorset',{'colors':[{'idiom':'universal','color':{'color-space':'srgb','components':{'red':'0.973','green':'0.961','blue':'1.000','alpha':'1.000'}}}],'info':{'author':'xcode','version':1}},{})
+index_path.write_text(json.dumps(list(index.values()),indent=2)+'\n')
+# Existing title artwork, font registrations and all non-generated sources are preserved.
 print(f'Packaged {len(icons)} icon names, {len(portraits)} characters, 8 rooms, welcome and app identity')

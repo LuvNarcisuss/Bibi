@@ -64,7 +64,7 @@ Explain that diamonds fund room gifts. Messages, ordinary comments, and floating
 
 ## Historical agreements
 
-The original template retained `Agreements/TermsOfService.html` and `PrivacyPolicy.html`, with Teto contact `18781461148@163.com` and these recorded document IDs:
+The original template retained `Assets/TermsOfService.html` and `PrivacyPolicy.html`, with Teto contact `18781461148@163.com` and these recorded document IDs:
 
 - Terms: https://docs.google.com/document/d/1PBHnF3UNjCBkEuzOyETCUOWgMEz4eiPfGj_PooGJM4c
 - Privacy: https://docs.google.com/document/d/1BGNLMpwOFa8_6Fz3S4zv9xkKELYTBEx3KXi3DLVBSj0

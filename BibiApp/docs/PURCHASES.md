@@ -24,16 +24,18 @@ Wallet → tier selection → confirmation → StoreKit product lookup → Apple
 
 The user changed the bundle identifier to `im.seex.sao2-neiku-30` and selected development team `JPTS6M4T5B`. Both the Xcode project and project.yml now preserve those values. The screenshot does not establish that the products are registered to this bundle or available in App Store Connect. Configure the same exact IDs as consumables for the intended application, with the appropriate signing identity and store account setup. No App Store Connect changes, real purchase, or financial account changes were performed.
 
-The shared Xcode scheme has no StoreKit simulation fixture. A successful build does not verify a purchase. Product retrieval, purchase/cancellation/deferred behavior, duplicate callbacks, and save-failure recovery still require sandbox verification with the correct app/account configuration.
+The Bibi scheme now uses Configuration/BibiDiamonds.storekit for Xcode Run, following the local testing setup in Teto. It contains only Bibi's seven configured consumables. The BibiAppStore scheme has no local StoreKit configuration and uses Apple's catalog. The BibiPurchases scheme runs isolated StoreKit Test UI regression checks. Local fixture success does not establish App Store Connect product availability or a successful real-device sandbox purchase.
+
+For an interactive local purchase run, select **Bibi** and **Bibi UI Acceptance** in Xcode, confirm **Edit Scheme > Run > Options > StoreKit Configuration > BibiDiamonds.storekit**, and use **Product > Run**. Keep the Xcode run session active while testing. Building with `xcodebuild` and then installing/launching with `simctl` does not apply the scheme's Run configuration to that launch. A successful app launch alone therefore does not verify the local catalog. Confirm that all seven offers show prices before starting a payment. XCTest uses its own explicit SKTestSession and is a separate verification path.
 
 The existing StoreKit 1 implementation keeps a device-local ledger. It does not implement receipt validation or a server-authoritative wallet, refund reconciliation, cross-device balances, or remote gift delivery. This configuration change does not establish those services. Account deletion removes the local wallet but cannot delete Apple transaction history.
 
-## Verification performed
+## Initial configuration verification (before runtime testing)
 
 - 405 static source/configuration/resource checks passed, including exact product mappings, unique IDs, seven tier quantities/reference prices, and complete tier-to-product coverage.
 - Xcode Debug simulator build succeeded. The built app's Info.plist contains the same seven product mappings and bundle identifier as source.
 - Build log: /private/tmp/bibi-purchases-build.log. The only build warning concerns skipped App Intents metadata extraction; this app does not use AppIntents.framework.
-- No payment was submitted and no wallet credit was generated during verification. Build/configuration checks are not evidence of StoreKit catalog availability, receipt validation, or sandbox transaction success.
+- At this initial build-only stage, no payment was submitted and no wallet credit was generated. Build/configuration checks are not evidence of StoreKit catalog availability, receipt validation, or sandbox transaction success.
 
 
 ## Real-device catalog failure investigation
@@ -49,10 +51,15 @@ Confirmed local findings and changes:
 - Apple invalidProductIdentifiers and NSError domain/code chains are retained. Xcode logging uses category InAppPurchase. Debug builds offer Copy Store Diagnostics with bundle/version, requested/returned/invalid IDs, and error codes; no receipts, bank details, or account credentials are included.
 - Successful product lookup continues into the existing SKPaymentQueue payment flow, with transaction deduplication and atomic credit-before-finish behavior. No Apple Pay merchant/card flow was added; diamonds use Apple In-App Purchase.
 
-No physical device was available through devicectl during this investigation, and the browser automation transport could not connect to App Store Connect. Therefore no Apple account/product status or real-device catalog response was verified. No purchase or account setting change was performed.
+No physical device was available through devicectl during this investigation, and the browser automation transport could not connect to App Store Connect. Therefore no Apple account/product status or real-device catalog response was verified. No purchase or account setting change was performed during that real-device catalog investigation.
 
 To complete Apple sandbox verification, confirm the selected app contains these exact seven consumable IDs, each with price/localization and availability, and that the account's Paid Apps Agreement is active. In a Debug device run, Retry App Store and copy Store Diagnostics if prices are missing. A product rejected for this app cannot be made purchasable by substituting a hardcoded price or a local StoreKit fixture.
 
 References: [Apple TN3186](https://developer.apple.com/documentation/technotes/tn3186-troubleshooting-in-app-purchases-availability-in-the-sandbox), [Configure In-App Purchases](https://developer.apple.com/help/app-store-connect/configure-in-app-purchase-settings/overview-for-configuring-in-app-purchases/).
 
 The updated code compiled successfully and 407 static checks passed. `app-store-products.csv` provides the seven product definitions for manual comparison or entry in App Store Connect; it is a preparation sheet, not an Apple bulk-import format or evidence that products were created.
+
+
+## Teto configuration comparison and local transaction verification
+
+Bibi now follows Teto's Xcode StoreKit configuration pattern while retaining Bibi's own product mappings and request safeguards. The isolated XCTest catalog case passed for all seven purchases, application cancellation, StoreKit cancellation and balance persistence after relaunch. These were local StoreKit Test transactions with no real charge. See [Purchase runtime verification](PURCHASES-RUN-VERIFICATION.md) for schemes, evidence, reproduction and the remaining App Store Connect boundary.

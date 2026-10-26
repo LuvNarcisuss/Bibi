@@ -1,7 +1,7 @@
 """Read-only source/configuration/resource checks. Not a Swift build or runtime test."""
 from pathlib import Path
 import json,plistlib,hashlib,re,xml.etree.ElementTree as ET
-ROOT=Path(__file__).resolve().parents[1];SOURCE=ROOT/'Bibi';ASSETS=SOURCE/'Resources/Assets.xcassets'
+ROOT=Path(__file__).resolve().parents[1];SOURCE=ROOT/'Bibi';ASSETS=ROOT.parent/'Assets'
 failures=[];checks=[]
 def check(ok,label):
  (checks if ok else failures).append(label)
@@ -41,34 +41,39 @@ check('updated.community?.removeVideo' in alltext, 'Video deletion updates commu
 check('class CircleComposerController' in alltext and 'class ChallengeDetailController' in alltext, 'Circle composition and challenge detail exist')
 check('final class ExpandingSearchBar:' in alltext and 'ExpandingSearchBar.swift in Sources' in (ROOT/'Bibi.xcodeproj/project.pbxproj').read_text(), 'Shared search overlay retained and compiled')
 check('PhraseController' not in alltext and 'Open phrase' not in alltext,'No Phrases route')
-manifest=json.loads((ROOT/'Design/media-provenance.json').read_text());catalog=json.loads((SOURCE/'Resources/animation-catalog.json').read_text())
+manifest=json.loads((ASSETS/'media-provenance.json').read_text());catalog=json.loads((ASSETS/'animation-catalog.json').read_text())
 check(len(catalog)==16,'16 animation clips')
 check(len({c['id'] for c in catalog})==16 and len({c['assetName'] for c in catalog})==16,'Unique stable IDs and media names')
 check(sum(c['surface']=='live' for c in catalog)==8 and sum(c['surface']=='shorts' for c in catalog)==8,'8 active Shorts and 8 retained legacy catalog entries')
 for clip,record in zip(catalog,manifest):
  check(clip['id']==record['id'] and clip['duration']<=180,'Catalog provenance '+clip['assetName'])
  for ext,key in [('mp4','runtimeSHA256'),('jpg','coverSHA256')]:
-  p=SOURCE/'Resources/AnimationMedia'/(clip['assetName']+'.'+ext)
+  p=ASSETS/(clip['assetName']+'.'+ext)
   check(p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==record[key],'Media hash '+p.name)
-check(not list((SOURCE/'Resources').rglob('dance-*.mp4')),'No inherited dance video assets')
-for contents in ASSETS.rglob('Contents.json'):
- j=json.loads(contents.read_text())
+check(not list(ASSETS.rglob('dance-*.mp4')),'No inherited dance video assets')
+for entry in json.loads((ASSETS/'asset-catalog-index.json').read_text()):
+ j=json.loads((ASSETS/entry['metadata']).read_text())
  for item in j.get('images',[]):
-  if 'filename' in item:check((contents.parent/item['filename']).exists(),'Asset file '+contents.parent.name)
+  if 'filename' in item:check((ASSETS/entry['images'][item['filename']]).exists(),'Asset file '+entry['directory'])
 icons=(SOURCE/'DesignSystem/BibiIcons.swift').read_text();cases=[]
 for line in icons.splitlines():
  if line.strip().startswith('case '):cases.extend(s.strip() for s in line.strip()[5:].split(','))
-for name in cases:check((ASSETS/f'BibiIcon-{name}.imageset/art.png').exists(),'Icon '+name)
+for name in cases:check((ASSETS/f'BibiIcon-{name}.png').exists(),'Icon '+name)
 for name in set(re.findall(r'"(Portrait\d+|BibiRoom\d+|BibiWelcome|BibiMark|BibiWordmark)"',alltext)):
- check((ASSETS/(name+'.imageset')).exists(),'Artwork '+name)
+ check((ASSETS/(name+'.png')).exists(),'Artwork '+name)
 from PIL import Image
-for p in ASSETS.glob('BibiIcon-*.imageset/art.png'):
- im=Image.open(p);check(im.mode=='RGBA' and im.getchannel('A').getextrema()[0]==0,'Alpha '+p.parent.name)
-im=Image.open(ASSETS/'AppIcon.appiconset/AppIcon.png');check(im.size==(1024,1024) and im.mode=='RGB','Opaque 1024px AppIcon')
+for p in ASSETS.glob('BibiIcon-*.png'):
+ im=Image.open(p);check(im.mode=='RGBA' and im.getchannel('A').getextrema()[0]==0,'Alpha '+p.name)
+im=Image.open(ASSETS/'AppIcon.png');check(im.size==(1024,1024) and im.mode=='RGB','Opaque 1024px AppIcon')
 for filename in ['TermsOfService','PrivacyPolicy']:
- s=(ROOT/'Agreements'/(filename+'.html')).read_text();check('Bibi' in s and 'Teto' not in s,'Agreement '+filename)
-scheme=ROOT/'Bibi.xcodeproj/xcshareddata/xcschemes/Bibi.xcscheme'
-ET.parse(scheme);check('StoreKitConfigurationFileReference' not in scheme.read_text(),'Shared scheme without inherited StoreKit fixture')
+ s=(ASSETS/(filename+'.html')).read_text();check('Bibi' in s and 'Teto' not in s,'Agreement '+filename)
+scheme_directory=ROOT/'Bibi.xcodeproj/xcshareddata/xcschemes'
+for name in ['Bibi', 'BibiPurchases']:
+ reference=ET.parse(scheme_directory/(name+'.xcscheme')).find('LaunchAction/StoreKitConfigurationFileReference')
+ check(reference is not None and reference.get('identifier') == '../../Configuration/BibiDiamonds.storekit', name+' Run selects the Bibi local StoreKit fixture')
+check(ET.parse(scheme_directory/'BibiAppStore.xcscheme').find('.//StoreKitConfigurationFileReference') is None, 'Apple catalog scheme has no local StoreKit fixture')
+fixture=json.loads((ROOT/'Configuration/BibiDiamonds.storekit').read_text())['products']
+check(len(fixture)==7 and {p['productID'] for p in fixture}==set(expected_products.values()) and all(p['type']=='Consumable' for p in fixture), 'Local fixture contains only the seven Bibi consumables')
 pbx=(ROOT/'Bibi.xcodeproj/project.pbxproj').read_text()
 check('im.seex.sao2-neiku-30' in pbx and 'IPHONEOS_DEPLOYMENT_TARGET = 16.0' in pbx,'User-selected project identity and deployment target')
 check('DEVELOPMENT_TEAM = JPTS6M4T5B;' in pbx,'User-selected signing team retained')

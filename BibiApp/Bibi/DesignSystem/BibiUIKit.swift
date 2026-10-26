@@ -253,10 +253,13 @@ final class BibiButton: UIControl {
   return button
 }
 
-/// Italic word with a lime stroke. Replaces the system navigation title.
+/// Illustrated root titles with accessible names; secondary screens use bundled display type.
 final class StudioTitle: UIView {
+  private static let illustratedTitles: Set<String> = ["Shorts", "Circles", "Challenges", "Chats", "Me"]
   private let caption = UILabel()
   private let mark = UIView()
+  private let artwork = UIImageView()
+  private var titleSize = CGSize(width: 88, height: 34)
   init(_ text: String) {
     super.init(frame: CGRect(x: 0, y: 0, width: 88, height: 34))
     isAccessibilityElement = true
@@ -264,28 +267,45 @@ final class StudioTitle: UIView {
     caption.font = BibiPalette.font(18, title: true)
     caption.textColor = BibiPalette.ink
     caption.textAlignment = .center
+    caption.adjustsFontForContentSizeCategory = true
+    caption.isAccessibilityElement = false
     caption.adjustsFontSizeToFitWidth = true
     caption.minimumScaleFactor = 0.65
     caption.lineBreakMode = .byTruncatingTail
     mark.backgroundColor = BibiPalette.selection
     mark.layer.cornerRadius = 1.5
+    artwork.contentMode = .scaleAspectFit
+    artwork.isAccessibilityElement = false
     addSubview(caption)
     addSubview(mark)
+    addSubview(artwork)
     setText(text)
   }
   required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
   func setText(_ text: String) {
     caption.text = text
     accessibilityLabel = text
-    let width = min(220, max(72, caption.intrinsicContentSize.width + 8))
-    frame.size = CGSize(width: width, height: 34)
-    bounds.size = frame.size
+    accessibilityIdentifier = "page-title.\(text)"
+    artwork.image = Self.illustratedTitles.contains(text)
+      ? UIImage(named: "BibiTitle-\(text)")?.withRenderingMode(.alwaysOriginal) : nil
+    let hasArtwork = artwork.image != nil
+    artwork.isHidden = !hasArtwork
+    caption.isHidden = hasArtwork
+    mark.isHidden = hasArtwork
+    if let image = artwork.image {
+      let height: CGFloat = 40
+      titleSize = CGSize(width: min(180, max(64, height * image.size.width / image.size.height)), height: height)
+    } else {
+      titleSize = CGSize(width: min(220, max(72, caption.intrinsicContentSize.width + 8)), height: 34)
+    }
+    frame.size = titleSize
     invalidateIntrinsicContentSize()
     setNeedsLayout()
   }
-  override var intrinsicContentSize: CGSize { CGSize(width: bounds.width > 1 ? bounds.width : 88, height: 34) }
+  override var intrinsicContentSize: CGSize { titleSize }
   override func layoutSubviews() {
     super.layoutSubviews()
+    artwork.frame = bounds
     caption.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height - 7)
     mark.frame = CGRect(x: (bounds.width - 22) / 2, y: bounds.height - 4, width: 22, height: 3)
   }
@@ -1389,7 +1409,8 @@ private enum CoverDecoding {
     }
   }
   func clear() { content.arrangedSubviews.forEach { $0.removeFromSuperview() } }
-  func heading(_ text: String) {
+  @discardableResult
+  func heading(_ text: String) -> UILabel {
     let title = label(text, 26, title: true)
     let mark = UIView()
     mark.backgroundColor = BibiPalette.selection
@@ -1402,6 +1423,7 @@ private enum CoverDecoding {
     let column = stack([title, mark], spacing: 6)
     column.alignment = .leading
     content.addArrangedSubview(column)
+    return title
   }
 }
 extension UIView {

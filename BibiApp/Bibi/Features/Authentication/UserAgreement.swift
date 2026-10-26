@@ -27,7 +27,7 @@ enum AgreementDocument: String, Identifiable, CaseIterable {
             && Array(url.pathComponents.prefix(4)) == onlineURL.pathComponents
     }
     var fileURL: URL? {
-        Bundle.main.url(forResource: rawValue, withExtension: "html", subdirectory: "Agreements")
+        Bundle.main.url(forResource: rawValue, withExtension: "html")
     }
 }
 

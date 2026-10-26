@@ -21,7 +21,6 @@ struct AnimationClip: Decodable {
   }
   func resourceURL(fileExtension: String) -> URL {
     Bundle.main.url(forResource: assetName, withExtension: fileExtension)
-      ?? Bundle.main.url(forResource: assetName, withExtension: fileExtension, subdirectory: "AnimationMedia")
       ?? Bundle.main.bundleURL.appendingPathComponent("\(assetName).\(fileExtension)")
   }
 }

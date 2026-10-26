@@ -1,0 +1,74 @@
+{
+  "beforeCleanup": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "x86_64",
+          "deviceId": "6AF30F68-29BB-4CFD-91FF-24CD39712A4A",
+          "deviceName": "Bibi QA",
+          "modelName": "iPhone 17 Pro",
+          "osBuildNumber": "23A8464",
+          "osVersion": "26.0.1",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 7,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "Bibi \u00b7 Built with macOS 15.7.2",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792999884.931,
+    "passedTests": 7,
+    "result": "Passed",
+    "skippedTests": 0,
+    "startTime": 1792999327.65,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - Bibi",
+    "topInsights": [],
+    "totalTestCount": 7
+  },
+  "cleanBuildResourceVerification": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "x86_64",
+          "deviceId": "6AF30F68-29BB-4CFD-91FF-24CD39712A4A",
+          "deviceName": "Bibi QA",
+          "modelName": "iPhone 17 Pro",
+          "osBuildNumber": "23A8464",
+          "osVersion": "26.0.1",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 5,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "Bibi \u00b7 Built with macOS 15.7.2",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792999926.065,
+    "passedTests": 5,
+    "result": "Passed",
+    "skippedTests": 0,
+    "startTime": 1792999925.376,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - Bibi",
+    "topInsights": [],
+    "totalTestCount": 5
+  }
+}

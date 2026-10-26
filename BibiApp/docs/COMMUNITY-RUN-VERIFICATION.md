@@ -37,7 +37,7 @@ A read-only reviewer checked the focused changes, identified item 2, and recheck
 
 ## Evidence
 
-Screenshots in `../Design/RunEvidence/Community/`:
+Screenshots are flat files in the repository-root `Assets/` directory, named `run-Community-` followed by each filename below:
 
 - `circle-discussion.png`: saved post, image and reply flow.
 - `challenge-playback.png`: final uploaded caption and local/unpublished status.

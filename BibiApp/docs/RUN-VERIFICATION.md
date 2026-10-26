@@ -9,7 +9,7 @@ Date: 2026-10-26 (Asia/Shanghai). The user explicitly requested running the appl
 - xcodebuild returned exit 0 and BUILD SUCCEEDED.
 - The only warning reported was skipped AppIntents metadata extraction because the app does not depend on AppIntents.framework.
 - simctl installed the built app and launched app.bibi.anime, PID 13741.
-- Captured and visually inspected the actual simulator screenshot: Design/RunEvidence/welcome.png. The welcome art, title and Get started button appeared correctly.
+- Captured and visually inspected the actual simulator screenshot: Assets/run-welcome.png. The welcome art, title and Get started button appeared correctly.
 
 Build output: /private/tmp/BibiDerivedData/Build/Products/Debug-iphonesimulator/Bibi.app. Build log: /private/tmp/bibi-xcode-build.log.
 

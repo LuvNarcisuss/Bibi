@@ -1,10 +1,10 @@
 # Static audit — Bibi
 
-Date: 2026-10-26. Revision: Circles and Challenges.
+Date: 2026-10-26. Revision: Flat asset migration.
 
 ## Current evidence
 
-- `python3 scripts/static_audit.py`: 426 source/configuration/resource checks passed, zero failures. Details: `static-audit.json`.
+- `python3 scripts/static_audit.py`: 434 source/configuration/resource checks passed, zero failures. Details: `static-audit.json`. The purchase follow-up replaces the obsolete blanket prohibition on StoreKit fixtures with explicit local-scheme, Apple-catalog-scheme and Bibi product checks.
 - `plutil -lint Bibi/Support/Info.plist Bibi.xcodeproj/project.pbxproj`: both files passed.
 - XcodeGen regenerated project metadata successfully. New community and Shorts sources are present in the source build phase; removed room controllers/stores are absent.
 - The shared scheme XML is parsed by the static audit. The bundle ID remains `im.seex.sao2-neiku-30`, team `JPTS6M4T5B`, deployment target iOS 16 and Swift version 5.
@@ -28,3 +28,7 @@ The reviewer found no remaining reachable Live/Voice room controllers or obvious
 The owner subsequently authorized runtime verification. A Debug simulator build and interactive checks of all five modules were completed; see `COMMUNITY-RUN-VERIFICATION.md`. These were tool-driven manual interactions, not an automated XCTest suite. Backend integration, StoreKit transactions, storage-failure injection and a full device/accessibility matrix were not run. Static checks alone do not prove runtime correctness.
 
 `RUN-VERIFICATION.md` records an earlier revision's authorized build and welcome-screen launch. It is historical evidence, not validation of Circles and Challenges.
+
+## Flat asset migration
+
+All asset sources now live directly in the repository-root Assets directory. The audit reads the flat catalog metadata and verifies the same icon, artwork and media invariants. Generated Xcode catalog metadata links to these files; original films and design evidence are excluded from app resources. See ASSET-MIGRATION.md for migration-specific runtime verification.

@@ -16,9 +16,15 @@ The owner authorized removing Live and Voice rooms and adding Circles and Challe
 | Chats | Conversation → relationship checks → atomic outbox | No delivered receipts; only Shorts shared links open |
 | Creation | Form → permission declaration → media import → atomic submission and optional challenge entry | No automatic public release or review approval |
 | Safety | Circle/video/comment report or creator block → persist → hide; Settings reversal | No server moderation submission |
-| Wallet | StoreKit request/callback → idempotent ledger → finish after save | Product availability and transactions unverified |
+| Wallet | StoreKit request/callback → idempotent ledger → finish after save | Local StoreKit Test purchases verified; App Store catalog and real-device sandbox unverified |
 | Calls | Voice controls; local camera with permission/flip/lifecycle | No peer connection or microphone recording |
 | Account | Consent, logout preserves, local account deletion removes storage root | No external account deletion |
+
+## Typography and illustrated navigation
+
+The typography revision bundles unmodified Fredoka and Nunito variable fonts with their SIL Open Font License texts. BibiPalette selects Fredoka at weight 600 for display text and Nunito at weight 500 for reading and controls, retaining UIFontMetrics scaling. UIAppFonts and the Xcode Resources phase register and ship both fonts. project.yml explicitly includes the font files from the repository-root Assets directory.
+
+StudioTitle displays original generated transparent wordmarks for Shorts, Circles, Challenges, Chats and Me. Each title retains its English VoiceOver header name and aspect ratio. Secondary titles remain live Fredoka text. The flat Assets directory contains the typography- prefixed originals, manifest and exact prompts. The owner subsequently authorized a build and XCTest UI automation. Four tests passed on the Bibi QA iPhone 17 Pro simulator: runtime font families/weights, original title artwork and five-page navigation at default and larger text sizes. Ten original screenshots were visually reviewed without a title rendering defect. See TYPOGRAPHY-RUN-VERIFICATION.md for evidence and limits.
 
 ## Storage and ownership
 
@@ -40,9 +46,9 @@ The owner subsequently authorized compilation, simulator launch, interaction che
 
 ## Resource provenance
 
-`Design/Generated` preserves the seven image-model outputs. `scripts/package_artwork.py` extracts the atlases using alpha gutters, creates native asset entries and preserves transparency. Fifty-two different character drawings map to fifty named members, the local owner and the fictional Animation Club curator. Source filmmakers are credited separately, and no portrait claims to depict them.
+The `Assets/generated-` prefixed files preserve the seven image-model outputs. `scripts/package_artwork.py` extracts the atlases using alpha gutters, writes named flat images and native asset metadata and preserves transparency. Fifty-two different character drawings map to fifty named members, the local owner and the fictional Animation Club curator. Source filmmakers are credited separately, and no portrait claims to depict them.
 
-`Design/Originals` contains downloaded full original videos. `Design/media-provenance.json` records download/source/credit/license, original and runtime SHA-256, exact intervals, output metadata and cover hashes. `scripts/prepare_media.py` produces sixteen nonoverlapping excerpts at original speed, proportionally resized to 960px width, H.264/AAC encoded. The app's aspect-fill viewport may crop the frame; no stretched source was produced. They are sixteen excerpts from two films, not sixteen independently produced films.
+`Assets/original-hero.mp4` and `Assets/original-spring.mp4` preserve the downloaded full original videos. `Assets/media-provenance.json` records download/source/credit/license, original and runtime SHA-256, exact intervals, output metadata and cover hashes. `scripts/prepare_media.py` produces sixteen nonoverlapping excerpts at original speed, proportionally resized to 960px width, H.264/AAC encoded. The app's aspect-fill viewport may crop the frame; no stretched source was produced. They are sixteen excerpts from two films, not sixteen independently produced films.
 
 Hero: Blender Foundation, Daniel Martinez Lara, CC BY 4.0. Spring: Blender Foundation, Andy Goralczyk. Its project release specifies CC BY 4.0 while its official video-host metadata says Attribution–ShareAlike; these Spring derivatives and covers are distributed under CC BY-SA 4.0. Source/licensing links are shipped in Settings. No endorsement is implied.
 
@@ -52,13 +58,13 @@ Hero: Blender Foundation, Daniel Martinez Lara, CC BY 4.0. Spring: Blender Found
 
 No public backend or merchant account was created. The product owner must supply a unique registered bundle identifier if different, signing team, authenticated services, server-authoritative balances/relationships/moderation, registered diamond products, receipt verification, operator identity and support contact, and reviewed public agreements. Existing local capability text must be updated only when actual integrations exist.
 
-Native layout, playback lifecycle, keyboard behavior, Dynamic Type, VoiceOver, camera permissions, persistence failures and StoreKit transactions remain unverified at runtime. No statement in this record substitutes static inspection for those checks.
+Native layout, playback lifecycle, keyboard behavior, Dynamic Type, VoiceOver, camera permissions, persistence failures and real App Store transactions remain outside the verified purchase scope. Local StoreKit Test coverage is recorded in PURCHASES-RUN-VERIFICATION.md. No statement in this record substitutes static inspection for those checks.
 
 ## Agreement links supplied on October 26, 2026
 
 Welcome/consent and Settings share AgreementDocument and AgreementController. Terms uses https://docs.google.com/document/d/1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I and Privacy uses https://docs.google.com/document/d/1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c. The reader requests Google's English preview in a nonpersistent WKWebView and restricts top-level navigation to the selected document.
 
-The user-supplied documents were read through the connected Google Drive account. Their text is retained in Design/Agreements with hashes and retrieval provenance. Bundled HTML preserves that wording with local reader formatting. No cloud document or sharing permission was modified. Anonymous access has not been verified; a failed web lookup is not proof that the documents are private.
+The user-supplied documents were read through the connected Google Drive account. Their text is retained in Assets/agreement-source-PrivacyPolicy.txt and Assets/agreement-source-TermsOfService.txt with hashes and retrieval provenance. Bundled HTML preserves that wording with local reader formatting. No cloud document or sharing permission was modified. Anonymous access has not been verified; a failed web lookup is not proof that the documents are private.
 
 Network errors, HTTP failures, authentication redirects, a 15-second loading deadline, and recognized English access-denied pages switch to the bundled version, labeled Saved copy. Acceptance versions include source URLs and bundled content hashes. Later cloud edits require refreshing these snapshots; the app does not claim to hash mutable remote content at acceptance time.
 
