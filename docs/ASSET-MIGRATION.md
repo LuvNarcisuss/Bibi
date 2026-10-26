@@ -1,5 +1,7 @@
 # Flat asset migration verification
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: October 26, 2026.
 
 ## Result
@@ -57,7 +59,7 @@ xcodebuild test -project BibiApp/Bibi.xcodeproj -scheme Bibi \
 
 The cold-build verification used the saved Xcode project directly, after removing the generated catalog, with `clean test`, a fresh derived-data directory and `-only-testing:BibiTypographyTests`. Xcode recreated the catalog automatically. The pre-cleanup run included both UI cases; the final cold build reran all five resource/typography cases.
 
-Durable machine-readable summaries: [asset-migration-test-results.json](asset-migration-test-results.json). File mapping and cleanup gate: [asset-migration.json](../../Assets/asset-migration.json).
+Durable machine-readable summaries: [asset-migration-test-results.json](asset-migration-test-results.json). File mapping and cleanup gate: [asset-migration.json](../Assets/asset-migration.json).
 
 Full local results and logs:
 

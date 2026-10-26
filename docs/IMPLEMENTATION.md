@@ -1,5 +1,7 @@
 # Bibi implementation record
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: 2026-10-26 (Asia/Shanghai).
 
 The owner authorized removing Live and Voice rooms and adding Circles and Challenges. The native UIKit application now has five roots: Shorts, Circles, Challenges, Chats and Me. The existing signing configuration is preserved in project.yml and the generated Xcode project.
@@ -19,6 +21,14 @@ The owner authorized removing Live and Voice rooms and adding Circles and Challe
 | Wallet | StoreKit request/callback → idempotent ledger → finish after save | Local StoreKit Test purchases verified; App Store catalog and real-device sandbox unverified |
 | Calls | Voice controls; local camera with permission/flip/lifecycle | No peer connection or microphone recording |
 | Account | Consent, logout preserves, local account deletion removes storage root | No external account deletion |
+
+## Diamond gifts on existing content
+
+Circle discussions now open the existing gift picker. Shorts remains free and has no gift entry. No new root, store, currency, subscription, or decoration system is introduced. The nine existing gifts and 1/5/10 quantities remain available. Owned posts do not offer gifting; unavailable or moderated content is rechecked before spending.
+
+The current deliverable is a local gift effect and durable activity record for the selected content, not a transfer to a creator. Both the picker and its cost confirmation disclose this boundary. Basic messages, posts and challenge entries remain free. Chats have no gift-delivery service, and challenge entries remain local, so neither receives a paid delivery control.
+
+The wallet stores content kind, stable content ID, creator ID, title, gift ID and quantity with the debit in the same atomic wallet file. New fields are optional for older ledger compatibility. Gift debits share the StoreKit transaction queue with credits, and the wallet/picker reject overlapping user requests. Insufficient funds, cancellation, unavailable content and failed persistence do not publish a debit or play the gift animation. Account exit waits for wallet work already in progress.
 
 ## Typography and illustrated navigation
 

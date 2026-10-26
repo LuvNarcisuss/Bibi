@@ -131,9 +131,26 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
         publish()
     }
 
-    /// Spends diamonds for a gift on this device. Returns an English message when nothing was spent.
-    func spend(_ gift: StarGift, quantity: Int) async -> String? {
-        guard (1...99).contains(quantity), gift.diamonds > 0 else {
+    /// Shares the transaction queue with purchase credits so suspended writes cannot overwrite each other.
+    func spend(_ gift: StarGift, quantity: Int, target: GiftTarget,
+               isAvailable: @escaping @MainActor () -> Bool) async -> String? {
+        await withCheckedContinuation { continuation in
+            let previous = tail
+            tail = Task { @MainActor in
+                await previous?.value
+                guard self.acceptingPurchases, isAvailable() else {
+                    continuation.resume(returning: "This content is unavailable. No diamonds were spent.")
+                    return
+                }
+                let result = await self.saveGift(gift, quantity: quantity, target: target)
+                continuation.resume(returning: result)
+            }
+        }
+    }
+
+    private func saveGift(_ gift: StarGift, quantity: Int, target: GiftTarget) async -> String? {
+        guard (1...99).contains(quantity), gift.diamonds > 0,
+              StarGift.catalog.contains(where: { $0.id == gift.id && $0.diamonds == gift.diamonds }) else {
             return "Please check the quantity and try again."
         }
         let (cost, overflow) = gift.diamonds.multipliedReportingOverflow(by: quantity)
@@ -146,14 +163,15 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
         next.activity.insert(
             WalletActivity(
                 id: UUID().uuidString,
-                title: "Sent \(countText) × \(gift.name) · \(costText) diamonds",
-                currency: .diamonds, amount: cost, date: Date(), kind: "gift"
+                title: "Local gift · \(countText) × \(gift.name) · \(target.title) · \(costText) diamonds",
+                currency: .diamonds, amount: cost, date: Date(), kind: "gift",
+                giftTarget: target, giftID: gift.id, giftQuantity: quantity
             ),
             at: 0
         )
         if next.activity.count > 40 { next.activity = Array(next.activity.prefix(40)) }
         guard next.isValid, let persist, await persist(next) else {
-            return "Gift not sent. No diamonds were spent."
+            return "Gift could not be saved. No diamonds were spent."
         }
         ledger = next
         publish()

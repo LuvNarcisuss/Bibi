@@ -36,6 +36,9 @@ check('CGFloat(pages.count)' in app and 'dock.bounds.width / 4' not in app, 'Doc
 check('ChannelDiscoveryController' not in alltext and 'PartyRoomController' not in alltext and 'PartyCreationController' not in alltext, 'Retired discovery and room controllers removed')
 feed=(SOURCE/'Features/Shorts/VideoFeedController.swift').read_text()
 check('if live' not in feed and 'self.live' not in feed and 'LiveRoom' not in alltext, 'Shorts has no live playback mode')
+check('GiftsController' not in feed and 'shorts.gift' not in feed, 'Shorts has no diamond tipping entry')
+circle_source=(SOURCE/'Features/Circles/CircleControllers.swift').read_text()
+check('circle.gift' in circle_source and 'GiftsController(store: self.store, target: target)' in circle_source, 'Existing circle discussions open the gift picker')
 check('var community: CommunityState?' in alltext, 'Optional community storage preserves old-library decoding')
 check('updated.community?.removeVideo' in alltext, 'Video deletion updates community references')
 check('class CircleComposerController' in alltext and 'class ChallengeDetailController' in alltext, 'Circle composition and challenge detail exist')
@@ -87,6 +90,6 @@ for name in ['CommunityModels', 'AppStore+Community', 'CircleControllers', 'Circ
 for name in ['PartyControllers', 'PartyDiscoveryStore', 'VoiceRoomChatScript', 'LiveRoomStore', 'LiveRoomPlayback', 'VideoDiscoveryController']:
  check(name + '.swift' not in pbx, 'Project excludes retired ' + name)
 result={'scope':'Static file/config/resource inspection only. No Swift compiler, typecheck, tests, simulator or app execution.','passed':len(checks),'failed':failures,'checks':checks}
-(ROOT/'docs/static-audit.json').write_text(json.dumps(result,indent=2))
+(ROOT.parent/'docs/static-audit.json').write_text(json.dumps(result,indent=2))
 print(json.dumps({'passed':len(checks),'failures':failures},indent=2))
 raise SystemExit(bool(failures))

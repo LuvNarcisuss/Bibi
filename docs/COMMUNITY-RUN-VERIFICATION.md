@@ -1,5 +1,7 @@
 # Community revision run verification
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: 2026-10-26 (Asia/Shanghai).
 
 The owner explicitly authorized compilation, simulator launch, interactive checks of all five modules and direct fixes. The owner separately approved the bundled agreements for this simulator test only.

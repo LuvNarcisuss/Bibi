@@ -1,6 +1,28 @@
 # Purchase runtime verification
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: October 26, 2026 (Asia/Shanghai).
+
+## Circle-post gift spending
+
+Latest run: October 26, 2026, completed at 18:04 Asia/Shanghai. The current workspace was built, installed and launched by XCTest on Bibi UI Acceptance, iPhone 17 Pro, iOS 26.0.1, UDID `0C3DC278-7663-4B7E-9FCD-10F2FF679569`.
+
+`testContentGiftsAndPersistence` passed: one executed case, zero failures, 200.093 seconds. This case uses local SKTestSession with dialogs disabled and preserves existing wallet data and transaction history.
+
+- The initial balance was 1,540. A local StoreKit purchase added 400 diamonds.
+- Shorts exposed no gift entry. A circle discussion opened the existing gift picker.
+- Canceling a gift confirmation did not change the balance.
+- One Sakura gift cost 10 diamonds; five Sakura gifts cost 50 diamonds. The resulting balance was 1,880.
+- An unaffordable selection showed the insufficient-balance prompt; canceling it did not spend diamonds.
+- Terminating and relaunching the app preserved the 1,880 balance and local gift history.
+- Final screenshots were inspected. Gift cards separate names, amounts and units onto individual lines to prevent the price-unit truncation found during the first passing run.
+
+Evidence: `Design/RunEvidence/Purchases/CircleGifts/test-summary.json`, `gift-prices.png`, `circle-gift.png` and `persisted-wallet.png`. Result bundle: `/private/tmp/BibiContentGifts-Final.xcresult`. Static audit: 436 checks passed, zero failures.
+
+Gift spending and purchase credits now share one persistence queue. Records include optional content, gift and quantity metadata, preserving older wallet decoding. A target is rechecked before spending, and the saved balance is published only after persistence succeeds. Shorts tipping is explicitly excluded by project rules and the static audit.
+
+This is a local gift animation and wallet record on an existing circle discussion. No gift or money is delivered to a creator. No new feature module or backend was added. This run does not establish Apple sandbox or production payment availability, and it does not repeat the full seven-product suite. Injected write failures, concurrent credit/debit stress, target moderation races and real creator delivery were not runtime-tested.
 
 ## Acceptance simulator follow-up
 

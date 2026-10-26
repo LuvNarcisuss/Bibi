@@ -5,6 +5,80 @@ import XCTest
 /// Run only on a disposable purchase simulator; all transactions use StoreKit Test.
 final class PurchaseUITests: XCTestCase {
   @MainActor
+  func testContentGiftsAndPersistence() async throws {
+    continueAfterFailure = false
+    let file = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "BibiDiamonds", withExtension: "storekit"))
+    let session = try SKTestSession(contentsOf: file)
+    session.resetToDefaultState()
+    session.disableDialogs = true
+    defer { session.resetToDefaultState() }
+    let app = XCUIApplication()
+    openWallet(app)
+    let initial = try XCTUnwrap(Int(app.staticTexts["wallet.balance"].value as? String ?? ""))
+    let package = app.buttons["wallet.package.400"]
+    let ready = await XCTWaiter.fulfillment(of: [XCTNSPredicateExpectation(
+      predicate: NSPredicate(format: "enabled == true"), object: package)], timeout: 25)
+    XCTAssertEqual(ready, .completed)
+    package.tap()
+    app.buttons["Continue"].tap()
+    try await expectBalance(initial + 400, app: app)
+    app.buttons["Back"].tap()
+    app.buttons["tab.Shorts"].tap()
+    XCTAssertFalse(app.buttons["shorts.gift"].exists)
+    app.buttons["tab.Circles"].tap()
+    let explore = app.buttons.matching(NSPredicate(format: "label == 'Explore circle' OR label == 'Open joined circle'")).firstMatch
+    reveal(explore, app: app)
+    explore.tap()
+    let discussion = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Read discussion'")).firstMatch
+    reveal(discussion, app: app)
+    discussion.tap()
+    let circleGift = app.buttons["circle.gift"]
+    reveal(circleGift, app: app)
+    circleGift.tap()
+    let rose = app.buttons["gift.item.rose"]
+    XCTAssertTrue(rose.waitForExistence(timeout: 10))
+    reveal(rose, app: app)
+    rose.tap()
+    app.buttons["Cancel"].tap()
+    try await expectGiftBalance(initial + 400, app: app)
+    rose.tap()
+    app.buttons["Use diamonds"].tap()
+    try await expectGiftBalance(initial + 390, app: app)
+    capture(app, name: "Circle post gift saved")
+    let five = app.buttons["5 gifts"]
+    reveal(five, app: app, upward: false)
+    five.tap()
+    reveal(rose, app: app)
+    rose.tap()
+    app.buttons["Use diamonds"].tap()
+    try await expectGiftBalance(initial + 340, app: app)
+    if initial < 49000 {
+      let galaxy = app.buttons["gift.item.galaxy"]
+      reveal(galaxy, app: app)
+      capture(app, name: "Full gift prices for five items")
+      galaxy.tap()
+      XCTAssertTrue(app.staticTexts["Not enough diamonds"].waitForExistence(timeout: 5))
+      app.buttons["Cancel"].tap()
+      try await expectGiftBalance(initial + 340, app: app)
+    }
+    app.terminate()
+    openWallet(app)
+    try await expectBalance(initial + 340, app: app)
+    let history = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Local gift'")).firstMatch
+    XCTAssertTrue(history.exists)
+    reveal(history, app: app)
+    capture(app, name: "Gift history survives relaunch")
+  }
+
+  @MainActor
+  private func expectGiftBalance(_ amount: Int, app: XCUIApplication) async throws {
+    let result = await XCTWaiter.fulfillment(of: [XCTNSPredicateExpectation(
+      predicate: NSPredicate(format: "value == %@", String(amount)),
+      object: app.staticTexts["gift.balance"])], timeout: 15)
+    XCTAssertEqual(result, .completed)
+  }
+
+  @MainActor
   func testApplePaymentSheetCancellation() async throws {
     continueAfterFailure = false
     let file = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "BibiDiamonds", withExtension: "storekit"))

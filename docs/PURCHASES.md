@@ -1,5 +1,7 @@
 # Bibi in-app purchases
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Configuration date: October 26, 2026.
 
 The owner supplied seven iOS consumable diamond product IDs in a screenshot. The IDs were transcribed and cross-checked with local OCR; lowercase characters were checked against the image. Payment/bank details from the screenshot are not required by StoreKit and are not stored in the app.
@@ -18,7 +20,7 @@ The owner supplied seven iOS consumable diamond product IDs in a screenshot. The
 
 `Bibi/Support/Info.plist` stores the mapping under `BibiDiamondProducts`, keyed by diamond quantity. `BibiConfiguration` reads the values; `WalletCatalog` supplies seven matching tiers. The 16,800 and 42,600 tiers have no supplied product IDs and are removed from the offered catalog. Existing balances and transaction history remain intact.
 
-Wallet → tier selection → confirmation → StoreKit product lookup → Apple payment sheet → transaction callback → atomic local wallet save → finishTransaction. Actual prices use SKProduct.price and priceLocale; USD values above are references only. An unavailable product does not start payment or credit diamonds. Cancellation/failure adds no diamonds, deferred transactions wait for approval, and repeated transaction IDs are not credited twice. Save failure leaves a completed purchase unfinished for retry on a later launch. Gifts spend the same local balance.
+Wallet → tier selection → confirmation → StoreKit product lookup → Apple payment sheet → transaction callback → atomic local wallet save → finishTransaction. Actual prices use SKProduct.price and priceLocale; USD values above are references only. An unavailable product does not start payment or credit diamonds. Cancellation/failure adds no diamonds, deferred transactions wait for approval, and repeated transaction IDs are not credited twice. Save failure leaves a completed purchase unfinished for retry on a later launch. Circle-post gifts spend the same local balance after an explicit quantity/total confirmation. They provide a local animation and history entry only; no creator transfer or delivery is connected. Shorts has no gift entry.
 
 ## Store and service boundaries
 

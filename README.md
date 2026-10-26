@@ -2,9 +2,13 @@
 
 A native anime social application built from the complete local feature baseline in the user-selected skill.
 
-Open **Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `im.seex.sao2-neiku-30` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and project.yml.
+Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `im.seex.sao2-neiku-30` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
 
 The app supports iPhone only. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. A standalone `simctl launch` does not activate that scheme configuration. Use **BibiAppStore** only when verifying Apple's catalog; local test success does not establish App Store Connect availability.
+
+## Repository layout
+
+Repository rules, this README, Git ignore rules and `docs/` live at the repository root. `BibiApp/` contains the application sources, Xcode project, generator configuration, scripts, tests and design evidence. `Assets/` contains source assets.
 
 ## Implemented source flows
 
@@ -30,7 +34,7 @@ Community data participates in the existing atomic library write and local accou
 
 `xcodegen generate --spec BibiApp/project.yml` regenerates the project from the repository root. Its pre-generation command and the app's pre-build phase recreate the ignored `BibiApp/.generated/Assets.xcassets` catalog from flat source files. This directory contains disposable metadata and links; edit the named files in `Assets/`, never the generated catalog. The app icon and launch color retain native asset-catalog compilation. No image editor or third-party Python package is needed to generate or build the project.
 
-`Assets/asset-migration.json` maps every previous asset location to its flat filename and records original and migrated SHA-256 hashes. `Assets/asset-catalog-index.json` maps native asset names to metadata and image sources. `Assets/runtime-asset-inventory.json` lists resources that runtime tests expect in the app. New loose runtime files must also be added to `project.yml`.
+`Assets/asset-migration.json` maps every previous asset location to its flat filename and records original and migrated SHA-256 hashes. `Assets/asset-catalog-index.json` maps native asset names to metadata and image sources. `Assets/runtime-asset-inventory.json` lists resources that runtime tests expect in the app. New loose runtime files must also be added to `BibiApp/project.yml`.
 
 ## Code differentiation
 
@@ -48,7 +52,7 @@ The Circles and Challenges revision passed a Debug simulator build and an explic
 
 `docs/RUN-VERIFICATION.md` describes a successful build and welcome-screen run of an earlier revision. It does not validate these new screens.
 
-Implementation details: `docs/IMPLEMENTATION.md`. Resource processing: `scripts/package_artwork.py` and `scripts/prepare_media.py`.
+Implementation details: `docs/IMPLEMENTATION.md`. Resource processing: `BibiApp/scripts/package_artwork.py` and `BibiApp/scripts/prepare_media.py`.
 
 ## Language policy
 

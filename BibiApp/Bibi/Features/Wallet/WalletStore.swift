@@ -61,10 +61,26 @@ final class WalletStore: ObservableObject {
         return await purchasing.purchase(package)
     }
 
-    func send(_ gift: StarGift, quantity: Int, roomID: String) async -> String? {
-        guard !roomID.isEmpty, (1...99).contains(quantity) else {
-            return "Please check the quantity and try again."
-        }
-        return await purchasing.spend(gift, quantity: quantity)
+    func send(_ gift: StarGift, quantity: Int, target: GiftTarget,
+              isAvailable: @escaping @MainActor () -> Bool) async -> String? {
+        guard !isBusy else { return "Please wait for the current request to finish." }
+        isBusy = true
+        defer { isBusy = false }
+        return await purchasing.spend(gift, quantity: quantity, target: target, isAvailable: isAvailable)
+    }
+}
+
+extension AppStore {
+    func giftTarget(postID: UUID) -> GiftTarget? {
+        guard let post = circlePosts().first(where: { $0.id == postID }),
+              !post.author.isLocalOwner else { return nil }
+        return GiftTarget(kind: .circlePost, id: postID,
+                          title: String(post.body.prefix(60)), creatorID: post.author.id)
+    }
+
+    func canGift(_ target: GiftTarget) -> Bool {
+        guard canUseGifts else { return false }
+        let current = giftTarget(postID: target.id)
+        return current?.creatorID == target.creatorID
     }
 }

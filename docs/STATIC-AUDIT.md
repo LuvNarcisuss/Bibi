@@ -1,10 +1,12 @@
 # Static audit — Bibi
 
-Date: 2026-10-26. Revision: Flat asset migration.
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
+Date: 2026-10-26. Revision: Circle-post diamond gifts.
 
 ## Current evidence
 
-- `python3 scripts/static_audit.py`: 434 source/configuration/resource checks passed, zero failures. Details: `static-audit.json`. The purchase follow-up replaces the obsolete blanket prohibition on StoreKit fixtures with explicit local-scheme, Apple-catalog-scheme and Bibi product checks.
+- `python3 BibiApp/scripts/static_audit.py`: 436 source/configuration/resource checks passed, zero failures. Details: `static-audit.json`. The purchase follow-up replaces the obsolete blanket prohibition on StoreKit fixtures with explicit local-scheme, Apple-catalog-scheme and Bibi product checks.
 - `plutil -lint Bibi/Support/Info.plist Bibi.xcodeproj/project.pbxproj`: both files passed.
 - XcodeGen regenerated project metadata successfully. New community and Shorts sources are present in the source build phase; removed room controllers/stores are absent.
 - The shared scheme XML is parsed by the static audit. The bundle ID remains `im.seex.sao2-neiku-30`, team `JPTS6M4T5B`, deployment target iOS 16 and Swift version 5.
@@ -28,6 +30,8 @@ The reviewer found no remaining reachable Live/Voice room controllers or obvious
 The owner subsequently authorized runtime verification. A Debug simulator build and interactive checks of all five modules were completed; see `COMMUNITY-RUN-VERIFICATION.md`. These were tool-driven manual interactions, not an automated XCTest suite. Backend integration, StoreKit transactions, storage-failure injection and a full device/accessibility matrix were not run. Static checks alone do not prove runtime correctness.
 
 `RUN-VERIFICATION.md` records an earlier revision's authorized build and welcome-screen launch. It is historical evidence, not validation of Circles and Challenges.
+
+The circle-post gift follow-up passed one focused XCTest UI case on Bibi UI Acceptance using local StoreKit Test. It covers purchase crediting, gift spending, cancellation, insufficient balance and persistence. See `PURCHASES-RUN-VERIFICATION.md` for the current evidence and remaining limits. Shorts has no gift entry.
 
 ## Flat asset migration
 

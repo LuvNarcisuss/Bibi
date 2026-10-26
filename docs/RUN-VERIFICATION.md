@@ -1,5 +1,7 @@
 # Build and launch verification
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: 2026-10-26 (Asia/Shanghai). The user explicitly requested running the application in Xcode, authorizing compilation and simulator launch after the initial static-only delivery.
 
 - Xcode 26.0.1, build 17A400.

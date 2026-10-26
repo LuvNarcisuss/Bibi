@@ -1,5 +1,7 @@
 # Typography run verification
 
+Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
+
 Date: October 26, 2026. The owner authorized compilation, launch, five-page visual inspection, direct fixes and XCTest UI automation.
 
 ## Result
@@ -25,11 +27,11 @@ All five wordmarks are complete, centered, proportional and separated from navig
 
 | Page | Default text | Larger text |
 | --- | --- | --- |
-| Shorts | [Screenshot](../../Assets/run-Typography-default-Shorts.png) | [Screenshot](../../Assets/run-Typography-larger-Shorts.png) |
-| Circles | [Screenshot](../../Assets/run-Typography-default-Circles.png) | [Screenshot](../../Assets/run-Typography-larger-Circles.png) |
-| Challenges | [Screenshot](../../Assets/run-Typography-default-Challenges.png) | [Screenshot](../../Assets/run-Typography-larger-Challenges.png) |
-| Chats | [Screenshot](../../Assets/run-Typography-default-Chats.png) | [Screenshot](../../Assets/run-Typography-larger-Chats.png) |
-| Me | [Screenshot](../../Assets/run-Typography-default-Me.png) | [Screenshot](../../Assets/run-Typography-larger-Me.png) |
+| Shorts | [Screenshot](../Assets/run-Typography-default-Shorts.png) | [Screenshot](../Assets/run-Typography-larger-Shorts.png) |
+| Circles | [Screenshot](../Assets/run-Typography-default-Circles.png) | [Screenshot](../Assets/run-Typography-larger-Circles.png) |
+| Challenges | [Screenshot](../Assets/run-Typography-default-Challenges.png) | [Screenshot](../Assets/run-Typography-larger-Challenges.png) |
+| Chats | [Screenshot](../Assets/run-Typography-default-Chats.png) | [Screenshot](../Assets/run-Typography-larger-Chats.png) |
+| Me | [Screenshot](../Assets/run-Typography-default-Me.png) | [Screenshot](../Assets/run-Typography-larger-Me.png) |
 
 ## Reproduction and evidence
 

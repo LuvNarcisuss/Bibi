@@ -11,6 +11,7 @@ final class AppStore: ObservableObject {
   @Published var notice: AppNotice?
   @Published private(set) var accountExitRevision = 0
   private var sessionActive = false
+  var canUseGifts: Bool { isLoaded && sessionActive && !isBusy }
   var canEndSession: Bool {
     isLoaded && sessionActive && !isBusy && !shortsSocial.isSaving && !wallet.isBusy
   }

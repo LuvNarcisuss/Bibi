@@ -229,6 +229,14 @@ final class CirclePostController: StackScreen {
         guard let self else { return }
         self.save { await self.store.togglePostSaved(post.id) }
       })
+    if let target = store.giftTarget(postID: post.id) {
+      let gift = actionButton("Gift this post", icon: .gift) { [weak self] in
+        guard let self else { return }
+        self.push(GiftsController(store: self.store, target: target))
+      }
+      gift.accessibilityIdentifier = "circle.gift"
+      content.addArrangedSubview(gift)
+    }
     if author.isLocalOwner {
       content.addArrangedSubview(
         actionButton("Delete post", icon: .trash, tone: .danger) { [weak self] in

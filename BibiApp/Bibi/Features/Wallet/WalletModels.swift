@@ -100,6 +100,14 @@ struct StarGift: Identifiable {
     ]
 }
 
+struct GiftTarget: Codable, Equatable {
+    enum Kind: String, Codable { case circlePost }
+    let kind: Kind
+    let id: UUID
+    let title: String
+    let creatorID: String
+}
+
 struct WalletActivity: Codable, Identifiable {
     let id: String
     let title: String
@@ -108,6 +116,9 @@ struct WalletActivity: Codable, Identifiable {
     let date: Date
     /// "gift" is a local spend. A missing value is a diamond purchase.
     var kind: String? = nil
+    var giftTarget: GiftTarget? = nil
+    var giftID: String? = nil
+    var giftQuantity: Int? = nil
 }
 
 struct WalletSnapshot {
