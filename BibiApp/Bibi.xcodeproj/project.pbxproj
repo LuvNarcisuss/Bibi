@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0135B37CA97CF55A56177ED3 /* FandomCommentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0646A672AF7CBD4A93A67C9 /* FandomCommentScript.swift */; };
+		03E22A521AF1A3466189366B /* CommunityArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD205C2404654FFCBBAFFC69 /* CommunityArtwork.swift */; };
+		0656DF609B2E8012E7D26BC1 /* bibi-amber-city.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 66F529B364F43792274997CD /* bibi-amber-city.mp4 */; };
+		0CDB1C28443A6AA6CCD1DBBB /* bibi-clockwork-streets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48CC1C3A2D4BB2845E3C7D00 /* bibi-clockwork-streets.jpg */; };
+		0D0FE00F0561C6E99EE3C62A /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9165E121C4401449A5DA4A /* AppStore.swift */; };
+		0F6CACE7F19B158A81D1F595 /* DancePhraseCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABA7230C7169AFAB2BC1306 /* DancePhraseCatalog.swift */; };
+		11226686590B893947ACFD76 /* BibiUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221870228FE1AC3C4C0E7FB /* BibiUIKit.swift */; };
+		1633AA104C67010EFB731F7B /* CircleComposerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E500DA314DB06DBCC176EDB /* CircleComposerController.swift */; };
+		183BDCBDBD80DE2D85E27CE0 /* StoreKit1Purchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E75D5310B84CF6BBDDFB11 /* StoreKit1Purchasing.swift */; };
+		19DE637A5AEFD3E551A4DBFA /* ChatControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C073E87CF8ADE83089AB53 /* ChatControllers.swift */; };
+		1D12C7454B1D6CEC7CE91620 /* ConstellationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFAFF0B8B1D70D06CCB6CA /* ConstellationBanner.swift */; };
+		1F9B4D1396F804C307BE4D69 /* CallCameraSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F1F495B07A8B18FAFBD10 /* CallCameraSurface.swift */; };
+		2181D267560CB670AEDE8724 /* bibi-ancient-roots.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF9AF16EA4EF63785DFEA3D /* bibi-ancient-roots.jpg */; };
+		21D50E4E477957701ED847A6 /* DancePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81344BACF306195C13BCE3A /* DancePhrase.swift */; };
+		227225CD1F731CE2E08D8871 /* bibi-moonlit-mist.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 59F7AC6432592563F50960E8 /* bibi-moonlit-mist.mp4 */; };
+		2354CA429AFADB82B961B37B /* bibi-dawn-promise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9F3E8A68316CC5510DB668A /* bibi-dawn-promise.jpg */; };
+		238C720BEEBFB3299C1315AF /* bibi-glowing-staff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0419C71C00A90D42F3E69F87 /* bibi-glowing-staff.jpg */; };
+		26B278270DCF264724B45941 /* ShortsInteractionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683AF085CCFA092BE035085 /* ShortsInteractionRepository.swift */; };
+		30678DD8B21D15507F7B0576 /* bibi-spring-awakens.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EAFC6F548A15B62F44A4C47 /* bibi-spring-awakens.jpg */; };
+		3138D5D91DDD13B826AE3FE4 /* ArtworkCreditsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377E5A3C9976DE98C906A89 /* ArtworkCreditsController.swift */; };
+		34B1943AD199EABC2CDD1974 /* ProfileControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511807A410A9A3C4ECF12DC /* ProfileControllers.swift */; };
+		35F47DF2B422B9D6BAC0A5E0 /* CreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4312ECC428BFDD6F96CC1 /* CreationController.swift */; };
+		36D3BF9BD4AA6A837683605E /* bibi-spring-awakens.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A9E9ECEB08BA6ACC0A0F4C52 /* bibi-spring-awakens.mp4 */; };
+		38599920D260B9365D489C25 /* bibi-little-companion.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FE81D4FCF91A447F65B962F /* bibi-little-companion.mp4 */; };
+		4073C82616C49F34D1998C3E /* bibi-sky-chase.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE3E09E57F0C5C4F33FD444C /* bibi-sky-chase.jpg */; };
+		454C9D5AB61B8E6E89AF3885 /* bibi-dawn-promise.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 875535C79184A04CD97730FD /* bibi-dawn-promise.mp4 */; };
+		49D805D2EC063722C01F8DAA /* bibi-green-world.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 404F126AF5ED1A15C86E32F3 /* bibi-green-world.mp4 */; };
+		4EFF05B2D0AA887E4DAEEB41 /* bibi-paper-sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E980A4FB1FB7B2FD873E10A3 /* bibi-paper-sky.jpg */; };
+		54EA71F0960823F9D1A2CDDC /* bibi-shared-light.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C7E29FB4A166C2BFD523D782 /* bibi-shared-light.mp4 */; };
+		593C59D1339137CDB990A307 /* bibi-amber-city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 009BD4BD6497CAC18FBAA360 /* bibi-amber-city.jpg */; };
+		59DE1F30AB3A98C2ACE601B2 /* ContentSafety.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6D1B3CFD6E29417AE42D1 /* ContentSafety.swift */; };
+		6099CE778828BF063D3CF765 /* WalletModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE989B6D816E70A30B192BA9 /* WalletModels.swift */; };
+		60B61B03D3A3E6DBC7604C0E /* Agreements in Resources */ = {isa = PBXBuildFile; fileRef = 59B97F78EC8A630E209DB9CC /* Agreements */; };
+		620B62FC51BE9017DA334A00 /* ExpandingSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA46D3D0DC73C3DCB16F376 /* ExpandingSearchBar.swift */; };
+		62C08410D497BBA366E16C58 /* bibi-little-companion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 799A43529C18A27E99244391 /* bibi-little-companion.jpg */; };
+		6C0807690267EDCE2E7AD6C8 /* LocalLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB54F47789EDC7BB4807A3 /* LocalLibrary.swift */; };
+		7471E5626AA5BEA8E165FEE9 /* bibi-shared-light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE803C55168F9DBA6FA61CB4 /* bibi-shared-light.jpg */; };
+		76FB2B1DD47FEAA1A411ACC6 /* bibi-blue-horizon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B2F8D55637CF9C367FD3F9 /* bibi-blue-horizon.jpg */; };
+		7855AA07EDC0BAFE2F0D7656 /* CreatorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19959F5C8002F554380E4B8 /* CreatorProfile.swift */; };
+		78698784EEB63AE02920B38E /* bibi-forest-guardian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A738051CE3F327A6486FE9 /* bibi-forest-guardian.jpg */; };
+		78EAFAD0BD8F68D703C50F36 /* CallCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426F2E8FE2E96ADADE8E0FA /* CallCameraController.swift */; };
+		80184C45F6F3E479D7751775 /* CommunityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96019415BFC42E5FD9E570E6 /* CommunityModels.swift */; };
+		863BE307B8914D94A53E5ECD /* bibi-quiet-return.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB3855438273758F43073CEE /* bibi-quiet-return.jpg */; };
+		8AF44C95304499BEB7174364 /* bibi-forest-path.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B46CAE3C6AB35511D54CF362 /* bibi-forest-path.jpg */; };
+		901163A4BADE43DDE8CBE7B6 /* LocalLibraryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF36637D2C0CD0DD5C25D2 /* LocalLibraryRepository.swift */; };
+		92DA8E9023D52D9F0DA5BFC1 /* VideoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084E872384662B376CE8E184 /* VideoCategory.swift */; };
+		9506C33A120C2B70F7DD4C67 /* ChallengeControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C3E3A0F017059CC332D39 /* ChallengeControllers.swift */; };
+		9C09ECE359363DE4CC2CFC7F /* CharacterDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1D27CAF6863100298D7F98 /* CharacterDirectory.swift */; };
+		9F38ECCB465F0B0C3B4D20AC /* ShortsInteractionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E767C0390F0C6EB01B00D46 /* ShortsInteractionStore.swift */; };
+		A4352E4EBD627BC7132D1BBF /* AppStore+Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED43AFF49D6CFA3F2B7D97 /* AppStore+Community.swift */; };
+		A87528016598A2F4945AD53B /* bibi-clockwork-streets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FD29FE1F6AEA9A67425B9FD6 /* bibi-clockwork-streets.mp4 */; };
+		AA0EBC091545A32C5032B0D4 /* bibi-forest-path.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BC35157E0D87E3B14793D0D8 /* bibi-forest-path.mp4 */; };
+		AB7F85B2C6059A5E98A7A360 /* BibiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1001D22F98D1E8E1CC052940 /* BibiConfiguration.swift */; };
+		AD2363A2E9A624D79C6CE7B8 /* bibi-forest-guardian.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD671237A99F70CF2F48DCEF /* bibi-forest-guardian.mp4 */; };
+		B024FABD04F77A681C585EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F4E66B45FE8060F4ACA48 /* Assets.xcassets */; };
+		B0A214F2F104D6EDC4D17B86 /* bibi-quiet-return.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33D3125C4DE6843772573DE7 /* bibi-quiet-return.mp4 */; };
+		B156609831DCB5080463EF05 /* bibi-blue-horizon.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 90D7E677ECB8559AC043F3EE /* bibi-blue-horizon.mp4 */; };
+		B8767C786F39FEA403481686 /* ShortsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2640D6FD56ED69384A68B /* ShortsHomeController.swift */; };
+		B97399AACD2751E24BB6ED7D /* PhraseBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6800329D9FA32AAB395583EA /* PhraseBook.swift */; };
+		C4EF7ABDD2690DEC9316FE3C /* VideoViewingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB91CD787372749E24B3262 /* VideoViewingHistory.swift */; };
+		C844270E16FEE72B573A78CB /* CircleControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4417BEABCBBAD40A88D8A2 /* CircleControllers.swift */; };
+		CBDC081B42EACAB063E94438 /* CallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AC48C2EB34CC32EF9889D /* CallController.swift */; };
+		CEC163B1F93C4688CAC0362C /* bibi-ancient-roots.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 61E0D0028B5DB0F3889416C6 /* bibi-ancient-roots.mp4 */; };
+		CF7F0D4682D31342ECE96573 /* animation-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = F75F622AD9D15E3547BCB510 /* animation-catalog.json */; };
+		D010C7F82A8CFB5A7525F2D9 /* VideoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB841D49FD9A92D0C71DF33B /* VideoGrid.swift */; };
+		D37C417B6E5404F6B2FC187F /* bibi-glowing-staff.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EE20B52AF2080EEB64D43EC7 /* bibi-glowing-staff.mp4 */; };
+		D3C92466986629B0B6E83E01 /* bibi-moonlit-mist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10E3ACAD6F2560E129008EA2 /* bibi-moonlit-mist.jpg */; };
+		D4D9DE9C930461FDDA8082BB /* FandomDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257DA5F2EC04FFD439E32A3 /* FandomDiscussion.swift */; };
+		D4EA792AA5B4969CD0C3E4A3 /* VideoRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB8569A22A5F4EB782DE9B /* VideoRecommendations.swift */; };
+		D505D6F112BFBC0DBA65B569 /* CreationSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C054F17CDADCCFD7CBB9A /* CreationSubmission.swift */; };
+		D5A2B0542CBC932E9F808F47 /* BibiPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82818B19C0AD7D6557076DD5 /* BibiPalette.swift */; };
+		D738DFAC20C7599A6805F771 /* BibiApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C945C4FBA6CB3ABF9DADE /* BibiApplication.swift */; };
+		D84F42EC8284402D525FB36C /* ShortsPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A3E3C24D8F7750264A224 /* ShortsPlayback.swift */; };
+		DCA7627A4846905A092924F8 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055043A0ACED3C6AF103CF33 /* ChatModels.swift */; };
+		E371835F648D4B6D65A693E0 /* WalletStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083AB44BFF95B41F525F55C /* WalletStore.swift */; };
+		E59EBB04530EC39B5D6F5DB1 /* CommunityControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763310F31001995FDF56C4FD /* CommunityControllers.swift */; };
+		E5D3DC13AA312A35A7842D13 /* LocalVideoPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADB7CD65AF09F242F09D21 /* LocalVideoPlayback.swift */; };
+		EE0B35F7EB449AA7788A5A49 /* UserAgreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CF52773DE7560A1BA6302 /* UserAgreement.swift */; };
+		F2E726FF948D13C980D724F0 /* bibi-sky-chase.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BBBAB83895EA0F35D5661245 /* bibi-sky-chase.mp4 */; };
+		F8BBBB9B8B92C7A1C86F2786 /* VideoFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EB6B1196416406C5EA97A /* VideoFeedController.swift */; };
+		FAD31F102C93683A26FFAD23 /* BibiIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292F063ED43B9984B62DA3C /* BibiIcons.swift */; };
+		FC0A0C7D8EEF49B3AC26062A /* AnimationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122A90DE88AB42665E615DD /* AnimationCatalog.swift */; };
+		FCD04C296EB847BF6D8CD0A1 /* bibi-paper-sky.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A74B9641CD9A8986B115AA23 /* bibi-paper-sky.mp4 */; };
+		FFA6AB8498EEC6861D6BB935 /* bibi-green-world.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC0A93B7F073FFBA73C0B77C /* bibi-green-world.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		009BD4BD6497CAC18FBAA360 /* bibi-amber-city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-amber-city.jpg"; sourceTree = "<group>"; };
+		0419C71C00A90D42F3E69F87 /* bibi-glowing-staff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-glowing-staff.jpg"; sourceTree = "<group>"; };
+		055043A0ACED3C6AF103CF33 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
+		084E872384662B376CE8E184 /* VideoCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCategory.swift; sourceTree = "<group>"; };
+		0EA6D1B3CFD6E29417AE42D1 /* ContentSafety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSafety.swift; sourceTree = "<group>"; };
+		1001D22F98D1E8E1CC052940 /* BibiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiConfiguration.swift; sourceTree = "<group>"; };
+		108CF52773DE7560A1BA6302 /* UserAgreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreement.swift; sourceTree = "<group>"; };
+		10E3ACAD6F2560E129008EA2 /* bibi-moonlit-mist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-moonlit-mist.jpg"; sourceTree = "<group>"; };
+		13ADB7CD65AF09F242F09D21 /* LocalVideoPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoPlayback.swift; sourceTree = "<group>"; };
+		1E500DA314DB06DBCC176EDB /* CircleComposerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleComposerController.swift; sourceTree = "<group>"; };
+		1FE81D4FCF91A447F65B962F /* bibi-little-companion.mp4 */ = {isa = PBXFileReference; path = "bibi-little-companion.mp4"; sourceTree = "<group>"; };
+		2221870228FE1AC3C4C0E7FB /* BibiUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiUIKit.swift; sourceTree = "<group>"; };
+		24B2F8D55637CF9C367FD3F9 /* bibi-blue-horizon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-blue-horizon.jpg"; sourceTree = "<group>"; };
+		25A738051CE3F327A6486FE9 /* bibi-forest-guardian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-forest-guardian.jpg"; sourceTree = "<group>"; };
+		2DCB54F47789EDC7BB4807A3 /* LocalLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLibrary.swift; sourceTree = "<group>"; };
+		33D3125C4DE6843772573DE7 /* bibi-quiet-return.mp4 */ = {isa = PBXFileReference; path = "bibi-quiet-return.mp4"; sourceTree = "<group>"; };
+		39E75D5310B84CF6BBDDFB11 /* StoreKit1Purchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit1Purchasing.swift; sourceTree = "<group>"; };
+		404F126AF5ED1A15C86E32F3 /* bibi-green-world.mp4 */ = {isa = PBXFileReference; path = "bibi-green-world.mp4"; sourceTree = "<group>"; };
+		42ED43AFF49D6CFA3F2B7D97 /* AppStore+Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+Community.swift"; sourceTree = "<group>"; };
+		469AC48C2EB34CC32EF9889D /* CallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallController.swift; sourceTree = "<group>"; };
+		48CC1C3A2D4BB2845E3C7D00 /* bibi-clockwork-streets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-clockwork-streets.jpg"; sourceTree = "<group>"; };
+		4C8F4E66B45FE8060F4ACA48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E767C0390F0C6EB01B00D46 /* ShortsInteractionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsInteractionStore.swift; sourceTree = "<group>"; };
+		4EAFC6F548A15B62F44A4C47 /* bibi-spring-awakens.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-spring-awakens.jpg"; sourceTree = "<group>"; };
+		53BB8569A22A5F4EB782DE9B /* VideoRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecommendations.swift; sourceTree = "<group>"; };
+		59B97F78EC8A630E209DB9CC /* Agreements */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Agreements; sourceTree = SOURCE_ROOT; };
+		59F7AC6432592563F50960E8 /* bibi-moonlit-mist.mp4 */ = {isa = PBXFileReference; path = "bibi-moonlit-mist.mp4"; sourceTree = "<group>"; };
+		5ABA7230C7169AFAB2BC1306 /* DancePhraseCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancePhraseCatalog.swift; sourceTree = "<group>"; };
+		61E0D0028B5DB0F3889416C6 /* bibi-ancient-roots.mp4 */ = {isa = PBXFileReference; path = "bibi-ancient-roots.mp4"; sourceTree = "<group>"; };
+		66F529B364F43792274997CD /* bibi-amber-city.mp4 */ = {isa = PBXFileReference; path = "bibi-amber-city.mp4"; sourceTree = "<group>"; };
+		6800329D9FA32AAB395583EA /* PhraseBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseBook.swift; sourceTree = "<group>"; };
+		72C2640D6FD56ED69384A68B /* ShortsHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsHomeController.swift; sourceTree = "<group>"; };
+		749C945C4FBA6CB3ABF9DADE /* BibiApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiApplication.swift; sourceTree = "<group>"; };
+		7511807A410A9A3C4ECF12DC /* ProfileControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileControllers.swift; sourceTree = "<group>"; };
+		763310F31001995FDF56C4FD /* CommunityControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityControllers.swift; sourceTree = "<group>"; };
+		799A43529C18A27E99244391 /* bibi-little-companion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-little-companion.jpg"; sourceTree = "<group>"; };
+		7A6CE9DD9BDB73F58E8000AF /* Bibi.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Bibi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BCFAFF0B8B1D70D06CCB6CA /* ConstellationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationBanner.swift; sourceTree = "<group>"; };
+		82818B19C0AD7D6557076DD5 /* BibiPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiPalette.swift; sourceTree = "<group>"; };
+		8426F2E8FE2E96ADADE8E0FA /* CallCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCameraController.swift; sourceTree = "<group>"; };
+		875535C79184A04CD97730FD /* bibi-dawn-promise.mp4 */ = {isa = PBXFileReference; path = "bibi-dawn-promise.mp4"; sourceTree = "<group>"; };
+		8E6C3E3A0F017059CC332D39 /* ChallengeControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeControllers.swift; sourceTree = "<group>"; };
+		9083AB44BFF95B41F525F55C /* WalletStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStore.swift; sourceTree = "<group>"; };
+		90D7E677ECB8559AC043F3EE /* bibi-blue-horizon.mp4 */ = {isa = PBXFileReference; path = "bibi-blue-horizon.mp4"; sourceTree = "<group>"; };
+		96019415BFC42E5FD9E570E6 /* CommunityModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModels.swift; sourceTree = "<group>"; };
+		982C054F17CDADCCFD7CBB9A /* CreationSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubmission.swift; sourceTree = "<group>"; };
+		9B9165E121C4401449A5DA4A /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		A683AF085CCFA092BE035085 /* ShortsInteractionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsInteractionRepository.swift; sourceTree = "<group>"; };
+		A74B9641CD9A8986B115AA23 /* bibi-paper-sky.mp4 */ = {isa = PBXFileReference; path = "bibi-paper-sky.mp4"; sourceTree = "<group>"; };
+		A9E9ECEB08BA6ACC0A0F4C52 /* bibi-spring-awakens.mp4 */ = {isa = PBXFileReference; path = "bibi-spring-awakens.mp4"; sourceTree = "<group>"; };
+		AC0A93B7F073FFBA73C0B77C /* bibi-green-world.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-green-world.jpg"; sourceTree = "<group>"; };
+		AD205C2404654FFCBBAFFC69 /* CommunityArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityArtwork.swift; sourceTree = "<group>"; };
+		AE3E09E57F0C5C4F33FD444C /* bibi-sky-chase.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-sky-chase.jpg"; sourceTree = "<group>"; };
+		B19959F5C8002F554380E4B8 /* CreatorProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorProfile.swift; sourceTree = "<group>"; };
+		B257DA5F2EC04FFD439E32A3 /* FandomDiscussion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FandomDiscussion.swift; sourceTree = "<group>"; };
+		B292F063ED43B9984B62DA3C /* BibiIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiIcons.swift; sourceTree = "<group>"; };
+		B377E5A3C9976DE98C906A89 /* ArtworkCreditsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCreditsController.swift; sourceTree = "<group>"; };
+		B46CAE3C6AB35511D54CF362 /* bibi-forest-path.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-forest-path.jpg"; sourceTree = "<group>"; };
+		B4C073E87CF8ADE83089AB53 /* ChatControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatControllers.swift; sourceTree = "<group>"; };
+		B9F3E8A68316CC5510DB668A /* bibi-dawn-promise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-dawn-promise.jpg"; sourceTree = "<group>"; };
+		BB4417BEABCBBAD40A88D8A2 /* CircleControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControllers.swift; sourceTree = "<group>"; };
+		BBBAB83895EA0F35D5661245 /* bibi-sky-chase.mp4 */ = {isa = PBXFileReference; path = "bibi-sky-chase.mp4"; sourceTree = "<group>"; };
+		BC35157E0D87E3B14793D0D8 /* bibi-forest-path.mp4 */ = {isa = PBXFileReference; path = "bibi-forest-path.mp4"; sourceTree = "<group>"; };
+		C7E29FB4A166C2BFD523D782 /* bibi-shared-light.mp4 */ = {isa = PBXFileReference; path = "bibi-shared-light.mp4"; sourceTree = "<group>"; };
+		CD671237A99F70CF2F48DCEF /* bibi-forest-guardian.mp4 */ = {isa = PBXFileReference; path = "bibi-forest-guardian.mp4"; sourceTree = "<group>"; };
+		CE7F1F495B07A8B18FAFBD10 /* CallCameraSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCameraSurface.swift; sourceTree = "<group>"; };
+		CE989B6D816E70A30B192BA9 /* WalletModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModels.swift; sourceTree = "<group>"; };
+		CEAF36637D2C0CD0DD5C25D2 /* LocalLibraryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLibraryRepository.swift; sourceTree = "<group>"; };
+		DC1D27CAF6863100298D7F98 /* CharacterDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDirectory.swift; sourceTree = "<group>"; };
+		DDB91CD787372749E24B3262 /* VideoViewingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewingHistory.swift; sourceTree = "<group>"; };
+		DDF9AF16EA4EF63785DFEA3D /* bibi-ancient-roots.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-ancient-roots.jpg"; sourceTree = "<group>"; };
+		E122A90DE88AB42665E615DD /* AnimationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCatalog.swift; sourceTree = "<group>"; };
+		E980A4FB1FB7B2FD873E10A3 /* bibi-paper-sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-paper-sky.jpg"; sourceTree = "<group>"; };
+		EB841D49FD9A92D0C71DF33B /* VideoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGrid.swift; sourceTree = "<group>"; };
+		EE20B52AF2080EEB64D43EC7 /* bibi-glowing-staff.mp4 */ = {isa = PBXFileReference; path = "bibi-glowing-staff.mp4"; sourceTree = "<group>"; };
+		EE803C55168F9DBA6FA61CB4 /* bibi-shared-light.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-shared-light.jpg"; sourceTree = "<group>"; };
+		EEA46D3D0DC73C3DCB16F376 /* ExpandingSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingSearchBar.swift; sourceTree = "<group>"; };
+		F0646A672AF7CBD4A93A67C9 /* FandomCommentScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FandomCommentScript.swift; sourceTree = "<group>"; };
+		F75F622AD9D15E3547BCB510 /* animation-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "animation-catalog.json"; sourceTree = "<group>"; };
+		F81344BACF306195C13BCE3A /* DancePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancePhrase.swift; sourceTree = "<group>"; };
+		F83A3E3C24D8F7750264A224 /* ShortsPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsPlayback.swift; sourceTree = "<group>"; };
+		F9E4312ECC428BFDD6F96CC1 /* CreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationController.swift; sourceTree = "<group>"; };
+		FA5EB6B1196416406C5EA97A /* VideoFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedController.swift; sourceTree = "<group>"; };
+		FB3855438273758F43073CEE /* bibi-quiet-return.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-quiet-return.jpg"; sourceTree = "<group>"; };
+		FD29FE1F6AEA9A67425B9FD6 /* bibi-clockwork-streets.mp4 */ = {isa = PBXFileReference; path = "bibi-clockwork-streets.mp4"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06F8E6751444335426196F42 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B292F063ED43B9984B62DA3C /* BibiIcons.swift */,
+				82818B19C0AD7D6557076DD5 /* BibiPalette.swift */,
+				2221870228FE1AC3C4C0E7FB /* BibiUIKit.swift */,
+				AD205C2404654FFCBBAFFC69 /* CommunityArtwork.swift */,
+				7BCFAFF0B8B1D70D06CCB6CA /* ConstellationBanner.swift */,
+				EEA46D3D0DC73C3DCB16F376 /* ExpandingSearchBar.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		0DC3BB3C87BF227ADEEC7B43 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F75F622AD9D15E3547BCB510 /* animation-catalog.json */,
+				4C8F4E66B45FE8060F4ACA48 /* Assets.xcassets */,
+				ABBAF3C608377C5B085FFA1B /* AnimationMedia */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1A5C1566053347D66D3D6348 = {
+			isa = PBXGroup;
+			children = (
+				59B97F78EC8A630E209DB9CC /* Agreements */,
+				3158E08E303A2705366E69D7 /* Bibi */,
+				FFCDC8226B5BD10703D675FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E869865220C392D7E8C961E /* Safety */ = {
+			isa = PBXGroup;
+			children = (
+				0EA6D1B3CFD6E29417AE42D1 /* ContentSafety.swift */,
+			);
+			path = Safety;
+			sourceTree = "<group>";
+		};
+		3158E08E303A2705366E69D7 /* Bibi */ = {
+			isa = PBXGroup;
+			children = (
+				EE4021ABDE1F82E5B92A5386 /* App */,
+				9E0D8D048EC8A54B79FCDF8B /* Data */,
+				06F8E6751444335426196F42 /* DesignSystem */,
+				5805C0F0E711088F75C16D3C /* Domain */,
+				FE0BE6E18A0EA9452595BC07 /* Features */,
+				40F19685391B69BEE57B4F9A /* Platform */,
+				0DC3BB3C87BF227ADEEC7B43 /* Resources */,
+			);
+			path = Bibi;
+			sourceTree = "<group>";
+		};
+		3A70EDC45B9863AB61123D53 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				39E75D5310B84CF6BBDDFB11 /* StoreKit1Purchasing.swift */,
+				CE989B6D816E70A30B192BA9 /* WalletModels.swift */,
+				9083AB44BFF95B41F525F55C /* WalletStore.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		3C2E827812A7977DA10C1984 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B377E5A3C9976DE98C906A89 /* ArtworkCreditsController.swift */,
+				7511807A410A9A3C4ECF12DC /* ProfileControllers.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		40F19685391B69BEE57B4F9A /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				7280146D2465E5D6FF39C228 /* Media */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		57754C9D0019F9676E8E4EE9 /* Shorts */ = {
+			isa = PBXGroup;
+			children = (
+				F0646A672AF7CBD4A93A67C9 /* FandomCommentScript.swift */,
+				72C2640D6FD56ED69384A68B /* ShortsHomeController.swift */,
+				4E767C0390F0C6EB01B00D46 /* ShortsInteractionStore.swift */,
+				FA5EB6B1196416406C5EA97A /* VideoFeedController.swift */,
+				EB841D49FD9A92D0C71DF33B /* VideoGrid.swift */,
+			);
+			path = Shorts;
+			sourceTree = "<group>";
+		};
+		5805C0F0E711088F75C16D3C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E122A90DE88AB42665E615DD /* AnimationCatalog.swift */,
+				DC1D27CAF6863100298D7F98 /* CharacterDirectory.swift */,
+				F81344BACF306195C13BCE3A /* DancePhrase.swift */,
+				5ABA7230C7169AFAB2BC1306 /* DancePhraseCatalog.swift */,
+				B257DA5F2EC04FFD439E32A3 /* FandomDiscussion.swift */,
+				2DCB54F47789EDC7BB4807A3 /* LocalLibrary.swift */,
+				6800329D9FA32AAB395583EA /* PhraseBook.swift */,
+				53BB8569A22A5F4EB782DE9B /* VideoRecommendations.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		7280146D2465E5D6FF39C228 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				13ADB7CD65AF09F242F09D21 /* LocalVideoPlayback.swift */,
+				F83A3E3C24D8F7750264A224 /* ShortsPlayback.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		87B2055E14C411587E0E927D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				108CF52773DE7560A1BA6302 /* UserAgreement.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		932A8F87FC17B047CAC82AC8 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				B4C073E87CF8ADE83089AB53 /* ChatControllers.swift */,
+				055043A0ACED3C6AF103CF33 /* ChatModels.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		985E3063116F014E125353E1 /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				8E6C3E3A0F017059CC332D39 /* ChallengeControllers.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		9926308828032B7596148EDC /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+				8426F2E8FE2E96ADADE8E0FA /* CallCameraController.swift */,
+				CE7F1F495B07A8B18FAFBD10 /* CallCameraSurface.swift */,
+				469AC48C2EB34CC32EF9889D /* CallController.swift */,
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
+		99E90B18A2AC41714EC70621 /* Creators */ = {
+			isa = PBXGroup;
+			children = (
+				B19959F5C8002F554380E4B8 /* CreatorProfile.swift */,
+			);
+			path = Creators;
+			sourceTree = "<group>";
+		};
+		9E0D8D048EC8A54B79FCDF8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CEAF36637D2C0CD0DD5C25D2 /* LocalLibraryRepository.swift */,
+				A683AF085CCFA092BE035085 /* ShortsInteractionRepository.swift */,
+				DDB91CD787372749E24B3262 /* VideoViewingHistory.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		ABBAF3C608377C5B085FFA1B /* AnimationMedia */ = {
+			isa = PBXGroup;
+			children = (
+				009BD4BD6497CAC18FBAA360 /* bibi-amber-city.jpg */,
+				66F529B364F43792274997CD /* bibi-amber-city.mp4 */,
+				DDF9AF16EA4EF63785DFEA3D /* bibi-ancient-roots.jpg */,
+				61E0D0028B5DB0F3889416C6 /* bibi-ancient-roots.mp4 */,
+				24B2F8D55637CF9C367FD3F9 /* bibi-blue-horizon.jpg */,
+				90D7E677ECB8559AC043F3EE /* bibi-blue-horizon.mp4 */,
+				48CC1C3A2D4BB2845E3C7D00 /* bibi-clockwork-streets.jpg */,
+				FD29FE1F6AEA9A67425B9FD6 /* bibi-clockwork-streets.mp4 */,
+				B9F3E8A68316CC5510DB668A /* bibi-dawn-promise.jpg */,
+				875535C79184A04CD97730FD /* bibi-dawn-promise.mp4 */,
+				25A738051CE3F327A6486FE9 /* bibi-forest-guardian.jpg */,
+				CD671237A99F70CF2F48DCEF /* bibi-forest-guardian.mp4 */,
+				B46CAE3C6AB35511D54CF362 /* bibi-forest-path.jpg */,
+				BC35157E0D87E3B14793D0D8 /* bibi-forest-path.mp4 */,
+				0419C71C00A90D42F3E69F87 /* bibi-glowing-staff.jpg */,
+				EE20B52AF2080EEB64D43EC7 /* bibi-glowing-staff.mp4 */,
+				AC0A93B7F073FFBA73C0B77C /* bibi-green-world.jpg */,
+				404F126AF5ED1A15C86E32F3 /* bibi-green-world.mp4 */,
+				799A43529C18A27E99244391 /* bibi-little-companion.jpg */,
+				1FE81D4FCF91A447F65B962F /* bibi-little-companion.mp4 */,
+				10E3ACAD6F2560E129008EA2 /* bibi-moonlit-mist.jpg */,
+				59F7AC6432592563F50960E8 /* bibi-moonlit-mist.mp4 */,
+				E980A4FB1FB7B2FD873E10A3 /* bibi-paper-sky.jpg */,
+				A74B9641CD9A8986B115AA23 /* bibi-paper-sky.mp4 */,
+				FB3855438273758F43073CEE /* bibi-quiet-return.jpg */,
+				33D3125C4DE6843772573DE7 /* bibi-quiet-return.mp4 */,
+				EE803C55168F9DBA6FA61CB4 /* bibi-shared-light.jpg */,
+				C7E29FB4A166C2BFD523D782 /* bibi-shared-light.mp4 */,
+				AE3E09E57F0C5C4F33FD444C /* bibi-sky-chase.jpg */,
+				BBBAB83895EA0F35D5661245 /* bibi-sky-chase.mp4 */,
+				4EAFC6F548A15B62F44A4C47 /* bibi-spring-awakens.jpg */,
+				A9E9ECEB08BA6ACC0A0F4C52 /* bibi-spring-awakens.mp4 */,
+			);
+			path = AnimationMedia;
+			sourceTree = "<group>";
+		};
+		D3A4E42217FA170C3CA232C7 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				763310F31001995FDF56C4FD /* CommunityControllers.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		EC6DFA70E7AF3A0C2893AFED /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4312ECC428BFDD6F96CC1 /* CreationController.swift */,
+				982C054F17CDADCCFD7CBB9A /* CreationSubmission.swift */,
+				084E872384662B376CE8E184 /* VideoCategory.swift */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		EE4021ABDE1F82E5B92A5386 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9B9165E121C4401449A5DA4A /* AppStore.swift */,
+				749C945C4FBA6CB3ABF9DADE /* BibiApplication.swift */,
+				1001D22F98D1E8E1CC052940 /* BibiConfiguration.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F75A9F34C323B832A410364B /* Circles */ = {
+			isa = PBXGroup;
+			children = (
+				42ED43AFF49D6CFA3F2B7D97 /* AppStore+Community.swift */,
+				1E500DA314DB06DBCC176EDB /* CircleComposerController.swift */,
+				BB4417BEABCBBAD40A88D8A2 /* CircleControllers.swift */,
+				96019415BFC42E5FD9E570E6 /* CommunityModels.swift */,
+			);
+			path = Circles;
+			sourceTree = "<group>";
+		};
+		FE0BE6E18A0EA9452595BC07 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				87B2055E14C411587E0E927D /* Authentication */,
+				9926308828032B7596148EDC /* Calls */,
+				985E3063116F014E125353E1 /* Challenges */,
+				932A8F87FC17B047CAC82AC8 /* Chats */,
+				F75A9F34C323B832A410364B /* Circles */,
+				D3A4E42217FA170C3CA232C7 /* Community */,
+				EC6DFA70E7AF3A0C2893AFED /* Creation */,
+				99E90B18A2AC41714EC70621 /* Creators */,
+				3C2E827812A7977DA10C1984 /* Profile */,
+				2E869865220C392D7E8C961E /* Safety */,
+				57754C9D0019F9676E8E4EE9 /* Shorts */,
+				3A70EDC45B9863AB61123D53 /* Wallet */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FFCDC8226B5BD10703D675FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A6CE9DD9BDB73F58E8000AF /* Bibi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49444D8A4874FD3D5F054BCB /* Bibi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26573FC4751F31B38B154DC1 /* Build configuration list for PBXNativeTarget "Bibi" */;
+			buildPhases = (
+				96122A6A2D7A9F0649C902C9 /* Sources */,
+				A8CAD54496328A27D80B7C6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bibi;
+			packageProductDependencies = (
+			);
+			productName = Bibi;
+			productReference = 7A6CE9DD9BDB73F58E8000AF /* Bibi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE4DC23B2911E4045945B9A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					49444D8A4874FD3D5F054BCB = {
+						DevelopmentTeam = JPTS6M4T5B;
+						SystemCapabilities = "[\"com.apple.InAppPurchase\": [\"enabled\": 1]]";
+					};
+				};
+			};
+			buildConfigurationList = 719E5B874C4E5A6AC99EDD3A /* Build configuration list for PBXProject "Bibi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1A5C1566053347D66D3D6348;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FFCDC8226B5BD10703D675FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49444D8A4874FD3D5F054BCB /* Bibi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8CAD54496328A27D80B7C6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60B61B03D3A3E6DBC7604C0E /* Agreements in Resources */,
+				B024FABD04F77A681C585EA5 /* Assets.xcassets in Resources */,
+				CF7F0D4682D31342ECE96573 /* animation-catalog.json in Resources */,
+				593C59D1339137CDB990A307 /* bibi-amber-city.jpg in Resources */,
+				0656DF609B2E8012E7D26BC1 /* bibi-amber-city.mp4 in Resources */,
+				2181D267560CB670AEDE8724 /* bibi-ancient-roots.jpg in Resources */,
+				CEC163B1F93C4688CAC0362C /* bibi-ancient-roots.mp4 in Resources */,
+				76FB2B1DD47FEAA1A411ACC6 /* bibi-blue-horizon.jpg in Resources */,
+				B156609831DCB5080463EF05 /* bibi-blue-horizon.mp4 in Resources */,
+				0CDB1C28443A6AA6CCD1DBBB /* bibi-clockwork-streets.jpg in Resources */,
+				A87528016598A2F4945AD53B /* bibi-clockwork-streets.mp4 in Resources */,
+				2354CA429AFADB82B961B37B /* bibi-dawn-promise.jpg in Resources */,
+				454C9D5AB61B8E6E89AF3885 /* bibi-dawn-promise.mp4 in Resources */,
+				78698784EEB63AE02920B38E /* bibi-forest-guardian.jpg in Resources */,
+				AD2363A2E9A624D79C6CE7B8 /* bibi-forest-guardian.mp4 in Resources */,
+				8AF44C95304499BEB7174364 /* bibi-forest-path.jpg in Resources */,
+				AA0EBC091545A32C5032B0D4 /* bibi-forest-path.mp4 in Resources */,
+				238C720BEEBFB3299C1315AF /* bibi-glowing-staff.jpg in Resources */,
+				D37C417B6E5404F6B2FC187F /* bibi-glowing-staff.mp4 in Resources */,
+				FFA6AB8498EEC6861D6BB935 /* bibi-green-world.jpg in Resources */,
+				49D805D2EC063722C01F8DAA /* bibi-green-world.mp4 in Resources */,
+				62C08410D497BBA366E16C58 /* bibi-little-companion.jpg in Resources */,
+				38599920D260B9365D489C25 /* bibi-little-companion.mp4 in Resources */,
+				D3C92466986629B0B6E83E01 /* bibi-moonlit-mist.jpg in Resources */,
+				227225CD1F731CE2E08D8871 /* bibi-moonlit-mist.mp4 in Resources */,
+				4EFF05B2D0AA887E4DAEEB41 /* bibi-paper-sky.jpg in Resources */,
+				FCD04C296EB847BF6D8CD0A1 /* bibi-paper-sky.mp4 in Resources */,
+				863BE307B8914D94A53E5ECD /* bibi-quiet-return.jpg in Resources */,
+				B0A214F2F104D6EDC4D17B86 /* bibi-quiet-return.mp4 in Resources */,
+				7471E5626AA5BEA8E165FEE9 /* bibi-shared-light.jpg in Resources */,
+				54EA71F0960823F9D1A2CDDC /* bibi-shared-light.mp4 in Resources */,
+				4073C82616C49F34D1998C3E /* bibi-sky-chase.jpg in Resources */,
+				F2E726FF948D13C980D724F0 /* bibi-sky-chase.mp4 in Resources */,
+				30678DD8B21D15507F7B0576 /* bibi-spring-awakens.jpg in Resources */,
+				36D3BF9BD4AA6A837683605E /* bibi-spring-awakens.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96122A6A2D7A9F0649C902C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC0A0C7D8EEF49B3AC26062A /* AnimationCatalog.swift in Sources */,
+				A4352E4EBD627BC7132D1BBF /* AppStore+Community.swift in Sources */,
+				0D0FE00F0561C6E99EE3C62A /* AppStore.swift in Sources */,
+				3138D5D91DDD13B826AE3FE4 /* ArtworkCreditsController.swift in Sources */,
+				D738DFAC20C7599A6805F771 /* BibiApplication.swift in Sources */,
+				AB7F85B2C6059A5E98A7A360 /* BibiConfiguration.swift in Sources */,
+				FAD31F102C93683A26FFAD23 /* BibiIcons.swift in Sources */,
+				D5A2B0542CBC932E9F808F47 /* BibiPalette.swift in Sources */,
+				11226686590B893947ACFD76 /* BibiUIKit.swift in Sources */,
+				78EAFAD0BD8F68D703C50F36 /* CallCameraController.swift in Sources */,
+				1F9B4D1396F804C307BE4D69 /* CallCameraSurface.swift in Sources */,
+				CBDC081B42EACAB063E94438 /* CallController.swift in Sources */,
+				9506C33A120C2B70F7DD4C67 /* ChallengeControllers.swift in Sources */,
+				9C09ECE359363DE4CC2CFC7F /* CharacterDirectory.swift in Sources */,
+				19DE637A5AEFD3E551A4DBFA /* ChatControllers.swift in Sources */,
+				DCA7627A4846905A092924F8 /* ChatModels.swift in Sources */,
+				1633AA104C67010EFB731F7B /* CircleComposerController.swift in Sources */,
+				C844270E16FEE72B573A78CB /* CircleControllers.swift in Sources */,
+				03E22A521AF1A3466189366B /* CommunityArtwork.swift in Sources */,
+				E59EBB04530EC39B5D6F5DB1 /* CommunityControllers.swift in Sources */,
+				80184C45F6F3E479D7751775 /* CommunityModels.swift in Sources */,
+				1D12C7454B1D6CEC7CE91620 /* ConstellationBanner.swift in Sources */,
+				59DE1F30AB3A98C2ACE601B2 /* ContentSafety.swift in Sources */,
+				35F47DF2B422B9D6BAC0A5E0 /* CreationController.swift in Sources */,
+				D505D6F112BFBC0DBA65B569 /* CreationSubmission.swift in Sources */,
+				7855AA07EDC0BAFE2F0D7656 /* CreatorProfile.swift in Sources */,
+				21D50E4E477957701ED847A6 /* DancePhrase.swift in Sources */,
+				0F6CACE7F19B158A81D1F595 /* DancePhraseCatalog.swift in Sources */,
+				620B62FC51BE9017DA334A00 /* ExpandingSearchBar.swift in Sources */,
+				0135B37CA97CF55A56177ED3 /* FandomCommentScript.swift in Sources */,
+				D4D9DE9C930461FDDA8082BB /* FandomDiscussion.swift in Sources */,
+				6C0807690267EDCE2E7AD6C8 /* LocalLibrary.swift in Sources */,
+				901163A4BADE43DDE8CBE7B6 /* LocalLibraryRepository.swift in Sources */,
+				E5D3DC13AA312A35A7842D13 /* LocalVideoPlayback.swift in Sources */,
+				B97399AACD2751E24BB6ED7D /* PhraseBook.swift in Sources */,
+				34B1943AD199EABC2CDD1974 /* ProfileControllers.swift in Sources */,
+				B8767C786F39FEA403481686 /* ShortsHomeController.swift in Sources */,
+				26B278270DCF264724B45941 /* ShortsInteractionRepository.swift in Sources */,
+				9F38ECCB465F0B0C3B4D20AC /* ShortsInteractionStore.swift in Sources */,
+				D84F42EC8284402D525FB36C /* ShortsPlayback.swift in Sources */,
+				183BDCBDBD80DE2D85E27CE0 /* StoreKit1Purchasing.swift in Sources */,
+				EE0B35F7EB449AA7788A5A49 /* UserAgreement.swift in Sources */,
+				92DA8E9023D52D9F0DA5BFC1 /* VideoCategory.swift in Sources */,
+				F8BBBB9B8B92C7A1C86F2786 /* VideoFeedController.swift in Sources */,
+				D010C7F82A8CFB5A7525F2D9 /* VideoGrid.swift in Sources */,
+				D4EA792AA5B4969CD0C3E4A3 /* VideoRecommendations.swift in Sources */,
+				C4EF7ABDD2690DEC9316FE3C /* VideoViewingHistory.swift in Sources */,
+				6099CE778828BF063D3CF765 /* WalletModels.swift in Sources */,
+				E371835F648D4B6D65A693E0 /* WalletStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5B80486377A9C7CFF471E2BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = JPTS6M4T5B;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Bibi/Support/Info.plist;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30";
+				PRODUCT_NAME = Bibi;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA50358ECAC46AFCFC1AFAF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = JPTS6M4T5B;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Bibi/Support/Info.plist;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30";
+				PRODUCT_NAME = Bibi;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CA96C3A8CE2618FD0BB66E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F02423A4F7530B398C9282B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26573FC4751F31B38B154DC1 /* Build configuration list for PBXNativeTarget "Bibi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B80486377A9C7CFF471E2BD /* Debug */,
+				AA50358ECAC46AFCFC1AFAF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		719E5B874C4E5A6AC99EDD3A /* Build configuration list for PBXProject "Bibi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02423A4F7530B398C9282B5 /* Debug */,
+				CA96C3A8CE2618FD0BB66E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE4DC23B2911E4045945B9A9 /* Project object */;
+}

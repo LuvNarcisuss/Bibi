@@ -1,0 +1,1116 @@
+{
+  "generator": "Built-in image_gen",
+  "packaging": "scripts/package_artwork.py",
+  "originals": [
+    {
+      "path": "Design/Generated/rooms-atlas.png",
+      "sha256": "6231ca2ca587879140cac5930811bb5aec9cf1b825e328b6b2c831d213e8f40c"
+    },
+    {
+      "path": "Design/Generated/characters-01.png",
+      "sha256": "306dad68db139fbb5461a25240f8ae5487502d9c0757e4734e4da1f6b86956ad"
+    },
+    {
+      "path": "Design/Generated/characters-02.png",
+      "sha256": "06ceb5cf3ced5b2fd4c36e1e0398e6d3e6c315fee1423d7fcc190a2902373bd4"
+    },
+    {
+      "path": "Design/Generated/app-icon.png",
+      "sha256": "27adda2d7d17b8215e6c0677c28f9ff1dab414974631da380eb1962aaaed80b9"
+    },
+    {
+      "path": "Design/Generated/states-gifts-atlas.png",
+      "sha256": "8db25bfe791d7d937f7fe32ed8b86b7763979d6ea2368b3b69fc2a232682749b"
+    },
+    {
+      "path": "Design/Generated/navigation-atlas.png",
+      "sha256": "31c8e23df6ebd0bdce3dd0a8360bf5db69006f929484db505e5b51cb20709d1d"
+    },
+    {
+      "path": "Design/Generated/welcome.png",
+      "sha256": "21c56f8065d3bf7068965d693b729e08dd7a15f8c3c14800a6e5bac6fbd6af94"
+    }
+  ],
+  "runtime": [
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Contents.json",
+      "sha256": "a3393322cd7b4c1e0aa93bebe09abaa91ad891290d1225b0b5d10b5c6f216025"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-speakerIvory.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-speakerIvory.imageset/art.png",
+      "sha256": "12b8f3b2327055eb5488c1da902ffbece625c347c5d74ce4eea20c1fbb6133ea"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-personPlus.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-personPlus.imageset/art.png",
+      "sha256": "15faa5cd505197756fe072e9ce92fc999dbd5685c29bf74eefc75010b4dea738"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-back.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-back.imageset/art.png",
+      "sha256": "d6f21d2aea3097c5c8f37cd4dbadd2e2ef8bd33e0f737e2c1f352b3b556d4b81"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait48.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait48.imageset/art.png",
+      "sha256": "41ac136165a1c3c46224d5b47eaa07ad31a2ff3d2d6224c078ee8b244bfa530e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait49.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait49.imageset/art.png",
+      "sha256": "5e760336b8280663024c1865fbaa513f0ad04c857cd16eda650c85edabd51675"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-live.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-live.imageset/art.png",
+      "sha256": "0a11ab5b48f4bc81ceaca8747b47647a469ca8201fe076d443e96054ab60462c"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneIvory.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneIvory.imageset/art.png",
+      "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-unreadBadge.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-unreadBadge.imageset/art.png",
+      "sha256": "8550333a486d8dc4fb293b81ab19edb1f09d15e11509a5c857d76aebe7b190cd"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flip.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flip.imageset/art.png",
+      "sha256": "c31f439ef4b310f22d4d4adc59c39a3268e80e3fd2ea47b8c3cb29f93acd4689"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneOff.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneOff.imageset/art.png",
+      "sha256": "c61a25bf7b7bcd1ef0c8664b86f2bf9d017acb6187e0558c255418812909ea9a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-balloon.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-balloon.imageset/art.png",
+      "sha256": "2dbad062f9154de25f21656bb6ddfbff619f9208e78a4c01a1627d41a6c11a86"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-sparkle.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-sparkle.imageset/art.png",
+      "sha256": "b9d4a248058d0e45dc36142ff7967df7bbe07b5b50d6773064eb1553abb498c1"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait3.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait3.imageset/art.png",
+      "sha256": "9d23cfa0c488c29bd593e6478190b5445c3e09f142ef06504b44dc9114f88291"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait2.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait2.imageset/art.png",
+      "sha256": "a4a1fa1138d6e3b4be739754b887450d60eb8afdce98ae166f18ea44799d267f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait42.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait42.imageset/art.png",
+      "sha256": "44bca3242416fabb94f9fbd6a803a637f3333cd063115b9ea42196428363b4a8"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait43.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait43.imageset/art.png",
+      "sha256": "bdfa7ffe9c89fa125503cdeca90468d43e24144dff46374ca5adbbeb982e8da0"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-shorts.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-shorts.imageset/art.png",
+      "sha256": "6944db09b3b53fac4b1ebde4c0aa538ee8283215c354d781048ba0a7d540b516"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-comment.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-comment.imageset/art.png",
+      "sha256": "6c25000305a3c0462b7e2d750c8687e9008c486728030f4177c1f953d935816b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bellOff.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bellOff.imageset/art.png",
+      "sha256": "9da4b8aa1cac8519da0b73cfaacd417c32bf30f1155bd78dcca82a090b2d3b37"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-diamond.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-diamond.imageset/art.png",
+      "sha256": "26e4a68c2d3da2b86908d0aa15d7dd32f911d780ac35b86c152a3e1e702b6346"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait9.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait9.imageset/art.png",
+      "sha256": "8d310ed783e5e140d2d6ef3783d6e8f0b9dd4de7ebae36e8bec2c241b6d58175"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait8.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait8.imageset/art.png",
+      "sha256": "f19ef8ed46ff7d880b0e8fbf849f611bc4f9e81057a8dfb5a91fd65af58641c3"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiLaunchBackground.colorset/Contents.json",
+      "sha256": "74f0f5b27aa51f9f6a8b8103c890ee914d77c2bd4c0a66b7c8cb9c6e36d50c43"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-plus.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-plus.imageset/art.png",
+      "sha256": "5d7d741c8ae709e395636ae1a8b7078a5d78bcd54f812b07366ef5c049901b0b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-check.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-check.imageset/art.png",
+      "sha256": "f2bdbadb1226364d3a717bf5229e4c077018ecd555fb294fbda8e84f9377201e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait35.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait35.imageset/art.png",
+      "sha256": "e512b9305374d4dd4e65603330800062d7353d9b72f9dffeb5adcfd29f7ba9ee"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait34.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait34.imageset/art.png",
+      "sha256": "89a46562e800091d5da7466f66545784e694600c46746ac47d97d4c1a8053341"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-logout.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-logout.imageset/art.png",
+      "sha256": "bc755b2c2e38b38cda8c63e5280d5e84586658f7f60bbad1454860c61aef2dc0"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-moon.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-moon.imageset/art.png",
+      "sha256": "438d1c650877f2759e592518da2478bcacb4b5dc5d3525ec77cbe5b904cc01ac"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait16.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait16.imageset/art.png",
+      "sha256": "8a51a25ff58dd933cf381567bff1fed9d4ce8b5d1eaf71641b257d8e62b850c4"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait17.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait17.imageset/art.png",
+      "sha256": "f99cefb66ad4a724eb3d99a96f40f5a45b07c26207c809dc45897779d504cce3"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-filter.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-filter.imageset/art.png",
+      "sha256": "03548ffb60002465fc6b57922f7b5734ddfa672a0659784f82d0823afdef5b34"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait28.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait28.imageset/art.png",
+      "sha256": "974d5610e84de365461f405ed4a4372b51b567af3dc2e34a0f4c9dd7b3173e58"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait29.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait29.imageset/art.png",
+      "sha256": "f23c2b4bce8a8ac4b8616fb9106e87c13f875e4ed829fc8ab2107c73e7622c3d"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiWelcome.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiWelcome.imageset/art.png",
+      "sha256": "0675b83a504b47669a70d36c19b695c001858d819dc83fbd4f4befcdff55abd5"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom1.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom1.imageset/art.png",
+      "sha256": "9d5e9dde8b0a5093510d7be08baf57c3ebfa98e554684054cbff8643498d153a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait22.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait22.imageset/art.png",
+      "sha256": "d591785f8049e780caa849d4c3aa50c8f59b59d9837f4e127288ecd4ee45a956"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait23.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait23.imageset/art.png",
+      "sha256": "312b162dca09bbeff2f393544eb1d9e161aa5bc0827269b68087af994335b9c0"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-checkboxOn.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-checkboxOn.imageset/art.png",
+      "sha256": "2412f3e6a2551481c9f458bf04c578452ae25c18eeb30ea66cde6b690106b15c"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-play.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-play.imageset/art.png",
+      "sha256": "6944db09b3b53fac4b1ebde4c0aa538ee8283215c354d781048ba0a7d540b516"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiMark.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiMark.imageset/art.png",
+      "sha256": "490d77324b0c0a15e438952fb287c104f2266834f43d7f0ffbda783da256666f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait11.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait11.imageset/art.png",
+      "sha256": "15d7a32151e9614478ebe9ad07a61c6b7a57e99bc3a1c6f192e57439bc698b4b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait10.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait10.imageset/art.png",
+      "sha256": "183dfdee0ca8a391228ec2cacd0289c45ac2bda492979bb151c767af3597d2f3"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneOffIvory.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphoneOffIvory.imageset/art.png",
+      "sha256": "c61a25bf7b7bcd1ef0c8664b86f2bf9d017acb6187e0558c255418812909ea9a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bookmark.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bookmark.imageset/art.png",
+      "sha256": "5afe20742f1ed5cd324796a46e34ec8c4499aba1aa10436198cf248bddd0481d"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-eye.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-eye.imageset/art.png",
+      "sha256": "25b83a78796dfb38bbfd5d30c6b58617a0b6c00e81c0456924d5a2b30680c6d7"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom7.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom7.imageset/art.png",
+      "sha256": "05d02dde2362905af3f90b33cf7a1013331d97a642a5058eee953b54b6a6a27a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom6.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom6.imageset/art.png",
+      "sha256": "9469dfd3a2ee8fe46c9f3afdfd2a396f8918405a331d80d5b2b9b7c3d81d4937"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heartFill.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heartFill.imageset/art.png",
+      "sha256": "20079e9af9ed67a9cfab272591e7a67134f649557d460c131f2639e16878268a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-chats.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-chats.imageset/art.png",
+      "sha256": "6c25000305a3c0462b7e2d750c8687e9008c486728030f4177c1f953d935816b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait52.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait52.imageset/art.png",
+      "sha256": "4e33a4d9a1eeacfbaadb2368fc1428d17078661353ad212e45c39ebbaf358a18"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-settings.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-settings.imageset/art.png",
+      "sha256": "4d4dfbd703e0a4820f6e8cd49546697c47bdc15be3486a32ab4b10a59c0db22b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphone.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-microphone.imageset/art.png",
+      "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait25.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait25.imageset/art.png",
+      "sha256": "b62a35452e33ae4c160bfa949d25661a37d97c1dcf6f358a3e28a6cffd5bbd1a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait24.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait24.imageset/art.png",
+      "sha256": "2cde8567336e8dbe17d74cf40a8096efa2ec69d07c9ce774513cfd0cc649d85e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flower.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flower.imageset/art.png",
+      "sha256": "adf069b08eeb5be7efa15ff684d54b8c895615e409aab628e58a6e51fcacc3f2"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flag.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-flag.imageset/art.png",
+      "sha256": "2cd5785a8553e58e7b85a896190e860d876b0d2fef2812ff9c25b4f2992765a4"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-trash.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-trash.imageset/art.png",
+      "sha256": "e0ddf3faaf70c17303de4c0236d6a608517d5dbd328412b05fdae5134924b0c3"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-me.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-me.imageset/art.png",
+      "sha256": "820bd5832c6b89aa447bf3c7fee5fb7d9b1e0bb0a1e346c040cd8edf16644ec1"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-photo.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-photo.imageset/art.png",
+      "sha256": "0bcaf24d1e0fcaa07720d8a7496bfbef0d693635e1044075c1ab2d50295fd4fb"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait38.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait38.imageset/art.png",
+      "sha256": "2175580123d3994fbbe84fc5c93e08f31a7292670b9941f35d98dde1394137a9"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait39.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait39.imageset/art.png",
+      "sha256": "e332bbce0404a6df290c1e3da3996964ab6e2adcbcab2aafd69148945144ee89"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait4.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait4.imageset/art.png",
+      "sha256": "13a5ed92e206a334f49d0c96caf63cd9557e48f3edb8bac6be5677a2bd0655e1"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait5.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait5.imageset/art.png",
+      "sha256": "a195773b65a3bbfd3471326be53dde649ce11d46aae59ce588c839bc614c0925"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bell.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-bell.imageset/art.png",
+      "sha256": "8550333a486d8dc4fb293b81ab19edb1f09d15e11509a5c857d76aebe7b190cd"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-share.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-share.imageset/art.png",
+      "sha256": "2caf7c9671ff833921b1c5bdb81a042965234900a05083dd020b5191f00fac21"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-cat.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-cat.imageset/art.png",
+      "sha256": "22643b868932408c81cc45fe8daf1c30d4f9a72b6f9393328e90aa636cf46911"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait45.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait45.imageset/art.png",
+      "sha256": "ae19f28e8c42b4040d4eb7371c9e9b123c6ceb4ad89b8dc888029b01b124da62"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait44.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait44.imageset/art.png",
+      "sha256": "8e03d5567feb42a746e0c6179b6455de8b1f28ff63083f2ba965b88b8e21b168"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "sha256": "9239900ca4c37dc860feb154216409f05d906e26f2d79550e1e8e8b8db6324c7"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
+      "sha256": "40d9ffe33055ea3578b1a17e97b87f76a6f52d8c114301d266a858f0423112ac"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait32.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait32.imageset/art.png",
+      "sha256": "b845e3ad3a98d9b0dfbef586eadd750e087706aa1368d9af4112f532aa3ecb7b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait33.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait33.imageset/art.png",
+      "sha256": "90eabaa3d03aba9f7980775e8995a6d3212df10066f12ea5b8963f95cf2cde1c"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom3.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom3.imageset/art.png",
+      "sha256": "a83051f65c25438e8b1660e5c63be7783f9b7e7c243fb9ba781827a6f1b76fa6"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom2.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom2.imageset/art.png",
+      "sha256": "ec5611d53c937739b5956aecb653999a9ba8d4d9c0edf6c0f62616906d2d037f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-planet.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-planet.imageset/art.png",
+      "sha256": "fc6d7c78198b3e4094654f3b1029e286ecf9532f362bbc23b6740204cd22f3a9"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-edit.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-edit.imageset/art.png",
+      "sha256": "e488ff82d4bcedabf1a47aa4a98e473ed8065b141e07dafcbe5a3555d76bb38b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-phrases.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-phrases.imageset/art.png",
+      "sha256": "5afe20742f1ed5cd324796a46e34ec8c4499aba1aa10436198cf248bddd0481d"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait21.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait21.imageset/art.png",
+      "sha256": "13b1e065ff08fed744c90dc62f28efdc18ccd9c4f8329b9ea3e5da165453f85b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait20.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait20.imageset/art.png",
+      "sha256": "8233fa35b0c061a3ccab8a04cfee7c9fc6322abc4aef2664d8619220e9b384ce"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-forward.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-forward.imageset/art.png",
+      "sha256": "82a2bb006d50fa30a8d8c513f2d15cd04d2ee4da8e3d1f8428042fb6574ba534"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-grid.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-grid.imageset/art.png",
+      "sha256": "bf2a1c2a11602f27d96af1b967884052ee5aa247c0ca082ffdf9b43911942a11"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-video.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-video.imageset/art.png",
+      "sha256": "e7ab72f0d875e7dc4c4fa43cd90360d67eb745865ab05706c7152caea81bd716"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-pause.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-pause.imageset/art.png",
+      "sha256": "a0ee59ea5114fdf7307bbc10d4f150d217cf74c60fa442cfba6871e18ed2ac86"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom8.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom8.imageset/art.png",
+      "sha256": "ef357366b0f34633e5caaae758624fc7dae4874dc761118552cde2b8a5180553"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait15.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait15.imageset/art.png",
+      "sha256": "3b9529f73073d1fe7c0f5419079a6a52110ac95780f14cf9a131a5e6f0cd0182"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-people.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-people.imageset/art.png",
+      "sha256": "9d33d79178a66c794ec75739454d8c1bbbf7da4c6a398390ea769d08b1a60560"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait14.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait14.imageset/art.png",
+      "sha256": "35fd7a0b1a8cfe91105f5e53ddb21bf7c4974d8ba3c613b0df3350aeeaf882bd"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-music.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-music.imageset/art.png",
+      "sha256": "a31993d4e40d6fb6cc2977c3d38abb8b7be530346023dd779206225526766b8c"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait41.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait41.imageset/art.png",
+      "sha256": "c230fb6d9f48899fd1d341a799e923dc99419b2c98ec337bda29d8726be02a50"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait40.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait40.imageset/art.png",
+      "sha256": "429bff192068bfa9ca604c277550b2fecbf4512d7258adf4af0762498cffb786"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-send.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-send.imageset/art.png",
+      "sha256": "b7e8cd3ba71438eca787ecfccf01f24399f2fe932f61721271f9e6889d05675d"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait36.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait36.imageset/art.png",
+      "sha256": "1788e03167e1e93fb3e5e8d17c4f4cfb74a91040939f0ad6182341411c9fc11b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait37.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait37.imageset/art.png",
+      "sha256": "27d52b835840ac20a8ab7f85e53ca8cfb3364051650c1048ae15eda627d6ef2f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-wand.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-wand.imageset/art.png",
+      "sha256": "8ae5195bd3e095a4dfd792d87c081d06df6761fd9d1be67418f675538920f320"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-info.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-info.imageset/art.png",
+      "sha256": "c968716422b6478d603cb64980817c8251999df063a3b0fa1283ea64c25b7e91"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait1.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait1.imageset/art.png",
+      "sha256": "f6dde671214cce22c982311dedd103b32eb1f4ebae78069d6533ca585a4df857"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiWordmark.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiWordmark.imageset/art.png",
+      "sha256": "490d77324b0c0a15e438952fb287c104f2266834f43d7f0ffbda783da256666f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-speaker.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-speaker.imageset/art.png",
+      "sha256": "12b8f3b2327055eb5488c1da902ffbece625c347c5d74ce4eea20c1fbb6133ea"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait46.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait46.imageset/art.png",
+      "sha256": "04940656b35c864bb3e196e739a1af01c58af1d98375c77e1464c66ba50f2098"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait47.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait47.imageset/art.png",
+      "sha256": "7654baa0ad1dfa19223042af3858a8472371a5afbff59bfcd10f77d0e7c97244"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-starOutline.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-starOutline.imageset/art.png",
+      "sha256": "bbc3a86292299f0444d1efaaa4cae1a54616e44be5aae3dfa98412d34be1e4af"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-mutedIvory.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-mutedIvory.imageset/art.png",
+      "sha256": "ac3beb16427cdb4e932ac2d5807294eb592114d6c555a2afa5991c9080c25770"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-more.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-more.imageset/art.png",
+      "sha256": "a2b2764928d8921c5d1ef066fc3bc9ce33bbcc7a922a570a4b3bc1b1fa4b6c7f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-checkbox.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-checkbox.imageset/art.png",
+      "sha256": "0664d8bdc499180f9aa63e69a581a8766ce10520f17fd7cfab64cf8fb21c1bdd"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-gift.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-gift.imageset/art.png",
+      "sha256": "e7abe137f8909d09a45d88f9943d69fe2c50ce8cb887318a725d27c922723060"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heartOutline.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heartOutline.imageset/art.png",
+      "sha256": "458bc023a7e29775ae7fbf2e2c0ec281f6d4504e6214826b2b0844bc388c50a9"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait31.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait31.imageset/art.png",
+      "sha256": "bb8cce762fb5714d5bda8cdcc1fdba1b2f91a1eaa8a28f3ac8180c51339506f0"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait30.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait30.imageset/art.png",
+      "sha256": "f6dbd2c75ceca24e670a1056548441e5a84693e2939eb0bc54e3047b3547d620"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-crown.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-crown.imageset/art.png",
+      "sha256": "f157e9a9d34e7725ed1db59b771a2d1fcf033ea568f49ba808f2b0e15f51e9cd"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heart.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-heart.imageset/art.png",
+      "sha256": "4a61629139cd253a7e003fd06379ba5b5029ee25289a45a9075ad767a02e7723"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-close.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-close.imageset/art.png",
+      "sha256": "add1a8859f72b1766da38d90e8ad6c4d72c97ca1e67225c1129e5019d8110fc9"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-link.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-link.imageset/art.png",
+      "sha256": "56100a0457dd96b1ae9c616bca80028f1800a63ce6569fd6a56224a679f5afb2"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-starFill.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-starFill.imageset/art.png",
+      "sha256": "cf2dd1e9eca2183abc81a12c1bd8c90b4cf27b7b3412bd24f3ddf1a0cab7c1bb"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-refresh.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-refresh.imageset/art.png",
+      "sha256": "2aa45ec467f0759dcb5e8ff338e46978c2c157470309094171045e7cfdc90a3d"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-block.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-block.imageset/art.png",
+      "sha256": "9ee7732aadb63e57cc9f989305f67d384b15ca81233e741f2a01f680f63493ea"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-comet.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-comet.imageset/art.png",
+      "sha256": "372f41b73e9935f0407f00a6aa387db8ed209db3469d274f943f136ad78d52c4"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait7.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait7.imageset/art.png",
+      "sha256": "e80bc7dd8a65363b345807cc59ae3bb28ce185ff6bb27f03fc77c3418419b7f1"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait6.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait6.imageset/art.png",
+      "sha256": "6f2f23c1810da7b6d86a22a90dc3d32ceeb5a8b3bcd9e0fe17eea047a73dc67a"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-muted.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-muted.imageset/art.png",
+      "sha256": "ac3beb16427cdb4e932ac2d5807294eb592114d6c555a2afa5991c9080c25770"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait18.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait18.imageset/art.png",
+      "sha256": "b2114d9bbd333144e52483b40e64b1c54e0482f61bb81b6f168f6b88e140322b"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait19.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait19.imageset/art.png",
+      "sha256": "334ffe32ab5d6c6516a53de2d5c51cf9792537e4ede0a853c54dc1802fd58b72"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-phone.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-phone.imageset/art.png",
+      "sha256": "ecf86c9a52dadcb3b9cb2b810bc68a9e03b3a0b89c735d438ecaf36144e362a6"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom4.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom4.imageset/art.png",
+      "sha256": "4e042e5842de0498fb60e455ee470ab92d744bc4bf1980adc0afa5f887c165fc"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom5.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiRoom5.imageset/art.png",
+      "sha256": "005e7d8514871bb8f25ad6f28029a545f54487f7768a38c6afa76f180a1f60d2"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-search.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-search.imageset/art.png",
+      "sha256": "ca35a450a24fbab82561a01ada4a870723518db2fccfd174fd8e72a94775111e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait51.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait51.imageset/art.png",
+      "sha256": "a8db2eae521f7e34743496b3fe9913817377aafeb3c075842792e6c63ed373e9"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait50.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait50.imageset/art.png",
+      "sha256": "4e8aa1cc568ab10d581cb03f64e030bc62f52eaa91e727909467fef1ce9f0761"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait26.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait26.imageset/art.png",
+      "sha256": "4700a7919c457e76575a5cb3c4ecfdfe89637b7ed19d4d7b488545186dc96536"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait27.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait27.imageset/art.png",
+      "sha256": "1bdc96a8f08b9dcfe61df9a80b2cc3b6c5c4c176245e4090d363a0a6bbf867c1"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-handset.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-handset.imageset/art.png",
+      "sha256": "264896c26e54607fce1ab63b446bb2ec5009cf355eb3df3e307f19c7d5d2fe07"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-voice.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-voice.imageset/art.png",
+      "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait12.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait12.imageset/art.png",
+      "sha256": "7afce3b9860dcecef294ce5393b414fc86d1cb7012f9e0721a2b92154684bc2f"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait13.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/Portrait13.imageset/art.png",
+      "sha256": "23e68f6c6bf0f6f2da26226a477d08ffb088e36e1cac02cda873b38b631b463c"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-clock.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-clock.imageset/art.png",
+      "sha256": "c1d8dc71af2aaf2624728adf3f35c076bf90495d9404ae93ef42bd0c9af27761"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-star.imageset/Contents.json",
+      "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e"
+    },
+    {
+      "path": "Bibi/Resources/Assets.xcassets/BibiIcon-star.imageset/art.png",
+      "sha256": "bbc3a86292299f0444d1efaaa4cae1a54616e44be5aae3dfa98412d34be1e4af"
+    }
+  ]
+}

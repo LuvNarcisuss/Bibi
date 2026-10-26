@@ -1,0 +1,746 @@
+[
+  {
+    "id": "79771bc0-8e7c-5447-be7c-9b2b760eb9a8",
+    "title": "A city of amber",
+    "creator": "Animation Club",
+    "assetName": "bibi-amber-city",
+    "duration": 12.012,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "A little light can change an entire world. #Animation #Hero",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 12,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "d1c30a785dda540725376ea6fa0ac7e660aa1f816830459097453a144dcc89d4",
+    "coverSHA256": "1e677d66a91d8f811adf831cdc45fe70665b9d911b0e4445ec09fe31d8e4a42d",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.012000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "7b699b42-1d53-546c-9ee6-b15c1abb751f",
+    "title": "Beyond the rooftops",
+    "creator": "Animation Club",
+    "assetName": "bibi-sky-chase",
+    "duration": 12.011292,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "An adventure above the clouds. #Animation #Worldbuilding",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 28,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "9f60b5538b58badbe96cfb363e79320181da2019fc730b68a3c4a9a2e5cd1e34",
+    "coverSHA256": "5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.011292"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "2ceef206-f663-5574-a74f-4e98a72ba1ec",
+    "title": "Clockwork streets",
+    "creator": "Animation Club",
+    "assetName": "bibi-clockwork-streets",
+    "duration": 12.012,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "Every background has a story. #Animation #Hero",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 44,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "684160b024d017e54a9ca606ea2f2759dc756b30ddaaa84abe221867f49f559d",
+    "coverSHA256": "d929efab80356ae521bf52dd08157425a0d8e26f7515b2a742349385059ddbfd",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.012000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "9115a7cf-e96d-51f8-8ff4-377079bed362",
+    "title": "A paper sky",
+    "creator": "Animation Club",
+    "assetName": "bibi-paper-sky",
+    "duration": 12.012,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "Bold lines and impossible journeys. #Animation #Fantasy",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 60,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "3a5ec449dbc3562fcb7417b11dc0b20a195682d95bd896d1ae3ab5f6b1a02aae",
+    "coverSHA256": "929945cf20280b8c7fa9dda267564ecf385908ed38e10ced93a7a7255a3b1dd4",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.012000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "4d5bdc83-fda6-50e3-97af-82c8b098c6b9",
+    "title": "The blue horizon",
+    "creator": "Animation Club",
+    "assetName": "bibi-blue-horizon",
+    "duration": 12.011292,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "Between two worlds, a new story begins. #Hero #Animation",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 76,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "c852fcd75fcd2608cc071459b91bfea555e97e5655afca7d330710432c9dd86d",
+    "coverSHA256": "eeedc51f2bd1680e8a190c12c61ca98cf6fc3330bb256f21f9beae97096d5ec0",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.011292"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "a2694a14-04bd-5179-b228-9d29aee31eea",
+    "title": "The way back",
+    "creator": "Animation Club",
+    "assetName": "bibi-quiet-return",
+    "duration": 12.012,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "Quiet moments can say the most. #Animation #Storytelling",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 100,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "f4c7bba1966b1a2bdc1c96ff504a6c6cafe24578430bdc432169c576f43d9576",
+    "coverSHA256": "23d10a9a5ea124d2718e805ae5b1f454219db6104633c05f54e54695f8d2caac",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.012000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "a858f4c1-0618-5d8b-85ec-f84835e393d1",
+    "title": "A shared light",
+    "creator": "Animation Club",
+    "assetName": "bibi-shared-light",
+    "duration": 12.011292,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "One spark, a thousand possibilities. #Animation #Hero",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 116,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "51a91c9964b39956ca936b09158c20bc66f5d5cf2fa98be3d0d0ecb145386423",
+    "coverSHA256": "1e1865ba90421244bae62a0aae83e71d477a8b34e3ef873f64309ad7b1f9675a",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.011292"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "e5a2805a-47a1-5086-bced-e665e450e233",
+    "title": "Another world blooms",
+    "creator": "Animation Club",
+    "assetName": "bibi-green-world",
+    "duration": 12.012,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/hero/",
+    "collectionGeneration": 1,
+    "caption": "A world waiting to wake up. #Animation #Fantasy",
+    "credit": "Hero © Blender Foundation · CC BY 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/hero/",
+      "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+      "author": "Blender Foundation; directed by Daniel Martinez Lara",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "credit": "Hero © Blender Foundation · CC BY 4.0"
+    },
+    "original": "Design/Originals/hero.mp4",
+    "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+    "startSeconds": 130,
+    "excerptSeconds": 12,
+    "runtimeSHA256": "9e7aa4231ac685e1fa6a0a5ce92f1a42e2c8ee540df0a819e8a872ee7faf7ecc",
+    "coverSHA256": "420b57550627de9c891bcbe4643829c41de6ee262c4c6dae77c8bab51acdc33c",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24000/1001"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "12.012000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "d9dab94c-6153-5a28-8ef0-b10d48728e3b",
+    "title": "Along the forest path",
+    "creator": "Animation Club",
+    "assetName": "bibi-forest-path",
+    "duration": 14.0,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "A journey into a forgotten forest. #Spring #Fantasy",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 26,
+    "excerptSeconds": 14,
+    "runtimeSHA256": "cf0013a0a492cb6cf22fd3ba1d4146a592e9ceca12587175dcde68f0d12469a4",
+    "coverSHA256": "e52a65d5736bc2d002551f022a74b6da829c450b05c8b359fade750ba206af0e",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "14.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "a0c71d98-a6a0-5e38-aad8-2fc87b871086",
+    "title": "A little companion",
+    "creator": "Animation Club",
+    "assetName": "bibi-little-companion",
+    "duration": 16.0,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "Every adventure needs a friend. #Animation #Spring",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 44,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "495c7145ee80e16ba39c952b3f3d4e23f90d4ab0a473f5f687e4453a7e379021",
+    "coverSHA256": "f7dffdf763e27261205ed5ec155aa241ee330bb3f174b3cba3212f82d287815d",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "4bb2c935-c8ff-5ebc-93ea-eb59ef5c432f",
+    "title": "The forest listens",
+    "creator": "Animation Club",
+    "assetName": "bibi-forest-guardian",
+    "duration": 16.0,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "Some stories are older than words. #Fantasy #Spring",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 92,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "3977c3dcd1f07277a8313b6f8a8e4ea0b027675b7092d64b34b3e04fd75f54e3",
+    "coverSHA256": "bf9ec799fba669d5248f0b8e5602221b42ef3a2f3288023d11c27c463b1c8335",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "8e5ccf5e-9e83-5314-a2cc-cef514e517c2",
+    "title": "Among ancient roots",
+    "creator": "Animation Club",
+    "assetName": "bibi-ancient-roots",
+    "duration": 16.0,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "An impossible world, beautifully imagined. #Worldbuilding #Spring",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 140,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "7768de40bdb56180f0f91fe7bebdf29cb16a1ed0a8bde7cd0033d44b80d60bdb",
+    "coverSHA256": "61e60a26a8e3c9bde5ff864807473fae0d6659b511b13d0d800460d37d077d64",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "c81b86dc-3393-59ce-9f91-0b8b71fafb4e",
+    "title": "Beyond the mist",
+    "creator": "Animation Club",
+    "assetName": "bibi-moonlit-mist",
+    "duration": 16.0,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "Light finds its way through. #Fantasy #Animation",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 182,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "906cd37ebd54a71d35e7e1f9fac82c8ed5d3f286a94842a346df2f0408cc8424",
+    "coverSHA256": "b0cdb2b6ec13a5545c2010c4f85f111799e49ffc3df7cbb40896b2ff08f1c67d",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "12cea62d-ce05-5a4a-843e-9362f6ef96bc",
+    "title": "A spark in the dark",
+    "creator": "Animation Club",
+    "assetName": "bibi-glowing-staff",
+    "duration": 16.0,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "A small spark against a vast world. #Spring #Fantasy",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 218,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "e2e635105522091182de66ebef3d6d5571ff287fc14f80d0c1abff21e8013f1c",
+    "coverSHA256": "fb34be7cb9e27c9f36a3d21abc550b8c9f4f12c826117e9d4c87425d1dba92a2",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "e2f1226a-9b5c-5247-83f3-20498532ce06",
+    "title": "A promise of dawn",
+    "creator": "Animation Club",
+    "assetName": "bibi-dawn-promise",
+    "duration": 16.0,
+    "surface": "live",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "Some courage is quiet. #Animation #Spring",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 300,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "240bdf8c1b8f42430962553bbcd20a0019c2ae9b39a62d18dee756fd7fa622d8",
+    "coverSHA256": "aad492867036c25b51d6daa1e008e07e6545628ef4c1b7a14bbbf0143552eee3",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  },
+  {
+    "id": "94158b52-7118-5dc3-a53a-629f89d7112b",
+    "title": "The world wakes up",
+    "creator": "Animation Club",
+    "assetName": "bibi-spring-awakens",
+    "duration": 16.0,
+    "surface": "shorts",
+    "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+    "collectionGeneration": 1,
+    "caption": "A new season. A new beginning. #Spring #Fantasy",
+    "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+    "source": {
+      "url": "https://studio.blender.org/projects/spring/pages/about/",
+      "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+      "author": "Blender Foundation; directed by Andy Goralczyk",
+      "license": "CC BY-SA 4.0 for these adaptations",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Spring © Blender Foundation · CC BY-SA 4.0",
+      "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+    },
+    "original": "Design/Originals/spring.mp4",
+    "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+    "startSeconds": 372,
+    "excerptSeconds": 16,
+    "runtimeSHA256": "88c5f6f6d5b8616ffc530f2357e9739b3b69d5de2ecedb284940a1680a59f91b",
+    "coverSHA256": "dedffd81fffb23c4b5414161a23e8c81c3732c8da04f94180ebf6c3b55ff6a42",
+    "metadata": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 402,
+          "r_frame_rate": "24/1"
+        },
+        {
+          "codec_name": "aac",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    },
+    "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+  }
+]
