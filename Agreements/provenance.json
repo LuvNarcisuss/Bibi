@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-27",
+  "delivery": "Bundled local HTML; no runtime network requests",
+  "adaptation": "Based on the latest shared Google documents. Updated agreement-delivery descriptions to match local HTML. Cloud documents were not modified.",
+  "documents": [
+    {
+      "file": "TermsOfService.html",
+      "sourceURL": "https://docs.google.com/document/d/1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I",
+      "sourceRevision": "AHj4eMQe-FXQVgVqAMClIdcpVkdhVkIX2XL8g5GLXSaqezsUd80165CfJ2s1yWVTcKFMbJCg1uyJ1xBgaGPVgYoa-qUYCAAHpTJ3I-XBFtY",
+      "sourceTextSHA256": "34ef945c8dbf1d13388f11c492c9ecc001dcbd48eb135220eebd500697ffc56a",
+      "htmlSHA256": "65cf8cd989f0f9656fbe944a68a8cad4d46bd292b91771d485a66f6a72bdcf9a",
+      "adaptedParagraphs": 3
+    },
+    {
+      "file": "PrivacyPolicy.html",
+      "sourceURL": "https://docs.google.com/document/d/1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c",
+      "sourceRevision": "AHj4eMStefpt55F6u58zQ_fGgmZgoIfQLwR5o0yQeMSYoogPoRZNu5ts_oecphdg_eb9MjUQia2mhMuX7SysY3aezYwUuNqj8Jc1qwgzBJY",
+      "sourceTextSHA256": "5f1e4e022bc34598a3e6b5c9fc49ce6bf38974f83e2d9816219c1fbd1efcc6ac",
+      "htmlSHA256": "cd392bf7993051aab1786188b37cffc5ea9657526b2e59991852646655c0e487",
+      "adaptedParagraphs": 8
+    }
+  ]
+}

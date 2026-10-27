@@ -8,3 +8,8 @@ BibiApp/.generated/
 !BibiApp/Bibi.xcodeproj/xcshareddata/xcschemes/
 !BibiApp/Bibi.xcodeproj/xcshareddata/xcschemes/Bibi.xcscheme
 /Assets/
+
+# Generated test evidence stays on the local machine.
+/BibiApp/Design/RunEvidence/
+**/*.xcresult/
+**/*.xcactivitylog

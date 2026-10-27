@@ -48,6 +48,8 @@ The wallet uses the seven product IDs supplied by the owner, configured in the I
 
 ## Verification scope
 
+Generated test evidence under `BibiApp/Design/RunEvidence/`, including recordings, screenshots, logs and result bundles, is retained locally and excluded from Git. References to files in that directory describe local evidence and are not downloadable from a fresh Git checkout. XCTest result bundles and activity logs are also ignored wherever they are generated.
+
 The Circles and Challenges revision passed a Debug simulator build and an explicitly authorized interactive check of all five modules. The static audit passed 426 checks. See `docs/COMMUNITY-RUN-VERIFICATION.md` for interaction coverage, fixes, screenshots and remaining limits, and `docs/STATIC-AUDIT.md` for static evidence.
 
 `docs/RUN-VERIFICATION.md` describes a successful build and welcome-screen run of an earlier revision. It does not validate these new screens.
