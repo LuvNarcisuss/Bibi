@@ -2,14 +2,13 @@
 
 ## Supabase build assets — October 29, 2026
 
-Codemagic now restores the 397-file CI snapshot from the private
+Codemagic now restores the 397-file CI snapshot from the public
 `bibi-build-assets` Storage bucket through `restore_ci_resources.py`. The workflow
-selects the `bibi_build_assets` environment group and requires its
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY` secret. `upload_ci_resources.py` is the
-trusted one-time uploader; user-owned `bibi-images` and `bibi-videos` remain
-separate. The bucket exists remotely and contains all 319 build resources after
-the owner-authorized dashboard upload. The Codemagic secret and cloud build
-remain pending.
+does not require a Codemagic environment group or Supabase credential.
+`upload_ci_resources.py` is the trusted one-time uploader; user-owned
+`bibi-images` and `bibi-videos` remain separate. The bucket exists remotely and
+contains all 319 build resources after the owner-authorized dashboard upload.
+The cloud build remains pending.
 
 ## Original agreement URLs retained — October 29, 2026
 
