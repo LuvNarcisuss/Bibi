@@ -1,0 +1,1216 @@
+[
+  {
+    "directory": "AppIcon.appiconset",
+    "metadata": "catalog-AppIcon.appiconset.json",
+    "images": {
+      "AppIcon.png": "AppIcon.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-back.imageset",
+    "metadata": "catalog-BibiIcon-back.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-back.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-balloon.imageset",
+    "metadata": "catalog-BibiIcon-balloon.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-balloon.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-bell.imageset",
+    "metadata": "catalog-BibiIcon-bell.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-bell.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-bellOff.imageset",
+    "metadata": "catalog-BibiIcon-bellOff.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-bellOff.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-block.imageset",
+    "metadata": "catalog-BibiIcon-block.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-block.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-bookmark.imageset",
+    "metadata": "catalog-BibiIcon-bookmark.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-bookmark.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-cat.imageset",
+    "metadata": "catalog-BibiIcon-cat.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-cat.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-chats.imageset",
+    "metadata": "catalog-BibiIcon-chats.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-chats.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-check.imageset",
+    "metadata": "catalog-BibiIcon-check.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-check.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-checkbox.imageset",
+    "metadata": "catalog-BibiIcon-checkbox.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-checkbox.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-checkboxOn.imageset",
+    "metadata": "catalog-BibiIcon-checkboxOn.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-checkboxOn.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-clock.imageset",
+    "metadata": "catalog-BibiIcon-clock.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-clock.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-close.imageset",
+    "metadata": "catalog-BibiIcon-close.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-close.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-comet.imageset",
+    "metadata": "catalog-BibiIcon-comet.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-comet.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-comment.imageset",
+    "metadata": "catalog-BibiIcon-comment.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-comment.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-crown.imageset",
+    "metadata": "catalog-BibiIcon-crown.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-crown.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-diamond.imageset",
+    "metadata": "catalog-BibiIcon-diamond.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-diamond.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-edit.imageset",
+    "metadata": "catalog-BibiIcon-edit.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-edit.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-eye.imageset",
+    "metadata": "catalog-BibiIcon-eye.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-eye.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-filter.imageset",
+    "metadata": "catalog-BibiIcon-filter.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-filter.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-flag.imageset",
+    "metadata": "catalog-BibiIcon-flag.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-flag.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-flip.imageset",
+    "metadata": "catalog-BibiIcon-flip.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-flip.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-flower.imageset",
+    "metadata": "catalog-BibiIcon-flower.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-flower.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-forward.imageset",
+    "metadata": "catalog-BibiIcon-forward.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-forward.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-gift.imageset",
+    "metadata": "catalog-BibiIcon-gift.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-gift.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-grid.imageset",
+    "metadata": "catalog-BibiIcon-grid.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-grid.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-handset.imageset",
+    "metadata": "catalog-BibiIcon-handset.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-handset.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-heart.imageset",
+    "metadata": "catalog-BibiIcon-heart.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-heart.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-heartFill.imageset",
+    "metadata": "catalog-BibiIcon-heartFill.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-heartFill.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-heartOutline.imageset",
+    "metadata": "catalog-BibiIcon-heartOutline.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-heartOutline.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-info.imageset",
+    "metadata": "catalog-BibiIcon-info.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-info.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-link.imageset",
+    "metadata": "catalog-BibiIcon-link.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-link.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-live.imageset",
+    "metadata": "catalog-BibiIcon-live.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-live.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-logout.imageset",
+    "metadata": "catalog-BibiIcon-logout.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-logout.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-me.imageset",
+    "metadata": "catalog-BibiIcon-me.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-me.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-microphone.imageset",
+    "metadata": "catalog-BibiIcon-microphone.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-microphone.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-microphoneIvory.imageset",
+    "metadata": "catalog-BibiIcon-microphoneIvory.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-microphoneIvory.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-microphoneOff.imageset",
+    "metadata": "catalog-BibiIcon-microphoneOff.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-microphoneOff.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-microphoneOffIvory.imageset",
+    "metadata": "catalog-BibiIcon-microphoneOffIvory.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-microphoneOffIvory.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-moon.imageset",
+    "metadata": "catalog-BibiIcon-moon.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-moon.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-more.imageset",
+    "metadata": "catalog-BibiIcon-more.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-more.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-music.imageset",
+    "metadata": "catalog-BibiIcon-music.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-music.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-muted.imageset",
+    "metadata": "catalog-BibiIcon-muted.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-muted.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-mutedIvory.imageset",
+    "metadata": "catalog-BibiIcon-mutedIvory.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-mutedIvory.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-pause.imageset",
+    "metadata": "catalog-BibiIcon-pause.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-pause.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-people.imageset",
+    "metadata": "catalog-BibiIcon-people.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-people.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-personPlus.imageset",
+    "metadata": "catalog-BibiIcon-personPlus.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-personPlus.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-phone.imageset",
+    "metadata": "catalog-BibiIcon-phone.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-phone.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-photo.imageset",
+    "metadata": "catalog-BibiIcon-photo.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-photo.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-phrases.imageset",
+    "metadata": "catalog-BibiIcon-phrases.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-phrases.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-planet.imageset",
+    "metadata": "catalog-BibiIcon-planet.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-planet.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-play.imageset",
+    "metadata": "catalog-BibiIcon-play.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-play.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-plus.imageset",
+    "metadata": "catalog-BibiIcon-plus.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-plus.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-refresh.imageset",
+    "metadata": "catalog-BibiIcon-refresh.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-refresh.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-search.imageset",
+    "metadata": "catalog-BibiIcon-search.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-search.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-send.imageset",
+    "metadata": "catalog-BibiIcon-send.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-send.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-settings.imageset",
+    "metadata": "catalog-BibiIcon-settings.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-settings.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-share.imageset",
+    "metadata": "catalog-BibiIcon-share.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-share.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-shorts.imageset",
+    "metadata": "catalog-BibiIcon-shorts.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-shorts.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-sparkle.imageset",
+    "metadata": "catalog-BibiIcon-sparkle.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-sparkle.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-speaker.imageset",
+    "metadata": "catalog-BibiIcon-speaker.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-speaker.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-speakerIvory.imageset",
+    "metadata": "catalog-BibiIcon-speakerIvory.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-speakerIvory.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-star.imageset",
+    "metadata": "catalog-BibiIcon-star.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-star.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-starFill.imageset",
+    "metadata": "catalog-BibiIcon-starFill.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-starFill.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-starOutline.imageset",
+    "metadata": "catalog-BibiIcon-starOutline.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-starOutline.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-trash.imageset",
+    "metadata": "catalog-BibiIcon-trash.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-trash.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-unreadBadge.imageset",
+    "metadata": "catalog-BibiIcon-unreadBadge.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-unreadBadge.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-video.imageset",
+    "metadata": "catalog-BibiIcon-video.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-video.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-voice.imageset",
+    "metadata": "catalog-BibiIcon-voice.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-voice.png"
+    }
+  },
+  {
+    "directory": "BibiIcon-wand.imageset",
+    "metadata": "catalog-BibiIcon-wand.imageset.json",
+    "images": {
+      "art.png": "BibiIcon-wand.png"
+    }
+  },
+  {
+    "directory": "BibiLaunchBackground.colorset",
+    "metadata": "catalog-BibiLaunchBackground.colorset.json",
+    "images": {}
+  },
+  {
+    "directory": "BibiMark.imageset",
+    "metadata": "catalog-BibiMark.imageset.json",
+    "images": {
+      "art.png": "BibiMark.png"
+    }
+  },
+  {
+    "directory": "BibiRoom1.imageset",
+    "metadata": "catalog-BibiRoom1.imageset.json",
+    "images": {
+      "art.png": "BibiRoom1.png"
+    }
+  },
+  {
+    "directory": "BibiRoom2.imageset",
+    "metadata": "catalog-BibiRoom2.imageset.json",
+    "images": {
+      "art.png": "BibiRoom2.png"
+    }
+  },
+  {
+    "directory": "BibiRoom3.imageset",
+    "metadata": "catalog-BibiRoom3.imageset.json",
+    "images": {
+      "art.png": "BibiRoom3.png"
+    }
+  },
+  {
+    "directory": "BibiRoom4.imageset",
+    "metadata": "catalog-BibiRoom4.imageset.json",
+    "images": {
+      "art.png": "BibiRoom4.png"
+    }
+  },
+  {
+    "directory": "BibiRoom5.imageset",
+    "metadata": "catalog-BibiRoom5.imageset.json",
+    "images": {
+      "art.png": "BibiRoom5.png"
+    }
+  },
+  {
+    "directory": "BibiRoom6.imageset",
+    "metadata": "catalog-BibiRoom6.imageset.json",
+    "images": {
+      "art.png": "BibiRoom6.png"
+    }
+  },
+  {
+    "directory": "BibiRoom7.imageset",
+    "metadata": "catalog-BibiRoom7.imageset.json",
+    "images": {
+      "art.png": "BibiRoom7.png"
+    }
+  },
+  {
+    "directory": "BibiRoom8.imageset",
+    "metadata": "catalog-BibiRoom8.imageset.json",
+    "images": {
+      "art.png": "BibiRoom8.png"
+    }
+  },
+  {
+    "directory": "BibiTitle-Challenges.imageset",
+    "metadata": "catalog-BibiTitle-Challenges.imageset.json",
+    "images": {
+      "art.png": "BibiTitle-Challenges.png"
+    }
+  },
+  {
+    "directory": "BibiTitle-Chats.imageset",
+    "metadata": "catalog-BibiTitle-Chats.imageset.json",
+    "images": {
+      "art.png": "BibiTitle-Chats.png"
+    }
+  },
+  {
+    "directory": "BibiTitle-Circles.imageset",
+    "metadata": "catalog-BibiTitle-Circles.imageset.json",
+    "images": {
+      "art.png": "BibiTitle-Circles.png"
+    }
+  },
+  {
+    "directory": "BibiTitle-Me.imageset",
+    "metadata": "catalog-BibiTitle-Me.imageset.json",
+    "images": {
+      "art.png": "BibiTitle-Me.png"
+    }
+  },
+  {
+    "directory": "BibiTitle-Shorts.imageset",
+    "metadata": "catalog-BibiTitle-Shorts.imageset.json",
+    "images": {
+      "art.png": "BibiTitle-Shorts.png"
+    }
+  },
+  {
+    "directory": "BibiWelcome.imageset",
+    "metadata": "catalog-BibiWelcome.imageset.json",
+    "images": {
+      "art.png": "BibiWelcome.png"
+    }
+  },
+  {
+    "directory": "BibiWordmark.imageset",
+    "metadata": "catalog-BibiWordmark.imageset.json",
+    "images": {
+      "art.png": "BibiWordmark.png"
+    }
+  },
+  {
+    "directory": ".",
+    "metadata": "catalog-root.json",
+    "images": {}
+  },
+  {
+    "directory": "Portrait1.imageset",
+    "metadata": "catalog-Portrait1.imageset.json",
+    "images": {
+      "art.png": "Portrait1.png"
+    }
+  },
+  {
+    "directory": "Portrait10.imageset",
+    "metadata": "catalog-Portrait10.imageset.json",
+    "images": {
+      "art.png": "Portrait10.png"
+    }
+  },
+  {
+    "directory": "Portrait11.imageset",
+    "metadata": "catalog-Portrait11.imageset.json",
+    "images": {
+      "art.png": "Portrait11.png"
+    }
+  },
+  {
+    "directory": "Portrait12.imageset",
+    "metadata": "catalog-Portrait12.imageset.json",
+    "images": {
+      "art.png": "Portrait12.png"
+    }
+  },
+  {
+    "directory": "Portrait13.imageset",
+    "metadata": "catalog-Portrait13.imageset.json",
+    "images": {
+      "art.png": "Portrait13.png"
+    }
+  },
+  {
+    "directory": "Portrait14.imageset",
+    "metadata": "catalog-Portrait14.imageset.json",
+    "images": {
+      "art.png": "Portrait14.png"
+    }
+  },
+  {
+    "directory": "Portrait15.imageset",
+    "metadata": "catalog-Portrait15.imageset.json",
+    "images": {
+      "art.png": "Portrait15.png"
+    }
+  },
+  {
+    "directory": "Portrait16.imageset",
+    "metadata": "catalog-Portrait16.imageset.json",
+    "images": {
+      "art.png": "Portrait16.png"
+    }
+  },
+  {
+    "directory": "Portrait17.imageset",
+    "metadata": "catalog-Portrait17.imageset.json",
+    "images": {
+      "art.png": "Portrait17.png"
+    }
+  },
+  {
+    "directory": "Portrait18.imageset",
+    "metadata": "catalog-Portrait18.imageset.json",
+    "images": {
+      "art.png": "Portrait18.png"
+    }
+  },
+  {
+    "directory": "Portrait19.imageset",
+    "metadata": "catalog-Portrait19.imageset.json",
+    "images": {
+      "art.png": "Portrait19.png"
+    }
+  },
+  {
+    "directory": "Portrait2.imageset",
+    "metadata": "catalog-Portrait2.imageset.json",
+    "images": {
+      "art.png": "Portrait2.png"
+    }
+  },
+  {
+    "directory": "Portrait20.imageset",
+    "metadata": "catalog-Portrait20.imageset.json",
+    "images": {
+      "art.png": "Portrait20.png"
+    }
+  },
+  {
+    "directory": "Portrait21.imageset",
+    "metadata": "catalog-Portrait21.imageset.json",
+    "images": {
+      "art.png": "Portrait21.png"
+    }
+  },
+  {
+    "directory": "Portrait22.imageset",
+    "metadata": "catalog-Portrait22.imageset.json",
+    "images": {
+      "art.png": "Portrait22.png"
+    }
+  },
+  {
+    "directory": "Portrait23.imageset",
+    "metadata": "catalog-Portrait23.imageset.json",
+    "images": {
+      "art.png": "Portrait23.png"
+    }
+  },
+  {
+    "directory": "Portrait24.imageset",
+    "metadata": "catalog-Portrait24.imageset.json",
+    "images": {
+      "art.png": "Portrait24.png"
+    }
+  },
+  {
+    "directory": "Portrait25.imageset",
+    "metadata": "catalog-Portrait25.imageset.json",
+    "images": {
+      "art.png": "Portrait25.png"
+    }
+  },
+  {
+    "directory": "Portrait26.imageset",
+    "metadata": "catalog-Portrait26.imageset.json",
+    "images": {
+      "art.png": "Portrait26.png"
+    }
+  },
+  {
+    "directory": "Portrait27.imageset",
+    "metadata": "catalog-Portrait27.imageset.json",
+    "images": {
+      "art.png": "Portrait27.png"
+    }
+  },
+  {
+    "directory": "Portrait28.imageset",
+    "metadata": "catalog-Portrait28.imageset.json",
+    "images": {
+      "art.png": "Portrait28.png"
+    }
+  },
+  {
+    "directory": "Portrait29.imageset",
+    "metadata": "catalog-Portrait29.imageset.json",
+    "images": {
+      "art.png": "Portrait29.png"
+    }
+  },
+  {
+    "directory": "Portrait3.imageset",
+    "metadata": "catalog-Portrait3.imageset.json",
+    "images": {
+      "art.png": "Portrait3.png"
+    }
+  },
+  {
+    "directory": "Portrait30.imageset",
+    "metadata": "catalog-Portrait30.imageset.json",
+    "images": {
+      "art.png": "Portrait30.png"
+    }
+  },
+  {
+    "directory": "Portrait31.imageset",
+    "metadata": "catalog-Portrait31.imageset.json",
+    "images": {
+      "art.png": "Portrait31.png"
+    }
+  },
+  {
+    "directory": "Portrait32.imageset",
+    "metadata": "catalog-Portrait32.imageset.json",
+    "images": {
+      "art.png": "Portrait32.png"
+    }
+  },
+  {
+    "directory": "Portrait33.imageset",
+    "metadata": "catalog-Portrait33.imageset.json",
+    "images": {
+      "art.png": "Portrait33.png"
+    }
+  },
+  {
+    "directory": "Portrait34.imageset",
+    "metadata": "catalog-Portrait34.imageset.json",
+    "images": {
+      "art.png": "Portrait34.png"
+    }
+  },
+  {
+    "directory": "Portrait35.imageset",
+    "metadata": "catalog-Portrait35.imageset.json",
+    "images": {
+      "art.png": "Portrait35.png"
+    }
+  },
+  {
+    "directory": "Portrait36.imageset",
+    "metadata": "catalog-Portrait36.imageset.json",
+    "images": {
+      "art.png": "Portrait36.png"
+    }
+  },
+  {
+    "directory": "Portrait37.imageset",
+    "metadata": "catalog-Portrait37.imageset.json",
+    "images": {
+      "art.png": "Portrait37.png"
+    }
+  },
+  {
+    "directory": "Portrait38.imageset",
+    "metadata": "catalog-Portrait38.imageset.json",
+    "images": {
+      "art.png": "Portrait38.png"
+    }
+  },
+  {
+    "directory": "Portrait39.imageset",
+    "metadata": "catalog-Portrait39.imageset.json",
+    "images": {
+      "art.png": "Portrait39.png"
+    }
+  },
+  {
+    "directory": "Portrait4.imageset",
+    "metadata": "catalog-Portrait4.imageset.json",
+    "images": {
+      "art.png": "Portrait4.png"
+    }
+  },
+  {
+    "directory": "Portrait40.imageset",
+    "metadata": "catalog-Portrait40.imageset.json",
+    "images": {
+      "art.png": "Portrait40.png"
+    }
+  },
+  {
+    "directory": "Portrait41.imageset",
+    "metadata": "catalog-Portrait41.imageset.json",
+    "images": {
+      "art.png": "Portrait41.png"
+    }
+  },
+  {
+    "directory": "Portrait42.imageset",
+    "metadata": "catalog-Portrait42.imageset.json",
+    "images": {
+      "art.png": "Portrait42.png"
+    }
+  },
+  {
+    "directory": "Portrait43.imageset",
+    "metadata": "catalog-Portrait43.imageset.json",
+    "images": {
+      "art.png": "Portrait43.png"
+    }
+  },
+  {
+    "directory": "Portrait44.imageset",
+    "metadata": "catalog-Portrait44.imageset.json",
+    "images": {
+      "art.png": "Portrait44.png"
+    }
+  },
+  {
+    "directory": "Portrait45.imageset",
+    "metadata": "catalog-Portrait45.imageset.json",
+    "images": {
+      "art.png": "Portrait45.png"
+    }
+  },
+  {
+    "directory": "Portrait46.imageset",
+    "metadata": "catalog-Portrait46.imageset.json",
+    "images": {
+      "art.png": "Portrait46.png"
+    }
+  },
+  {
+    "directory": "Portrait47.imageset",
+    "metadata": "catalog-Portrait47.imageset.json",
+    "images": {
+      "art.png": "Portrait47.png"
+    }
+  },
+  {
+    "directory": "Portrait48.imageset",
+    "metadata": "catalog-Portrait48.imageset.json",
+    "images": {
+      "art.png": "Portrait48.png"
+    }
+  },
+  {
+    "directory": "Portrait49.imageset",
+    "metadata": "catalog-Portrait49.imageset.json",
+    "images": {
+      "art.png": "Portrait49.png"
+    }
+  },
+  {
+    "directory": "Portrait5.imageset",
+    "metadata": "catalog-Portrait5.imageset.json",
+    "images": {
+      "art.png": "Portrait5.png"
+    }
+  },
+  {
+    "directory": "Portrait50.imageset",
+    "metadata": "catalog-Portrait50.imageset.json",
+    "images": {
+      "art.png": "Portrait50.png"
+    }
+  },
+  {
+    "directory": "Portrait51.imageset",
+    "metadata": "catalog-Portrait51.imageset.json",
+    "images": {
+      "art.png": "Portrait51.png"
+    }
+  },
+  {
+    "directory": "Portrait52.imageset",
+    "metadata": "catalog-Portrait52.imageset.json",
+    "images": {
+      "art.png": "Portrait52.png"
+    }
+  },
+  {
+    "directory": "Portrait6.imageset",
+    "metadata": "catalog-Portrait6.imageset.json",
+    "images": {
+      "art.png": "Portrait6.png"
+    }
+  },
+  {
+    "directory": "Portrait7.imageset",
+    "metadata": "catalog-Portrait7.imageset.json",
+    "images": {
+      "art.png": "Portrait7.png"
+    }
+  },
+  {
+    "directory": "Portrait8.imageset",
+    "metadata": "catalog-Portrait8.imageset.json",
+    "images": {
+      "art.png": "Portrait8.png"
+    }
+  },
+  {
+    "directory": "Portrait9.imageset",
+    "metadata": "catalog-Portrait9.imageset.json",
+    "images": {
+      "art.png": "Portrait9.png"
+    }
+  },
+  {
+    "directory": "PostCover-AnimationCity.imageset",
+    "metadata": "catalog-PostCover-AnimationCity.imageset.json",
+    "images": {
+      "cover.jpg": "bibi-sky-chase.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-AnimationMountain.imageset",
+    "metadata": "catalog-PostCover-AnimationMountain.imageset.json",
+    "images": {
+      "cover.jpg": "bibi-forest-path.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-CharacterLines.imageset",
+    "metadata": "catalog-PostCover-CharacterLines.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-character-lines.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-DrawingSession.imageset",
+    "metadata": "catalog-PostCover-DrawingSession.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-drawing-session.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-WatercolorFlowers.imageset",
+    "metadata": "catalog-PostCover-WatercolorFlowers.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-watercolor-flowers.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PaintPalette.imageset",
+    "metadata": "catalog-PostCover-PaintPalette.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-paint-palette.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-SteampunkCostume.imageset",
+    "metadata": "catalog-PostCover-SteampunkCostume.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-steampunk-costume.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-CostumePattern.imageset",
+    "metadata": "catalog-PostCover-CostumePattern.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-costume-pattern.jpg"
+    }
+  },
+  {
+    "directory": "Avatar-LunaCosplay.imageset",
+    "metadata": "catalog-Avatar-LunaCosplay.imageset.json",
+    "images": {
+      "portrait.jpg": "Avatar-LunaCosplay.jpg"
+    }
+  },
+  {
+    "directory": "Avatar-KaiPortrait.imageset",
+    "metadata": "catalog-Avatar-KaiPortrait.imageset.json",
+    "images": {
+      "portrait.jpg": "Avatar-KaiPortrait.jpg"
+    }
+  },
+  {
+    "directory": "Avatar-MiraPortrait.imageset",
+    "metadata": "catalog-Avatar-MiraPortrait.imageset.json",
+    "images": {
+      "portrait.jpg": "Avatar-MiraPortrait.jpg"
+    }
+  },
+  {
+    "directory": "Avatar-NovaCosplay.imageset",
+    "metadata": "catalog-Avatar-NovaCosplay.imageset.json",
+    "images": {
+      "portrait.jpg": "Avatar-NovaCosplay.jpg"
+    }
+  },
+  {
+    "directory": "Profile-StarlightCard.imageset",
+    "metadata": "catalog-Profile-StarlightCard.imageset.json",
+    "images": {
+      "art.png": "Profile-StarlightCard.png"
+    }
+  },
+  {
+    "directory": "Filter-StarlightCapsule.imageset",
+    "metadata": "catalog-Filter-StarlightCapsule.imageset.json",
+    "images": {
+      "art.png": "Filter-StarlightCapsule.png"
+    }
+  },
+  {
+    "directory": "Avatar-TheoCosplay.imageset",
+    "metadata": "catalog-Avatar-TheoCosplay.imageset.json",
+    "images": {
+      "art.jpg": "Avatar-TheoCosplay.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-CosplayConvention.imageset",
+    "metadata": "catalog-PostCover-CosplayConvention.imageset.json",
+    "images": {
+      "art.jpg": "PostCover-CosplayConvention.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-CosplayGarden.imageset",
+    "metadata": "catalog-PostCover-CosplayGarden.imageset.json",
+    "images": {
+      "art.jpg": "PostCover-CosplayGarden.jpg"
+    }
+  },
+  {
+    "directory": "ChallengeCover-OrangeScarf.imageset",
+    "metadata": "catalog-ChallengeCover-OrangeScarf.imageset.json",
+    "images": {
+      "cover.jpg": "challenge-cover-orange-scarf.jpg"
+    }
+  },
+  {
+    "directory": "ChallengeCover-BlueCostume.imageset",
+    "metadata": "catalog-ChallengeCover-BlueCostume.imageset.json",
+    "images": {
+      "cover.jpg": "challenge-cover-blue-costume.jpg"
+    }
+  },
+  {
+    "directory": "ChallengeCover-GreenArmor.imageset",
+    "metadata": "catalog-ChallengeCover-GreenArmor.imageset.json",
+    "images": {
+      "cover.jpg": "challenge-cover-green-armor.jpg"
+    }
+  },
+  {
+    "directory": "ChallengeCover-WhiteFox.imageset",
+    "metadata": "catalog-ChallengeCover-WhiteFox.imageset.json",
+    "images": {
+      "cover.jpg": "challenge-cover-white-fox.jpg"
+    }
+  },
+  {
+    "directory": "ChallengeCover-GothicPair.imageset",
+    "metadata": "catalog-ChallengeCover-GothicPair.imageset.json",
+    "images": {
+      "cover.jpg": "challenge-cover-gothic-pair.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-RedHorns.imageset",
+    "metadata": "catalog-PostCover-RedHorns.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-red-horns.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PinkSuit.imageset",
+    "metadata": "catalog-PostCover-PinkSuit.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-pink-suit.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-MintHall.imageset",
+    "metadata": "catalog-PostCover-MintHall.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-mint-hall.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-RedBlackHair.imageset",
+    "metadata": "catalog-PostCover-RedBlackHair.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-red-black-hair.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-GreenHeadband.imageset",
+    "metadata": "catalog-PostCover-GreenHeadband.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-green-headband.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PurpleRibbon.imageset",
+    "metadata": "catalog-PostCover-PurpleRibbon.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-purple-ribbon.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PinkBows.imageset",
+    "metadata": "catalog-PostCover-PinkBows.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-pink-bows.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PinkBraids.imageset",
+    "metadata": "catalog-PostCover-PinkBraids.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-pink-braids.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PinkCape.imageset",
+    "metadata": "catalog-PostCover-PinkCape.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-pink-cape.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-PinkArmor.imageset",
+    "metadata": "catalog-PostCover-PinkArmor.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-pink-armor.jpg"
+    }
+  },
+  {
+    "directory": "PostCover-BlueBow.imageset",
+    "metadata": "catalog-PostCover-BlueBow.imageset.json",
+    "images": {
+      "cover.jpg": "post-cover-blue-bow.jpg"
+    }
+  }
+]
