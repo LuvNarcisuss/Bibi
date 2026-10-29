@@ -1,4 +1,4 @@
-"""Resolve pinned private Supabase Storage resources without reading retained local asset files."""
+"""Resolve pinned public Supabase Storage resources without reading retained local asset files."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
@@ -7,14 +7,12 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
-import os
 from urllib.parse import quote, urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "BibiApp/Configuration/RemoteAssets.json"
 CACHE = ROOT / "BibiApp/.generated/RemoteAssets"
-ORIGIN = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets"
-SERVICE_ROLE_ENV = "SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY"
+ORIGIN = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-build-assets"
 
 
 def load_manifest(path=MANIFEST):
@@ -47,15 +45,10 @@ def matches(path, record):
 
 
 def download(url, destination):
-    key = os.environ.get(SERVICE_ROLE_ENV)
-    if not key:
-        raise RuntimeError(f"{SERVICE_ROLE_ENV} is required to restore private Supabase build assets")
     result = subprocess.run([
         "/usr/bin/curl", "--fail", "--silent", "--show-error", "--location",
         "--proto", "=https", "--proto-redir", "=https", "--retry", "2",
         "--connect-timeout", "15", "--max-time", "180",
-        "--header", f"apikey: {key}",
-        "--header", f"Authorization: Bearer {key}",
         "--output", str(destination), url
     ], capture_output=True, text=True)
     if result.returncode:
