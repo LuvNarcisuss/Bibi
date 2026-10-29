@@ -42,9 +42,9 @@ targets:
         buildPhase: resources
       - path: ../Assets/ComicNeue-Regular.ttf
         buildPhase: resources
-      - path: ../Assets/PrivacyPolicy.html
+      - path: ../Assets/PrivacyPolicy.pdf
         buildPhase: resources
-      - path: ../Assets/TermsOfService.html
+      - path: ../Assets/TermsOfService.pdf
         buildPhase: resources
       - path: ../Assets/animation-catalog.json
         buildPhase: resources

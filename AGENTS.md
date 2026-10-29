@@ -12,6 +12,7 @@ The latest user request is the authority: maintain an anime-themed native iOS ap
 - Original generated raster icons and fictional anime artwork. Palette and composition live in BibiApp/Bibi/DesignSystem.
 - Product/scheme: Bibi. The user selected bundle com.bibi.quadratic on October 29, 2026; the selected team remains JPTS6M4T5B. Preserve these values and keep BibiApp/project.yml aligned with the Xcode project. Never replace user-selected account configuration with template values.
 - Preserve atomic persistence, stable IDs, moderation, relationship limits and private-media ownership. Legacy Codable keys are compatibility details.
+- Terms and Privacy use versioned public PDF files in Supabase Storage bucket `bibi-agreements`, with matching bundled PDF fallback. Do not restore Google document links. Keep source text, PDFs, provenance, resource references and consent versions aligned.
 - Normal online entry uses one-tap Supabase anonymous sign-in, selected on October 28, 2026. Preserve 18+ consent, secure session restoration, guest access-loss warnings and the disabled cutover gate.
 - Supabase project `yepycfnkkfrfmuwdekka` is provisioned. The single `BibiBackendEnabled` gate remains false until `BibiApp/Backend/RELEASE-CHECKLIST.md` is satisfied. Do not claim runtime verification, RTC, moderation staffing, or real store availability from code or deployment alone.
 - Shorts and circle posts must not offer diamond tipping. Extend diamond spending within existing features; do not introduce a shop or other new feature module for monetization.

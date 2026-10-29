@@ -65,7 +65,7 @@ All authored application and project content, including comments, explanations, 
 
 ## Agreements
 
-The consent and Settings screens open the user-provided [Terms of Service](https://docs.google.com/document/d/1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I) and [Privacy Policy](https://docs.google.com/document/d/1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c). Bundled English snapshots provide a Saved copy fallback for network or access failures. Snapshot provenance is in Assets/agreement-source-provenance.json. Cloud edits require resynchronizing the bundled snapshots. Connected-account readability was verified; anonymous access was not.
+The consent and Settings screens reference the public Supabase [Terms of Service PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/TermsOfService.pdf) and [Privacy Policy PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/PrivacyPolicy.pdf). Matching bundled PDFs provide offline fallback; online consent reads the pinned bundled copy. Public HTTP readback verified both documents as application/pdf with bytes identical to the bundled files. The seven canonical agreement files under Assets are tracked; other Assets remain ignored. Provenance is recorded in Assets/agreement-source-provenance.json. Publish future revisions under a new versioned path and update the bundled copies together.
 
 ## Backend integration
 

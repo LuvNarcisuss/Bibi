@@ -1,0 +1,24 @@
+[
+  {
+    "document": "TermsOfService",
+    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/TermsOfService.pdf",
+    "publishedOn": "2026-10-29",
+    "sourceTextSHA256": "7fbecbfde20f029e9adedacbb21f96866fa3d433a3c7b8ebb6e92f1cf13d8ed3",
+    "bundledHTMLSHA256": "fba22f45ff1d072ea9e6136a4f74f244cbf06ce11b3ee6f2152eb0d7025abceb",
+    "bundledPDFSHA256": "8bb84fad744dcca32079a592ad410bd2cced3b3181a174909639840737d8f5e3",
+    "pdfBytes": 12260,
+    "anonymousAccessVerified": true,
+    "processing": "Existing local agreement text converted to PDF. Hosting disclosures now describe Supabase Storage. Other legal clauses were not substantively revised. Operator identity and contact email remain pending. PDF pages visually reviewed; complete extracted text matches source. Public readback matches bundled bytes."
+  },
+  {
+    "document": "PrivacyPolicy",
+    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/PrivacyPolicy.pdf",
+    "publishedOn": "2026-10-29",
+    "sourceTextSHA256": "fad414c54ddcb376b7cbfa95ffc7d2487d2d2e2f05f1d05a5d6d04b3834995fc",
+    "bundledHTMLSHA256": "72b238564e57a71b3ac4bcf8157f3f56a8a68c0b79b194b8454f26b7fe711207",
+    "bundledPDFSHA256": "86b8e6aaf036b25875fd9cf35fd590b506209443b6e4c3ca6e81249203fb3829",
+    "pdfBytes": 13650,
+    "anonymousAccessVerified": true,
+    "processing": "Existing local agreement text converted to PDF. Hosting disclosures now describe Supabase Storage. Other legal clauses were not substantively revised. Operator identity and contact email remain pending. PDF pages visually reviewed; complete extracted text matches source. Public readback matches bundled bytes."
+  }
+]

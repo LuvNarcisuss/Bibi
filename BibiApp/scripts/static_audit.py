@@ -34,7 +34,7 @@ check(not re.search(r'import SwiftUI|UIHostingController|UIImage\(systemName:',a
 check(not list(SOURCE.rglob('*.m')),'No Objective-C source')
 check('savedDemoVideoIDs' in alltext and 'var isDance: Bool?' in alltext,'Legacy serialized fields retained')
 agreement=(SOURCE/'Features/Authentication/UserAgreement.swift').read_text()
-check(all(identifier in agreement for identifier in ['1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I','1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c']) and 'var fileURL' in agreement,'User-provided Bibi agreement URLs and bundled fallback')
+check('https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/' in agreement and 'withExtension: "pdf"' in agreement and 'docs.google.com' not in agreement, 'Supabase PDF agreement URLs and bundled PDF fallback')
 check(not re.search(r'hoewtkchclzkuruf|qbfuucwaccetjljs|com\.teto\.dance|18781461148|1PBHnF3UNjCBkEuzOyETCUOWgMEz4eiPfGj_PooGJM4c|1BGNLMpwOFa8_6Fz3S4zv9xkKELYTBEx3KXi3DLVBSj0',alltext),'No inherited account/product/protocol endpoints in Swift')
 app=(SOURCE/'App/BibiApplication.swift').read_text()
 account_chat_source=(SOURCE/'Features/Chats/ChatModels.swift').read_text()
@@ -107,6 +107,14 @@ entry_refresh=entry_source.split('override func refresh()')[1]
 check(entry_refresh.index('content.addArrangedSubview(mark)') < entry_refresh.index('NSLayoutConstraint.activate(['),'Entry logo joins the content hierarchy before cross-view constraint activation')
 for filename in ['TermsOfService','PrivacyPolicy']:
  s=(ASSETS/(filename+'.html')).read_text();check('Bibi' in s and 'Teto' not in s,'Agreement '+filename)
+ check((ASSETS/(filename+'.pdf')).read_bytes().startswith(b'%PDF-'), 'Bundled PDF header '+filename)
+ record=next(item for item in json.loads((ASSETS/'agreement-source-provenance.json').read_text()) if item['document']==filename)
+ check(hashlib.sha256((ASSETS/(filename+'.pdf')).read_bytes()).hexdigest()==record['bundledPDFSHA256'], 'Bundled PDF matches publication hash '+filename)
+ check(hashlib.sha256((ASSETS/('agreement-source-'+filename+'.txt')).read_bytes()).hexdigest()==record['sourceTextSHA256'], 'Agreement source matches provenance '+filename)
+ check(filename+'.pdf in Resources' in (ROOT/'Bibi.xcodeproj/project.pbxproj').read_text(), 'Agreement PDF included in resource phase '+filename)
+check('url.path == onlineURL.path' in agreement and 'url.query == nil' in agreement, 'Agreement reader restricts exact versioned PDF navigation')
+check('response.response.mimeType?.lowercased() != "application/pdf"' in app, 'Agreement reader rejects non-PDF responses')
+
 scheme_directory=ROOT/'Bibi.xcodeproj/xcshareddata/xcschemes'
 for name in ['Bibi', 'BibiPurchases']:
  reference=ET.parse(scheme_directory/(name+'.xcscheme')).find('LaunchAction/StoreKitConfigurationFileReference')

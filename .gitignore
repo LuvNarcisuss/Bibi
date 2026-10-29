@@ -7,7 +7,16 @@ BibiApp/.generated/
 !BibiApp/Bibi.xcodeproj/xcshareddata/
 !BibiApp/Bibi.xcodeproj/xcshareddata/xcschemes/
 !BibiApp/Bibi.xcodeproj/xcshareddata/xcschemes/Bibi.xcscheme
-/Assets/
+/Assets/*
+
+# Keep the canonical agreements and their PDF publication record in source control.
+!/Assets/TermsOfService.pdf
+!/Assets/PrivacyPolicy.pdf
+!/Assets/TermsOfService.html
+!/Assets/PrivacyPolicy.html
+!/Assets/agreement-source-TermsOfService.txt
+!/Assets/agreement-source-PrivacyPolicy.txt
+!/Assets/agreement-source-provenance.json
 
 # Keep dependency resolution reproducible without adding generated workspace state.
 !BibiApp/Bibi.xcodeproj/project.xcworkspace/

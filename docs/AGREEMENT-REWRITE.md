@@ -1,5 +1,9 @@
 # Bibi agreement rewrite
 
+Historical record: agreement delivery below was superseded on October 29, 2026.
+Current agreements use public Supabase PDFs and matching bundled PDF fallback.
+See IMPLEMENTATION.md for the active delivery and verification record.
+
 Date: October 27, 2026 (Asia/Shanghai).
 
 The owner requested a more specific and accurate English Terms of Service and Privacy Policy, based on the existing agreements and actual app behavior. The two existing Google Docs were rewritten in place through the Google Drive plugin. The contact email is intentionally blank. The operator's legal identity was not supplied and is also blank; both documents explicitly remain drafts.

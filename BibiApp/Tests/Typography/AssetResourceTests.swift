@@ -1,4 +1,5 @@
 import AVFoundation
+import PDFKit
 import UIKit
 import XCTest
 @testable import Bibi
@@ -69,13 +70,17 @@ final class AssetResourceTests: XCTestCase {
     }
   }
 
-  func testAgreementFallbackReadsFlatHTML() throws {
+  func testAgreementFallbackReadsBundledPDF() throws {
     for document in AgreementDocument.allCases {
       let url = try XCTUnwrap(document.fileURL)
       XCTAssertEqual(url.deletingLastPathComponent(), Bundle.main.bundleURL)
-      let html = try String(contentsOf: url, encoding: .utf8)
-      XCTAssertTrue(html.contains("Bibi"))
-      XCTAssertTrue(html.contains("</html>"))
+      XCTAssertEqual(url.pathExtension, "pdf")
+      let pdf = try XCTUnwrap(PDFDocument(url: url))
+      XCTAssertGreaterThan(pdf.pageCount, 0)
+      XCTAssertTrue(try XCTUnwrap(pdf.string).contains("Bibi"))
+      XCTAssertEqual(document.readerURL, document.onlineURL)
+      XCTAssertTrue(document.allowsOnlineNavigation(to: document.onlineURL))
+      XCTAssertFalse(document.allowsOnlineNavigation(to: document.onlineURL.appendingPathComponent("other.pdf")))
     }
     XCTAssertTrue(BibiUserAgreement.version.hasPrefix("local-"))
   }

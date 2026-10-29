@@ -760,20 +760,6 @@ final class AgreementController: BibiScreen, WKNavigationDelegate {
   override func build() {
     let configuration = WKWebViewConfiguration()
     configuration.websiteDataStore = .nonPersistent()
-    // Style only the bundled copy, preserving agreement bytes and acceptance versions.
-    let typography = WKUserScript(source: """
-      if (window.location.protocol === 'file:') {
-        const style = document.createElement('style');
-        style.textContent = `
-          @font-face { font-family: BibiReading; src: url('ComicNeue-Regular.ttf'); font-weight: 400; }
-          @font-face { font-family: BibiHeading; src: url('Kalam-Bold.ttf'); font-weight: 700; }
-          body { font-family: BibiReading; }
-          h1, h2, h3, h4, h5, h6 { font-family: BibiHeading; font-weight: 700; }
-        `;
-        document.head.appendChild(style);
-      }
-      """, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-    configuration.userContentController.addUserScript(typography)
     let web = WKWebView(frame: .zero, configuration: configuration)
     web.navigationDelegate = self
     view.addSubview(web)
@@ -831,7 +817,8 @@ final class AgreementController: BibiScreen, WKNavigationDelegate {
   func webView(_ webView: WKWebView, decidePolicyFor response: WKNavigationResponse,
                decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
     if response.isForMainFrame,
-       (!response.canShowMIMEType || (response.response as? HTTPURLResponse).map({ $0.statusCode >= 400 }) == true) {
+       (!response.canShowMIMEType || response.response.mimeType?.lowercased() != "application/pdf"
+        || (response.response as? HTTPURLResponse).map({ $0.statusCode >= 400 }) == true) {
       decisionHandler(.cancel)
       showSavedCopy(in: webView)
       return
@@ -841,16 +828,8 @@ final class AgreementController: BibiScreen, WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     loadTimeout?.cancel()
     loading.stopAnimating()
-    guard !showingSavedCopy else { return }
-    // Google may return an access-denied page with HTTP 200.
-    webView.evaluateJavaScript("document.body ? document.body.innerText.slice(0, 1000) : ''") { [weak self, weak webView] result, _ in
-      guard let self, let webView, !self.showingSavedCopy, let text = result as? String else { return }
-      let blocked = ["you need access", "you need permission", "request access", "access denied", "unable to load file", "file you have requested does not exist"]
-      if blocked.contains(where: { text.lowercased().contains($0) }) {
-        self.showSavedCopy(in: webView)
-      }
-    }
   }
+
   func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
     handleFailure(error, in: webView)
   }

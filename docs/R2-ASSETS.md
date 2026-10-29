@@ -1,5 +1,9 @@
 # R2 resources and local agreements
 
+Historical record: agreement delivery below was superseded on October 29, 2026.
+Current agreements use public Supabase PDFs and matching bundled PDF fallback.
+See IMPLEMENTATION.md for the active delivery and verification record.
+
 Date: October 27, 2026. Repository paths below are relative to the root.
 
 ## Resource delivery

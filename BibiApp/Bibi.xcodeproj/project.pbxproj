@@ -34,6 +34,7 @@
 		3138D5D91DDD13B826AE3FE4 /* ArtworkCreditsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377E5A3C9976DE98C906A89 /* ArtworkCreditsController.swift */; };
 		34B1943AD199EABC2CDD1974 /* ProfileControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7511807A410A9A3C4ECF12DC /* ProfileControllers.swift */; };
 		35F47DF2B422B9D6BAC0A5E0 /* CreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4312ECC428BFDD6F96CC1 /* CreationController.swift */; };
+		3DD1BBDF2921AD60E07BE25E /* PrivacyPolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FDB03663177E2A2A437C26BB /* PrivacyPolicy.pdf */; };
 		3F474C1A2B1C7123BE6F5491 /* bibi-glowing-staff.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C6137BFBB7BACCCC460AD740 /* bibi-glowing-staff.mp4 */; };
 		411E700107BF04E26C30B0E7 /* BackendServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E730450B528D87DFD03250F /* BackendServices.swift */; };
 		4153C3ECD4D0A8E229467EFE /* runtime-asset-inventory.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB4DF8E611F467B436216 /* runtime-asset-inventory.json */; };
@@ -64,7 +65,6 @@
 		75F1EF82886ACC189422C131 /* BackendModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305B9AAE96FF4EC54E708B0 /* BackendModels.swift */; };
 		7855AA07EDC0BAFE2F0D7656 /* CreatorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19959F5C8002F554380E4B8 /* CreatorProfile.swift */; };
 		78EAFAD0BD8F68D703C50F36 /* CallCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426F2E8FE2E96ADADE8E0FA /* CallCameraController.swift */; };
-		7C8BBF4B42D7DC259294A599 /* TermsOfService.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BF410369185591125BE31D8 /* TermsOfService.html */; };
 		7EC8C2D719028066A6E12325 /* saved-gold-kimono.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 97E5E6E3DC476D6BFF5786E7 /* saved-gold-kimono.mp4 */; };
 		800A8D71F0E79225F1A2C9BC /* bibi-shared-light.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0C4F525D92EA918E1DC92C54 /* bibi-shared-light.mp4 */; };
 		80184C45F6F3E479D7751775 /* CommunityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96019415BFC42E5FD9E570E6 /* CommunityModels.swift */; };
@@ -87,6 +87,7 @@
 		A6EDCD1DED98F942CD9D6F9B /* bibi-shared-light.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28C918603927E01ACD4A551A /* bibi-shared-light.jpg */; };
 		A7B50A9FE66A49259501073B /* bibi-forest-guardian.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6FBA37A5D9823490C15B7F51 /* bibi-forest-guardian.mp4 */; };
 		AB7F85B2C6059A5E98A7A360 /* BibiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1001D22F98D1E8E1CC052940 /* BibiConfiguration.swift */; };
+		ACB92725C61B8D65FB5B7407 /* TermsOfService.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1323862E2BFC2A2F6D35C329 /* TermsOfService.pdf */; };
 		B0DD089B6337D23655D1B195 /* bibi-cosplay-convention.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EFEE45EA1A091929D09DF61C /* bibi-cosplay-convention.mp4 */; };
 		B177B9A3223A34182B1D8E94 /* saved-pink-wig.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 68CD235C0A9FB3BE492310AB /* saved-pink-wig.mp4 */; };
 		B8767C786F39FEA403481686 /* ShortsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2640D6FD56ED69384A68B /* ShortsHomeController.swift */; };
@@ -119,7 +120,6 @@
 		E371835F648D4B6D65A693E0 /* WalletStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083AB44BFF95B41F525F55C /* WalletStore.swift */; };
 		E59EBB04530EC39B5D6F5DB1 /* CommunityControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763310F31001995FDF56C4FD /* CommunityControllers.swift */; };
 		E5D3DC13AA312A35A7842D13 /* LocalVideoPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ADB7CD65AF09F242F09D21 /* LocalVideoPlayback.swift */; };
-		E719189A9E738742C0E37F0D /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5368E41D6F5FAE7AC72BB621 /* PrivacyPolicy.html */; };
 		EDE5228AF9AED010299A8300 /* OnlineWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C357F5D38689A066B1919AD /* OnlineWallet.swift */; };
 		EE0B35F7EB449AA7788A5A49 /* UserAgreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CF52773DE7560A1BA6302 /* UserAgreement.swift */; };
 		F4100068923EE746989D8BA9 /* animation-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = B7ACEDB9F0ACE841836C2C03 /* animation-catalog.json */; };
@@ -176,6 +176,7 @@
 		1001D22F98D1E8E1CC052940 /* BibiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibiConfiguration.swift; sourceTree = "<group>"; };
 		108CF52773DE7560A1BA6302 /* UserAgreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreement.swift; sourceTree = "<group>"; };
 		12CB0F35A8B6083ADB269683 /* bibi-forest-path.mp4 */ = {isa = PBXFileReference; path = "bibi-forest-path.mp4"; sourceTree = "<group>"; };
+		1323862E2BFC2A2F6D35C329 /* TermsOfService.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TermsOfService.pdf; sourceTree = "<group>"; };
 		13ADB7CD65AF09F242F09D21 /* LocalVideoPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoPlayback.swift; sourceTree = "<group>"; };
 		1ACFB4DF8E611F467B436216 /* runtime-asset-inventory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "runtime-asset-inventory.json"; sourceTree = "<group>"; };
 		1AD444C6CC6529FA66673B74 /* ComicNeue-OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ComicNeue-OFL.txt"; sourceTree = "<group>"; };
@@ -204,11 +205,9 @@
 		4E730450B528D87DFD03250F /* BackendServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendServices.swift; sourceTree = "<group>"; };
 		4E767C0390F0C6EB01B00D46 /* ShortsInteractionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsInteractionStore.swift; sourceTree = "<group>"; };
 		51F6C15E7C6C2F9E3F3E4156 /* bibi-cosplay-garden.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-cosplay-garden.jpg"; sourceTree = "<group>"; };
-		5368E41D6F5FAE7AC72BB621 /* PrivacyPolicy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
 		53BB8569A22A5F4EB782DE9B /* VideoRecommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecommendations.swift; sourceTree = "<group>"; };
 		58B924B2DB4159E995027243 /* bibi-little-companion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-little-companion.jpg"; sourceTree = "<group>"; };
 		5ABA7230C7169AFAB2BC1306 /* DancePhraseCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancePhraseCatalog.swift; sourceTree = "<group>"; };
-		5BF410369185591125BE31D8 /* TermsOfService.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TermsOfService.html; sourceTree = "<group>"; };
 		5E3148DA6B68E8238A8F0F97 /* BackendSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendSync.swift; sourceTree = "<group>"; };
 		61546077D9967A615A851C3A /* bibi-sky-chase.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-sky-chase.jpg"; sourceTree = "<group>"; };
 		62BE9EF254AA949E5738C1FA /* bibi-moonlit-mist.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bibi-moonlit-mist.jpg"; sourceTree = "<group>"; };
@@ -294,6 +293,7 @@
 		F83A3E3C24D8F7750264A224 /* ShortsPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsPlayback.swift; sourceTree = "<group>"; };
 		F9E4312ECC428BFDD6F96CC1 /* CreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationController.swift; sourceTree = "<group>"; };
 		FA5EB6B1196416406C5EA97A /* VideoFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFeedController.swift; sourceTree = "<group>"; };
+		FDB03663177E2A2A437C26BB /* PrivacyPolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrivacyPolicy.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,7 +381,7 @@
 				30B137A854650ADDC9DA8F91 /* ComicNeue-Regular.ttf */,
 				A39566519A38742B7EA5FC07 /* Kalam-Bold.ttf */,
 				3BB802695451F0FF635B4BFA /* Kalam-OFL.txt */,
-				5368E41D6F5FAE7AC72BB621 /* PrivacyPolicy.html */,
+				FDB03663177E2A2A437C26BB /* PrivacyPolicy.pdf */,
 				1ACFB4DF8E611F467B436216 /* runtime-asset-inventory.json */,
 				2FD4C912D5A86FF607650C38 /* saved-chainsaw-mask.jpg */,
 				B868F9081751C7F2D322DF65 /* saved-chainsaw-mask.mp4 */,
@@ -391,7 +391,7 @@
 				68CD235C0A9FB3BE492310AB /* saved-pink-wig.mp4 */,
 				74E4A1466B435C64A84F8320 /* saved-red-robe.jpg */,
 				66360E614F1054DFF26FC6B4 /* saved-red-robe.mp4 */,
-				5BF410369185591125BE31D8 /* TermsOfService.html */,
+				1323862E2BFC2A2F6D35C329 /* TermsOfService.pdf */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -863,8 +863,8 @@
 				F81A390DA3B22DBEB417B69A /* Kalam-Bold.ttf in Resources */,
 				4EC4E70DAF64FAA37F0277C1 /* Kalam-OFL.txt in Resources */,
 				172AE1F4BE4D3CA630C60FD2 /* LaunchScreen.storyboard in Resources */,
-				E719189A9E738742C0E37F0D /* PrivacyPolicy.html in Resources */,
-				7C8BBF4B42D7DC259294A599 /* TermsOfService.html in Resources */,
+				3DD1BBDF2921AD60E07BE25E /* PrivacyPolicy.pdf in Resources */,
+				ACB92725C61B8D65FB5B7407 /* TermsOfService.pdf in Resources */,
 				F4100068923EE746989D8BA9 /* animation-catalog.json in Resources */,
 				1B95A9F3AE29DB24D98D5F1D /* bibi-amber-city.jpg in Resources */,
 				0C9AE630F6B210EBE885D99D /* bibi-amber-city.mp4 in Resources */,
@@ -1150,7 +1150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1190,7 +1190,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

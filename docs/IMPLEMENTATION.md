@@ -1,5 +1,35 @@
 # Bibi implementation record
 
+## Supabase PDF agreements — October 29, 2026
+
+Terms and Privacy now use versioned public PDFs in Supabase Storage bucket
+`bibi-agreements`, under `2026-10-29/TermsOfService.pdf` and
+`2026-10-29/PrivacyPolicy.pdf`. The owner explicitly authorized public access.
+Both anonymous HTTPS downloads returned HTTP 200 and application/pdf; remote
+bytes match the bundled files. The dedicated bucket accepts PDFs up to 2 MB.
+Existing private media buckets and client write policies were not changed.
+
+The shared consent/Settings reader references the Supabase PDF directly, accepts
+only the selected HTTPS host/path and PDF responses, and uses the matching bundled
+PDF after network failure. Online consent retains the existing bundled-first
+behavior. Acceptance versions hash the versioned URLs and PDF bytes. Google
+document URLs and preview/access-page detection are removed from runtime code.
+XcodeGen regenerated the resource phase with the two PDFs instead of HTML.
+
+The English source text, PDF files, retained HTML source copies and publication
+provenance are tracked exceptions to the Assets ignore rule. The hosting/privacy
+disclosures now identify Supabase. Other legal clauses were not substantively
+revised; missing operator identity/contact details remain release dependencies.
+The root Agreements directory and older Google/HTML delivery reports are
+historical and do not describe current runtime delivery.
+
+Verification: 553 static source/configuration/resource checks passed; complete
+extracted PDF text matches the sources and all nine pages were visually inspected.
+Public download receipts and a PDF contact sheet are in
+`BibiApp/Design/AgreementPDF/`. No build, typecheck, app launch, simulator, preview
+or runtime tests were run. The backend gate remains false.
+
+
 ## Bundle identity replacement — October 29, 2026
 
 The owner selected `com.bibi.quadratic`, superseding the automatically generated

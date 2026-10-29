@@ -12,22 +12,17 @@ enum AgreementDocument: String, Identifiable, CaseIterable {
     var id: String { rawValue }
     var title: String { self == .terms ? "Bibi - Terms of Service" : "Bibi - Privacy Policy" }
     var onlineURL: URL {
-        let documentID = self == .terms
-            ? "1Ht9y4vdWhBqBMEWh-TyDDkoelD4ovlfqnayIwr-b_4I"
-            : "1tdj2Xd4VnOVLbFCgk-k65m8ONo3obRoFT1xddWTtY5c"
-        return URL(string: "https://docs.google.com/document/d/\(documentID)")!
+        let base = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/"
+        return URL(string: base + rawValue + ".pdf")!
     }
-    var readerURL: URL {
-        var components = URLComponents(url: onlineURL.appendingPathComponent("preview"), resolvingAgainstBaseURL: false)!
-        components.queryItems = [URLQueryItem(name: "hl", value: "en")]
-        return components.url!
-    }
+    var readerURL: URL { onlineURL }
     func allowsOnlineNavigation(to url: URL) -> Bool {
         url.scheme == "https" && url.host == onlineURL.host
-            && Array(url.pathComponents.prefix(4)) == onlineURL.pathComponents
+            && url.port == nil && url.path == onlineURL.path
+            && url.query == nil && url.user == nil && url.password == nil
     }
     var fileURL: URL? {
-        Bundle.main.url(forResource: rawValue, withExtension: "html")
+        Bundle.main.url(forResource: rawValue, withExtension: "pdf")
     }
 }
 

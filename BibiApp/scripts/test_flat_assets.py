@@ -84,7 +84,7 @@ class FlatAssetTests(unittest.TestCase):
         for filename in ["hero.mp4", "spring.mp4", "review-contact-1.jpg", "generated-welcome.png"]:
             self.assertNotIn(filename + " in Resources", project)
         for filename in ["animation-catalog.json", "Kalam-Bold.ttf", "ComicNeue-Regular.ttf",
-                         "TermsOfService.html", "PrivacyPolicy.html", "runtime-asset-inventory.json"]:
+                         "TermsOfService.pdf", "PrivacyPolicy.pdf", "runtime-asset-inventory.json"]:
             self.assertIn(filename + " in Resources", project)
         self.assertNotIn("path = Agreements;", project)
         self.assertNotIn("path = AnimationMedia;", project)

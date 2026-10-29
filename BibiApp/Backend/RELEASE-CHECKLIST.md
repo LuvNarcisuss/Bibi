@@ -26,7 +26,7 @@ Apple server keys and the remaining release dependencies are still pending.
 - [ ] Review and publish the online service/privacy wording, legal operator
   identity and support contact. Existing bundled documents describe the local
   app; both currently state 18+, but they are not an approved description of
-  the online backend. No Google document was changed by this integration.
+  the online backend. Agreements now use Supabase-hosted PDFs; the hosting migration did not revise other legal clauses.
   Refresh the bundled snapshots/provenance and consent version before enabling
   online registration. The online reader uses those exact bundled snapshots.
 
