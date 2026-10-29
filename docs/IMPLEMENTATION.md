@@ -7,8 +7,9 @@ Codemagic now restores the 397-file CI snapshot from the private
 selects the `bibi_build_assets` environment group and requires its
 `SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY` secret. `upload_ci_resources.py` is the
 trusted one-time uploader; user-owned `bibi-images` and `bibi-videos` remain
-separate. The bucket exists remotely, but it currently contains no objects, so the
-one-time upload and cloud build remain pending.
+separate. The bucket exists remotely and contains all 319 build resources after
+the owner-authorized dashboard upload. The Codemagic secret and cloud build
+remain pending.
 
 ## Original agreement URLs retained — October 29, 2026
 

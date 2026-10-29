@@ -3,8 +3,8 @@
 The remote origin is now the private Supabase Storage bucket
 `bibi-build-assets`. The one-time upload uses
 `SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`; Codemagic restores with the same
-secret. The bucket was created on October 29, 2026 and currently has no objects,
-so the upload must precede the first cloud build.
+secret. The bucket was created on October 29, 2026 and now contains all 319
+build resources.
 
 ## Failure
 

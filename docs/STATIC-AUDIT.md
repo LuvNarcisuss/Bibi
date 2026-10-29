@@ -5,8 +5,9 @@
 The private `bibi-build-assets` bucket exists in Supabase and the workflow selects
 the `bibi_build_assets` Codemagic environment group. Resource URLs and integrity
 metadata now target Supabase Storage; restoration requires the
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY` secret. The bucket currently has zero
-objects, so upload and cloud execution are not yet verified.
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY` secret. The bucket now contains 319
+objects matching the build-resource count; the Codemagic secret and cloud
+execution are not yet verified.
 
 ## Original agreement URLs retained — October 29, 2026
 
