@@ -1,9 +1,8 @@
 # CI resource restoration
 
-The remote origin is now the private Supabase Storage bucket
-`bibi-build-assets`. The one-time upload uses
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`; Codemagic restores with the same
-secret. The bucket was created on October 29, 2026 and now contains all 319
+The remote origin is now the public Supabase Storage bucket
+`bibi-build-assets`. Codemagic restores pinned objects over HTTPS without a
+credential. The bucket was created on October 29, 2026 and now contains all 319
 build resources.
 
 ## Failure
@@ -19,7 +18,7 @@ BibiApp/Configuration/CIResources.json pins every required file's flat name,
 byte size, SHA-256 and source. Its 397 records are derived from the current asset
 catalog index and the explicit Assets resource entries in project.yml.
 
-- 309 unchanged resources are restored from the private Supabase Storage `bibi-build-assets` bucket, using the
+- 309 unchanged resources are restored from the public Supabase Storage `bibi-build-assets` bucket, using the
   already-pinned URLs/hashes in RemoteAssets.json.
 - 88 current files are Git-owned because they are new, changed, or have no matching
   remote revision. These include the asset index, current branding, newer media,
