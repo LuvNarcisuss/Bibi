@@ -1078,7 +1078,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.backend-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.backend-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
@@ -1095,7 +1095,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.typography-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.typography-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
@@ -1112,7 +1112,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.purchase-ui-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.purchase-ui-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bibi;
@@ -1129,7 +1129,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.typography-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.typography-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
@@ -1150,7 +1150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic";
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1169,7 +1169,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.ui-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.ui-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bibi;
@@ -1190,7 +1190,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic";
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1209,7 +1209,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.purchase-ui-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.purchase-ui-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bibi;
@@ -1288,7 +1288,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.backend-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.backend-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
@@ -1374,7 +1374,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.seex.sao2-neiku-30.ui-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.ui-tests";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bibi;

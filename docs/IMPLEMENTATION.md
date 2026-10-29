@@ -1,5 +1,29 @@
 # Bibi implementation record
 
+## Bundle identity replacement — October 29, 2026
+
+The owner selected `com.bibi.quadratic`, superseding the automatically generated
+identifier `im.seex.bibi.cdf0e231` and replacing
+`im.seex.sao2-neiku-30`. The generation specification, Debug/Release project settings,
+four test target identities, authentication URL type name, local Apple purchase
+verification source and identity audit expectations use the new identifier.
+The signing team `JPTS6M4T5B`, schemes, application name, nine product IDs and
+`BibiBackendEnabled=false` are preserved.
+
+The Keychain service string retains the previous namespace as a storage
+compatibility identifier. The callback/recovery URL scheme remains `bibi`.
+Historical acceptance reports retain the identity of the binary actually checked.
+No installed app or private state was modified. A new Bundle ID uses a separate
+application container; this change does not migrate existing device data or
+guarantee access to the previous application's Keychain access group.
+
+Apple registration, signing, store product availability and cloud redeployment
+remain pending; see `BibiApp/Backend/RELEASE-CHECKLIST.md`. Verification for this
+revision passed 543 static source/configuration/resource checks, plist/project
+syntax inspection and whitespace inspection. No build,
+typecheck, installation, launch, simulator, preview or runtime tests were run.
+
+
 ## Entry constraint hierarchy fix — October 29, 2026
 
 The new logo container now joins the entry content stack before its cross-view

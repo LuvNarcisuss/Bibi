@@ -101,3 +101,17 @@ complete the broader online, failure-state, keyboard or VoiceOver checks above.
 These source changes have no deployment receipt or database execution evidence.
 The backend gate remains false. Historical gift-success acceptance is superseded
 by gift-retirement acceptance; historical wallet records must remain readable.
+
+## Bundle identity replacement — October 29, 2026
+
+- [ ] Register `com.bibi.quadratic` with the selected Apple team and configure signing.
+- [ ] Associate and validate the existing nine product IDs with the intended new
+  App Store application; product identifiers in source remain unchanged.
+- [ ] Redeploy functions that import `_shared/apple.ts` before enabling online
+  purchases; local verification source now expects `com.bibi.quadratic`, while
+  the deployed revision has not been updated by this identity change.
+- [ ] Configure the matching Apple application ID and server credentials for the
+  new application before purchase acceptance.
+
+The backend gate remains disabled. No cloud configuration, Apple registration,
+installed application or private data was changed during this replacement.

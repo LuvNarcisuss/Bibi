@@ -2,7 +2,7 @@ import { Buffer } from "node:buffer";
 import { AppStoreServerAPIClient, Environment, SignedDataVerifier } from "npm:@apple/app-store-server-library@3.1.0";
 import { HTTPError } from "./http.ts";
 
-const bundle = "im.seex.sao2-neiku-30";
+const bundle = "com.bibi.quadratic";
 export function apple(environment: unknown) {
   const allowed = (Deno.env.get("APPLE_ALLOWED_ENVIRONMENTS") ?? "").split(",");
   if ((environment !== "Production" && environment !== "Sandbox") || !allowed.includes(environment)) {

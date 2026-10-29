@@ -149,7 +149,7 @@ targets:
       base:
         ENABLE_USER_SCRIPT_SANDBOXING: NO
         PRODUCT_NAME: Bibi
-        PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30
+        PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic
         DEVELOPMENT_TEAM: JPTS6M4T5B
         INFOPLIST_FILE: Bibi/Support/Info.plist
         GENERATE_INFOPLIST_FILE: false
@@ -167,7 +167,7 @@ targets:
       - target: Bibi
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30.backend-tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic.backend-tests
         GENERATE_INFOPLIST_FILE: true
   BibiTypographyTests:
     type: bundle.unit-test
@@ -178,7 +178,7 @@ targets:
       - target: Bibi
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30.typography-tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic.typography-tests
         GENERATE_INFOPLIST_FILE: true
   BibiUITests:
     type: bundle.ui-testing
@@ -189,7 +189,7 @@ targets:
       - target: Bibi
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30.ui-tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic.ui-tests
         GENERATE_INFOPLIST_FILE: true
         TEST_TARGET_NAME: Bibi
   BibiPurchaseUITests:
@@ -203,7 +203,7 @@ targets:
       - target: Bibi
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30.purchase-ui-tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic.purchase-ui-tests
         GENERATE_INFOPLIST_FILE: true
         TEST_TARGET_NAME: Bibi
 schemes:

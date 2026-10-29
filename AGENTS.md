@@ -10,7 +10,7 @@ The latest user request is the authority: maintain an anime-themed native iOS ap
 - All authored project content must be English: application text, identifiers, filenames, code comments, explanations, documentation, scripts, asset text, and commit messages. Only conversational replies to the user use Chinese. This rule also applies to copied reference documents; historical language exceptions do not apply.
 - Do not label the product as a demo or mock.
 - Original generated raster icons and fictional anime artwork. Palette and composition live in BibiApp/Bibi/DesignSystem.
-- Product/scheme: Bibi. The user selected bundle im.seex.sao2-neiku-30 and team JPTS6M4T5B on October 26, 2026. Preserve these values and keep BibiApp/project.yml aligned with the Xcode project. Never replace user-selected account configuration with template values.
+- Product/scheme: Bibi. The user selected bundle com.bibi.quadratic on October 29, 2026; the selected team remains JPTS6M4T5B. Preserve these values and keep BibiApp/project.yml aligned with the Xcode project. Never replace user-selected account configuration with template values.
 - Preserve atomic persistence, stable IDs, moderation, relationship limits and private-media ownership. Legacy Codable keys are compatibility details.
 - Normal online entry uses one-tap Supabase anonymous sign-in, selected on October 28, 2026. Preserve 18+ consent, secure session restoration, guest access-loss warnings and the disabled cutover gate.
 - Supabase project `yepycfnkkfrfmuwdekka` is provisioned. The single `BibiBackendEnabled` gate remains false until `BibiApp/Backend/RELEASE-CHECKLIST.md` is satisfied. Do not claim runtime verification, RTC, moderation staffing, or real store availability from code or deployment alone.

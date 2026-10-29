@@ -120,10 +120,10 @@ product_sql = (ROOT/'Backend/schema.sql').read_text() + (ROOT/'Backend/wallet-pr
 server_products = {product: int(amount) for product, amount in re.findall(r"\('([a-z]+)',\s*(\d+)\)", product_sql)}
 check(all(server_products.get(product) == int(amount) for amount, product in expected_products.items()), 'Backend SQL sources cover all nine product quantities')
 pbx=(ROOT/'Bibi.xcodeproj/project.pbxproj').read_text()
-check('im.seex.sao2-neiku-30' in pbx and 'IPHONEOS_DEPLOYMENT_TARGET = 16.0' in pbx,'User-selected project identity and deployment target')
+check('com.bibi.quadratic' in pbx and 'IPHONEOS_DEPLOYMENT_TARGET = 16.0' in pbx,'User-selected project identity and deployment target')
 check('DEVELOPMENT_TEAM = JPTS6M4T5B;' in pbx,'User-selected signing team retained')
 spec=(ROOT/'project.yml').read_text()
-check('PRODUCT_BUNDLE_IDENTIFIER: im.seex.sao2-neiku-30' in spec and 'DEVELOPMENT_TEAM: JPTS6M4T5B' in spec,'Generation configuration preserves user-selected identity')
+check('PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic' in spec and 'DEVELOPMENT_TEAM: JPTS6M4T5B' in spec,'Generation configuration preserves user-selected identity')
 check('com.apple.InAppPurchase' in pbx and 'com.apple.InAppPurchase' in spec,'In-App Purchase capability recorded in project and generator')
 check('animation-catalog.json in Resources' in pbx,'Catalog is in resource build phase')
 for clip in catalog:

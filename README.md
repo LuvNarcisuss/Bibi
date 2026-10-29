@@ -2,7 +2,7 @@
 
 A native anime social application built from the complete local feature baseline in the user-selected skill.
 
-Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `im.seex.sao2-neiku-30` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
+Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `com.bibi.quadratic` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
 
 The app supports iPhone only. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. A standalone `simctl launch` does not activate that scheme configuration. Use **BibiAppStore** only when verifying Apple's catalog; local test success does not establish App Store Connect availability.
 
