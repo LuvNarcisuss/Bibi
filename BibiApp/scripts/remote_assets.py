@@ -1,4 +1,4 @@
-"""Resolve pinned public R2 resources without reading retained local asset files."""
+"""Resolve pinned private Supabase Storage resources without reading retained local asset files."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
@@ -7,16 +7,20 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+import os
 from urllib.parse import quote, urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "BibiApp/Configuration/RemoteAssets.json"
 CACHE = ROOT / "BibiApp/.generated/RemoteAssets"
-ORIGIN = "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev"
+ORIGIN = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets"
+SERVICE_ROLE_ENV = "SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY"
 
 
 def load_manifest(path=MANIFEST):
     manifest = json.loads(path.read_text())
+    if manifest.get("origin") != ORIGIN:
+        raise ValueError(f"Unexpected Supabase asset origin: {manifest.get('origin')}")
     records = manifest["files"]
     names = set()
     for record in records:
@@ -43,10 +47,16 @@ def matches(path, record):
 
 
 def download(url, destination):
+    key = os.environ.get(SERVICE_ROLE_ENV)
+    if not key:
+        raise RuntimeError(f"{SERVICE_ROLE_ENV} is required to restore private Supabase build assets")
     result = subprocess.run([
         "/usr/bin/curl", "--fail", "--silent", "--show-error", "--location",
         "--proto", "=https", "--proto-redir", "=https", "--retry", "2",
-        "--connect-timeout", "15", "--max-time", "180", "--output", str(destination), url
+        "--connect-timeout", "15", "--max-time", "180",
+        "--header", f"apikey: {key}",
+        "--header", f"Authorization: Bearer {key}",
+        "--output", str(destination), url
     ], capture_output=True, text=True)
     if result.returncode:
         raise RuntimeError(f"Could not download {url}: {result.stderr.strip()}")
@@ -64,7 +74,7 @@ def ensure_asset(record, cache=CACHE, downloader=download, refresh=False):
     try:
         downloader(record["url"], temporary)
         if not matches(temporary, record):
-            raise ValueError(f"R2 resource integrity mismatch: {record['url']}; update the reviewed manifest before using changed content")
+            raise ValueError(f"Supabase resource integrity mismatch: {record['url']}; update the reviewed manifest before using changed content")
         temporary.replace(destination)
     finally:
         temporary.unlink(missing_ok=True)
@@ -99,4 +109,4 @@ if __name__ == "__main__":
     manifest = load_manifest()
     names = [record["name"] for record in manifest["files"]] if args.all else manifest["buildResources"]
     fetch_assets(names, args.cache, refresh=args.refresh)
-    print(f"Verified {len(names)} R2 resources in {args.cache}")
+    print(f"Verified {len(names)} Supabase resources in {args.cache}")

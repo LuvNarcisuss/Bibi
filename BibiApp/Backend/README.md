@@ -10,6 +10,17 @@ Do not enable it until `RELEASE-CHECKLIST.md` is satisfied. The existing local
 experience remains active. Deployment and static inspection are not evidence
 that the iOS app compiles or that end-to-end operations work.
 
+## Private CI build assets
+
+Codemagic build inputs use a separate private Storage bucket named
+`bibi-build-assets`. It is not a user-media bucket and has no public read or
+write policy. A trusted operator uploads the reviewed `RemoteAssets.json`
+`buildResources` set with `BibiApp/scripts/upload_ci_resources.py` using
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`. Codemagic receives the same secret in
+its environment group, downloads only the pinned objects, and verifies each
+SHA-256 before generating the asset catalog. Never commit or print the service
+role key.
+
 ## Applied database sources
 
 Apply these files in order when reconstructing an empty project. The connected

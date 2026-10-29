@@ -1,5 +1,15 @@
 # Bibi implementation record
 
+## Supabase build assets — October 29, 2026
+
+Codemagic now restores the 397-file CI snapshot from the private
+`bibi-build-assets` Storage bucket through `restore_ci_resources.py`. The workflow
+selects the `bibi_build_assets` environment group and requires its
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY` secret. `upload_ci_resources.py` is the
+trusted one-time uploader; user-owned `bibi-images` and `bibi-videos` remain
+separate. The bucket exists remotely, but it currently contains no objects, so the
+one-time upload and cloud build remain pending.
+
 ## Original agreement URLs retained — October 29, 2026
 
 The owner selected the original public URLs under
@@ -44,17 +54,17 @@ job or App Store upload ran. Other existing agreement edits were preserved.
 
 The missing asset-catalog-index.json error came from ignored/untracked Assets,
 not Git LFS initialization. CIResources.json now pins all 397 current build
-inputs: 309 exact matches to the existing R2 manifest and 88 Git-owned current
+inputs: 309 exact matches to the existing Supabase manifest and 88 Git-owned current
 files. Narrow ignore exceptions expose the latter for commit, including the
 current index/branding/new media/fonts/PDFs. The retained asset archive remains
-ignored. Codemagic restores missing pinned R2 inputs before resource verification
+ignored. Codemagic restores missing pinned Supabase inputs before resource verification
 and catalog preparation. Changed local bytes and unresolved LFS pointers fail
 without overwrite; current branding is not replaced by older remote versions.
 
 Verification used an independent temporary CI-layout directory containing only
 the 88 Git-owned inputs and tracked scripts/configuration. Before restoration,
 the checker reported missing remote files. Actual HTTPS downloads restored 309
-R2 resources, all 397 files matched the current workspace hashes, the checker
+Supabase resources, all 397 files matched the current workspace hashes, the checker
 passed, and catalog preparation generated 174 entries. All Git-owned build inputs
 are unignored. YAML/order/identity checks, five Bash syntax checks and whitespace
 inspection passed. Evidence: BibiApp/Design/CI-Resources/verification.json.

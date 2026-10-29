@@ -1,4 +1,4 @@
-"""Restore missing pinned R2 build inputs; keep current app-specific files in Git."""
+"""Restore missing pinned Supabase build inputs; keep current app-specific files in Git."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json
@@ -27,14 +27,14 @@ def restore(root):
                 or name.casefold() in names):
             raise ValueError(f"Invalid or duplicate CI resource name: {name}")
         names.add(name.casefold())
-        if (record["source"] not in {"git", "r2"}
+        if (record["source"] not in {"git", "supabase"}
                 or not re.fullmatch(r"[0-9a-f]{64}", record["sha256"])
                 or not isinstance(record["size"], int) or record["size"] < 0):
             raise ValueError(f"Invalid CI integrity metadata: {name}")
-        if record["source"] == "r2":
+        if record["source"] == "supabase":
             pinned = remote.get(name)
             if not pinned or any(pinned[key] != record[key] for key in ("size", "sha256")):
-                raise ValueError(f"CI/R2 manifest mismatch: {name}")
+                raise ValueError(f"CI/Supabase manifest mismatch: {name}")
         path = assets / name
         if path.exists() or path.is_symlink():
             if not matches(path, record):
@@ -52,7 +52,7 @@ def restore(root):
         list(pool.map(lambda record: ensure_asset(record, cache=assets), downloads))
     if not all(matches(assets / record["name"], record) for record in manifest["files"]):
         raise ValueError("CI resource integrity verification failed")
-    print(f"Verified {len(manifest['files'])} pinned CI resources; restored {len(downloads)} missing R2 files.")
+    print(f"Verified {len(manifest['files'])} pinned CI resources; restored {len(downloads)} missing Supabase files.")
 
 
 if __name__ == "__main__":

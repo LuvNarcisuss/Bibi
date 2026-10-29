@@ -1,5 +1,11 @@
 # CI resource restoration
 
+The remote origin is now the private Supabase Storage bucket
+`bibi-build-assets`. The one-time upload uses
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`; Codemagic restores with the same
+secret. The bucket was created on October 29, 2026 and currently has no objects,
+so the upload must precede the first cloud build.
+
 ## Failure
 
 The cloud checkout did not contain Assets/asset-catalog-index.json. Assets was
@@ -13,7 +19,7 @@ BibiApp/Configuration/CIResources.json pins every required file's flat name,
 byte size, SHA-256 and source. Its 397 records are derived from the current asset
 catalog index and the explicit Assets resource entries in project.yml.
 
-- 309 unchanged resources are restored from the existing R2 origin, using the
+- 309 unchanged resources are restored from the private Supabase Storage `bibi-build-assets` bucket, using the
   already-pinned URLs/hashes in RemoteAssets.json.
 - 88 current files are Git-owned because they are new, changed, or have no matching
   remote revision. These include the asset index, current branding, newer media,
@@ -24,7 +30,7 @@ catalog index and the explicit Assets resource entries in project.yml.
 
 The Codemagic order is LFS fetch, restore_ci_resources.py, verify_ci_resources.py,
 then prepare_asset_catalog.py. The restore script checks all Git inputs before
-network work, downloads only missing R2 files, verifies size/hash, and uses the
+network work, downloads only missing Supabase files, verifies size/hash, and uses the
 existing atomic download helper. It rejects changed local files, symlinks and
 unresolved LFS pointers rather than overwriting them or silently restoring older
 branding. The separate checker then validates catalog/project reference coverage.
@@ -35,7 +41,7 @@ or running LFS locally does not put files in a remote checkout. Keep signing
 credentials out of the resource commit; this fix does not alter signing setup.
 
 For future resource changes, refresh the CI snapshot's size/hash and source for
-all changed/added project inputs. Select R2 only when the approved remote manifest
+all changed/added project inputs. Select Supabase only when the approved remote manifest
 has the exact same bytes; otherwise commit the current asset and its ignore
 exception. Preserve the real branding, licenses, sources and user private media.
 
@@ -43,7 +49,7 @@ exception. Preserve the real branding, licenses, sources and user private media.
 
 Local inspection verifies all 397 files against the snapshot and catalog/project
 references. An independent temporary CI-layout directory contains only the 88
-Git-owned inputs plus the tracked configuration/scripts. The missing-R2 state is
+Git-owned inputs plus the tracked configuration/scripts. The missing-Supabase state is
 confirmed before restoration; subsequent real HTTPS restoration checks the
 fresh-directory path, without reading the working Assets directory.
 

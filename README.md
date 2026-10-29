@@ -18,23 +18,29 @@ the shared `Bibi` scheme in `BibiApp/Bibi.xcodeproj`, Bundle ID
 App Store Connect integration with the exact name `Bibi`, access to this app and
 App Store signing certificates/profiles for team `JPTS6M4T5B`.
 
-The workflow restores Git LFS resources under `Assets/`, checks required files,
-prepares the asset catalog, applies signing profiles and increments the build
-number above the latest TestFlight build across versions. Publishing uses
+The workflow restores private build assets from Supabase Storage bucket
+`bibi-build-assets` using a Codemagic secret named
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`, checks required files, prepares the asset
+catalog, applies signing profiles and increments the build number above the latest
+TestFlight build across versions. Publishing uses
 `app_store_connect.auth: integration` to upload the IPA. Automatic TestFlight beta
 review and App Store review submission remain disabled; these flags do not disable
 the upload itself. Build success and failure notifications are sent to the
 owner-selected address `2758057680@qq.com`.
 
-Source asset delivery is still a prerequisite: most of `Assets/` is ignored and
-is not currently tracked in Git. Make the required catalog index, its metadata and
-image sources, and all `../Assets/` resources in `BibiApp/project.yml` available in
-the remote checkout before running the workflow. Git LFS download cannot recover
-files that were never committed. `python3 BibiApp/scripts/verify_ci_resources.py`
-checks the available source resources without building the app.
+The Codemagic environment group must be named `bibi_build_assets` and contain the
+secret variable `SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`.
 
-This configuration has only been inspected statically. No Codemagic job, Apple
-signing, IPA upload or App Store Connect processing has been verified.
+The one-time maintenance command
+`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY=... python3 BibiApp/scripts/upload_ci_resources.py`
+uploads the reviewed build-resource snapshot. The service-role key must remain in
+a trusted secret store and never be committed. Codemagic downloads only pinned
+objects and verifies their size and SHA-256 before catalog generation.
+
+The private build-assets bucket has been created in the provisioned Supabase project. The
+repository configuration has only been inspected statically; the one-time object
+upload, Codemagic job, Apple signing, IPA upload and App Store Connect processing
+remain separate release operations.
 
 ## Implemented source flows
 

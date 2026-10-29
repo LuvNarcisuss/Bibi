@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "origin": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev",
+  "origin": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets",
   "buildResources": [
     "AppIcon.png",
     "BibiIcon-back.png",
@@ -364,2521 +364,2521 @@
   "files": [
     {
       "name": "AppIcon.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/AppIcon.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/AppIcon.png",
       "sha256": "40d9ffe33055ea3578b1a17e97b87f76a6f52d8c114301d266a858f0423112ac",
       "size": 888587
     },
     {
       "name": "BibiIcon-back.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-back.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-back.png",
       "sha256": "d6f21d2aea3097c5c8f37cd4dbadd2e2ef8bd33e0f737e2c1f352b3b556d4b81",
       "size": 25960
     },
     {
       "name": "BibiIcon-balloon.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-balloon.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-balloon.png",
       "sha256": "2dbad062f9154de25f21656bb6ddfbff619f9208e78a4c01a1627d41a6c11a86",
       "size": 67193
     },
     {
       "name": "BibiIcon-bell.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-bell.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-bell.png",
       "sha256": "8550333a486d8dc4fb293b81ab19edb1f09d15e11509a5c857d76aebe7b190cd",
       "size": 35806
     },
     {
       "name": "BibiIcon-bellOff.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-bellOff.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-bellOff.png",
       "sha256": "9da4b8aa1cac8519da0b73cfaacd417c32bf30f1155bd78dcca82a090b2d3b37",
       "size": 54491
     },
     {
       "name": "BibiIcon-block.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-block.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-block.png",
       "sha256": "9ee7732aadb63e57cc9f989305f67d384b15ca81233e741f2a01f680f63493ea",
       "size": 41256
     },
     {
       "name": "BibiIcon-bookmark.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-bookmark.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-bookmark.png",
       "sha256": "5afe20742f1ed5cd324796a46e34ec8c4499aba1aa10436198cf248bddd0481d",
       "size": 36076
     },
     {
       "name": "BibiIcon-cat.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-cat.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-cat.png",
       "sha256": "22643b868932408c81cc45fe8daf1c30d4f9a72b6f9393328e90aa636cf46911",
       "size": 87827
     },
     {
       "name": "BibiIcon-chats.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-chats.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-chats.png",
       "sha256": "6c25000305a3c0462b7e2d750c8687e9008c486728030f4177c1f953d935816b",
       "size": 38595
     },
     {
       "name": "BibiIcon-check.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-check.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-check.png",
       "sha256": "f2bdbadb1226364d3a717bf5229e4c077018ecd555fb294fbda8e84f9377201e",
       "size": 26971
     },
     {
       "name": "BibiIcon-checkbox.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-checkbox.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-checkbox.png",
       "sha256": "0664d8bdc499180f9aa63e69a581a8766ce10520f17fd7cfab64cf8fb21c1bdd",
       "size": 33922
     },
     {
       "name": "BibiIcon-checkboxOn.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-checkboxOn.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-checkboxOn.png",
       "sha256": "2412f3e6a2551481c9f458bf04c578452ae25c18eeb30ea66cde6b690106b15c",
       "size": 55918
     },
     {
       "name": "BibiIcon-clock.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-clock.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-clock.png",
       "sha256": "c1d8dc71af2aaf2624728adf3f35c076bf90495d9404ae93ef42bd0c9af27761",
       "size": 66723
     },
     {
       "name": "BibiIcon-close.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-close.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-close.png",
       "sha256": "add1a8859f72b1766da38d90e8ad6c4d72c97ca1e67225c1129e5019d8110fc9",
       "size": 34363
     },
     {
       "name": "BibiIcon-comet.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-comet.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-comet.png",
       "sha256": "372f41b73e9935f0407f00a6aa387db8ed209db3469d274f943f136ad78d52c4",
       "size": 67096
     },
     {
       "name": "BibiIcon-comment.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-comment.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-comment.png",
       "sha256": "6c25000305a3c0462b7e2d750c8687e9008c486728030f4177c1f953d935816b",
       "size": 38595
     },
     {
       "name": "BibiIcon-crown.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-crown.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-crown.png",
       "sha256": "f157e9a9d34e7725ed1db59b771a2d1fcf033ea568f49ba808f2b0e15f51e9cd",
       "size": 62756
     },
     {
       "name": "BibiIcon-diamond.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-diamond.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-diamond.png",
       "sha256": "26e4a68c2d3da2b86908d0aa15d7dd32f911d780ac35b86c152a3e1e702b6346",
       "size": 36136
     },
     {
       "name": "BibiIcon-edit.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-edit.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-edit.png",
       "sha256": "e488ff82d4bcedabf1a47aa4a98e473ed8065b141e07dafcbe5a3555d76bb38b",
       "size": 29860
     },
     {
       "name": "BibiIcon-eye.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-eye.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-eye.png",
       "sha256": "25b83a78796dfb38bbfd5d30c6b58617a0b6c00e81c0456924d5a2b30680c6d7",
       "size": 54015
     },
     {
       "name": "BibiIcon-filter.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-filter.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-filter.png",
       "sha256": "03548ffb60002465fc6b57922f7b5734ddfa672a0659784f82d0823afdef5b34",
       "size": 49372
     },
     {
       "name": "BibiIcon-flag.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-flag.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-flag.png",
       "sha256": "2cd5785a8553e58e7b85a896190e860d876b0d2fef2812ff9c25b4f2992765a4",
       "size": 28412
     },
     {
       "name": "BibiIcon-flip.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-flip.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-flip.png",
       "sha256": "c31f439ef4b310f22d4d4adc59c39a3268e80e3fd2ea47b8c3cb29f93acd4689",
       "size": 51634
     },
     {
       "name": "BibiIcon-flower.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-flower.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-flower.png",
       "sha256": "adf069b08eeb5be7efa15ff684d54b8c895615e409aab628e58a6e51fcacc3f2",
       "size": 66528
     },
     {
       "name": "BibiIcon-forward.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-forward.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-forward.png",
       "sha256": "82a2bb006d50fa30a8d8c513f2d15cd04d2ee4da8e3d1f8428042fb6574ba534",
       "size": 24969
     },
     {
       "name": "BibiIcon-gift.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-gift.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-gift.png",
       "sha256": "e7abe137f8909d09a45d88f9943d69fe2c50ce8cb887318a725d27c922723060",
       "size": 47878
     },
     {
       "name": "BibiIcon-grid.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-grid.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-grid.png",
       "sha256": "bf2a1c2a11602f27d96af1b967884052ee5aa247c0ca082ffdf9b43911942a11",
       "size": 53151
     },
     {
       "name": "BibiIcon-handset.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-handset.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-handset.png",
       "sha256": "264896c26e54607fce1ab63b446bb2ec5009cf355eb3df3e307f19c7d5d2fe07",
       "size": 32447
     },
     {
       "name": "BibiIcon-heart.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-heart.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-heart.png",
       "sha256": "4a61629139cd253a7e003fd06379ba5b5029ee25289a45a9075ad767a02e7723",
       "size": 34331
     },
     {
       "name": "BibiIcon-heartFill.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-heartFill.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-heartFill.png",
       "sha256": "20079e9af9ed67a9cfab272591e7a67134f649557d460c131f2639e16878268a",
       "size": 51899
     },
     {
       "name": "BibiIcon-heartOutline.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-heartOutline.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-heartOutline.png",
       "sha256": "458bc023a7e29775ae7fbf2e2c0ec281f6d4504e6214826b2b0844bc388c50a9",
       "size": 51006
     },
     {
       "name": "BibiIcon-info.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-info.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-info.png",
       "sha256": "c968716422b6478d603cb64980817c8251999df063a3b0fa1283ea64c25b7e91",
       "size": 62097
     },
     {
       "name": "BibiIcon-link.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-link.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-link.png",
       "sha256": "56100a0457dd96b1ae9c616bca80028f1800a63ce6569fd6a56224a679f5afb2",
       "size": 42779
     },
     {
       "name": "BibiIcon-live.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-live.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-live.png",
       "sha256": "0a11ab5b48f4bc81ceaca8747b47647a469ca8201fe076d443e96054ab60462c",
       "size": 48131
     },
     {
       "name": "BibiIcon-logout.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-logout.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-logout.png",
       "sha256": "bc755b2c2e38b38cda8c63e5280d5e84586658f7f60bbad1454860c61aef2dc0",
       "size": 51218
     },
     {
       "name": "BibiIcon-me.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-me.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-me.png",
       "sha256": "820bd5832c6b89aa447bf3c7fee5fb7d9b1e0bb0a1e346c040cd8edf16644ec1",
       "size": 41148
     },
     {
       "name": "BibiIcon-microphone.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-microphone.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-microphone.png",
       "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc",
       "size": 37536
     },
     {
       "name": "BibiIcon-microphoneIvory.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-microphoneIvory.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-microphoneIvory.png",
       "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc",
       "size": 37536
     },
     {
       "name": "BibiIcon-microphoneOff.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-microphoneOff.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-microphoneOff.png",
       "sha256": "c61a25bf7b7bcd1ef0c8664b86f2bf9d017acb6187e0558c255418812909ea9a",
       "size": 42796
     },
     {
       "name": "BibiIcon-microphoneOffIvory.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-microphoneOffIvory.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-microphoneOffIvory.png",
       "sha256": "c61a25bf7b7bcd1ef0c8664b86f2bf9d017acb6187e0558c255418812909ea9a",
       "size": 42796
     },
     {
       "name": "BibiIcon-moon.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-moon.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-moon.png",
       "sha256": "438d1c650877f2759e592518da2478bcacb4b5dc5d3525ec77cbe5b904cc01ac",
       "size": 64896
     },
     {
       "name": "BibiIcon-more.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-more.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-more.png",
       "sha256": "a2b2764928d8921c5d1ef066fc3bc9ce33bbcc7a922a570a4b3bc1b1fa4b6c7f",
       "size": 21729
     },
     {
       "name": "BibiIcon-music.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-music.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-music.png",
       "sha256": "a31993d4e40d6fb6cc2977c3d38abb8b7be530346023dd779206225526766b8c",
       "size": 39524
     },
     {
       "name": "BibiIcon-muted.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-muted.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-muted.png",
       "sha256": "ac3beb16427cdb4e932ac2d5807294eb592114d6c555a2afa5991c9080c25770",
       "size": 36213
     },
     {
       "name": "BibiIcon-mutedIvory.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-mutedIvory.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-mutedIvory.png",
       "sha256": "ac3beb16427cdb4e932ac2d5807294eb592114d6c555a2afa5991c9080c25770",
       "size": 36213
     },
     {
       "name": "BibiIcon-pause.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-pause.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-pause.png",
       "sha256": "a0ee59ea5114fdf7307bbc10d4f150d217cf74c60fa442cfba6871e18ed2ac86",
       "size": 27241
     },
     {
       "name": "BibiIcon-people.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-people.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-people.png",
       "sha256": "9d33d79178a66c794ec75739454d8c1bbbf7da4c6a398390ea769d08b1a60560",
       "size": 33543
     },
     {
       "name": "BibiIcon-personPlus.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-personPlus.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-personPlus.png",
       "sha256": "15faa5cd505197756fe072e9ce92fc999dbd5685c29bf74eefc75010b4dea738",
       "size": 34505
     },
     {
       "name": "BibiIcon-phone.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-phone.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-phone.png",
       "sha256": "ecf86c9a52dadcb3b9cb2b810bc68a9e03b3a0b89c735d438ecaf36144e362a6",
       "size": 28768
     },
     {
       "name": "BibiIcon-photo.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-photo.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-photo.png",
       "sha256": "0bcaf24d1e0fcaa07720d8a7496bfbef0d693635e1044075c1ab2d50295fd4fb",
       "size": 46218
     },
     {
       "name": "BibiIcon-phrases.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-phrases.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-phrases.png",
       "sha256": "5afe20742f1ed5cd324796a46e34ec8c4499aba1aa10436198cf248bddd0481d",
       "size": 36076
     },
     {
       "name": "BibiIcon-planet.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-planet.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-planet.png",
       "sha256": "fc6d7c78198b3e4094654f3b1029e286ecf9532f362bbc23b6740204cd22f3a9",
       "size": 55624
     },
     {
       "name": "BibiIcon-play.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-play.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-play.png",
       "sha256": "6944db09b3b53fac4b1ebde4c0aa538ee8283215c354d781048ba0a7d540b516",
       "size": 27956
     },
     {
       "name": "BibiIcon-plus.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-plus.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-plus.png",
       "sha256": "5d7d741c8ae709e395636ae1a8b7078a5d78bcd54f812b07366ef5c049901b0b",
       "size": 24347
     },
     {
       "name": "BibiIcon-refresh.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-refresh.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-refresh.png",
       "sha256": "2aa45ec467f0759dcb5e8ff338e46978c2c157470309094171045e7cfdc90a3d",
       "size": 58166
     },
     {
       "name": "BibiIcon-search.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-search.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-search.png",
       "sha256": "ca35a450a24fbab82561a01ada4a870723518db2fccfd174fd8e72a94775111e",
       "size": 41079
     },
     {
       "name": "BibiIcon-send.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-send.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-send.png",
       "sha256": "b7e8cd3ba71438eca787ecfccf01f24399f2fe932f61721271f9e6889d05675d",
       "size": 34584
     },
     {
       "name": "BibiIcon-settings.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-settings.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-settings.png",
       "sha256": "4d4dfbd703e0a4820f6e8cd49546697c47bdc15be3486a32ab4b10a59c0db22b",
       "size": 46534
     },
     {
       "name": "BibiIcon-share.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-share.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-share.png",
       "sha256": "2caf7c9671ff833921b1c5bdb81a042965234900a05083dd020b5191f00fac21",
       "size": 30072
     },
     {
       "name": "BibiIcon-shorts.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-shorts.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-shorts.png",
       "sha256": "6944db09b3b53fac4b1ebde4c0aa538ee8283215c354d781048ba0a7d540b516",
       "size": 27956
     },
     {
       "name": "BibiIcon-sparkle.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-sparkle.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-sparkle.png",
       "sha256": "b9d4a248058d0e45dc36142ff7967df7bbe07b5b50d6773064eb1553abb498c1",
       "size": 42587
     },
     {
       "name": "BibiIcon-speaker.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-speaker.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-speaker.png",
       "sha256": "12b8f3b2327055eb5488c1da902ffbece625c347c5d74ce4eea20c1fbb6133ea",
       "size": 43214
     },
     {
       "name": "BibiIcon-speakerIvory.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-speakerIvory.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-speakerIvory.png",
       "sha256": "12b8f3b2327055eb5488c1da902ffbece625c347c5d74ce4eea20c1fbb6133ea",
       "size": 43214
     },
     {
       "name": "BibiIcon-star.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-star.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-star.png",
       "sha256": "bbc3a86292299f0444d1efaaa4cae1a54616e44be5aae3dfa98412d34be1e4af",
       "size": 55226
     },
     {
       "name": "BibiIcon-starFill.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-starFill.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-starFill.png",
       "sha256": "cf2dd1e9eca2183abc81a12c1bd8c90b4cf27b7b3412bd24f3ddf1a0cab7c1bb",
       "size": 51312
     },
     {
       "name": "BibiIcon-starOutline.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-starOutline.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-starOutline.png",
       "sha256": "bbc3a86292299f0444d1efaaa4cae1a54616e44be5aae3dfa98412d34be1e4af",
       "size": 55226
     },
     {
       "name": "BibiIcon-trash.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-trash.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-trash.png",
       "sha256": "e0ddf3faaf70c17303de4c0236d6a608517d5dbd328412b05fdae5134924b0c3",
       "size": 33950
     },
     {
       "name": "BibiIcon-unreadBadge.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-unreadBadge.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-unreadBadge.png",
       "sha256": "8550333a486d8dc4fb293b81ab19edb1f09d15e11509a5c857d76aebe7b190cd",
       "size": 35806
     },
     {
       "name": "BibiIcon-video.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-video.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-video.png",
       "sha256": "e7ab72f0d875e7dc4c4fa43cd90360d67eb745865ab05706c7152caea81bd716",
       "size": 28327
     },
     {
       "name": "BibiIcon-voice.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-voice.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-voice.png",
       "sha256": "baa5edc418e24157fa56c418abfd34942b8bdba3c01bf6319b6b385a1ebbd9bc",
       "size": 37536
     },
     {
       "name": "BibiIcon-wand.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiIcon-wand.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiIcon-wand.png",
       "sha256": "8ae5195bd3e095a4dfd792d87c081d06df6761fd9d1be67418f675538920f320",
       "size": 66669
     },
     {
       "name": "BibiMark.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiMark.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiMark.png",
       "sha256": "490d77324b0c0a15e438952fb287c104f2266834f43d7f0ffbda783da256666f",
       "size": 65173
     },
     {
       "name": "BibiRoom1.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom1.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom1.png",
       "sha256": "9d5e9dde8b0a5093510d7be08baf57c3ebfa98e554684054cbff8643498d153a",
       "size": 398531
     },
     {
       "name": "BibiRoom2.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom2.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom2.png",
       "sha256": "ec5611d53c937739b5956aecb653999a9ba8d4d9c0edf6c0f62616906d2d037f",
       "size": 362569
     },
     {
       "name": "BibiRoom3.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom3.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom3.png",
       "sha256": "a83051f65c25438e8b1660e5c63be7783f9b7e7c243fb9ba781827a6f1b76fa6",
       "size": 448762
     },
     {
       "name": "BibiRoom4.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom4.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom4.png",
       "sha256": "4e042e5842de0498fb60e455ee470ab92d744bc4bf1980adc0afa5f887c165fc",
       "size": 384949
     },
     {
       "name": "BibiRoom5.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom5.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom5.png",
       "sha256": "005e7d8514871bb8f25ad6f28029a545f54487f7768a38c6afa76f180a1f60d2",
       "size": 405530
     },
     {
       "name": "BibiRoom6.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom6.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom6.png",
       "sha256": "9469dfd3a2ee8fe46c9f3afdfd2a396f8918405a331d80d5b2b9b7c3d81d4937",
       "size": 441122
     },
     {
       "name": "BibiRoom7.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom7.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom7.png",
       "sha256": "05d02dde2362905af3f90b33cf7a1013331d97a642a5058eee953b54b6a6a27a",
       "size": 403755
     },
     {
       "name": "BibiRoom8.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiRoom8.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiRoom8.png",
       "sha256": "ef357366b0f34633e5caaae758624fc7dae4874dc761118552cde2b8a5180553",
       "size": 438106
     },
     {
       "name": "BibiTitle-Challenges.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiTitle-Challenges.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiTitle-Challenges.png",
       "sha256": "a91b2a27cc0c375c3d6f2c4775a3bf342010c952b3881d626a76326a68643574",
       "size": 1248322
     },
     {
       "name": "BibiTitle-Chats.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiTitle-Chats.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiTitle-Chats.png",
       "sha256": "402f6edde95611addb76690de0b82bb69c917d38bcc903a586fc128f45c3914c",
       "size": 1323434
     },
     {
       "name": "BibiTitle-Circles.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiTitle-Circles.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiTitle-Circles.png",
       "sha256": "80c22db42b4143e334e8714f246485c9fed0d0d4c987f56be6b7d66a841873d9",
       "size": 1296926
     },
     {
       "name": "BibiTitle-Me.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiTitle-Me.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiTitle-Me.png",
       "sha256": "f997152164a7d743e545dc44aa3973d7506851e278c35d4c85e35c2429098f4c",
       "size": 869409
     },
     {
       "name": "BibiTitle-Shorts.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiTitle-Shorts.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiTitle-Shorts.png",
       "sha256": "1347c0c359e73a36c37cc580f02a92b91a3293c32b251824a688fd5ab872d09b",
       "size": 1164426
     },
     {
       "name": "BibiWelcome.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiWelcome.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiWelcome.png",
       "sha256": "0675b83a504b47669a70d36c19b695c001858d819dc83fbd4f4befcdff55abd5",
       "size": 1870564
     },
     {
       "name": "BibiWordmark.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/BibiWordmark.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/BibiWordmark.png",
       "sha256": "490d77324b0c0a15e438952fb287c104f2266834f43d7f0ffbda783da256666f",
       "size": 65173
     },
     {
       "name": "Fredoka-OFL.txt",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Fredoka-OFL.txt",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Fredoka-OFL.txt",
       "sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab",
       "size": 4388
     },
     {
       "name": "Fredoka-Variable.ttf",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Fredoka-Variable.ttf",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Fredoka-Variable.ttf",
       "sha256": "2ba02e68b152868aef9ba28e24b3648c7d457fe6f25c761f2c2c53fb61a73fc8",
       "size": 159184
     },
     {
       "name": "Nunito-OFL.txt",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Nunito-OFL.txt",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Nunito-OFL.txt",
       "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65",
       "size": 4385
     },
     {
       "name": "Nunito-Variable.ttf",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Nunito-Variable.ttf",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Nunito-Variable.ttf",
       "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207",
       "size": 276932
     },
     {
       "name": "Portrait1.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait1.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait1.png",
       "sha256": "f6dde671214cce22c982311dedd103b32eb1f4ebae78069d6533ca585a4df857",
       "size": 188131
     },
     {
       "name": "Portrait10.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait10.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait10.png",
       "sha256": "183dfdee0ca8a391228ec2cacd0289c45ac2bda492979bb151c767af3597d2f3",
       "size": 164779
     },
     {
       "name": "Portrait11.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait11.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait11.png",
       "sha256": "15d7a32151e9614478ebe9ad07a61c6b7a57e99bc3a1c6f192e57439bc698b4b",
       "size": 192269
     },
     {
       "name": "Portrait12.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait12.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait12.png",
       "sha256": "7afce3b9860dcecef294ce5393b414fc86d1cb7012f9e0721a2b92154684bc2f",
       "size": 155327
     },
     {
       "name": "Portrait13.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait13.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait13.png",
       "sha256": "23e68f6c6bf0f6f2da26226a477d08ffb088e36e1cac02cda873b38b631b463c",
       "size": 175473
     },
     {
       "name": "Portrait14.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait14.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait14.png",
       "sha256": "35fd7a0b1a8cfe91105f5e53ddb21bf7c4974d8ba3c613b0df3350aeeaf882bd",
       "size": 164759
     },
     {
       "name": "Portrait15.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait15.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait15.png",
       "sha256": "3b9529f73073d1fe7c0f5419079a6a52110ac95780f14cf9a131a5e6f0cd0182",
       "size": 175055
     },
     {
       "name": "Portrait16.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait16.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait16.png",
       "sha256": "8a51a25ff58dd933cf381567bff1fed9d4ce8b5d1eaf71641b257d8e62b850c4",
       "size": 169896
     },
     {
       "name": "Portrait17.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait17.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait17.png",
       "sha256": "f99cefb66ad4a724eb3d99a96f40f5a45b07c26207c809dc45897779d504cce3",
       "size": 98639
     },
     {
       "name": "Portrait18.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait18.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait18.png",
       "sha256": "b2114d9bbd333144e52483b40e64b1c54e0482f61bb81b6f168f6b88e140322b",
       "size": 78771
     },
     {
       "name": "Portrait19.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait19.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait19.png",
       "sha256": "334ffe32ab5d6c6516a53de2d5c51cf9792537e4ede0a853c54dc1802fd58b72",
       "size": 94024
     },
     {
       "name": "Portrait2.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait2.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait2.png",
       "sha256": "a4a1fa1138d6e3b4be739754b887450d60eb8afdce98ae166f18ea44799d267f",
       "size": 168327
     },
     {
       "name": "Portrait20.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait20.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait20.png",
       "sha256": "8233fa35b0c061a3ccab8a04cfee7c9fc6322abc4aef2664d8619220e9b384ce",
       "size": 85806
     },
     {
       "name": "Portrait21.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait21.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait21.png",
       "sha256": "13b1e065ff08fed744c90dc62f28efdc18ccd9c4f8329b9ea3e5da165453f85b",
       "size": 88479
     },
     {
       "name": "Portrait22.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait22.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait22.png",
       "sha256": "d591785f8049e780caa849d4c3aa50c8f59b59d9837f4e127288ecd4ee45a956",
       "size": 70063
     },
     {
       "name": "Portrait23.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait23.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait23.png",
       "sha256": "312b162dca09bbeff2f393544eb1d9e161aa5bc0827269b68087af994335b9c0",
       "size": 82870
     },
     {
       "name": "Portrait24.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait24.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait24.png",
       "sha256": "2cde8567336e8dbe17d74cf40a8096efa2ec69d07c9ce774513cfd0cc649d85e",
       "size": 78454
     },
     {
       "name": "Portrait25.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait25.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait25.png",
       "sha256": "b62a35452e33ae4c160bfa949d25661a37d97c1dcf6f358a3e28a6cffd5bbd1a",
       "size": 84734
     },
     {
       "name": "Portrait26.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait26.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait26.png",
       "sha256": "4700a7919c457e76575a5cb3c4ecfdfe89637b7ed19d4d7b488545186dc96536",
       "size": 78075
     },
     {
       "name": "Portrait27.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait27.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait27.png",
       "sha256": "1bdc96a8f08b9dcfe61df9a80b2cc3b6c5c4c176245e4090d363a0a6bbf867c1",
       "size": 68216
     },
     {
       "name": "Portrait28.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait28.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait28.png",
       "sha256": "974d5610e84de365461f405ed4a4372b51b567af3dc2e34a0f4c9dd7b3173e58",
       "size": 85214
     },
     {
       "name": "Portrait29.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait29.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait29.png",
       "sha256": "f23c2b4bce8a8ac4b8616fb9106e87c13f875e4ed829fc8ab2107c73e7622c3d",
       "size": 87385
     },
     {
       "name": "Portrait3.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait3.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait3.png",
       "sha256": "9d23cfa0c488c29bd593e6478190b5445c3e09f142ef06504b44dc9114f88291",
       "size": 173777
     },
     {
       "name": "Portrait30.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait30.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait30.png",
       "sha256": "f6dbd2c75ceca24e670a1056548441e5a84693e2939eb0bc54e3047b3547d620",
       "size": 87249
     },
     {
       "name": "Portrait31.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait31.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait31.png",
       "sha256": "bb8cce762fb5714d5bda8cdcc1fdba1b2f91a1eaa8a28f3ac8180c51339506f0",
       "size": 81395
     },
     {
       "name": "Portrait32.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait32.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait32.png",
       "sha256": "b845e3ad3a98d9b0dfbef586eadd750e087706aa1368d9af4112f532aa3ecb7b",
       "size": 87994
     },
     {
       "name": "Portrait33.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait33.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait33.png",
       "sha256": "90eabaa3d03aba9f7980775e8995a6d3212df10066f12ea5b8963f95cf2cde1c",
       "size": 76031
     },
     {
       "name": "Portrait34.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait34.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait34.png",
       "sha256": "89a46562e800091d5da7466f66545784e694600c46746ac47d97d4c1a8053341",
       "size": 90006
     },
     {
       "name": "Portrait35.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait35.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait35.png",
       "sha256": "e512b9305374d4dd4e65603330800062d7353d9b72f9dffeb5adcfd29f7ba9ee",
       "size": 78973
     },
     {
       "name": "Portrait36.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait36.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait36.png",
       "sha256": "1788e03167e1e93fb3e5e8d17c4f4cfb74a91040939f0ad6182341411c9fc11b",
       "size": 74935
     },
     {
       "name": "Portrait37.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait37.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait37.png",
       "sha256": "27d52b835840ac20a8ab7f85e53ca8cfb3364051650c1048ae15eda627d6ef2f",
       "size": 78970
     },
     {
       "name": "Portrait38.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait38.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait38.png",
       "sha256": "2175580123d3994fbbe84fc5c93e08f31a7292670b9941f35d98dde1394137a9",
       "size": 86689
     },
     {
       "name": "Portrait39.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait39.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait39.png",
       "sha256": "e332bbce0404a6df290c1e3da3996964ab6e2adcbcab2aafd69148945144ee89",
       "size": 81124
     },
     {
       "name": "Portrait4.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait4.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait4.png",
       "sha256": "13a5ed92e206a334f49d0c96caf63cd9557e48f3edb8bac6be5677a2bd0655e1",
       "size": 169460
     },
     {
       "name": "Portrait40.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait40.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait40.png",
       "sha256": "429bff192068bfa9ca604c277550b2fecbf4512d7258adf4af0762498cffb786",
       "size": 80169
     },
     {
       "name": "Portrait41.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait41.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait41.png",
       "sha256": "c230fb6d9f48899fd1d341a799e923dc99419b2c98ec337bda29d8726be02a50",
       "size": 84476
     },
     {
       "name": "Portrait42.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait42.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait42.png",
       "sha256": "44bca3242416fabb94f9fbd6a803a637f3333cd063115b9ea42196428363b4a8",
       "size": 81274
     },
     {
       "name": "Portrait43.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait43.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait43.png",
       "sha256": "bdfa7ffe9c89fa125503cdeca90468d43e24144dff46374ca5adbbeb982e8da0",
       "size": 81017
     },
     {
       "name": "Portrait44.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait44.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait44.png",
       "sha256": "8e03d5567feb42a746e0c6179b6455de8b1f28ff63083f2ba965b88b8e21b168",
       "size": 87325
     },
     {
       "name": "Portrait45.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait45.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait45.png",
       "sha256": "ae19f28e8c42b4040d4eb7371c9e9b123c6ceb4ad89b8dc888029b01b124da62",
       "size": 90433
     },
     {
       "name": "Portrait46.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait46.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait46.png",
       "sha256": "04940656b35c864bb3e196e739a1af01c58af1d98375c77e1464c66ba50f2098",
       "size": 79855
     },
     {
       "name": "Portrait47.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait47.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait47.png",
       "sha256": "7654baa0ad1dfa19223042af3858a8472371a5afbff59bfcd10f77d0e7c97244",
       "size": 78311
     },
     {
       "name": "Portrait48.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait48.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait48.png",
       "sha256": "41ac136165a1c3c46224d5b47eaa07ad31a2ff3d2d6224c078ee8b244bfa530e",
       "size": 79178
     },
     {
       "name": "Portrait49.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait49.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait49.png",
       "sha256": "5e760336b8280663024c1865fbaa513f0ad04c857cd16eda650c85edabd51675",
       "size": 92341
     },
     {
       "name": "Portrait5.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait5.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait5.png",
       "sha256": "a195773b65a3bbfd3471326be53dde649ce11d46aae59ce588c839bc614c0925",
       "size": 194142
     },
     {
       "name": "Portrait50.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait50.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait50.png",
       "sha256": "4e8aa1cc568ab10d581cb03f64e030bc62f52eaa91e727909467fef1ce9f0761",
       "size": 76973
     },
     {
       "name": "Portrait51.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait51.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait51.png",
       "sha256": "a8db2eae521f7e34743496b3fe9913817377aafeb3c075842792e6c63ed373e9",
       "size": 79646
     },
     {
       "name": "Portrait52.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait52.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait52.png",
       "sha256": "4e33a4d9a1eeacfbaadb2368fc1428d17078661353ad212e45c39ebbaf358a18",
       "size": 75203
     },
     {
       "name": "Portrait6.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait6.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait6.png",
       "sha256": "6f2f23c1810da7b6d86a22a90dc3d32ceeb5a8b3bcd9e0fe17eea047a73dc67a",
       "size": 159440
     },
     {
       "name": "Portrait7.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait7.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait7.png",
       "sha256": "e80bc7dd8a65363b345807cc59ae3bb28ce185ff6bb27f03fc77c3418419b7f1",
       "size": 190574
     },
     {
       "name": "Portrait8.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait8.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait8.png",
       "sha256": "f19ef8ed46ff7d880b0e8fbf849f611bc4f9e81057a8dfb5a91fd65af58641c3",
       "size": 162995
     },
     {
       "name": "Portrait9.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/Portrait9.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/Portrait9.png",
       "sha256": "8d310ed783e5e140d2d6ef3783d6e8f0b9dd4de7ebae36e8bec2c241b6d58175",
       "size": 182194
     },
     {
       "name": "animation-catalog.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/animation-catalog.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/animation-catalog.json",
       "sha256": "1dc35aa7801a4325cbe18558ba6a3377096c40169b332cf1df49904da7d8809a",
       "size": 7191
     },
     {
       "name": "artwork-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/artwork-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/artwork-manifest.json",
       "sha256": "97c3a0481630a665e014f9e5e0b0a002a99c9500db711b42d6ef6a2bd0738d70",
       "size": 40765
     },
     {
       "name": "asset-catalog-index.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/asset-catalog-index.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/asset-catalog-index.json",
       "sha256": "c60da7d58cec2d3d3f6896179a6423b8f8842b4fbf8947ce58d8beacb00672d6",
       "size": 23218
     },
     {
       "name": "asset-migration.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/asset-migration.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/asset-migration.json",
       "sha256": "5883a02288e9894e0b5b8606de1775e31b278fa7a74213686838a18c5f8f345d",
       "size": 136673
     },
     {
       "name": "bibi-amber-city.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-amber-city.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-amber-city.jpg",
       "sha256": "1e677d66a91d8f811adf831cdc45fe70665b9d911b0e4445ec09fe31d8e4a42d",
       "size": 38653
     },
     {
       "name": "bibi-amber-city.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-amber-city.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-amber-city.mp4",
       "sha256": "d1c30a785dda540725376ea6fa0ac7e660aa1f816830459097453a144dcc89d4",
       "size": 912953
     },
     {
       "name": "bibi-ancient-roots.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-ancient-roots.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-ancient-roots.jpg",
       "sha256": "61e60a26a8e3c9bde5ff864807473fae0d6659b511b13d0d800460d37d077d64",
       "size": 66367
     },
     {
       "name": "bibi-ancient-roots.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-ancient-roots.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-ancient-roots.mp4",
       "sha256": "7768de40bdb56180f0f91fe7bebdf29cb16a1ed0a8bde7cd0033d44b80d60bdb",
       "size": 1468353
     },
     {
       "name": "bibi-blue-horizon.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-blue-horizon.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-blue-horizon.jpg",
       "sha256": "eeedc51f2bd1680e8a190c12c61ca98cf6fc3330bb256f21f9beae97096d5ec0",
       "size": 27661
     },
     {
       "name": "bibi-blue-horizon.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-blue-horizon.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-blue-horizon.mp4",
       "sha256": "c852fcd75fcd2608cc071459b91bfea555e97e5655afca7d330710432c9dd86d",
       "size": 1682639
     },
     {
       "name": "bibi-clockwork-streets.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-clockwork-streets.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-clockwork-streets.jpg",
       "sha256": "d929efab80356ae521bf52dd08157425a0d8e26f7515b2a742349385059ddbfd",
       "size": 34029
     },
     {
       "name": "bibi-clockwork-streets.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-clockwork-streets.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-clockwork-streets.mp4",
       "sha256": "684160b024d017e54a9ca606ea2f2759dc756b30ddaaa84abe221867f49f559d",
       "size": 1112080
     },
     {
       "name": "bibi-dawn-promise.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-dawn-promise.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-dawn-promise.jpg",
       "sha256": "aad492867036c25b51d6daa1e008e07e6545628ef4c1b7a14bbbf0143552eee3",
       "size": 27537
     },
     {
       "name": "bibi-dawn-promise.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-dawn-promise.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-dawn-promise.mp4",
       "sha256": "240bdf8c1b8f42430962553bbcd20a0019c2ae9b39a62d18dee756fd7fa622d8",
       "size": 1416908
     },
     {
       "name": "bibi-forest-guardian.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-forest-guardian.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-forest-guardian.jpg",
       "sha256": "bf9ec799fba669d5248f0b8e5602221b42ef3a2f3288023d11c27c463b1c8335",
       "size": 39409
     },
     {
       "name": "bibi-forest-guardian.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-forest-guardian.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-forest-guardian.mp4",
       "sha256": "3977c3dcd1f07277a8313b6f8a8e4ea0b027675b7092d64b34b3e04fd75f54e3",
       "size": 978179
     },
     {
       "name": "bibi-forest-path.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-forest-path.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-forest-path.jpg",
       "sha256": "e52a65d5736bc2d002551f022a74b6da829c450b05c8b359fade750ba206af0e",
       "size": 35367
     },
     {
       "name": "bibi-forest-path.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-forest-path.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-forest-path.mp4",
       "sha256": "cf0013a0a492cb6cf22fd3ba1d4146a592e9ceca12587175dcde68f0d12469a4",
       "size": 1372066
     },
     {
       "name": "bibi-glowing-staff.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-glowing-staff.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-glowing-staff.jpg",
       "sha256": "fb34be7cb9e27c9f36a3d21abc550b8c9f4f12c826117e9d4c87425d1dba92a2",
       "size": 23661
     },
     {
       "name": "bibi-glowing-staff.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-glowing-staff.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-glowing-staff.mp4",
       "sha256": "e2e635105522091182de66ebef3d6d5571ff287fc14f80d0c1abff21e8013f1c",
       "size": 1484759
     },
     {
       "name": "bibi-green-world.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-green-world.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-green-world.jpg",
       "sha256": "420b57550627de9c891bcbe4643829c41de6ee262c4c6dae77c8bab51acdc33c",
       "size": 28395
     },
     {
       "name": "bibi-green-world.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-green-world.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-green-world.mp4",
       "sha256": "9e7aa4231ac685e1fa6a0a5ce92f1a42e2c8ee540df0a819e8a872ee7faf7ecc",
       "size": 1442323
     },
     {
       "name": "bibi-little-companion.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-little-companion.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-little-companion.jpg",
       "sha256": "f7dffdf763e27261205ed5ec155aa241ee330bb3f174b3cba3212f82d287815d",
       "size": 76069
     },
     {
       "name": "bibi-little-companion.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-little-companion.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-little-companion.mp4",
       "sha256": "495c7145ee80e16ba39c952b3f3d4e23f90d4ab0a473f5f687e4453a7e379021",
       "size": 2197481
     },
     {
       "name": "bibi-moonlit-mist.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-moonlit-mist.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-moonlit-mist.jpg",
       "sha256": "b0cdb2b6ec13a5545c2010c4f85f111799e49ffc3df7cbb40896b2ff08f1c67d",
       "size": 23941
     },
     {
       "name": "bibi-moonlit-mist.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-moonlit-mist.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-moonlit-mist.mp4",
       "sha256": "906cd37ebd54a71d35e7e1f9fac82c8ed5d3f286a94842a346df2f0408cc8424",
       "size": 1329493
     },
     {
       "name": "bibi-paper-sky.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-paper-sky.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-paper-sky.jpg",
       "sha256": "929945cf20280b8c7fa9dda267564ecf385908ed38e10ced93a7a7255a3b1dd4",
       "size": 28723
     },
     {
       "name": "bibi-paper-sky.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-paper-sky.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-paper-sky.mp4",
       "sha256": "3a5ec449dbc3562fcb7417b11dc0b20a195682d95bd896d1ae3ab5f6b1a02aae",
       "size": 1322688
     },
     {
       "name": "bibi-quiet-return.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-quiet-return.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-quiet-return.jpg",
       "sha256": "23d10a9a5ea124d2718e805ae5b1f454219db6104633c05f54e54695f8d2caac",
       "size": 13791
     },
     {
       "name": "bibi-quiet-return.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-quiet-return.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-quiet-return.mp4",
       "sha256": "f4c7bba1966b1a2bdc1c96ff504a6c6cafe24578430bdc432169c576f43d9576",
       "size": 1280312
     },
     {
       "name": "bibi-shared-light.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-shared-light.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-shared-light.jpg",
       "sha256": "1e1865ba90421244bae62a0aae83e71d477a8b34e3ef873f64309ad7b1f9675a",
       "size": 37629
     },
     {
       "name": "bibi-shared-light.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-shared-light.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-shared-light.mp4",
       "sha256": "51a91c9964b39956ca936b09158c20bc66f5d5cf2fa98be3d0d0ecb145386423",
       "size": 976320
     },
     {
       "name": "bibi-sky-chase.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-sky-chase.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-sky-chase.jpg",
       "sha256": "5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
       "size": 65545
     },
     {
       "name": "bibi-sky-chase.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-sky-chase.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-sky-chase.mp4",
       "sha256": "9f60b5538b58badbe96cfb363e79320181da2019fc730b68a3c4a9a2e5cd1e34",
       "size": 1116053
     },
     {
       "name": "bibi-spring-awakens.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-spring-awakens.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-spring-awakens.jpg",
       "sha256": "dedffd81fffb23c4b5414161a23e8c81c3732c8da04f94180ebf6c3b55ff6a42",
       "size": 94945
     },
     {
       "name": "bibi-spring-awakens.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/bibi-spring-awakens.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/bibi-spring-awakens.mp4",
       "sha256": "88c5f6f6d5b8616ffc530f2357e9739b3b69d5de2ecedb284940a1680a59f91b",
       "size": 2126811
     },
     {
       "name": "brand-Fresh-Rhythm-2026-10-23-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/brand-Fresh-Rhythm-2026-10-23-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/brand-Fresh-Rhythm-2026-10-23-manifest.json",
       "sha256": "44af4feb5b2c6cd718b72ee372d04ab8204df01de26efd7561fc4f258cc3616b",
       "size": 6388
     },
     {
       "name": "brand-User-Logo-2026-10-23-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/brand-User-Logo-2026-10-23-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/brand-User-Logo-2026-10-23-manifest.json",
       "sha256": "d36ebe2726f825b929d367bc1da8a5c0ae513c9ce93bdbe3f6ab4249dd08ff82",
       "size": 1130
     },
     {
       "name": "catalog-AppIcon.appiconset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-AppIcon.appiconset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-AppIcon.appiconset.json",
       "sha256": "9239900ca4c37dc860feb154216409f05d906e26f2d79550e1e8e8b8db6324c7",
       "size": 202
     },
     {
       "name": "catalog-BibiIcon-back.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-back.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-back.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-balloon.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-balloon.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-balloon.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-bell.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-bell.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-bell.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-bellOff.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-bellOff.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-bellOff.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-block.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-block.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-block.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-bookmark.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-bookmark.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-bookmark.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-cat.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-cat.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-cat.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-chats.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-chats.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-chats.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-check.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-check.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-check.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-checkbox.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-checkbox.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-checkbox.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-checkboxOn.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-checkboxOn.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-checkboxOn.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-clock.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-clock.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-clock.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-close.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-close.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-close.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-comet.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-comet.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-comet.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-comment.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-comment.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-comment.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-crown.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-crown.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-crown.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-diamond.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-diamond.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-diamond.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-edit.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-edit.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-edit.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-eye.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-eye.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-eye.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-filter.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-filter.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-filter.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-flag.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-flag.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-flag.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-flip.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-flip.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-flip.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-flower.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-flower.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-flower.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-forward.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-forward.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-forward.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-gift.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-gift.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-gift.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-grid.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-grid.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-grid.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-handset.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-handset.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-handset.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-heart.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-heart.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-heart.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-heartFill.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-heartFill.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-heartFill.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-heartOutline.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-heartOutline.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-heartOutline.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-info.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-info.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-info.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-link.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-link.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-link.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-live.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-live.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-live.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-logout.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-logout.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-logout.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-me.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-me.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-me.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-microphone.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-microphone.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-microphone.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-microphoneIvory.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-microphoneIvory.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-microphoneIvory.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-microphoneOff.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-microphoneOff.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-microphoneOff.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-microphoneOffIvory.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-microphoneOffIvory.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-microphoneOffIvory.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-moon.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-moon.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-moon.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-more.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-more.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-more.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-music.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-music.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-music.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-muted.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-muted.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-muted.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-mutedIvory.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-mutedIvory.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-mutedIvory.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-pause.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-pause.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-pause.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-people.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-people.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-people.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-personPlus.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-personPlus.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-personPlus.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-phone.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-phone.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-phone.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-photo.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-photo.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-photo.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-phrases.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-phrases.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-phrases.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-planet.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-planet.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-planet.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-play.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-play.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-play.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-plus.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-plus.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-plus.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-refresh.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-refresh.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-refresh.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-search.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-search.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-search.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-send.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-send.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-send.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-settings.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-settings.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-settings.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-share.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-share.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-share.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-shorts.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-shorts.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-shorts.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-sparkle.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-sparkle.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-sparkle.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-speaker.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-speaker.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-speaker.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-speakerIvory.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-speakerIvory.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-speakerIvory.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-star.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-star.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-star.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-starFill.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-starFill.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-starFill.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-starOutline.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-starOutline.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-starOutline.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-trash.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-trash.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-trash.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-unreadBadge.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-unreadBadge.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-unreadBadge.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-video.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-video.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-video.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-voice.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-voice.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-voice.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiIcon-wand.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiIcon-wand.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiIcon-wand.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiLaunchBackground.colorset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiLaunchBackground.colorset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiLaunchBackground.colorset.json",
       "sha256": "74f0f5b27aa51f9f6a8b8103c890ee914d77c2bd4c0a66b7c8cb9c6e36d50c43",
       "size": 316
     },
     {
       "name": "catalog-BibiMark.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiMark.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiMark.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom1.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom1.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom1.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom2.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom2.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom2.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom3.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom3.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom3.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom4.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom4.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom4.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom5.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom5.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom5.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom6.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom6.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom6.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom7.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom7.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom7.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiRoom8.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiRoom8.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiRoom8.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiTitle-Challenges.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiTitle-Challenges.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiTitle-Challenges.imageset.json",
       "sha256": "f8bca9bea6942cbd1a2b98aaa0c4deb3fe7a5fe6b3b4d5c5ca5a73d7098a9b3f",
       "size": 214
     },
     {
       "name": "catalog-BibiTitle-Chats.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiTitle-Chats.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiTitle-Chats.imageset.json",
       "sha256": "f8bca9bea6942cbd1a2b98aaa0c4deb3fe7a5fe6b3b4d5c5ca5a73d7098a9b3f",
       "size": 214
     },
     {
       "name": "catalog-BibiTitle-Circles.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiTitle-Circles.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiTitle-Circles.imageset.json",
       "sha256": "f8bca9bea6942cbd1a2b98aaa0c4deb3fe7a5fe6b3b4d5c5ca5a73d7098a9b3f",
       "size": 214
     },
     {
       "name": "catalog-BibiTitle-Me.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiTitle-Me.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiTitle-Me.imageset.json",
       "sha256": "f8bca9bea6942cbd1a2b98aaa0c4deb3fe7a5fe6b3b4d5c5ca5a73d7098a9b3f",
       "size": 214
     },
     {
       "name": "catalog-BibiTitle-Shorts.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiTitle-Shorts.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiTitle-Shorts.imageset.json",
       "sha256": "f8bca9bea6942cbd1a2b98aaa0c4deb3fe7a5fe6b3b4d5c5ca5a73d7098a9b3f",
       "size": 214
     },
     {
       "name": "catalog-BibiWelcome.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiWelcome.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiWelcome.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-BibiWordmark.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-BibiWordmark.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-BibiWordmark.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait1.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait1.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait1.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait10.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait10.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait10.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait11.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait11.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait11.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait12.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait12.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait12.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait13.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait13.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait13.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait14.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait14.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait14.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait15.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait15.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait15.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait16.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait16.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait16.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait17.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait17.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait17.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait18.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait18.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait18.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait19.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait19.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait19.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait2.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait2.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait2.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait20.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait20.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait20.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait21.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait21.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait21.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait22.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait22.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait22.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait23.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait23.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait23.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait24.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait24.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait24.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait25.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait25.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait25.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait26.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait26.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait26.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait27.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait27.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait27.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait28.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait28.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait28.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait29.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait29.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait29.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait3.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait3.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait3.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait30.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait30.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait30.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait31.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait31.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait31.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait32.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait32.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait32.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait33.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait33.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait33.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait34.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait34.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait34.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait35.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait35.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait35.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait36.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait36.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait36.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait37.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait37.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait37.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait38.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait38.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait38.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait39.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait39.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait39.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait4.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait4.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait4.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait40.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait40.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait40.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait41.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait41.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait41.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait42.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait42.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait42.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait43.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait43.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait43.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait44.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait44.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait44.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait45.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait45.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait45.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait46.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait46.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait46.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait47.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait47.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait47.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait48.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait48.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait48.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait49.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait49.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait49.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait5.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait5.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait5.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait50.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait50.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait50.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait51.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait51.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait51.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait52.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait52.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait52.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait6.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait6.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait6.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait7.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait7.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait7.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait8.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait8.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait8.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-Portrait9.imageset.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-Portrait9.imageset.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-Portrait9.imageset.json",
       "sha256": "32d676c4d148b0924083c7acd305f05ff8a23fc32a664c04d9159e86c1f7242e",
       "size": 146
     },
     {
       "name": "catalog-root.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/catalog-root.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/catalog-root.json",
       "sha256": "a3393322cd7b4c1e0aa93bebe09abaa91ad891290d1225b0b5d10b5c6f216025",
       "size": 59
     },
     {
       "name": "design-system-bibi-MASTER.md",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/design-system-bibi-MASTER.md",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/design-system-bibi-MASTER.md",
       "sha256": "94b2f477142735e43810fdd25e1b73784cac30d89f7326e049f3b9653b2d41d8",
       "size": 1674
     },
     {
       "name": "generated-PROMPTS.md",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-PROMPTS.md",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-PROMPTS.md",
       "sha256": "88041beaa30628b654548d6ae8c67fd236196e36e37f4ecaf714a4cf4c18a3e7",
       "size": 2417
     },
     {
       "name": "generated-app-icon.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-app-icon.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-app-icon.png",
       "sha256": "27adda2d7d17b8215e6c0677c28f9ff1dab414974631da380eb1962aaaed80b9",
       "size": 1474053
     },
     {
       "name": "generated-characters-01.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-characters-01.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-characters-01.png",
       "sha256": "306dad68db139fbb5461a25240f8ae5487502d9c0757e4734e4da1f6b86956ad",
       "size": 2999409
     },
     {
       "name": "generated-characters-02.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-characters-02.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-characters-02.png",
       "sha256": "06ceb5cf3ced5b2fd4c36e1e0398e6d3e6c315fee1423d7fcc190a2902373bd4",
       "size": 3231107
     },
     {
       "name": "generated-navigation-atlas.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-navigation-atlas.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-navigation-atlas.png",
       "sha256": "31c8e23df6ebd0bdce3dd0a8360bf5db69006f929484db505e5b51cb20709d1d",
       "size": 1287652
     },
     {
       "name": "generated-rooms-atlas.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-rooms-atlas.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-rooms-atlas.png",
       "sha256": "6231ca2ca587879140cac5930811bb5aec9cf1b825e328b6b2c831d213e8f40c",
       "size": 3560545
     },
     {
       "name": "generated-states-gifts-atlas.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-states-gifts-atlas.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-states-gifts-atlas.png",
       "sha256": "8db25bfe791d7d937f7fe32ed8b86b7763979d6ea2368b3b69fc2a232682749b",
       "size": 1491477
     },
     {
       "name": "generated-welcome.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/generated-welcome.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/generated-welcome.png",
       "sha256": "21c56f8065d3bf7068965d693b729e08dd7a15f8c3c14800a6e5bac6fbd6af94",
       "size": 2421795
     },
     {
       "name": "historical-icons-Teto-UIKit-20261020-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/historical-icons-Teto-UIKit-20261020-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/historical-icons-Teto-UIKit-20261020-manifest.json",
       "sha256": "2041db8f7d87a7d70720ca7a0d181949893ce6ef9937d9ef89969efc4311369f",
       "size": 44777
     },
     {
       "name": "media-frame-review.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/media-frame-review.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/media-frame-review.json",
       "sha256": "78ddc429132542cff984a3ac3c12f775c6d8fbdb5c481d97e61ec13b8d6646cd",
       "size": 4134
     },
     {
       "name": "media-optimization-2026-10-23-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/media-optimization-2026-10-23-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/media-optimization-2026-10-23-manifest.json",
       "sha256": "1bed70c734562e033f7d414637f49fe4de714b9929891c088cd63ce8ac1e4f2e",
       "size": 183148
     },
     {
       "name": "media-provenance.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/media-provenance.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/media-provenance.json",
       "sha256": "e326464ee98b8e2bb8917d291ca2d62d4321859e9e5ab5219f009089269fe735",
       "size": 29631
     },
     {
       "name": "original-hero-source-metadata.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/original-hero-source-metadata.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/original-hero-source-metadata.json",
       "sha256": "72e2707aaf22d6fdf1cb55d4f195b1b72f32056d33ef0a492ffc5290c3f8ae1e",
       "size": 10829
     },
     {
       "name": "original-hero.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/original-hero.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/original-hero.mp4",
       "sha256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
       "size": 19490682
     },
     {
       "name": "original-spring-source-metadata.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/original-spring-source-metadata.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/original-spring-source-metadata.json",
       "sha256": "ef405a9e28ccc526450c39e4d4900ab89503d9d0b49a1b05f1cc3292fc26c5f2",
       "size": 12480
     },
     {
       "name": "original-spring.mp4",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/original-spring.mp4",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/original-spring.mp4",
       "sha256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
       "size": 97446257
     },
     {
       "name": "review-bibi-amber-city-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-amber-city-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-amber-city-0.jpg",
       "sha256": "a89ab70a28bbdb17412582c6ba8ce4f4419cc49eb03ed5d7753d7b8ca9c2e541",
       "size": 7923
     },
     {
       "name": "review-bibi-amber-city-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-amber-city-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-amber-city-1.jpg",
       "sha256": "fa7ef7e5fbe90dd800966cfcc590f6719b13c40f141df6b49d785e9e68acc563",
       "size": 7962
     },
     {
       "name": "review-bibi-amber-city-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-amber-city-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-amber-city-2.jpg",
       "sha256": "f6767a5716d08d3675bb9248c7e60be3377730965ab4f4a9dca2dab12c2010d8",
       "size": 5918
     },
     {
       "name": "review-bibi-ancient-roots-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-ancient-roots-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-ancient-roots-0.jpg",
       "sha256": "5d44ac3c85391b53e51c2deb46b91879cee1d798cd97a6cbc181f90b31d2220a",
       "size": 5389
     },
     {
       "name": "review-bibi-ancient-roots-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-ancient-roots-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-ancient-roots-1.jpg",
       "sha256": "459737027fff5e6dd3b3a1a972d20951ee2c836551bdcafa3672a3a8515c6c9e",
       "size": 8983
     },
     {
       "name": "review-bibi-ancient-roots-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-ancient-roots-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-ancient-roots-2.jpg",
       "sha256": "2e5f45c9ec09e772c8ee4a80ad5d89c441b2291435120625da4af92df1e62615",
       "size": 9402
     },
     {
       "name": "review-bibi-blue-horizon-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-blue-horizon-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-blue-horizon-0.jpg",
       "sha256": "cac13ca69f4e3d5d116eb3ac24f281023e1d9d5d03bab0a7298d4a648a74d8c5",
       "size": 4377
     },
     {
       "name": "review-bibi-blue-horizon-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-blue-horizon-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-blue-horizon-1.jpg",
       "sha256": "e3c8f686b772520e92e51dc299af743c9a06fa29e0a06a7c2a9e78355ef248e2",
       "size": 5604
     },
     {
       "name": "review-bibi-blue-horizon-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-blue-horizon-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-blue-horizon-2.jpg",
       "sha256": "df96252005d7099195f34fbb67d5876effb801d3a1576a65a1759c1b08844a81",
       "size": 5983
     },
     {
       "name": "review-bibi-clockwork-streets-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-clockwork-streets-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-clockwork-streets-0.jpg",
       "sha256": "dfdf8614aba0887d588a20db9df25e6ed5366269695832ac540c3d6eaed402b8",
       "size": 5535
     },
     {
       "name": "review-bibi-clockwork-streets-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-clockwork-streets-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-clockwork-streets-1.jpg",
       "sha256": "1f0e48c131ad9f5508fc50678ab6d69b82bd8fd6f907c01593807ee379645165",
       "size": 6757
     },
     {
       "name": "review-bibi-clockwork-streets-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-clockwork-streets-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-clockwork-streets-2.jpg",
       "sha256": "f19ef9f39e7545ceb674c650fc757a497692a9fc23069f44b452f825aa85e375",
       "size": 2493
     },
     {
       "name": "review-bibi-dawn-promise-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-dawn-promise-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-dawn-promise-0.jpg",
       "sha256": "12e992fdf74d570ffab59a171786555d6af55fe06c4fbd372507962955faf320",
       "size": 6521
     },
     {
       "name": "review-bibi-dawn-promise-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-dawn-promise-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-dawn-promise-1.jpg",
       "sha256": "6e69a56ebe05405ee02b5341277ab2d320130b1c8d6da01d9f8d78a8c9a24b16",
       "size": 6460
     },
     {
       "name": "review-bibi-dawn-promise-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-dawn-promise-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-dawn-promise-2.jpg",
       "sha256": "87f08e5c7992fb5b91fe8fd77b4bc3c207430bc17e977fd07770db089a9f6328",
       "size": 5124
     },
     {
       "name": "review-bibi-forest-guardian-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-guardian-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-guardian-0.jpg",
       "sha256": "0a85a60d9d40007506d7070932d2c9376f9f57cd344538771c92c4a8bfdc7bd6",
       "size": 6358
     },
     {
       "name": "review-bibi-forest-guardian-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-guardian-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-guardian-1.jpg",
       "sha256": "dc316cdb77ca07ba30350ac8837003d897c05728586846dadb9044130fb37040",
       "size": 8413
     },
     {
       "name": "review-bibi-forest-guardian-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-guardian-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-guardian-2.jpg",
       "sha256": "eff80fc164ae3f538f36e15425982ccc310b119a9bddc18969af9694ae295de3",
       "size": 6400
     },
     {
       "name": "review-bibi-forest-path-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-path-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-path-0.jpg",
       "sha256": "e82c47c69bb92467492a22f35e5a2c21fa354a0233719cf8f92a48e7246aa598",
       "size": 9669
     },
     {
       "name": "review-bibi-forest-path-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-path-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-path-1.jpg",
       "sha256": "f5d6c56863348d7e93ef90f9090f0d04f442f9e1530978a52b3d4070c13a8a2c",
       "size": 6185
     },
     {
       "name": "review-bibi-forest-path-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-forest-path-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-forest-path-2.jpg",
       "sha256": "ca93af9956b6085eb08f7cf75ab1728a7c0108eebae6d54501a9433b960fd2de",
       "size": 7209
     },
     {
       "name": "review-bibi-glowing-staff-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-glowing-staff-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-glowing-staff-0.jpg",
       "sha256": "f0dc67f365802846dc5242b347823afc070fc5e8afcbd5cf583ee55850e14f30",
       "size": 6017
     },
     {
       "name": "review-bibi-glowing-staff-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-glowing-staff-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-glowing-staff-1.jpg",
       "sha256": "a0644281e51229c595702a3de968368bcb14dfcb7c6b95602556b69edaa32517",
       "size": 5610
     },
     {
       "name": "review-bibi-glowing-staff-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-glowing-staff-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-glowing-staff-2.jpg",
       "sha256": "37e99fc4f90911a9ab63906c9bbb7e10c019d80638e3e523b5371e0ce6a30eb5",
       "size": 8145
     },
     {
       "name": "review-bibi-green-world-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-green-world-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-green-world-0.jpg",
       "sha256": "e60db02689cc260db1e6667490366813a9cff91e983c8f427eaa593652be3908",
       "size": 5795
     },
     {
       "name": "review-bibi-green-world-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-green-world-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-green-world-1.jpg",
       "sha256": "090772367f0e2a1713e21cbeaf7f9b810937722c662e5277d6255b85696823c2",
       "size": 6871
     },
     {
       "name": "review-bibi-green-world-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-green-world-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-green-world-2.jpg",
       "sha256": "3b789165189b0f3a5c7e5242d90b9855ff9bf3f5f486cb53b0f6fb77fb026111",
       "size": 6063
     },
     {
       "name": "review-bibi-little-companion-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-little-companion-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-little-companion-0.jpg",
       "sha256": "14a0be4e1312356552d913a6169f4f601e612cac3a44bdb19bcdf9e87fbae17f",
       "size": 11283
     },
     {
       "name": "review-bibi-little-companion-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-little-companion-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-little-companion-1.jpg",
       "sha256": "3dfb5eea726a95cb23e325382aea58ec0f102488962c71141ed4a1a92bc8a84d",
       "size": 11884
     },
     {
       "name": "review-bibi-little-companion-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-little-companion-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-little-companion-2.jpg",
       "sha256": "8775f69579032007b21074d105a69b72f4f0aef2aebdc206ccf0c8e459a2fdee",
       "size": 8082
     },
     {
       "name": "review-bibi-moonlit-mist-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-moonlit-mist-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-moonlit-mist-0.jpg",
       "sha256": "a714cd63a0146253955e8382c3049a7ef2217bdbcdc7b1ad6202eec30cc7a9c8",
       "size": 3171
     },
     {
       "name": "review-bibi-moonlit-mist-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-moonlit-mist-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-moonlit-mist-1.jpg",
       "sha256": "ad3a5c646cf91dbd4b063414976cc15c7af37fe06b8ca75c487d56c9162c51fb",
       "size": 5154
     },
     {
       "name": "review-bibi-moonlit-mist-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-moonlit-mist-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-moonlit-mist-2.jpg",
       "sha256": "7fe8da328b78beff587e8f56ca70dd6124d4d8785054df09808cd4667c4a9c99",
       "size": 6482
     },
     {
       "name": "review-bibi-paper-sky-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-paper-sky-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-paper-sky-0.jpg",
       "sha256": "8be089a0564f93b8c33e19fb60a34eae0a9d1c06898a32eb25294451406ba7cc",
       "size": 5090
     },
     {
       "name": "review-bibi-paper-sky-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-paper-sky-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-paper-sky-1.jpg",
       "sha256": "408c71afaa0ff238287a40570d6209e34f93283b5a3761c301b1a29505fcbef4",
       "size": 6542
     },
     {
       "name": "review-bibi-paper-sky-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-paper-sky-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-paper-sky-2.jpg",
       "sha256": "56c016314495bbdd8bf611e11f24321102d5784a1413d2e7c029ef9243619c78",
       "size": 5141
     },
     {
       "name": "review-bibi-quiet-return-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-quiet-return-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-quiet-return-0.jpg",
       "sha256": "0a8eae3271234136a51721c0c4afc416620bdcd541d133ada31b1d27ccb555db",
       "size": 1745
     },
     {
       "name": "review-bibi-quiet-return-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-quiet-return-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-quiet-return-1.jpg",
       "sha256": "fd0403834580486edfe032c88e001c110fa0a3f47b80e3ecc261b4cd02a76970",
       "size": 3095
     },
     {
       "name": "review-bibi-quiet-return-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-quiet-return-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-quiet-return-2.jpg",
       "sha256": "80896a5e01fc1c81808953489b25ef05f074f75fb4a2bee015c987a8f6586756",
       "size": 6938
     },
     {
       "name": "review-bibi-shared-light-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-shared-light-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-shared-light-0.jpg",
       "sha256": "43197b2f822018e630e4b00714bf757551678f929902fa7b7071ae6c29c819b9",
       "size": 8152
     },
     {
       "name": "review-bibi-shared-light-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-shared-light-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-shared-light-1.jpg",
       "sha256": "a08fbe46dab94eb4b864da8fbabdd9819ad98b6576aa7a422b3d44f594c31cf9",
       "size": 7969
     },
     {
       "name": "review-bibi-shared-light-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-shared-light-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-shared-light-2.jpg",
       "sha256": "143e673dfce1aa66b47adc410cc92bbfdcd7a54d2ccab5d96382dfe1771c2217",
       "size": 5969
     },
     {
       "name": "review-bibi-sky-chase-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-sky-chase-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-sky-chase-0.jpg",
       "sha256": "c658fec72f9cbacd4311aa71b143471d856df4ed747350faff88223a4c2f3e05",
       "size": 4765
     },
     {
       "name": "review-bibi-sky-chase-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-sky-chase-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-sky-chase-1.jpg",
       "sha256": "7d9efe0e91373f7f2c6dd2e58bcfebf879361e2e04484bc5e4f1e2fed49ad044",
       "size": 11148
     },
     {
       "name": "review-bibi-sky-chase-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-sky-chase-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-sky-chase-2.jpg",
       "sha256": "6ca2e80debecc88d3b81e08c6cc02bca05ffd1ef93a9b8bb43a7659c41f67b9d",
       "size": 5630
     },
     {
       "name": "review-bibi-spring-awakens-0.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-spring-awakens-0.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-spring-awakens-0.jpg",
       "sha256": "7666533e27b86ee594b527c9e5724d88a2d1fdd10b90f4dac5db540a69c03a4f",
       "size": 12485
     },
     {
       "name": "review-bibi-spring-awakens-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-spring-awakens-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-spring-awakens-1.jpg",
       "sha256": "f4a2b3afe9a3b2a41d0b9e92ed7a6519f646a872342b6f6606a176dd397d7baa",
       "size": 11692
     },
     {
       "name": "review-bibi-spring-awakens-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-bibi-spring-awakens-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-bibi-spring-awakens-2.jpg",
       "sha256": "668b6445bd554e773fc8ec325f9fc9855f86d124cd74c1c51f0ff93bd584fdee",
       "size": 9526
     },
     {
       "name": "review-contact-1.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-contact-1.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-contact-1.jpg",
       "sha256": "8866883168622e2621ccbb71ac6ba5fa28f8f0d81b13f9f3e708a22077178396",
       "size": 159600
     },
     {
       "name": "review-contact-2.jpg",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/review-contact-2.jpg",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/review-contact-2.jpg",
       "sha256": "b4a8c54fb7d5998bb3f930ae88f92e6e0ced0e41737a79141ba7f61c42325c27",
       "size": 160849
     },
     {
       "name": "run-Community-challenge-playback.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-challenge-playback.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-challenge-playback.png",
       "sha256": "e1ccfc9b7a7b6d592f6723f3f4cba83230ea62267b16b2c4b138bc025ac5f7d4",
       "size": 2921009
     },
     {
       "name": "run-Community-chat-pending.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-chat-pending.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-chat-pending.png",
       "sha256": "f78e9168f9b3dd6de2ef1facd37478b6fd2718d992fa15a9255804a91cede845",
       "size": 3238213
     },
     {
       "name": "run-Community-chat-search-fixed.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-chat-search-fixed.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-chat-search-fixed.png",
       "sha256": "1fb85eb5e8461dd02f35ee380c7667042d327a3d3e0e8668469e6a29fdce2c76",
       "size": 3237886
     },
     {
       "name": "run-Community-circle-discussion.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-circle-discussion.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-circle-discussion.png",
       "sha256": "aaf9a995e69b0df55e6b7f5e2b3af85698e1636f24c272686061664283ad6c2e",
       "size": 2879904
     },
     {
       "name": "run-Community-me-history.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-me-history.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-me-history.png",
       "sha256": "2301f34fa8d5f577728461cef02c201d15faecef1f28a34a4599aa782a4ed3a0",
       "size": 3308722
     },
     {
       "name": "run-Community-me-uploads.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-me-uploads.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-me-uploads.png",
       "sha256": "1c3a4272df9f83ec78778e4d555056f08d5ff8fe714229a7b2f26d70ba64aab4",
       "size": 3521906
     },
     {
       "name": "run-Community-welcome.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Community-welcome.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Community-welcome.png",
       "sha256": "7be38ec6227b94d7f3e55733976eae3800d599d8e8d1876708ea84182cb85a32",
       "size": 4473585
     },
     {
       "name": "run-Typography-attachment-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-attachment-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-attachment-manifest.json",
       "sha256": "2fdef7cf5b4c35ce1032781f3903a20f9cb7b24c0d26282c585f03064be81e67",
       "size": 4636
     },
     {
       "name": "run-Typography-default-Challenges.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-default-Challenges.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-default-Challenges.png",
       "sha256": "e8fbf37754e7194537b00a51222e4f4fd2b3eb21c88bc01c239ba58be9136872",
       "size": 3379430
     },
     {
       "name": "run-Typography-default-Chats.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-default-Chats.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-default-Chats.png",
       "sha256": "aeec50247d5435f31407e0fb3e78655e1c6cf0ff80ebb34727aca7ae26996607",
       "size": 3553123
     },
     {
       "name": "run-Typography-default-Circles.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-default-Circles.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-default-Circles.png",
       "sha256": "df1cc7b17101b5f2059a3a17495d2481d5c2b579f6a892c4425d65bad772362b",
       "size": 3024183
     },
     {
       "name": "run-Typography-default-Me.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-default-Me.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-default-Me.png",
       "sha256": "55b67230690e2e1a3525a87f0d5fa697ee9be817c9533f159754b3674a867b04",
       "size": 2785396
     },
     {
       "name": "run-Typography-default-Shorts.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-default-Shorts.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-default-Shorts.png",
       "sha256": "71d9310a58fe79d8397583f262d79ba06d0ac394595b9aa526ab3674b79b0294",
       "size": 2389138
     },
     {
       "name": "run-Typography-larger-Challenges.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-larger-Challenges.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-larger-Challenges.png",
       "sha256": "c624034a00fbf5c8257d956df95d5cfbd63a793fef959b93c843f59876cd1300",
       "size": 3342264
     },
     {
       "name": "run-Typography-larger-Chats.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-larger-Chats.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-larger-Chats.png",
       "sha256": "3a4130d0a20ca97fffe456b2e4007da20eee52700edb6b7fbbeeb6c323b04c02",
       "size": 3563240
     },
     {
       "name": "run-Typography-larger-Circles.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-larger-Circles.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-larger-Circles.png",
       "sha256": "c5c4a8c1cd954e63e7ca6fdbdd3a83fea6bc503e83275ecdce63781666bf4e8f",
       "size": 3013488
     },
     {
       "name": "run-Typography-larger-Me.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-larger-Me.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-larger-Me.png",
       "sha256": "6aefda2cd02fe9339c0c4908ebb1912c6c350b2a226aacdc43e146ba0d713455",
       "size": 2734457
     },
     {
       "name": "run-Typography-larger-Shorts.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-larger-Shorts.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-larger-Shorts.png",
       "sha256": "58171b53f5632039151c2c5858135112c9692eee865caf884b4939309d42ef6b",
       "size": 1772056
     },
     {
       "name": "run-Typography-test-summary.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-Typography-test-summary.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-Typography-test-summary.json",
       "sha256": "2b63578a9ead52279d06c70978c38fdeb302a99acdebf54def231d1a8aedb5d2",
       "size": 959
     },
     {
       "name": "run-welcome.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/run-welcome.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/run-welcome.png",
       "sha256": "dfdd701e5ecb90a2ddbebe42a427108b8a98df5e6222630280736973487c3192",
       "size": 4475232
     },
     {
       "name": "runtime-asset-inventory.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/runtime-asset-inventory.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/runtime-asset-inventory.json",
       "sha256": "e8a055e66f43d42d8126a51dac24ec53ef383e5bd87c5c37a094e9cce6a4f467",
       "size": 4085
     },
     {
       "name": "source-covers-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/source-covers-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/source-covers-manifest.json",
       "sha256": "a43ba79811939a34792e162a3c5b77372f5ffc98fc7421ef4aeb331e22a0b052",
       "size": 11008
     },
     {
       "name": "source-lifestyle-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/source-lifestyle-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/source-lifestyle-manifest.json",
       "sha256": "fec2db5fcfbdc1437698a6555369568512136d2586a11d532e0a925d814ef08d",
       "size": 5424
     },
     {
       "name": "source-portraits-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/source-portraits-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/source-portraits-manifest.json",
       "sha256": "bb14c34cceb8dc7fda746c1d44f27ffc8ea14a62fdd98a8895dcc977945847d4",
       "size": 45912
     },
     {
       "name": "typography-Challenges.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-Challenges.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-Challenges.png",
       "sha256": "a91b2a27cc0c375c3d6f2c4775a3bf342010c952b3881d626a76326a68643574",
       "size": 1248322
     },
     {
       "name": "typography-Chats.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-Chats.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-Chats.png",
       "sha256": "402f6edde95611addb76690de0b82bb69c917d38bcc903a586fc128f45c3914c",
       "size": 1323434
     },
     {
       "name": "typography-Circles.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-Circles.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-Circles.png",
       "sha256": "80c22db42b4143e334e8714f246485c9fed0d0d4c987f56be6b7d66a841873d9",
       "size": 1296926
     },
     {
       "name": "typography-Me.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-Me.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-Me.png",
       "sha256": "f997152164a7d743e545dc44aa3973d7506851e278c35d4c85e35c2429098f4c",
       "size": 869409
     },
     {
       "name": "typography-PROMPTS.md",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-PROMPTS.md",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-PROMPTS.md",
       "sha256": "1defb402d2c484f60a8a6aa9c5cc2539b2990bd1ed7d097e34746c114d2f0edf",
       "size": 7627
     },
     {
       "name": "typography-Shorts.png",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-Shorts.png",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-Shorts.png",
       "sha256": "1347c0c359e73a36c37cc580f02a92b91a3293c32b251824a688fd5ab872d09b",
       "size": 1164426
     },
     {
       "name": "typography-manifest.json",
-      "url": "https://pub-fcd7cf821fc64e12885b1422fb08d0f5.r2.dev/typography-manifest.json",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/bibi-build-assets/typography-manifest.json",
       "sha256": "56306ec1eaf4c3bdb0c2c3e2f572a3e7b4e2d193927d9dec69bec8e1c9f22ec4",
       "size": 1278
     }
