@@ -1,0 +1,8 @@
+{
+  "requiredResources": 397,
+  "gitOwnedResources": 88,
+  "restoredR2Resources": 309,
+  "catalogEntries": 174,
+  "verification": "Local resource inspection plus actual credential-free R2 download into an independent temporary CI layout. No app build or runtime tests.",
+  "date": "2026-10-29"
+}

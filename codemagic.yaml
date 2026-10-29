@@ -50,6 +50,7 @@ workflows:
           cd "$CM_BUILD_DIR"
           git lfs install --local
           git lfs pull --include="Assets/**" --exclude=""
+          python3 BibiApp/scripts/restore_ci_resources.py
           python3 BibiApp/scripts/verify_ci_resources.py
           python3 BibiApp/scripts/prepare_asset_catalog.py
 

@@ -1,5 +1,30 @@
 # Bibi implementation record
 
+## Reproducible CI resource recovery — October 29, 2026
+
+The missing asset-catalog-index.json error came from ignored/untracked Assets,
+not Git LFS initialization. CIResources.json now pins all 397 current build
+inputs: 309 exact matches to the existing R2 manifest and 88 Git-owned current
+files. Narrow ignore exceptions expose the latter for commit, including the
+current index/branding/new media/fonts/PDFs. The retained asset archive remains
+ignored. Codemagic restores missing pinned R2 inputs before resource verification
+and catalog preparation. Changed local bytes and unresolved LFS pointers fail
+without overwrite; current branding is not replaced by older remote versions.
+
+Verification used an independent temporary CI-layout directory containing only
+the 88 Git-owned inputs and tracked scripts/configuration. Before restoration,
+the checker reported missing remote files. Actual HTTPS downloads restored 309
+R2 resources, all 397 files matched the current workspace hashes, the checker
+passed, and catalog preparation generated 174 entries. All Git-owned build inputs
+are unignored. YAML/order/identity checks, five Bash syntax checks and whitespace
+inspection passed. Evidence: BibiApp/Design/CI-Resources/verification.json.
+
+The workflow, snapshot, scripts, ignore rules and newly exposed Assets still
+need to be committed/pushed together to the cloud build branch. No app build,
+typecheck, simulator, launch, preview, runtime tests, Codemagic job, signing
+request or App Store upload was performed. See CI-RESOURCES.md for maintenance.
+
+
 ## Missing App Store profile handling — October 29, 2026
 
 The reported com.bibi.quadratic/app_store failure came from the workflow's

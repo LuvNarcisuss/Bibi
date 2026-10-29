@@ -34,8 +34,8 @@ number handling and review-submission settings are preserved.
 4. Confirm that Apple app 6828253391 belongs to com.bibi.quadratic in that team.
    An existing App Store record with a different Bundle ID is not repaired by
    changing a YAML variable. Resolve that identity in the Apple account first.
-5. Use the revised YAML in the remote branch. Resource delivery remains a separate
-   prerequisite: ignored Assets must be available in the remote checkout.
+5. Use the revised YAML in the remote branch. Resource delivery uses the pinned CI recovery workflow in CI-RESOURCES.md;
+   commit its snapshot, scripts and Git-owned Assets with the workflow.
 
 If retaining Code signing identities instead, upload/fetch a valid App Store
 profile for this exact Bundle ID and its matching distribution certificate/private
