@@ -8,9 +8,9 @@ workflows:
       app_store_connect: Bibi
 
     environment:
-      # Signing files are fetched in scripts, rather than selected before scripts run.
-      groups:
-        - bibi_signing
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.bibi.quadratic
 
       vars:
         BUNDLE_ID: "com.bibi.quadratic"
@@ -58,16 +58,6 @@ workflows:
         script: |
           set -euo pipefail
           cd "$CM_BUILD_DIR/BibiApp"
-          if [[ -z "${CERTIFICATE_PRIVATE_KEY:-}" ]]; then
-            echo "ERROR: Add CERTIFICATE_PRIVATE_KEY as a Secret in the bibi_signing environment group." >&2
-            echo "Use the private key for the existing Apple Distribution certificate, not the App Store Connect .p8 API key." >&2
-            exit 1
-          fi
-          keychain initialize
-          app-store-connect fetch-signing-files "$BUNDLE_ID" \
-            --type IOS_APP_STORE \
-            --create
-          keychain add-certificates
           xcode-project use-profiles
 
       - name: Set next App Store build number

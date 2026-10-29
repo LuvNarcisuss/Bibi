@@ -1,5 +1,45 @@
 # Static audit — Bibi
 
+## Original agreement URLs retained — October 29, 2026
+
+The owner selected the original public URLs under
+`bibi-agreements/2026-10-29/` as stable canonical destinations. Those two objects
+are replaced in place with the reviewed English company PDFs, preserving
+Chengdu Yuehui Xingyu Technology Co., Ltd. and trvahai996@icloud.com.
+The app model, README, identity audit and source provenance use these original
+URLs again. Matching bundled PDF bytes are unchanged; the content-derived consent
+version follows the current URLs and PDF bytes. Older version-directory records
+below are historical and do not define the current public links.
+
+Anonymous public readback and byte comparison are recorded in
+`BibiApp/Design/AgreementPDF/Original-Links/`. Static checks and plist/project
+syntax inspection passed. No build, typecheck, app launch, simulator, preview
+or runtime tests were run. The business backend gate remains false.
+
+
+## Codemagic-managed signing files — October 29, 2026
+
+The owner selected Code signing identities instead of CLI-managed signing.
+The workflow now selects stored App Store signing files for com.bibi.quadratic
+with environment.ios_signing. The bibi_signing environment group dependency,
+CERTIFICATE_PRIVATE_KEY guard, CLI fetch/create and keychain setup/import steps
+are removed. Profile application remains xcode-project use-profiles in BibiApp.
+This supersedes the earlier Missing App Store profile handling approach.
+
+The Codemagic team must hold a valid Apple Distribution certificate/private-key
+package and matching App Store profile for team JPTS6M4T5B and this Bundle ID.
+CODEMAGIC-SIGNING.md now documents certificate upload/fetch, profile creation/
+fetch/upload and the required green certificate match. Missing remote files will
+still fail the upfront selector; this source change does not provision them.
+The Bibi API integration, resource restoration, notifications, build numbering
+and disabled review submission are preserved.
+
+YAML mode/dependency/identity/publishing assertions, all five Bash script syntax
+checks and whitespace inspection passed. No credentials were changed, no remote
+signing files were uploaded, and no build, simulator, runtime tests, Codemagic
+job or App Store upload ran. Other existing agreement edits were preserved.
+
+
 ## Reproducible CI resource recovery — October 29, 2026
 
 The missing asset-catalog-index.json error came from ignored/untracked Assets,

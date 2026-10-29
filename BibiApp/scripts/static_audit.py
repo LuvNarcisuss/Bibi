@@ -34,7 +34,7 @@ check(not re.search(r'import SwiftUI|UIHostingController|UIImage\(systemName:',a
 check(not list(SOURCE.rglob('*.m')),'No Objective-C source')
 check('savedDemoVideoIDs' in alltext and 'var isDance: Bool?' in alltext,'Legacy serialized fields retained')
 agreement=(SOURCE/'Features/Authentication/UserAgreement.swift').read_text()
-check('https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/' in agreement and 'withExtension: "pdf"' in agreement and 'docs.google.com' not in agreement, 'Supabase PDF agreement URLs and bundled PDF fallback')
+check('https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/' in agreement and 'withExtension: "pdf"' in agreement and 'docs.google.com' not in agreement, 'Supabase PDF agreement URLs and bundled PDF fallback')
 check(not re.search(r'hoewtkchclzkuruf|qbfuucwaccetjljs|com\.teto\.dance|18781461148|1PBHnF3UNjCBkEuzOyETCUOWgMEz4eiPfGj_PooGJM4c|1BGNLMpwOFa8_6Fz3S4zv9xkKELYTBEx3KXi3DLVBSj0',alltext),'No inherited account/product/protocol endpoints in Swift')
 app=(SOURCE/'App/BibiApplication.swift').read_text()
 account_chat_source=(SOURCE/'Features/Chats/ChatModels.swift').read_text()
