@@ -1,0 +1,22 @@
+[
+  {
+    "document": "TermsOfService",
+    "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-contact/TermsOfService.pdf",
+    "status": 200,
+    "contentType": "application/pdf",
+    "bytes": 12215,
+    "sha256": "aa68e4c4a771ae7d63ad4353455846390d5b7aef0928e8cc7753b76377877ab7",
+    "anonymousReadVerified": true,
+    "verifiedOn": "2026-10-29"
+  },
+  {
+    "document": "PrivacyPolicy",
+    "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-contact/PrivacyPolicy.pdf",
+    "status": 200,
+    "contentType": "application/pdf",
+    "bytes": 13593,
+    "sha256": "66e9c07cee08ca04a82c265b7947439dd2fcd89f8c79813bac1f39472d39b738",
+    "anonymousReadVerified": true,
+    "verifiedOn": "2026-10-29"
+  }
+]

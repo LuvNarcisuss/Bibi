@@ -34,7 +34,7 @@ check(not re.search(r'import SwiftUI|UIHostingController|UIImage\(systemName:',a
 check(not list(SOURCE.rglob('*.m')),'No Objective-C source')
 check('savedDemoVideoIDs' in alltext and 'var isDance: Bool?' in alltext,'Legacy serialized fields retained')
 agreement=(SOURCE/'Features/Authentication/UserAgreement.swift').read_text()
-check('https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/' in agreement and 'withExtension: "pdf"' in agreement and 'docs.google.com' not in agreement, 'Supabase PDF agreement URLs and bundled PDF fallback')
+check('https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/' in agreement and 'withExtension: "pdf"' in agreement and 'docs.google.com' not in agreement, 'Supabase PDF agreement URLs and bundled PDF fallback')
 check(not re.search(r'hoewtkchclzkuruf|qbfuucwaccetjljs|com\.teto\.dance|18781461148|1PBHnF3UNjCBkEuzOyETCUOWgMEz4eiPfGj_PooGJM4c|1BGNLMpwOFa8_6Fz3S4zv9xkKELYTBEx3KXi3DLVBSj0',alltext),'No inherited account/product/protocol endpoints in Swift')
 app=(SOURCE/'App/BibiApplication.swift').read_text()
 account_chat_source=(SOURCE/'Features/Chats/ChatModels.swift').read_text()
@@ -112,6 +112,8 @@ for filename in ['TermsOfService','PrivacyPolicy']:
  check(hashlib.sha256((ASSETS/(filename+'.pdf')).read_bytes()).hexdigest()==record['bundledPDFSHA256'], 'Bundled PDF matches publication hash '+filename)
  check(hashlib.sha256((ASSETS/('agreement-source-'+filename+'.txt')).read_bytes()).hexdigest()==record['sourceTextSHA256'], 'Agreement source matches provenance '+filename)
  check(filename+'.pdf in Resources' in (ROOT/'Bibi.xcodeproj/project.pbxproj').read_text(), 'Agreement PDF included in resource phase '+filename)
+ source_text=(ASSETS/('agreement-source-'+filename+'.txt')).read_text()
+ check('Operator legal name: Chengdu Yuehui Xingyu Technology Co., Ltd.' in source_text and 'Contact email: trvahai996@icloud.com' in source_text and not re.search(r'^.+:\s*$',source_text,re.M), 'Owner contact and operator filled without empty fields '+filename)
 check('url.path == onlineURL.path' in agreement and 'url.query == nil' in agreement, 'Agreement reader restricts exact versioned PDF navigation')
 check('response.response.mimeType?.lowercased() != "application/pdf"' in app, 'Agreement reader rejects non-PDF responses')
 

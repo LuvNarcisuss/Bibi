@@ -12,7 +12,7 @@ enum AgreementDocument: String, Identifiable, CaseIterable {
     var id: String { rawValue }
     var title: String { self == .terms ? "Bibi - Terms of Service" : "Bibi - Privacy Policy" }
     var onlineURL: URL {
-        let base = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/"
+        let base = "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/"
         return URL(string: base + rawValue + ".pdf")!
     }
     var readerURL: URL { onlineURL }

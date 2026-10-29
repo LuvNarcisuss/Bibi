@@ -1,5 +1,44 @@
 # Bibi implementation record
 
+## Codemagic distribution configuration — October 29, 2026
+
+The root workflow now targets `BibiApp/Bibi.xcodeproj`, shared scheme `Bibi`,
+Bundle ID `com.bibi.quadratic`, App Store Apple ID `6828253391` and integration
+`Bibi`, with Xcode pinned to `26.5`. Resource restoration and preparation use
+`Assets/` and Bibi's catalog script. Profile application runs from `BibiApp/`.
+The build-number override uses `BIBI_BUILD_NUMBER`. IPA publishing retains
+`app_store_connect.auth: integration`; automatic beta/store review is disabled.
+The owner-selected address `2758057680@qq.com` receives both build success and
+failure notifications.
+
+`BibiApp/scripts/verify_ci_resources.py` reports missing resources and unresolved
+LFS pointers before signing or archiving. Most source assets remain ignored and
+untracked; their delivery to the remote checkout is required before cloud builds.
+The local configuration does not provision the remote `Bibi` integration or Apple
+signing credentials. Verification is static only; no cloud build or upload was run.
+
+## Agreement operator and support contact — October 29, 2026
+
+The owner selected Chengdu Yuehui Xingyu Technology Co., Ltd. as the English
+legal operator name and
+trvahai996@icloud.com as the support/privacy contact. Both source documents,
+retained HTML and bundled PDFs contain these values consistently; obsolete
+missing-contact statements and the empty-field draft banner are removed.
+No empty labeled fields remain. The policy still explicitly leaves support-mail
+storage location and retention unspecified; no jurisdiction, retention promise
+or legal approval was invented. Other service clauses were not rewritten.
+
+New immutable public PDFs are under `bibi-agreements/2026-10-29-company/`.
+The previous `2026-10-29/` PDFs remain historical. App URLs, README, publication
+hashes and content-derived consent inputs now use the new revision. Anonymous
+HTTPS readback returned 200/application/pdf and exact bundled byte matches.
+All nine PDF pages were reviewed and full text matches source. Evidence is in
+`BibiApp/Design/AgreementPDF/Company-Update/`.
+
+555 static checks passed. No build, typecheck, simulator, app launch, preview
+or runtime tests were performed. The business backend gate remains false.
+
+
 ## Supabase PDF agreements — October 29, 2026
 
 Terms and Privacy now use versioned public PDFs in Supabase Storage bucket

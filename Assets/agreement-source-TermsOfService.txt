@@ -1,8 +1,7 @@
 Bibi - Terms of Service
 Last updated: October 29, 2026
-Draft status: Complete the operator identity and contact email before public release.
-Operator legal name:
-Contact email:
+Operator legal name: Chengdu Yuehui Xingyu Technology Co., Ltd.
+Contact email: trvahai996@icloud.com
 1. Agreement and eligibility
 These Terms govern your use of Bibi, an anime-themed iPhone app with Shorts, Circles, Challenges, Chats and Me. "We" means the operator identified above; "you" means the person using the app. Read these Terms and the Privacy Policy before accepting them. If you do not agree to these Terms, do not continue using Bibi.
 You must be at least 18 years old, or older if the law applicable to you requires it, and legally able to enter this agreement. Bibi is not intended for children. The current entry flow does not verify your age or identity.
@@ -23,7 +22,7 @@ Do not use Bibi to create, import, store for distribution or share illegal conte
 Do not expose private information without permission, impersonate people, infringe intellectual-property rights, spam, exploit another person, manipulate purchase records or balances, or bypass safety and security controls. These rules apply to text, profiles, images, videos, comments and messages.
 Use safe practices when filming or taking part in a challenge. Do not endanger yourself or others, trespass or film someone without necessary permission. Current challenges are creative prompts, not paid competitions, prize draws or promises of exposure, income or rewards.
 Reports record your reason and hide relevant content locally; blocks hide related content and restrict interactions on this device. Settings provides controls to review those choices. Reports are not currently delivered to a review team, and blocks do not communicate a server-wide ban. Bibi does not promise a 24-hour review, emergency response or removal from other people's devices.
-For a copyright concern, include the work involved, the location or identifier of the material, your relationship to the rights holder and enough detail to evaluate the concern. For a safety concern, include only necessary information. Use the contact email once it has been completed. The operator may address material it controls, but cannot remotely inspect or delete private local files.
+For a copyright concern, include the work involved, the location or identifier of the material, your relationship to the rights holder and enough detail to evaluate the concern. For a safety concern, include only necessary information. Contact trvahai996@icloud.com. The operator may address material it controls, but cannot remotely inspect or delete private local files.
 6. Diamonds, purchases and Circle gifts
 Diamonds are optional consumable in-app items. Where products are available, purchases use Apple's in-app purchase flow. Review the product, quantity, localized price and Apple confirmation before authorizing a purchase. Apple handles payment under its applicable terms. Unavailable products cannot be treated as completed purchases.
 A cancelled, failed or pending payment is not a completed purchase. A confirmed purchase must be recorded successfully in the local wallet before the app displays the corresponding credit. The local ledger records transaction identifiers to reduce duplicate crediting; it is not a server-backed balance or a guarantee of recovery.
@@ -52,7 +51,7 @@ If the app fails to conform to an applicable warranty, you may notify Apple, and
 Follow applicable Apple usage rules and relevant third-party agreements. Apple and its subsidiaries are third-party beneficiaries of this section and may enforce the applicable terms. Nothing here overrides mandatory legal rights or the licenses governing separately licensed material.
 12. Changes, disputes and contact
 We may revise these Terms to reflect actual product changes or legal requirements and will update the date above. Material changes should be clearly disclosed, with renewed acceptance where required. Changes do not retroactively remove accrued rights. If you do not accept new Terms, you can stop using Bibi and use the available deletion controls.
-Applicable law determines your rights and which courts may hear a dispute. This draft does not select an unverified operator jurisdiction, require private arbitration or waive class-action or other procedural rights. You may seek help from a competent court, regulator or consumer-protection body without first completing an informal support process.
+Applicable law determines your rights and which courts may hear a dispute. These Terms do not select a specific operator jurisdiction, require private arbitration or waive class-action or other procedural rights. You may seek help from a competent court, regulator or consumer-protection body without first completing an informal support process.
 If a provision is unenforceable, the remaining provisions continue to the extent permitted by law. Failure to enforce a provision once does not waive it. The Privacy Policy explains data practices; it does not reduce protections in these Terms or applicable law.
-For questions, purchase issues, content concerns or disputes, contact the operator by email once the address below is completed. This draft does not yet provide an operational support address.
-Email:
+For questions, purchase issues, content concerns or disputes, contact the operator at trvahai996@icloud.com.
+Email: trvahai996@icloud.com

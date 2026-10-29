@@ -1,24 +1,24 @@
 [
   {
     "document": "TermsOfService",
-    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/TermsOfService.pdf",
+    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/TermsOfService.pdf",
     "publishedOn": "2026-10-29",
-    "sourceTextSHA256": "7fbecbfde20f029e9adedacbb21f96866fa3d433a3c7b8ebb6e92f1cf13d8ed3",
-    "bundledHTMLSHA256": "fba22f45ff1d072ea9e6136a4f74f244cbf06ce11b3ee6f2152eb0d7025abceb",
-    "bundledPDFSHA256": "8bb84fad744dcca32079a592ad410bd2cced3b3181a174909639840737d8f5e3",
-    "pdfBytes": 12260,
+    "sourceTextSHA256": "955cf3212f61980d53bbedb388e3349374b1014eb8df2ab9e167af08702d96c7",
+    "bundledHTMLSHA256": "231f6ef39ae324a08d6b03823b67e57afabf48cf2ad06e8bcdc427f1ddb019a9",
+    "bundledPDFSHA256": "22d9ff5dcd2c2d48172aafe4e85a8775a2a5561850f90cd89cb213788be30f47",
+    "pdfBytes": 12248,
     "anonymousAccessVerified": true,
-    "processing": "Existing local agreement text converted to PDF. Hosting disclosures now describe Supabase Storage. Other legal clauses were not substantively revised. Operator identity and contact email remain pending. PDF pages visually reviewed; complete extracted text matches source. Public readback matches bundled bytes."
+    "processing": "Owner-selected operator Chengdu Yuehui Xingyu Technology Co., Ltd. and contact trvahai996@icloud.com consistently applied. Obsolete missing-contact wording and empty-field draft banner removed. Published as a new immutable company revision; earlier public PDFs retained. Complete extracted text matches source; all pages visually reviewed. No empty labeled fields remain. Support mail storage location/retention remain unspecified; this is not a legal compliance certification."
   },
   {
     "document": "PrivacyPolicy",
-    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/PrivacyPolicy.pdf",
+    "sourceURL": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/PrivacyPolicy.pdf",
     "publishedOn": "2026-10-29",
-    "sourceTextSHA256": "fad414c54ddcb376b7cbfa95ffc7d2487d2d2e2f05f1d05a5d6d04b3834995fc",
-    "bundledHTMLSHA256": "72b238564e57a71b3ac4bcf8157f3f56a8a68c0b79b194b8454f26b7fe711207",
-    "bundledPDFSHA256": "86b8e6aaf036b25875fd9cf35fd590b506209443b6e4c3ca6e81249203fb3829",
-    "pdfBytes": 13650,
+    "sourceTextSHA256": "5ebb9ed524f06502cab3dd270bd88e1921466a76527516e49d1d5f2458efe41c",
+    "bundledHTMLSHA256": "b208a01ecca574c8b3dc6f915dca0ffb7e6508ad8af041ce93ad8d6282f4f96c",
+    "bundledPDFSHA256": "98d234753f6568fe9444e87ba9aef7d9eedb52613e9ee12907d05488b41ca5f8",
+    "pdfBytes": 13621,
     "anonymousAccessVerified": true,
-    "processing": "Existing local agreement text converted to PDF. Hosting disclosures now describe Supabase Storage. Other legal clauses were not substantively revised. Operator identity and contact email remain pending. PDF pages visually reviewed; complete extracted text matches source. Public readback matches bundled bytes."
+    "processing": "Owner-selected operator Chengdu Yuehui Xingyu Technology Co., Ltd. and contact trvahai996@icloud.com consistently applied. Obsolete missing-contact wording and empty-field draft banner removed. Published as a new immutable company revision; earlier public PDFs retained. Complete extracted text matches source; all pages visually reviewed. No empty labeled fields remain. Support mail storage location/retention remain unspecified; this is not a legal compliance certification."
   }
 ]

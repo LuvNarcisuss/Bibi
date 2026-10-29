@@ -10,6 +10,32 @@ The app supports iPhone only. For local purchase testing, select **Bibi UI Accep
 
 Repository rules, this README, Git ignore rules and `docs/` live at the repository root. `BibiApp/` contains the application sources, Xcode project, generator configuration, scripts, tests and design evidence. `Assets/` contains source assets.
 
+## Codemagic distribution
+
+The root `codemagic.yaml` defines `bibi-ios-app-store`, using Xcode `26.5`,
+the shared `Bibi` scheme in `BibiApp/Bibi.xcodeproj`, Bundle ID
+`com.bibi.quadratic` and App Store Apple ID `6828253391`. Configure the Codemagic
+App Store Connect integration with the exact name `Bibi`, access to this app and
+App Store signing certificates/profiles for team `JPTS6M4T5B`.
+
+The workflow restores Git LFS resources under `Assets/`, checks required files,
+prepares the asset catalog, applies signing profiles and increments the build
+number above the latest TestFlight build across versions. Publishing uses
+`app_store_connect.auth: integration` to upload the IPA. Automatic TestFlight beta
+review and App Store review submission remain disabled; these flags do not disable
+the upload itself. Build success and failure notifications are sent to the
+owner-selected address `2758057680@qq.com`.
+
+Source asset delivery is still a prerequisite: most of `Assets/` is ignored and
+is not currently tracked in Git. Make the required catalog index, its metadata and
+image sources, and all `../Assets/` resources in `BibiApp/project.yml` available in
+the remote checkout before running the workflow. Git LFS download cannot recover
+files that were never committed. `python3 BibiApp/scripts/verify_ci_resources.py`
+checks the available source resources without building the app.
+
+This configuration has only been inspected statically. No Codemagic job, Apple
+signing, IPA upload or App Store Connect processing has been verified.
+
 ## Implemented source flows
 
 - **Shorts**: the default tab; vertical video feed, search, likes, saves, comments, floating comments, sharing and local upload submissions.
@@ -65,7 +91,7 @@ All authored application and project content, including comments, explanations, 
 
 ## Agreements
 
-The consent and Settings screens reference the public Supabase [Terms of Service PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/TermsOfService.pdf) and [Privacy Policy PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/PrivacyPolicy.pdf). Matching bundled PDFs provide offline fallback; online consent reads the pinned bundled copy. Public HTTP readback verified both documents as application/pdf with bytes identical to the bundled files. The seven canonical agreement files under Assets are tracked; other Assets remain ignored. Provenance is recorded in Assets/agreement-source-provenance.json. Publish future revisions under a new versioned path and update the bundled copies together.
+The consent and Settings screens reference the public Supabase [Terms of Service PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/TermsOfService.pdf) and [Privacy Policy PDF](https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29-company/PrivacyPolicy.pdf). Matching bundled PDFs provide offline fallback; online consent reads the pinned bundled copy. Public HTTP readback verified both documents as application/pdf with bytes identical to the bundled files. The seven canonical agreement files under Assets are tracked; other Assets remain ignored. Provenance is recorded in Assets/agreement-source-provenance.json. Publish future revisions under a new versioned path and update the bundled copies together.
 
 ## Backend integration
 

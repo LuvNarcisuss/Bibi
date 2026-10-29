@@ -24,7 +24,7 @@ Apple server keys and the remaining release dependencies are still pending.
 - [ ] Assign moderation operators and a report/deletion escalation process.
   Database RPCs alone do not provide staffing or response-time guarantees.
 - [ ] Review and publish the online service/privacy wording, legal operator
-  identity and support contact. Existing bundled documents describe the local
+  identity and support contact (Chengdu Yuehui Xingyu Technology Co., Ltd. and trvahai996@icloud.com are now supplied). Existing bundled documents describe the local
   app; both currently state 18+, but they are not an approved description of
   the online backend. Agreements now use Supabase-hosted PDFs; the hosting migration did not revise other legal clauses.
   Refresh the bundled snapshots/provenance and consent version before enabling
