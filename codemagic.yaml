@@ -12,9 +12,6 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.bibi.quadratic
 
-      groups:
-        - bibi_build_assets
-
       vars:
         BUNDLE_ID: "com.bibi.quadratic"
         XCODE_PROJECT: "BibiApp/Bibi.xcodeproj"
@@ -51,11 +48,6 @@ workflows:
         script: |
           set -euo pipefail
           cd "$CM_BUILD_DIR"
-          if [[ -z "${SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY:-}" ]]; then
-            echo "ERROR: Codemagic environment group 'bibi_build_assets' must define the Secret variable SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY." >&2
-            echo "ERROR: Add the Supabase service_role key to that group; do not commit it to codemagic.yaml." >&2
-            exit 1
-          fi
           git lfs install --local
           git lfs pull --include="Assets/**" --exclude=""
           python3 BibiApp/scripts/restore_ci_resources.py
