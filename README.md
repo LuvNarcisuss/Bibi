@@ -18,24 +18,18 @@ the shared `Bibi` scheme in `BibiApp/Bibi.xcodeproj`, Bundle ID
 App Store Connect integration with the exact name `Bibi`, access to this app and
 App Store signing certificates/profiles for team `JPTS6M4T5B`.
 
-The workflow restores private build assets from Supabase Storage bucket
-`bibi-build-assets` using a Codemagic secret named
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`, checks required files, prepares the asset
-catalog, applies signing profiles and increments the build number above the latest
+The workflow restores build assets from the public Supabase Storage bucket
+`bibi-build-assets` without a Codemagic secret, checks required files, prepares the
+asset catalog, applies signing profiles and increments the build number above the latest
 TestFlight build across versions. Publishing uses
 `app_store_connect.auth: integration` to upload the IPA. Automatic TestFlight beta
 review and App Store review submission remain disabled; these flags do not disable
 the upload itself. Build success and failure notifications are sent to the
 owner-selected address `2758057680@qq.com`.
 
-The Codemagic environment group must be named `bibi_build_assets` and contain the
-secret variable `SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`.
-
-The one-time maintenance command
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY=... python3 BibiApp/scripts/upload_ci_resources.py`
-uploads the reviewed build-resource snapshot. The service-role key must remain in
-a trusted secret store and never be committed. Codemagic downloads only pinned
-objects and verifies their size and SHA-256 before catalog generation.
+Codemagic downloads only pinned public objects and verifies their size and SHA-256
+before catalog generation. The one-time upload process uses a trusted Supabase
+operator credential and never exposes that credential to Codemagic or the app.
 
 The private build-assets bucket has been created in the provisioned Supabase project. The
 repository configuration has only been inspected statically; the one-time object
