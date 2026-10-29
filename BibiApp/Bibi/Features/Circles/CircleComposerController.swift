@@ -41,6 +41,11 @@ final class CircleComposerController: StackScreen, PHPickerViewControllerDelegat
     content.addArrangedSubview(photoPreview)
     content.addArrangedSubview(mediaStatus)
     content.addArrangedSubview(
+      actionButton("Cover style", icon: .sparkle) { [weak self] in
+        guard let self else { return }
+        self.push(CosmeticPickerController(store: self.store, kinds: [.coverTemplate]))
+      })
+    content.addArrangedSubview(
       actionButton("Choose photo", icon: .photo) { [weak self] in self?.choosePhoto() })
     content.addArrangedSubview(
       actionButton("Attach a short video", icon: .shorts) { [weak self] in
@@ -71,9 +76,16 @@ final class CircleComposerController: StackScreen, PHPickerViewControllerDelegat
     submit = button
     content.addArrangedSubview(button)
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if isViewLoaded {
+      paintCoverTemplate(photoPreview, itemID: store.wallet.snapshot.cosmetics.coverTemplateID)
+    }
+  }
   private func updateAttachments() {
     photoPreview.image = photo.flatMap { UIImage(data: $0) }
     photoPreview.isHidden = photo == nil
+    paintCoverTemplate(photoPreview, itemID: store.wallet.snapshot.cosmetics.coverTemplateID)
     let videoTitle = videoID.flatMap { store.communityVideo($0)?.title }
     mediaStatus.text =
       ([photo == nil ? nil : "Photo attached", videoTitle.map { "Video: " + $0 }].compactMap { $0 })

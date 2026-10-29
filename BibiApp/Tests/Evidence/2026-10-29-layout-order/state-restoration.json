@@ -1,0 +1,27 @@
+{
+  "simulator": "Bibi UI Acceptance",
+  "deviceID": "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+  "systemPreferencesChanged": false,
+  "restoredFiles": [
+    {
+      "path": "Library/Application Support/Bibi/wallet-v1.json",
+      "restoredSHA256": "f7bb01bbe3addecfbbeccb49d57cc8fd2a6405699db2035a595b1936b34580cb",
+      "matchesBackup": true
+    },
+    {
+      "path": "Library/Application Support/Bibi/shorts-interactions-v1.json",
+      "restoredSHA256": "3a595e3584788dd2b7b1c2f90171acf329c557bd907aac5ea5aeac90b2483d32",
+      "matchesBackup": true
+    },
+    {
+      "path": "Library/Application Support/Bibi/library-v1.json",
+      "restoredSHA256": "db9f775079c5139b5dfa0c331faab2730243815441ec04edad9f4b05576fd7aa",
+      "matchesBackup": true
+    },
+    {
+      "path": "Library/Application Support/Bibi/video-viewing-history.json",
+      "restoredSHA256": "3ba644f81675a22697cf4368265decadef1854f3dbb967ef07af317f2cc4000b",
+      "matchesBackup": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-27",
+  "scope": "Static source and asset inspection only; no build, XCTest, simulator or database execution.",
+  "repository_checks": 514,
+  "new_assets": [
+    {
+      "asset": "Profile-StarlightCard",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "c18e452c09f67275c020e2b48f2a919fa2cf2e83b1a263bf1f2c736715fa7fb5"
+    },
+    {
+      "asset": "Filter-StarlightCapsule",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "99ec39cba09e116cb69a3123d77b0af6b516d3f029d5d94fbf729dcf0307587c"
+    },
+    {
+      "asset": "Avatar-TheoCosplay",
+      "dimensions": [
+        640,
+        640
+      ],
+      "mode": "RGB",
+      "sha256": "e96da2a064df3f14060d4ff6e5dad34006ff13ac2bef317003065c620b224ad3"
+    },
+    {
+      "asset": "PostCover-CosplayConvention",
+      "dimensions": [
+        540,
+        960
+      ],
+      "mode": "RGB",
+      "sha256": "ae9f9533a9813716ef1202b00b5b0e83ac8d18812e346831f251863c19830536"
+    },
+    {
+      "asset": "PostCover-CosplayGarden",
+      "dimensions": [
+        540,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "277b34bc7be656926acfa465e5ff4ad154c3339af9c1859f4ab14cfbe3db25ef"
+    }
+  ],
+  "cosplay_shorts": [
+    {
+      "asset": "bibi-cosplay-convention",
+      "duration": 18.018,
+      "curator": "Nova Stitch"
+    },
+    {
+      "asset": "bibi-cosplay-garden",
+      "duration": 7.007,
+      "curator": "Theo Lantern"
+    }
+  ],
+  "backend_deployed": false,
+  "runtime_verified": false
+}

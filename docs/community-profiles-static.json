@@ -1,0 +1,101 @@
+{
+  "scope": "Static catalog/source inspection only. Expected baseline figures are calculated from authored inputs, not runtime observations. Personal interactions are excluded.",
+  "profiles": [
+    {
+      "id": "bibi-story:luna",
+      "name": "Luna Frames",
+      "shorts": 2,
+      "posts": 1,
+      "works": 3,
+      "initial_likes": 53,
+      "initial_saves": 64,
+      "following": 18,
+      "followers": 23,
+      "short_assets": [
+        "bibi-sky-chase",
+        "bibi-spring-awakens"
+      ]
+    },
+    {
+      "id": "bibi-story:kai",
+      "name": "Kai Orbit",
+      "shorts": 2,
+      "posts": 2,
+      "works": 4,
+      "initial_likes": 71,
+      "initial_saves": 67,
+      "following": 24,
+      "followers": 17,
+      "short_assets": [
+        "bibi-paper-sky",
+        "bibi-glowing-staff"
+      ]
+    },
+    {
+      "id": "bibi-story:mira",
+      "name": "Mira Ink",
+      "shorts": 1,
+      "posts": 2,
+      "works": 3,
+      "initial_likes": 54,
+      "initial_saves": 50,
+      "following": 16,
+      "followers": 28,
+      "short_assets": [
+        "bibi-green-world"
+      ]
+    },
+    {
+      "id": "bibi-story:rowan",
+      "name": "Rowan Tales",
+      "shorts": 1,
+      "posts": 2,
+      "works": 3,
+      "initial_likes": 64,
+      "initial_saves": 40,
+      "following": 21,
+      "followers": 19,
+      "short_assets": [
+        "bibi-quiet-return"
+      ]
+    },
+    {
+      "id": "bibi-story:nova",
+      "name": "Nova Stitch",
+      "shorts": 1,
+      "posts": 2,
+      "works": 3,
+      "initial_likes": 55,
+      "initial_saves": 45,
+      "following": 14,
+      "followers": 26,
+      "short_assets": [
+        "bibi-little-companion"
+      ]
+    },
+    {
+      "id": "bibi-story:theo",
+      "name": "Theo Lantern",
+      "shorts": 1,
+      "posts": 3,
+      "works": 4,
+      "initial_likes": 88,
+      "initial_saves": 54,
+      "following": 27,
+      "followers": 22,
+      "short_assets": [
+        "bibi-ancient-roots"
+      ]
+    }
+  ],
+  "invariants": [
+    "Six distinct authors each have posts and active Shorts.",
+    "All 16 media UUIDs, asset names, sources and credits are retained.",
+    "Eight legacy live clips remain excluded from active collections.",
+    "Per-media likes and saves remain keyed by original UUIDs.",
+    "Legacy follow records remain intact; they are not copied to six unrelated authors.",
+    "Legacy group blocks continue to hide the associated videos.",
+    "Online counts and personal-account counts receive no authored baselines."
+  ],
+  "runtime_tests": "Two hosted XCTest regressions added but not executed."
+}

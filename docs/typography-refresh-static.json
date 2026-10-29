@@ -1,0 +1,15 @@
+{
+  "scope": "Static inspection only. No compilation, typechecking, app launch, simulator or runtime tests.",
+  "checks": [
+    "UIAppFonts registers exactly the two new bundled fonts.",
+    "Kalam-Bold.ttf: resource paths, license and SHA-256 verified.",
+    "ComicNeue-Regular.ttf: resource paths, license and SHA-256 verified.",
+    "Previous fonts are excluded from current runtime resources; source files are preserved.",
+    "Backend gate remains disabled; bundle and signing identity passed the repository audit."
+  ],
+  "repository_audit": {
+    "passed": 445,
+    "failures": []
+  },
+  "visual_review": "Font specimen inspected using the downloaded TTF files. It is not an app screenshot."
+}

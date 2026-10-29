@@ -55,7 +55,10 @@ class FlatAssetTests(unittest.TestCase):
                 self.assertEqual(path.parent, ASSETS)
                 self.assertTrue(path.is_file())
                 self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), record["sha256"])
-                if path.suffix.lower() not in {".json", ".md", ".txt"}:
+                if path.suffix.lower() == ".html" and record["sha256"] != record["originalSHA256"]:
+                    self.assertTrue(record.get("updatedOn"), "Revised agreement needs a revision date")
+                    self.assertTrue(record.get("updateReason"), "Revised agreement needs an explicit revision record")
+                elif path.suffix.lower() not in {".json", ".md", ".txt"}:
                     self.assertEqual(record["sha256"], record["originalSHA256"])
                 if manifest.get("originalsRemoved"):
                     self.assertFalse((ROOT / record["source"]).exists(), "Original was not removed")
@@ -72,14 +75,15 @@ class FlatAssetTests(unittest.TestCase):
                     self.assertTrue(path.is_file(), str(path))
                     self.assertEqual(path.resolve().parent, ASSETS)
                     count += 1
-        self.assertEqual(count, 139)
+        expected = sum(len(entry["images"]) for entry in json.loads((ASSETS / "asset-catalog-index.json").read_text()))
+        self.assertEqual(count, expected)
         self.assertTrue((catalog / "BibiLaunchBackground.colorset/Contents.json").is_file())
 
     def test_only_runtime_resources_are_in_project(self):
         project = (ROOT / "BibiApp/Bibi.xcodeproj/project.pbxproj").read_text()
         for filename in ["hero.mp4", "spring.mp4", "review-contact-1.jpg", "generated-welcome.png"]:
             self.assertNotIn(filename + " in Resources", project)
-        for filename in ["animation-catalog.json", "Fredoka-Variable.ttf", "Nunito-Variable.ttf",
+        for filename in ["animation-catalog.json", "Kalam-Bold.ttf", "ComicNeue-Regular.ttf",
                          "TermsOfService.html", "PrivacyPolicy.html", "runtime-asset-inventory.json"]:
             self.assertIn(filename + " in Resources", project)
         self.assertNotIn("path = Agreements;", project)

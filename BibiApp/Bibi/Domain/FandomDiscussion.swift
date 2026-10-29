@@ -83,7 +83,21 @@ enum FandomDiscussion {
     static func lines(for video: LocalVideo) -> [Line] {
         let seed = stableSeed(for: video.id)
         var generator = ConversationRandom(state: seed)
-        var general = phrases.shuffled(using: &generator)
+        let cosplay = video.bundledClip?.caption.contains("#Cosplay") == true
+        let costumeNotes = [
+            "The costume colors work beautifully together.", "I like the repeated shapes in the accessories.",
+            "The fabric catches the light so softly.", "That small gesture gives the look personality.",
+            "The headpiece is my favorite detail.", "A useful reference for planning a costume palette.",
+            "The contrast makes the accessories stand out.", "I would sketch the silhouette first.",
+            "Those layers add so much texture.", "The gloves complete the look.",
+            "Keeping this as a color-study reference.", "A simple pose can show so much detail.",
+            "The expression gives the costume a story.", "I like how the colors repeat from top to bottom.",
+            "A tiny accent can bring a whole look together.", "This makes me want to plan an original character.",
+            "The light brings out the different fabrics.", "The accessories feel carefully chosen.",
+            "I would try a limited palette for my next design.", "The close-up makes the textures easy to study.",
+            "A lovely costume reference.", "There is something new to notice on every watch."
+        ]
+        var general = (cosplay ? costumeNotes : phrases).shuffled(using: &generator)
         let specific = ["I love the atmosphere in " + video.title + ".", "There is so much to notice in this scene."]
         general = specific + general
         let names = ["Emma", "Jay", "Sofia", "Marcus", "Chloe", "Daniel", "Maya", "Alex",

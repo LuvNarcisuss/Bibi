@@ -1,0 +1,224 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "0D1CE354-E0CE-4CA9-AAAF-D7ADC7D3EC6C.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "coverage-notes-landscape_0_31DA89F6-4B73-4DD3-87E7-520E75DEABF7.txt",
+        "timestamp" : 1793238279.847
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "FE817523-B49A-4070-9546-129ABCEFE0EB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-returned-portrait_0_ECA72B43-7729-4472-A8DC-8D989A8C8B60.png",
+        "timestamp" : 1793238279.839
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "25EC4766-6302-4409-9836-6D693BD1C3E9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-Me_0_DE9FFFE8-DBC0-4166-9EF4-AF5EE0447EB2.png",
+        "timestamp" : 1793238277.404
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "476E0759-2EBC-4942-8D4C-72EE8469FD28.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-Chats_0_B1A4ADFA-C370-40B5-9CB7-ECBB2072E037.png",
+        "timestamp" : 1793238272.162
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "A9A1B2F8-50B3-4010-8E87-EEF7379F5119.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-Challenges_0_5B5E9127-AE6F-4FFB-8AB4-16F38F299CD0.png",
+        "timestamp" : 1793238266.98
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "3CFA62F7-D17B-4CC9-AA93-29A71B242666.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-Circles_0_E9DF579E-E874-43E8-99C8-7FE8D8A5053F.png",
+        "timestamp" : 1793238261.034
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "12AF6C61-9B5C-4A03-9ADE-A4122A865692.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-Shorts_0_A20732AB-9B7F-4AC3-A219-4ABCD35C0E41.png",
+        "timestamp" : 1793238194.278
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "19CE430F-8151-40C3-9B06-3EF19E6B4883.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-entry-shorts-home_0_16FE3732-8757-42A1-B218-7F3E779FC191.png",
+        "timestamp" : 1793238132.103
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "03A3897A-6106-4A14-BEAE-C71A6882ED5F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-entry-enter_0_8327A05C-993C-40CB-AFE9-5E4977B973A5.png",
+        "timestamp" : 1793238129.313
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "FAC448DB-89E0-4E6B-9169-8FD5BBADEDE0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-entry-agreements_0_C8DDEA43-0940-436C-B866-AB9B3DC623D3.png",
+        "timestamp" : 1793238123.199
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "EFBEC5CC-5CB5-4E78-B18D-659C957D2B3A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "landscape-entry-welcome_0_F4523C78-C433-4E35-B6DA-256FB1527B1E.png",
+        "timestamp" : 1793238117.404
+      }
+    ],
+    "testIdentifier" : "AppCoverageUITests/testRootsStayPortraitWhenDeviceRotates()",
+    "testIdentifierURL" : "test://com.apple.xcode/Bibi/BibiUITests/AppCoverageUITests/testRootsStayPortraitWhenDeviceRotates"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "72DB0713-06A3-400C-8A71-115209A2FB4A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "entry-after-repeated-consent-refresh_0_F634480B-AE83-4421-9977-AFBCDF9F32C1.png",
+        "timestamp" : 1793238302.893
+      }
+    ],
+    "testIdentifier" : "TypographyUITests/testEntryConsentRefreshKeepsLogoAndActionsAvailable()",
+    "testIdentifierURL" : "test://com.apple.xcode/Bibi/BibiUITests/TypographyUITests/testEntryConsentRefreshKeepsLogoAndActionsAvailable"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "EB91EB63-99D8-4CAF-8354-0F5BFA308670.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "default-Me_0_060CC20D-77ED-4EBA-97CC-7206B120C71A.png",
+        "timestamp" : 1793238396.437
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "6AA86F21-313F-4895-91DF-2E3A83E32602.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "default-Chats_0_75143E97-1B1F-4E46-B78F-44E1E588158C.png",
+        "timestamp" : 1793238391.803
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "3BABFF37-E985-4F04-A6FF-CA7F89F1A03E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "default-Challenges_0_FD8FF277-B8EF-4E17-8A2C-CCBA87ED216A.png",
+        "timestamp" : 1793238386.676
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "E04B1DCA-370A-4EAD-89FA-FEAEE017CE86.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "default-Circles_0_3056FC1B-8C68-4965-8CE1-BCFB1CCE4904.png",
+        "timestamp" : 1793238381.849
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "A3A37EE5-8A95-4461-8ABD-99CE1DDA5C44.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "default-Shorts_0_4AF706D1-C747-4C22-BC19-857FBCC30F2F.png",
+        "timestamp" : 1793238315.601
+      }
+    ],
+    "testIdentifier" : "TypographyUITests/testFiveIllustratedTitles()",
+    "testIdentifierURL" : "test://com.apple.xcode/Bibi/BibiUITests/TypographyUITests/testFiveIllustratedTitles"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "25A34220-C423-42AB-9107-BA5DB3119563.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "larger-Me_0_228EB9D5-97D6-4796-BAAB-23B25BC2C645.png",
+        "timestamp" : 1793238559.672
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "010D506C-CAC9-439A-A0D3-E43BCBB89A71.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "larger-Chats_0_158FD50A-4908-4A76-8143-EF82B13E1A18.png",
+        "timestamp" : 1793238555.297
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "2D3397F0-A6E8-4ED8-B579-24A6D752F100.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "larger-Challenges_0_7980608A-4EB4-40D8-8C8C-DF856140A301.png",
+        "timestamp" : 1793238550.497
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "CC41B156-F4DD-46F4-BFE1-929AAACBFAFB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "larger-Circles_0_466734AD-E3EE-49D6-B769-C865E159A43D.png",
+        "timestamp" : 1793238545.489
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+        "deviceName" : "Bibi UI Acceptance",
+        "exportedFileName" : "0F0EF8CF-10E5-4F13-B2D2-94EB005FB9A5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "larger-Shorts_0_995679B3-58FA-4501-8C0D-76FE6C9B8564.png",
+        "timestamp" : 1793238479.466
+      }
+    ],
+    "testIdentifier" : "TypographyUITests/testFiveIllustratedTitlesWithLargerText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Bibi/BibiUITests/TypographyUITests/testFiveIllustratedTitlesWithLargerText"
+  }
+]

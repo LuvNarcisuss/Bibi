@@ -1,0 +1,14 @@
+project_id = "yepycfnkkfrfmuwdekka"
+
+[functions.verify-purchase]
+verify_jwt = true
+
+[functions.media-finalize]
+verify_jwt = true
+
+[functions.delete-account]
+verify_jwt = true
+
+# Apple signs this webhook's payload; it does not send a Supabase session JWT.
+[functions.apple-notifications]
+verify_jwt = false

@@ -1,0 +1,13 @@
+{
+  "simulator": "Bibi UI Acceptance",
+  "udid": "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+  "device": "iPhone 17 Pro",
+  "xcode": "26.0.1 (17A400)",
+  "reduceMotionBefore": false,
+  "reduceMotionDuringInteractionRuns": true,
+  "reduceMotionAfter": false,
+  "reduceMotionRestorationEvidence": "Simulator Settings REDUCE_MOTION accessibility value 0 observed after restoration",
+  "cameraPermissionAfter": "Reset to undetermined for this app only",
+  "qaPhotoLibraryAddition": "One licensed saved-red-robe.mp4 fixture; original Photos files were not removed",
+  "finalLaunchPID": 27132
+}

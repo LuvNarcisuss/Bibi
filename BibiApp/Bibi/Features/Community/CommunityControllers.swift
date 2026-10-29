@@ -9,6 +9,7 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
   private var entries: [ShortComment] {
     (store.shortsSocial.comments[video.id] ?? []).filter {
       !store.isCommentReported($0.id.uuidString)
+        && !store.isCreatorBlocked($0.remoteAuthorID ?? ("comment-author:" + $0.name))
     }
   }
   init(store: AppStore, video: LocalVideo, floating: Bool = false) {
@@ -109,15 +110,15 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
     cell.selectionStyle = .none
     let photo = roundPortrait(
       asset: entry.avatarAsset, size: 34, personID: entry.name,
-      image: entry.name == "You" ? store.ownerAvatarImage() : nil)
+      image: isOwnComment(entry) ? store.ownerAvatarImage() : nil)
     let name = label(
       entry.name + (entry.replyToName.map { " → " + $0 } ?? ""), 14, BibiPalette.accent, title: true)
     let body = label(entry.text, 15)
     let text = stack([name, body], spacing: 3)
     let row = stack([photo, text], axis: .horizontal, spacing: 10)
     row.alignment = .top
-    if entry.name != "You" {
-      let flag = iconButton(.flag, "Report comment", size: 20) { [weak self] in
+    if !isOwnComment(entry) {
+      let flag = iconButton(.flag, "Report or block", size: 20) { [weak self] in
         self?.report(entry)
       }
       flag.setContentHuggingPriority(.required, for: .horizontal)
@@ -125,7 +126,7 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
       text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
       row.addArrangedSubview(flag)
       cell.accessibilityCustomActions = [
-        UIAccessibilityCustomAction(name: "Report comment") { [weak self] _ in
+        UIAccessibilityCustomAction(name: "Report or block") { [weak self] _ in
           self?.report(entry)
           return true
         },
@@ -140,10 +141,11 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
       row.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10),
     ])
     cell.accessibilityHint =
-      entry.name == "You" ? "Reply to this comment" : "Reply or report this comment"
+      isOwnComment(entry) ? "Reply to this comment" : "Reply, report or block this author"
     return cell
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    view.endEditing(true)
     let entry = entries[indexPath.row]
     var rows: [UIView] = [
       label(entry.name, 22, title: true), label(entry.text, 15, BibiPalette.muted),
@@ -161,27 +163,35 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
           }
         })
     }
-    if entry.name != "You" {
+    if !isOwnComment(entry) {
       rows.append(
-        actionButton("Report", icon: .flag, tone: .danger) { [weak self] in
+        actionButton("Report or block", icon: .flag, tone: .danger) { [weak self] in
           guard let self else { return }
           self.dismissCard {
             self.presentScreen(
               SafetyController(
                 store: self.store,
-                target: .comment(id: entry.id.uuidString, name: entry.name, text: entry.text),
-                reporting: true))
+                target: .comment(id: entry.id.uuidString, name: entry.name, text: entry.text, authorID: entry.remoteAuthorID),
+                reporting: false))
           }
         })
     }
     rows.append(actionButton("Cancel") { [weak self] in self?.dismissCard() })
     showCard(rows)
   }
+  private func isOwnComment(_ entry: ShortComment) -> Bool {
+    if let authorID = entry.remoteAuthorID, let account = store.online?.services.accountID {
+      return authorID.lowercased() == account.uuidString.lowercased()
+    }
+    return entry.name == "You"
+  }
+
   private func report(_ entry: ShortComment) {
     let safety = SafetyController(
       store: store,
-      target: .comment(id: entry.id.uuidString, name: entry.name, text: entry.text),
-      reporting: true)
+      target: .comment(id: entry.id.uuidString, name: entry.name, text: entry.text, authorID: entry.remoteAuthorID),
+      reporting: false)
+    safety.onResolved = { [weak self] in self?.refresh() }
     dismissCard { [weak self] in self?.presentScreen(safety) }
   }
   private func send() {
@@ -291,10 +301,10 @@ final class SafetyController: StackScreen {
     content.addArrangedSubview(details)
     content.addArrangedSubview(
       label(
-        "Reports stay on this device and are not submitted. Remove one from Reported in Settings.",
+        store.isOnline ? "Reports are submitted for review. Showing content again does not withdraw a submitted report." : "Reports stay on this device and are not submitted. Remove one from Reported in Settings.",
         14, BibiPalette.muted))
     content.addArrangedSubview(
-      actionButton("Save report", icon: .flag, primary: true) { [weak self] in
+      actionButton(store.isOnline ? "Submit report" : "Save report", icon: .flag, primary: true) { [weak self] in
         guard let self else { return }
         let reason = selected
         let note = details.text ?? ""
@@ -346,7 +356,7 @@ final class WalletController: StackScreen {
     balance.accessibilityValue = String(store.wallet.snapshot.diamonds)
     content.addArrangedSubview(
       label(
-        "Use diamonds for gift effects on circle posts. Gifts and your balance are stored on this device; no transfer is made to creators. Messages, posts and challenge entries are free.",
+        "Your diamond balance is preserved. Post gifts are no longer available. Profile looks, chat styles and cover frames are optional. Joining a challenge uses 100 diamonds. Messages, posts, comments, reports and blocks stay free.",
         15, BibiPalette.muted))
     let packages = WalletCatalog.packages(for: .diamonds)
     if let notice = store.wallet.catalog.notice {
@@ -502,6 +512,30 @@ enum GiftBurst {
   }
 }
 
+extension BibiScreen {
+  func presentGifts(for target: GiftTarget) {
+    guard store.canGift(target) else { return }
+    let picker = GiftsController(store: store, target: target)
+    let navigation = UINavigationController(rootViewController: picker)
+    BibiNavigation.style(navigation)
+    navigation.modalPresentationStyle = .pageSheet
+    if let sheet = navigation.sheetPresentationController {
+      sheet.detents = [.custom(identifier: .init("compactGifts")) { context in
+        min(480, context.maximumDetentValue * 0.62)
+      }]
+      sheet.prefersGrabberVisible = true
+      sheet.preferredCornerRadius = 26
+      sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+      sheet.prefersEdgeAttachedInCompactHeight = true
+      sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+    }
+    navigation.preferredContentSize = CGSize(width: 430, height: 480)
+    picker.navigationItem.rightBarButtonItem = barButton(
+      iconButton(.close, "Close gifts") { [weak picker] in picker?.closePicker() })
+    present(navigation, animated: true)
+  }
+}
+
 final class GiftsController: StackScreen {
   private var quantity = 1
   private var sending = false
@@ -510,11 +544,13 @@ final class GiftsController: StackScreen {
 
   init(store: AppStore, target: GiftTarget) {
     self.target = target
-    super.init(store: store, title: "Gift this content")
+    super.init(store: store, title: "Gifts")
   }
   required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
   override func build() {
     super.build()
+    content.spacing = 10
+    view.accessibilityIdentifier = "gift.sheet"
     observation = store.wallet.objectWillChange.receive(on: DispatchQueue.main).sink { [weak self] _ in
       self?.refresh()
     }
@@ -522,20 +558,24 @@ final class GiftsController: StackScreen {
   override func refresh() {
     guard isViewLoaded else { return }
     clear()
-    heading(target.title)
-    content.addArrangedSubview(label(
-      "Use diamonds for a gift animation and a record on this device. No gift or money is sent to the creator.",
-      14, BibiPalette.muted))
-    let balance = label("\(store.wallet.snapshot.diamonds.formatted()) Diamonds", 20, title: true)
+    navigationController?.isModalInPresentation = sending || store.wallet.isBusy
+    let context = label(target.title, 13, BibiPalette.muted)
+    context.numberOfLines = 1
+    context.lineBreakMode = .byTruncatingTail
+    content.addArrangedSubview(context)
+    let balance = label("\(store.wallet.snapshot.diamonds.formatted()) Diamonds", 17, title: true)
     balance.accessibilityIdentifier = "gift.balance"
     balance.accessibilityValue = String(store.wallet.snapshot.diamonds)
-    content.addArrangedSubview(balance)
-    let topUp = actionButton("Add diamonds", icon: .diamond) { [weak self] in
+    let topUp = actionButton("Add", icon: .diamond, compact: true) { [weak self] in
       guard let self else { return }
       self.push(WalletController(store: self.store))
     }
     topUp.isEnabled = !sending && !store.wallet.isBusy
-    content.addArrangedSubview(topUp)
+    topUp.accessibilityLabel = "Add diamonds"
+    topUp.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+    let walletRow = stack([balance, UIView(), topUp], axis: .horizontal, spacing: 8)
+    walletRow.alignment = .center
+    content.addArrangedSubview(walletRow)
     guard store.canGift(target) else {
       content.addArrangedSubview(label("This content is no longer available.", 16))
       return
@@ -554,17 +594,31 @@ final class GiftsController: StackScreen {
       for gift in StarGift.catalog[i..<min(i + 3, StarGift.catalog.count)] {
         let button = actionButton(
           "\(gift.name)\n\((gift.diamonds * quantity).formatted())\ndiamonds",
-          icon: giftIcon(for: gift), axis: .vertical, iconSize: 44
+          icon: giftIcon(for: gift), axis: .vertical, compact: true, iconSize: 28
         ) { [weak self] in self?.choose(gift) }
         button.caption.numberOfLines = 0
         button.caption.adjustsFontSizeToFitWidth = false
-        button.caption.font = BibiPalette.font(14)
+        button.caption.font = BibiPalette.font(12)
+        button.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        button.caption.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         button.isEnabled = !sending && !store.wallet.isBusy
         button.accessibilityIdentifier = "gift.item.\(gift.id)"
         row.addArrangedSubview(button)
       }
       content.addArrangedSubview(row)
     }
+    content.addArrangedSubview(label(
+      store.isOnline ? "Gifts add an effect and an account record. No money is transferred to the creator." : "Gifts add an effect and a record on this device. No gift or money is sent to the creator.",
+      12, BibiPalette.muted))
+  }
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    view.clipsToBounds = true
+    navigationController?.view.clipsToBounds = true
+  }
+  fileprivate func closePicker() {
+    guard !sending, !store.wallet.isBusy else { return }
+    dismiss(animated: true)
   }
   private func choose(_ gift: StarGift) {
     guard !sending, !store.wallet.isBusy, store.canGift(target) else { return }
@@ -579,7 +633,7 @@ final class GiftsController: StackScreen {
       return
     }
     confirm("Use \(cost.formatted()) diamonds?",
-            message: "\(count) × \(gift.name) for \(target.title). This saves a local gift and plays its animation. The creator does not receive a transfer.",
+            message: "\(count) × \(gift.name) for \(target.title). " + (store.isOnline ? "This records the gift in your account and plays its animation. The creator does not receive a transfer." : "This saves a local gift and plays its animation. The creator does not receive a transfer."),
             button: "Use diamonds") { [weak self] in
       guard let self, !self.sending else { return }
       self.sending = true
@@ -594,7 +648,7 @@ final class GiftsController: StackScreen {
         if let error { self.message(error) } else {
           GiftBurst.show(gift: gift, quantity: count, in: self.view)
           UIAccessibility.post(notification: .announcement,
-                               argument: "Gift saved on this device. \(cost) diamonds used.")
+                               argument: self.store.isOnline ? "Gift recorded. \(cost) diamonds used." : "Gift saved on this device. \(cost) diamonds used.")
         }
       }
     }

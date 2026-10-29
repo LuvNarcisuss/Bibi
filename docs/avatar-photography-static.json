@@ -1,0 +1,21 @@
+{
+  "scope": "Static resource and source inspection; no build, simulator, runtime tests or app launch.",
+  "photographs": 4,
+  "cosplay_photographs": 2,
+  "everyday_portraits": 2,
+  "retained_illustrated_authors": 2,
+  "dimensions": [
+    640,
+    640
+  ],
+  "checks": [
+    "Four distinct decodable JPEG images with matching recorded SHA-256 values.",
+    "All four generated catalog symlinks resolve to the intended source files.",
+    "Runtime inventory and author ID mappings match the new images.",
+    "Two existing illustrated author portraits remain unchanged.",
+    "Canonical persona resolution precedes stale avatar values in stored profile snapshots.",
+    "All four downloaded photographs were individually viewed; no visible text or watermark was found."
+  ],
+  "repository_static_checks": 459,
+  "failures": []
+}

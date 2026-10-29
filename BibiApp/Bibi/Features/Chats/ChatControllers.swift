@@ -256,8 +256,16 @@ private final class ChatInboxCell: UITableViewCell {
 
 final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSource {
   private let table = UITableView(frame: .zero, style: .plain)
+  private let emptyScroll = UIScrollView()
+  private let emptyContent = UIStackView()
+  private let welcomeContent = UIStackView()
+  private let noResultsContent = UIStackView()
+  private let emptyHeading = label("", 23, title: true)
+  private let emptyMessage = label("", 15, BibiPalette.muted)
   private let inboxFilters = BubbleTrack(
     titles: ["All", "Unread", "Pinned", "Drafts"], barHeight: 40)
+  private var filteredInboxTop: NSLayoutConstraint?
+  private var plainInboxTop: NSLayoutConstraint?
   private var query = "", filter = ChatInboxFilter.all, searching = false
   private var searchButton: UIButton?
   private weak var openRow: ChatInboxCell?
@@ -292,16 +300,20 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
       self.filter = ChatInboxFilter.allCases[index]
       self.openRow = nil
       self.table.reloadData()
+      self.updateEmptyState()
     }
     view.addSubview(inboxFilters)
     view.addSubview(table)
     inboxFilters.translatesAutoresizingMaskIntoConstraints = false
     table.translatesAutoresizingMaskIntoConstraints = false
+    let filteredTop = table.topAnchor.constraint(equalTo: inboxFilters.bottomAnchor, constant: 6)
+    filteredInboxTop = filteredTop
+    plainInboxTop = table.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 6)
     NSLayoutConstraint.activate([
       inboxFilters.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 6),
       inboxFilters.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
       inboxFilters.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-      table.topAnchor.constraint(equalTo: inboxFilters.bottomAnchor, constant: 6),
+      filteredTop,
       table.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       table.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       table.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -314,12 +326,31 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
     ]
     table.rowHeight = UITableView.automaticDimension
     table.estimatedRowHeight = 82
+    buildEmptyState()
   }
   override func refresh() {
     guard isViewLoaded else { return }
     openRow = nil
+    updateInboxFilters()
     table.reloadData()
     storyHeader()
+    updateEmptyState()
+  }
+  private func updateInboxFilters() {
+    let hasFriends = store.chatDirectory.contains { person in
+      guard person.kind == .person, person.creator?.isLocalOwner != true else { return false }
+      return store.isOnline
+        ? (person.creator.map { store.isMutualProfile($0) } ?? false)
+        : store.followsChatPartner(person)
+    }
+    if !hasFriends, filter != .all {
+      filter = .all
+      inboxFilters.select(0, notify: false)
+    }
+    inboxFilters.isHidden = !hasFriends
+    filteredInboxTop?.isActive = false
+    plainInboxTop?.isActive = !hasFriends
+    filteredInboxTop?.isActive = hasFriends
   }
   private func toggleSearch() {
     guard let searchButton else { return }
@@ -329,9 +360,11 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
     }
     searching = true
     storyHeader()
+    updateEmptyState()
     expandSearch(from: searchButton, placeholder: "Search chats") { [weak self] text in
       self?.query = text
       self?.table.reloadData()
+      self?.updateEmptyState()
     } onClose: { [weak self] in
       guard let self else { return }
       self.searching = false
@@ -339,8 +372,214 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
       self.refresh()
     }
   }
+  private func buildEmptyState() {
+    emptyScroll.accessibilityIdentifier = "chats.empty"
+    emptyScroll.backgroundColor = .clear
+    emptyScroll.alwaysBounceVertical = true
+    emptyScroll.keyboardDismissMode = .onDrag
+    emptyScroll.contentInsetAdjustmentBehavior = .never
+    emptyScroll.automaticallyAdjustsScrollIndicatorInsets = false
+    view.addSubview(emptyScroll)
+    emptyScroll.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      emptyScroll.topAnchor.constraint(equalTo: table.topAnchor),
+      emptyScroll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      emptyScroll.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      emptyScroll.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor),
+    ])
+    let content = emptyContent
+    content.axis = .vertical
+    emptyScroll.addSubview(content)
+    content.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      content.topAnchor.constraint(equalTo: emptyScroll.contentLayoutGuide.topAnchor, constant: 12),
+      content.leadingAnchor.constraint(equalTo: emptyScroll.contentLayoutGuide.leadingAnchor, constant: 16),
+      content.trailingAnchor.constraint(equalTo: emptyScroll.contentLayoutGuide.trailingAnchor, constant: -16),
+      content.bottomAnchor.constraint(equalTo: emptyScroll.contentLayoutGuide.bottomAnchor, constant: -24),
+      content.widthAnchor.constraint(equalTo: emptyScroll.frameLayoutGuide.widthAnchor, constant: -32),
+    ])
+    welcomeContent.axis = .vertical
+    welcomeContent.spacing = 16
+    noResultsContent.axis = .vertical
+    noResultsContent.spacing = 16
+
+    let eyebrow = label("MAKE ROOM FOR HELLO", 11, BibiPalette.accent)
+    let heading = label("A little hello.\nA new connection.", 26, title: true)
+    heading.accessibilityTraits = .header
+    let detail = label(
+      "No conversations yet. Find a friend and share something you both love.", 15,
+      BibiPalette.muted)
+    [eyebrow, heading, detail].forEach { $0.textAlignment = .center }
+    let find = actionButton("Find a friend", icon: .search, primary: true) { [weak self] in
+      guard let self else { return }
+      self.push(AddFriendController(store: self.store))
+    }
+    find.accessibilityIdentifier = "chats.find-friend"
+    let hero = starlightProfileCard([chatWelcomeArtwork(), eyebrow, heading, detail, find])
+    welcomeContent.addArrangedSubview(hero)
+    let section = label("More ways to connect", 18, title: true)
+    section.accessibilityTraits = .header
+    welcomeContent.addArrangedSubview(section)
+    welcomeContent.addArrangedSubview(chatWelcomeAction(
+      "Create a group", detail: "Bring your friends into one shared space.", icon: .chats,
+      identifier: "chats.create-group"
+    ) { [weak self] in
+      guard let self else { return }
+      self.push(CreateGroupController(store: self.store))
+    })
+    if store.isOnline {
+      welcomeContent.addArrangedSubview(chatWelcomeAction(
+        "Group invitations", detail: "View invitations from your community.", icon: .send,
+        identifier: "chats.group-invitations"
+      ) { [weak self] in
+        guard let self else { return }
+        self.push(OnlineInvitationsController(store: self.store, title: "Group invitations"))
+      })
+    } else {
+      welcomeContent.addArrangedSubview(chatWelcomeAction(
+        "Scan a friend code", detail: "An easy way to find someone you know.", icon: .video,
+        identifier: "chats.scan-friend"
+      ) { [weak self] in
+        guard let self else { return }
+        self.presentScreen(FriendScanController(store: self.store), full: true)
+      })
+    }
+    let safetyTitle = label("Your space, your choice", 15, BibiPalette.accent, title: true)
+    let safetyDetail = label(
+      "Choose who you connect with. Report or block from a community profile.", 13,
+      BibiPalette.muted)
+    let safety = stack([safetyTitle, safetyDetail], spacing: 4)
+    safety.isLayoutMarginsRelativeArrangement = true
+    safety.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+    welcomeContent.addArrangedSubview(safety)
+
+    let searchArt = UIImageView(image: BibiIcon.search.image(size: 48))
+    searchArt.contentMode = .scaleAspectFit
+    searchArt.isAccessibilityElement = false
+    searchArt.height(56)
+    emptyHeading.textAlignment = .center
+    emptyHeading.accessibilityTraits = .header
+    emptyMessage.textAlignment = .center
+    let reset = actionButton("Back to all chats", icon: .chats) { [weak self] in
+      guard let self else { return }
+      self.activeSearch?.dismiss()
+      self.query = ""
+      self.filter = .all
+      self.inboxFilters.select(0, notify: false)
+      self.refresh()
+    }
+    reset.accessibilityIdentifier = "chats.reset-filters"
+    noResultsContent.addArrangedSubview(starlightProfileCard([
+      searchArt, emptyHeading, emptyMessage, reset,
+    ]))
+  }
+  private func chatWelcomeArtwork() -> UIView {
+    let artwork = UIView()
+    artwork.isAccessibilityElement = false
+    artwork.height(88)
+    let chats = UIImageView(image: BibiIcon.chats.image(size: 80))
+    let planet = UIImageView(image: BibiIcon.planet.image(size: 34))
+    let sparkle = UIImageView(image: BibiIcon.sparkle.image(size: 26))
+    for image in [chats, planet, sparkle] {
+      image.contentMode = .scaleAspectFit
+      image.isAccessibilityElement = false
+      image.translatesAutoresizingMaskIntoConstraints = false
+      artwork.addSubview(image)
+    }
+    NSLayoutConstraint.activate([
+      chats.widthAnchor.constraint(equalToConstant: 80),
+      chats.heightAnchor.constraint(equalToConstant: 80),
+      chats.centerXAnchor.constraint(equalTo: artwork.centerXAnchor),
+      chats.centerYAnchor.constraint(equalTo: artwork.centerYAnchor),
+      planet.widthAnchor.constraint(equalToConstant: 34),
+      planet.heightAnchor.constraint(equalToConstant: 34),
+      planet.trailingAnchor.constraint(equalTo: chats.leadingAnchor, constant: 4),
+      planet.bottomAnchor.constraint(equalTo: artwork.bottomAnchor, constant: -2),
+      sparkle.widthAnchor.constraint(equalToConstant: 26),
+      sparkle.heightAnchor.constraint(equalToConstant: 26),
+      sparkle.leadingAnchor.constraint(equalTo: chats.trailingAnchor),
+      sparkle.topAnchor.constraint(equalTo: artwork.topAnchor, constant: 2),
+    ])
+    return artwork
+  }
+  private func chatWelcomeAction(
+    _ title: String, detail: String, icon: BibiIcon, identifier: String,
+    action: @escaping () -> Void
+  ) -> UIButton {
+    let button = UIButton(type: .custom)
+    button.backgroundColor = .white.withAlphaComponent(0.92)
+    button.layer.cornerRadius = 22
+    button.layer.cornerCurve = .continuous
+    button.layer.borderWidth = 1
+    button.layer.borderColor = BibiPalette.line.cgColor
+    button.accessibilityLabel = title
+    button.accessibilityHint = detail
+    button.accessibilityIdentifier = identifier
+    let image = UIImageView(image: icon.image(size: 36))
+    let arrow = UIImageView(image: BibiIcon.forward.image(size: 18))
+    for (art, size) in [(image, CGFloat(36)), (arrow, CGFloat(18))] {
+      art.contentMode = .scaleAspectFit
+      art.isAccessibilityElement = false
+      art.widthAnchor.constraint(equalToConstant: size).isActive = true
+      art.heightAnchor.constraint(equalToConstant: size).isActive = true
+    }
+    let heading = label(title, 17, title: true)
+    let description = label(detail, 14, BibiPalette.muted)
+    heading.isAccessibilityElement = false
+    description.isAccessibilityElement = false
+    let copy = stack([heading, description], spacing: 4)
+    let row = stack([image, copy, arrow], axis: .horizontal, spacing: 12)
+    row.alignment = .center
+    row.isUserInteractionEnabled = false
+    button.addSubview(row)
+    row.pin(to: button, insets: UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18))
+    button.heightAnchor.constraint(greaterThanOrEqualToConstant: 88).isActive = true
+    button.addAction(UIAction { _ in action() }, for: .touchUpInside)
+    button.adjustsImageWhenHighlighted = false
+    button.addAction(UIAction { [weak button] _ in button?.alpha = 0.72 }, for: .touchDown)
+    button.addAction(UIAction { [weak button] _ in button?.alpha = 1 },
+      for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])
+    return button
+  }
+  private func updateEmptyState() {
+    let isEmpty = conversations.isEmpty
+    table.isHidden = isEmpty
+    emptyScroll.isHidden = !isEmpty
+    guard isEmpty else { return }
+    let showWelcome = store.chatConversations.isEmpty && filter == .all && !searching
+    let panel = showWelcome ? welcomeContent : noResultsContent
+    if emptyContent.arrangedSubviews.first !== panel {
+      emptyContent.arrangedSubviews.forEach {
+        emptyContent.removeArrangedSubview($0)
+        $0.removeFromSuperview()
+      }
+      emptyContent.addArrangedSubview(panel)
+      emptyScroll.setContentOffset(.zero, animated: false)
+    }
+    if searching {
+      emptyHeading.text = query.isEmpty ? "Find a conversation" : "No matching conversations"
+      emptyMessage.text = query.isEmpty
+        ? "Search your chats by name or message."
+        : "Try another name or a different word from your conversation."
+    } else {
+      switch filter {
+      case .all:
+        emptyHeading.text = "No conversations yet"
+        emptyMessage.text = "Find a friend to start your first conversation."
+      case .unread:
+        emptyHeading.text = "All caught up"
+        emptyMessage.text = "New unread conversations will appear here."
+      case .pinned:
+        emptyHeading.text = "Keep your favorites close"
+        emptyMessage.text = "Swipe a conversation and choose Pin to keep it at the top."
+      case .drafts:
+        emptyHeading.text = "A thought for later"
+        emptyMessage.text = "Messages you start writing will wait here as drafts."
+      }
+    }
+  }
   private func storyHeader() {
-    guard !searching else {
+    guard !searching, store.chatConversations.contains(where: { $0.story != nil }) else {
       table.tableHeaderView = nil
       return
     }
@@ -397,7 +636,14 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
       guard let self else { return }
       self.dismissCard { self.presentScreen(FriendScanController(store: self.store), full: true) }
     }
-    showBottomPanel(stack([label("New", 22, title: true), group, add, scan], spacing: 12))
+    var actions: [UIView] = [label("New", 22, title: true), group, add]
+    if store.isOnline {
+      actions.append(actionButton("Group invitations", icon: .chats) { [weak self] in
+        guard let self else { return }
+        self.dismissCard { self.push(OnlineInvitationsController(store: self.store, title: "Group invitations")) }
+      })
+    } else { actions.append(scan) }
+    showBottomPanel(stack(actions, spacing: 12))
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     conversations.count
@@ -512,7 +758,7 @@ final class AddFriendController: StackScreen {
       results.addArrangedSubview(label("Enter a friend ID.", 15, BibiPalette.muted))
       return
     }
-    let people = store.chatConversations.filter {
+    let people = store.chatDirectory.filter {
       $0.kind == .person && $0.creator?.isLocalOwner != true
         && (communityID($0).localizedCaseInsensitiveContains(trimmed)
           || $0.id.localizedCaseInsensitiveContains(trimmed))
@@ -544,6 +790,8 @@ final class AddFriendController: StackScreen {
   }
 }
 final class ConversationController: BibiScreen, UITableViewDataSource, UITextFieldDelegate {
+  private let accountAtCreation: UUID?
+  private var belongsToCurrentAccount: Bool { !store.isOnline || accountAtCreation == store.online?.services.accountID }
   let conversation: CommunityConversation
   var entryNotice: String?
   private let table = UITableView(frame: .zero, style: .plain), input = field("Message")
@@ -552,11 +800,17 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
   private var draftTask: Task<Void, Never>?
   init(store: AppStore, conversation: CommunityConversation) {
     self.conversation = conversation
+    accountAtCreation = store.online?.services.accountID
     super.init(store: store, title: conversation.name)
   }
   required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    if let online = store.online, let id = UUID(uuidString: conversation.id) {
+      Task { [weak self] in
+        try? await online.chat.watch(conversation: id) { [weak self] in try? await self?.store.refreshOnline() }
+      }
+    }
     if let entryNotice {
       message(entryNotice)
       self.entryNotice = nil
@@ -574,7 +828,11 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     input.delegate = self
     input.addAction(UIAction { [weak self] _ in self?.saveDraft() }, for: .editingChanged)
     let send = iconButton(.send, "Send") { [weak self] in self?.send() }
-    let bottom = stack([hint, stack([input, send], axis: .horizontal, spacing: 8)], spacing: 4)
+    let style = actionButton("Chat style", icon: .sparkle, compact: true) { [weak self] in
+      guard let self else { return }
+      self.push(CosmeticPickerController(store: self.store, kinds: [.chatBubble, .chatBackground]))
+    }
+    let bottom = stack([style, hint, stack([input, send], axis: .horizontal, spacing: 8)], spacing: 4)
     view.addSubview(bottom)
     bottom.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -596,7 +854,15 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
       ]
     }
     bottom.isHidden = conversation.kind == .activity
+    if store.isOnline, conversation.kind == .person {
+      navigationItem.rightBarButtonItems = [barButton(iconButton(.more, "Profile") { [weak self] in self?.openProfile() })]
+    }
     if conversation.kind == .group {
+      if store.isOnline, let id = UUID(uuidString: conversation.id) {
+        navigationItem.rightBarButtonItem = barButton(iconButton(.more, "Group members") { [weak self] in
+          guard let self else { return }; self.push(OnlineGroupController(store: self.store, groupID: id))
+        })
+      }
       let name = label(conversation.name, 15, title: true)
       name.numberOfLines = 1
       name.lineBreakMode = .byTruncatingTail
@@ -606,8 +872,23 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
       navigationItem.titleView = identity
     }
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if isViewLoaded { refresh() }
+  }
   override func refresh() {
     guard isViewLoaded else { return }
+    if let room = CosmeticCatalog.item(store.wallet.snapshot.cosmetics.chatBackgroundID) {
+      table.backgroundColor = BibiPalette.color(room.hex)
+    } else {
+      table.backgroundColor = .clear
+    }
+    if store.isOnline, !store.chatConversations.contains(where: { $0.id.lowercased() == conversation.id.lowercased() }) {
+      table.reloadData(); input.isEnabled = false; input.text = ""
+      hint.text = "This conversation is no longer available."
+      if let online = store.online { online.chat.stop() }
+      return
+    }
     let count = store.messages(for: conversation).count
     let nearBottom = table.contentSize.height - table.contentOffset.y - table.bounds.height < 100
     table.reloadData()
@@ -645,9 +926,24 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
       }
       bubble.addArrangedSubview(open)
     }
-    bubble.backgroundColor =
-      message.isOwn
-      ? BibiPalette.selection.withAlphaComponent(0.75) : UIColor.white.withAlphaComponent(0.9)
+    if !message.isOwn, let author = safetyAuthor(for: message) {
+      bubble.addArrangedSubview(actionButton("Report or block", icon: .flag, compact: true) { [weak self] in
+        self?.presentCommunitySafety(ContentSafetyTarget(
+          id: author.id, title: author.name, kind: .profile, creator: author))
+      })
+    }
+    let ownBubble = message.isOwn ? CosmeticCatalog.item(store.wallet.snapshot.cosmetics.chatBubbleID) : nil
+    if let ownBubble {
+      bubble.backgroundColor = BibiPalette.color(ownBubble.hex)
+      if ownBubble.id == "bubble-ink" {
+        text.textColor = .white
+        meta.textColor = UIColor.white.withAlphaComponent(0.82)
+      }
+    } else {
+      bubble.backgroundColor =
+        message.isOwn
+        ? BibiPalette.selection.withAlphaComponent(0.75) : UIColor.white.withAlphaComponent(0.9)
+    }
     bubble.rounded(18)
     bubble.isLayoutMarginsRelativeArrangement = true
     bubble.layoutMargins = UIEdgeInsets(top: 12, left: 14, bottom: 12, right: 14)
@@ -692,6 +988,23 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     view.endEditing(true)
     presentScreen(VideoFeedController(store: store, videos: [video], initial: id), full: true)
   }
+  private func safetyAuthor(for message: ChatMessage) -> CreatorProfile? {
+    if let online = store.online, let roomID = UUID(uuidString: conversation.id),
+       let record = online.messages[roomID]?.first(where: { $0.id.uuidString == message.id }) {
+      return online.creator(record.sender_id)
+    }
+    if conversation.kind == .person {
+      return conversation.creator ?? CreatorProfile(id: conversation.id, name: conversation.name,
+        biography: conversation.story ?? "", avatarAsset: conversation.avatars.first)
+    }
+    guard conversation.kind == .group else { return nil }
+    if let person = CommunityChatCatalog.people.first(where: { $0.name == message.author }) {
+      return person.creator ?? CreatorProfile(id: person.id, name: person.name,
+        biography: person.story ?? "", avatarAsset: person.avatars.first)
+    }
+    return nil
+  }
+
   private func openProfile() {
     let profile: CreatorProfile
     if let creator = conversation.creator {
@@ -699,7 +1012,7 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     } else {
       profile = CreatorProfile(
         id: conversation.id, name: conversation.name,
-        biography: conversation.story ?? "A friend in your constellation.",
+        biography: conversation.story ?? "A member of the community.",
         avatarAsset: conversation.avatars.first)
     }
     push(CreatorController(store: store, creator: profile))
@@ -709,6 +1022,7 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     let text = input.text ?? ""
     guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
     Task {
+      guard belongsToCurrentAccount else { return }
       if await store.sendChatMessage(text, to: conversation) {
         input.text = ""
         refresh()
@@ -723,7 +1037,7 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     let id = conversation.id
     draftTask = Task { [weak self] in
       do { try await Task.sleep(for: .milliseconds(350)) } catch { return }
-      guard let self else { return }
+      guard let self, self.belongsToCurrentAccount else { return }
       if let creator = self.conversation.creator {
         _ = await self.store.saveCreatorMessageDraft(text, creator: creator)
       } else {
@@ -733,10 +1047,12 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
   }
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    if let online = store.online { online.chat.stop() }
     draftTask?.cancel()
     let text = input.text ?? ""
     let id = conversation.id
     Task {
+      guard belongsToCurrentAccount else { return }
       if let creator = conversation.creator {
         _ = await store.saveCreatorMessageDraft(text, creator: creator)
       } else {
@@ -745,6 +1061,7 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     }
   }
   private func call(video: Bool) {
+    if store.isOnline { message("Calls are not available yet."); return }
     presentScreen(
       CallController(
         store: store, name: conversation.name,
@@ -829,8 +1146,8 @@ final class CreateGroupController: BibiScreen {
   }
 
   private var friends: [CommunityConversation] {
-    store.chatConversations.filter {
-      $0.kind == .person && $0.creator?.isLocalOwner != true && store.followsChatPartner($0)
+    store.chatDirectory.filter {
+      $0.kind == .person && $0.creator?.isLocalOwner != true && (store.isOnline ? ($0.creator.map { store.isMutualProfile($0) } ?? false) : store.followsChatPartner($0))
     }
   }
 
@@ -910,7 +1227,7 @@ final class CreateGroupController: BibiScreen {
       guard let self else { return }
       if let conversation = await self.store.createChatGroup(with: chosen) {
         let screen = ConversationController(store: self.store, conversation: conversation)
-        screen.entryNotice = "This group is saved on this device."
+        screen.entryNotice = store.isOnline ? "Invitations have been sent. Members join after accepting." : "This group is saved on this device."
         guard var stack = self.navigationController?.viewControllers else { return }
         stack.removeAll { $0 === self }
         stack.append(screen)

@@ -9,6 +9,15 @@ BibiApp/.generated/
 !BibiApp/Bibi.xcodeproj/xcshareddata/xcschemes/Bibi.xcscheme
 /Assets/
 
+# Keep dependency resolution reproducible without adding generated workspace state.
+!BibiApp/Bibi.xcodeproj/project.xcworkspace/
+BibiApp/Bibi.xcodeproj/project.xcworkspace/*
+!BibiApp/Bibi.xcodeproj/project.xcworkspace/xcshareddata/
+BibiApp/Bibi.xcodeproj/project.xcworkspace/xcshareddata/*
+!BibiApp/Bibi.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+BibiApp/Bibi.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/*
+!BibiApp/Bibi.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
 # Generated test evidence stays on the local machine.
 /BibiApp/Design/RunEvidence/
 **/*.xcresult/

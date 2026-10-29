@@ -28,7 +28,8 @@ final class ShortsPlayback: ObservableObject {
     duration = video.duration
     wantsPlayback = true
     error = nil
-    guard FileManager.default.fileExists(atPath: url.path) else {
+    guard (url.isFileURL && FileManager.default.fileExists(atPath: url.path))
+      || (url.scheme == "https" && url.host == BackendConfiguration.projectURL.host) else {
       error = LocalLibraryError.missingVideo.localizedDescription
       return
     }

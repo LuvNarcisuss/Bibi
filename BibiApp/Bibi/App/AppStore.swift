@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import UIKit
+import Supabase
 
 @MainActor
 final class AppStore: ObservableObject {
@@ -11,7 +12,7 @@ final class AppStore: ObservableObject {
   @Published var notice: AppNotice?
   @Published private(set) var accountExitRevision = 0
   private var sessionActive = false
-  var canUseGifts: Bool { isLoaded && sessionActive && !isBusy }
+  var canUseGifts: Bool { false }
   var canEndSession: Bool {
     isLoaded && sessionActive && !isBusy && !shortsSocial.isSaving && !wallet.isBusy
   }
@@ -19,6 +20,9 @@ final class AppStore: ObservableObject {
   private var ownerAvatarCache: UIImage?
   private var ownerAvatarStamp: Date?
 
+  let online: OnlineState?
+  var isOnline: Bool { BackendConfiguration.isEnabled }
+  private var onlineObservation: AnyCancellable?
   let wallet = WalletStore()
   let shortsSocial: ShortsInteractionStore
   private var socialObservation: AnyCancellable?
@@ -30,7 +34,8 @@ final class AppStore: ObservableObject {
   private let repository: LocalLibraryRepository
   var isBusy: Bool { busyMessage != nil }
   var bundledVideos: [LocalVideo] {
-    AnimationCatalog.entries.map { entry in
+    if isOnline { return [] }
+    return AnimationCatalog.entries.map { entry in
       var video = entry.localVideo
       video.isSaved = library.savedDemoVideoIDs?.contains(video.id) == true
       return video
@@ -51,6 +56,7 @@ final class AppStore: ObservableObject {
   }
 
   func recordVideoViewed(_ id: UUID) async {
+    if isOnline { return }
     guard isLoaded, sessionActive, !isBusy else { return }
     let now = Date()
     guard now.timeIntervalSince(watchedVideos[id] ?? .distantPast) > 30 else { return }
@@ -60,6 +66,7 @@ final class AppStore: ObservableObject {
   }
 
   func refreshShortsRecommendations() async {
+    if isOnline { do { try await refreshOnline() } catch { noteSaveError(error.localizedDescription) }; return }
     guard !refreshingShorts else { return }
     refreshingShorts = true
     defer { refreshingShorts = false }
@@ -90,6 +97,8 @@ final class AppStore: ObservableObject {
   }
 
   init() {
+    if BackendConfiguration.isEnabled, let services = try? BackendServices() { online = OnlineState(services: services) }
+    else { online = nil }
     shortsVideoOrder = AnimationCatalog.shuffledDiscoveryIDs(for: .shorts)
     let root = URL.applicationSupportDirectory.appendingPathComponent("Bibi", isDirectory: true)
     storageRoot = root
@@ -99,10 +108,17 @@ final class AppStore: ObservableObject {
     socialObservation = shortsSocial.objectWillChange.sink { [weak self] _ in
       self?.objectWillChange.send()
     }
+    if let online {
+      shortsSocial.online = online
+      wallet.configureOnline(online.wallet)
+      onlineObservation = online.objectWillChange.sink { [weak self] _ in self?.objectWillChange.send() }
+      online.services.onAccountExit = { [weak self] in self?.endOnlineSession() }
+    }
   }
 
   // Records explicit consent; this does not authenticate an online account.
   func acceptUserAgreement() async -> Bool {
+    if isOnline { return online?.services.phase == .signedIn }
     var updated = library
     updated.agreementAcceptance = AgreementAcceptance(
       version: BibiUserAgreement.version, acceptedAt: Date())
@@ -115,6 +131,10 @@ final class AppStore: ObservableObject {
 
   /// Ends only the local session. No online credentials or remote session exist.
   func logOut() async -> Bool {
+    if let online {
+      do { try await online.services.signOut(); endOnlineSession(); return true }
+      catch { endOnlineSession(); noteSaveError(error.localizedDescription); return false }
+    }
     guard canEndSession else { return false }
     busyMessage = "Signing out…"
     defer { busyMessage = nil }
@@ -129,6 +149,7 @@ final class AppStore: ObservableObject {
 
   /// Explicitly confirmed by the settings screen; never called on simple logout.
   func deleteLocalAccount() async -> Bool {
+    if isOnline { noteSaveError("Confirm your password to delete your online account."); return false }
     guard canEndSession else { return false }
     busyMessage = "Deleting your data…"
     defer { busyMessage = nil }
@@ -166,6 +187,14 @@ final class AppStore: ObservableObject {
   }
 
   func load() async {
+    if isOnline {
+      guard let online else { loadError = BackendError.unavailable.localizedDescription; return }
+      isLoaded = true
+      if (try? await online.services.restore()) == true {
+        do { try await completeOnlineSignIn() } catch { loadError = error.localizedDescription }
+      }
+      return
+    }
     guard !isBusy, !isLoaded else { return }
     busyMessage = "Opening your library…"
     defer { busyMessage = nil }
@@ -194,11 +223,13 @@ final class AppStore: ObservableObject {
   }
 
   func videoURL(_ video: LocalVideo) -> URL {
+    if let id = video.remoteMediaID { return online?.signedURLs[id] ?? storageRoot.appendingPathComponent("Unavailable") }
     if let clip = video.bundledClip { return clip.resourceURL(fileExtension: "mp4") }
     return storageRoot.appendingPathComponent("Media/\(video.id.uuidString).\(video.fileExtension)")
   }
 
   func coverURL(_ video: LocalVideo) -> URL {
+    if video.remoteMediaID != nil { return storageRoot.appendingPathComponent("UnavailableCover") }
     if let clip = video.bundledClip { return clip.resourceURL(fileExtension: "jpg") }
     return storageRoot.appendingPathComponent("Media/\(video.id.uuidString).jpg")
   }
@@ -208,7 +239,7 @@ final class AppStore: ObservableObject {
   }
   var pendingVideoIDs: Set<UUID> { Set(pendingSubmissions.compactMap(\.videoID)) }
   var personalWorks: [LocalVideo] {
-    library.videos.filter { !pendingVideoIDs.contains($0.id) && !hidesListedVideo($0) }
+    library.videos.filter { (!isOnline || $0.remoteCreator?.isLocalOwner == true) && !pendingVideoIDs.contains($0.id) && !hidesListedVideo($0) }
   }
 
   func submissionCoverURL(_ submission: CreationSubmission) -> URL? {
@@ -226,17 +257,34 @@ final class AppStore: ObservableObject {
     kind: CreationKind, title: String, caption: String, category: VideoCategory,
     videoURL: URL?, challengeID: String? = nil
   ) async -> UUID? {
+    if let online, let videoURL {
+      guard !isBusy, CreationValidation.valid(title: title, caption: caption) else { return nil }
+      busyMessage = "Uploading your video…"; defer { busyMessage = nil }
+      do {
+        let asset = try await online.media.uploadVideoCopy(source: videoURL)
+        let id = try await online.content.publish(kind: "video", title: title, body: caption, media: asset, challenge: challengeID)
+        try? await refreshOnline(); return id
+      } catch { noteSaveError(error.localizedDescription); return nil }
+    }
     guard isLoaded, sessionActive, !isBusy,
       CreationValidation.valid(title: title, caption: caption),
       kind == .shortVideo, videoURL != nil,
       challengeID == nil || CommunityCatalog.challenges.contains(where: { $0.id == challengeID })
     else { return nil }
+    let replacingChallenge = challengeID.map { id in
+      library.community?.entries.contains { $0.challengeID == id } == true
+    } ?? false
+    if let challengeID, !replacingChallenge, let error = await wallet.payForChallenge(challengeID) {
+      noteSaveError(error)
+      return nil
+    }
     busyMessage = "Preparing your content…"
     lastSaveError = nil
     defer { busyMessage = nil }
     var submission = CreationSubmission(
       kind: kind, title: title.trimmingCharacters(in: .whitespacesAndNewlines),
       caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), category: category.title)
+    submission.coverStyleID = wallet.snapshot.cosmetics.coverTemplateID
     var importedVideo: LocalVideo?
     do {
       if kind == .shortVideo, let videoURL {
@@ -268,6 +316,7 @@ final class AppStore: ObservableObject {
     } catch {
       if let importedVideo { await repository.removeMedia(for: importedVideo) }
       await repository.removeSubmissionCover(submission.id)
+      if let challengeID, !replacingChallenge { _ = await wallet.refundChallenge(challengeID) }
       lastSaveError =
         (error as? CreationError)?.errorDescription
         ?? (error as? LocalLibraryError)?.errorDescription
@@ -277,6 +326,7 @@ final class AppStore: ObservableObject {
   }
 
   func removeSubmission(_ id: UUID) async -> Bool {
+    if isOnline { return await remoteMutation("withdraw", payload: ["target_id": .string(id.uuidString)]) }
     guard let submission = pendingSubmissions.first(where: { $0.id == id }) else { return false }
     let video = library.videos.first { $0.id == submission.videoID }
     var updated = library
@@ -292,6 +342,7 @@ final class AppStore: ObservableObject {
   }
 
   func classifyForCommunity(_ id: UUID) async {
+    if isOnline { return }
     var updated = library
     guard let index = updated.videos.firstIndex(where: { $0.id == id }) else { return }
     updated.videos[index].isDance = true
@@ -299,6 +350,7 @@ final class AppStore: ObservableObject {
   }
 
   func toggleSaved(_ id: UUID) async {
+    if let online { _ = await remoteMutation("save", payload: ["target_id": .string(id.uuidString), "selected": .bool(!online.saves.contains(id))]); return }
     var updated = library
     if AnimationCatalog.entries.contains(where: { $0.id == id }) {
       var saved = updated.savedDemoVideoIDs ?? []
@@ -313,6 +365,10 @@ final class AppStore: ObservableObject {
   }
 
   func renameVideo(_ id: UUID, title: String) async -> Bool {
+    if let online, let item = online.records.first(where: { $0.id == id }), let revision = online.revision(item) {
+      do { _ = try await online.content.publish(kind: "video", title: title, body: revision.body, media: revision.media_id, editing: id); try? await refreshOnline(); return true }
+      catch { noteSaveError(error.localizedDescription); return false }
+    }
     let title = title.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !title.isEmpty, title.count <= 80 else { return false }
     var updated = library
@@ -322,6 +378,7 @@ final class AppStore: ObservableObject {
   }
 
   func deleteVideo(_ id: UUID) async -> Bool {
+    if isOnline { return await remoteMutation("withdraw", payload: ["target_id": .string(id.uuidString)]) }
     guard let video = library.videos.first(where: { $0.id == id }) else { return false }
     var updated = library
     updated.videos.removeAll { $0.id == id }
@@ -336,6 +393,12 @@ final class AppStore: ObservableObject {
   }
 
   func saveProfile(_ profile: LocalProfile, avatarJPEG: Data? = nil) async -> Bool {
+    if let online {
+      do {
+        if let avatarJPEG { let asset = try await online.media.uploadImage(avatarJPEG); _ = try await online.content.publish(kind: "avatar", body: "", media: asset) }
+        return await remoteMutation("profile", payload: ["display_name": .string(profile.displayName), "biography": .string(profile.biography)])
+      } catch { noteSaveError(error.localizedDescription); return false }
+    }
     lastSaveError = nil
     var profile = profile
     profile.displayName = profile.displayName.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -373,6 +436,7 @@ final class AppStore: ObservableObject {
 
   /// The signed-in dancer's saved portrait, when one has been chosen on this device.
   func ownerAvatarImage() -> UIImage? {
+    if isOnline { return nil }
     guard library.profile.hasCustomAvatar == true else { return nil }
     let url = storageRoot.appendingPathComponent("Media/profile-avatar.jpg")
     guard let attrs = try? FileManager.default.attributesOfItem(atPath: url.path),
@@ -393,6 +457,7 @@ final class AppStore: ObservableObject {
   }
 
   var chatConversations: [CommunityConversation] {
+    if let online { return online.inbox }
     let state = library.creatorState ?? CreatorLocalState()
     var records = state.conversations ?? [:]
     // Surface existing drafts from versions that did not store inbox entries.
@@ -420,13 +485,17 @@ final class AppStore: ObservableObject {
         story: nil, messages: library.chatState?.sentMessages?["creator-chat:\(creator.id)"] ?? [],
         creator: creator)
     }
-    let authored = CommunityChatCatalog.conversations.map { conversation in
+    let authored = (CommunityChatCatalog.conversations + CommunityChatCatalog.legacyGroups).filter { conversation in
+      let chats = library.chatState
+      return !(chats?.sentMessages?[conversation.id] ?? []).isEmpty
+        || !(chats?.drafts[conversation.id] ?? "").isEmpty
+    }.map { conversation in
       let additions = library.chatState?.sentMessages?[conversation.id] ?? []
       return CommunityConversation(
         id: conversation.id, name: conversation.name, avatars: conversation.avatars,
         kind: conversation.kind, time: additions.last?.time ?? conversation.time,
-        initialUnread: conversation.initialUnread, initiallyPinned: conversation.initiallyPinned,
-        story: conversation.story, messages: conversation.messages + additions)
+        initialUnread: 0, initiallyPinned: false,
+        story: nil, messages: additions)
     }
     let groups = (library.chatState?.createdGroups ?? []).sorted { $0.createdAt > $1.createdAt }.map
     {
@@ -458,6 +527,18 @@ final class AppStore: ObservableObject {
 
   /// Saves a group on this device. The other people are not notified.
   func createChatGroup(with people: [CommunityConversation]) async -> CommunityConversation? {
+    if let online {
+      do {
+        let peers = people.compactMap { $0.creator?.id }.sorted()
+        let result = try await online.content.mutate("group", payload: [
+          "title": .string(String(people.map(\.name).joined(separator: ", ").prefix(80))),
+          "members": .array(peers.map(AnyJSON.string))])
+        guard let id = result["id"]?.stringValue else { return nil }
+        try? await refreshOnline()
+        return chatConversations.first { $0.id.lowercased() == id.lowercased() }
+          ?? CommunityConversation(id: UUID(uuidString: id)?.uuidString ?? id, name: String(people.map(\.name).joined(separator: ", ").prefix(80)), avatars: ["BibiMark"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
+      } catch { noteSaveError(error.localizedDescription); return nil }
+    }
     guard isLoaded, !isBusy, people.count >= 2 else { return nil }
     let names = people.map { $0.name.trimmingCharacters(in: .whitespacesAndNewlines) }.filter {
       !$0.isEmpty
@@ -486,10 +567,25 @@ final class AppStore: ObservableObject {
   }
 
   func messages(for conversation: CommunityConversation) -> [ChatMessage] {
-    chatConversations.first { $0.id == conversation.id }?.messages ?? conversation.messages
+    if isCreatorBlocked(conversation.creator?.id ?? conversation.id) { return [] }
+    let visible = chatConversations.first { $0.id == conversation.id }?.messages
+      ?? (isOnline ? [] : conversation.messages)
+    return visible.filter { message in
+      if message.isOwn { return true }
+      if let online, let roomID = UUID(uuidString: conversation.id),
+         let author = online.messages[roomID]?.first(where: { $0.id.uuidString == message.id })?.sender_id {
+        return !isCreatorBlocked(author.uuidString)
+      }
+      if conversation.kind == .group,
+         let person = CommunityChatCatalog.people.first(where: { $0.name == message.author }) {
+        return !isCreatorBlocked(person.creator?.id ?? person.id)
+      }
+      return true
+    }
   }
 
   func followsChatPartner(_ conversation: CommunityConversation) -> Bool {
+    if let online { return online.follows.contains { $0.user_id == online.services.accountID && $0.target_id.uuidString == conversation.creator?.id } }
     if let creator = conversation.creator { return isFollowingCreator(creator.id) }
     return library.chatState?.followingOverrides?[conversation.id]
       ?? CommunityChatCatalog.initialMutualIDs.contains(conversation.id)
@@ -505,6 +601,8 @@ final class AppStore: ObservableObject {
 
   /// Use the same incoming relationship IDs as Chats; following alone is not mutual.
   func isMutualProfile(_ creator: CreatorProfile) -> Bool {
+    if let online { return online.follows.contains { $0.user_id == online.services.accountID && $0.target_id.uuidString == creator.id }
+      && online.follows.contains { $0.target_id == online.services.accountID && $0.user_id.uuidString == creator.id } }
     guard !creator.isLocalOwner, !isCreatorBlocked(creator.id) else { return false }
     if let person = CommunityChatCatalog.people.first(where: { $0.id == creator.id }) {
       return isMutualChat(person)
@@ -523,6 +621,7 @@ final class AppStore: ObservableObject {
   }
 
   func chatPartnerFollowsMe(_ conversation: CommunityConversation) -> Bool {
+    if let online { return online.follows.contains { $0.target_id == online.services.accountID && $0.user_id.uuidString == conversation.creator?.id } }
     // Unknown creator relationships remain false until an authoritative service updates them.
     let followers = library.chatState?.followerIDs ?? CommunityChatCatalog.initialFollowerIDs
     return followers.contains(conversation.id)
@@ -533,6 +632,10 @@ final class AppStore: ObservableObject {
   }
 
   func canSendChatMessage(_ conversation: CommunityConversation) -> Bool {
+    if let online, let id = UUID(uuidString: conversation.id) {
+      guard online.members.contains(where: { $0.conversation_id == id && $0.user_id == online.services.accountID && $0.status == "active" }) else { return false }
+      return conversation.kind == .group || isMutualChat(conversation) || !(online.messages[id] ?? []).contains { $0.sender_id == online.services.accountID }
+    }
     if conversation.kind == .activity { return false }
     if isCreatorBlocked(conversation.id) { return false }
     if let creator = conversation.creator, isCreatorBlocked(creator.id) { return false }
@@ -563,6 +666,11 @@ final class AppStore: ObservableObject {
 
   /// Local outbox only: persistence does not imply remote delivery or a read receipt.
   func sendChatMessage(_ text: String, to conversation: CommunityConversation) async -> Bool {
+    if let online, let account = online.services.accountID {
+      let saved = await remoteMutation("send", payload: ["target_id": .string(conversation.id), "body": .string(text)])
+      if saved { try? await AccountCache.shared(account: account).saveDraft("", conversation: conversation.id) }
+      return saved
+    }
     guard isLoaded, !isBusy else { return false }
     lastSaveError = nil
     let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -608,6 +716,7 @@ final class AppStore: ObservableObject {
   }
 
   func chatDraft(for conversation: CommunityConversation) -> String? {
+    if let online { return online.drafts[conversation.id] }
     if let creator = conversation.creator { return library.creatorState?.messageDrafts[creator.id] }
     return library.chatState?.drafts[conversation.id]
   }
@@ -626,6 +735,7 @@ final class AppStore: ObservableObject {
 
   @discardableResult
   func openCreatorConversation(_ creator: CreatorProfile) async -> Bool {
+    if isOnline { return await remoteMutation("direct", payload: ["target_id": .string(creator.id)]) }
     guard !isCreatorBlocked(creator.id) else { return false }
     var updated = library
     var state = updated.creatorState ?? CreatorLocalState()
@@ -637,20 +747,30 @@ final class AppStore: ObservableObject {
   }
 
   func chatUnreadCount(_ conversation: CommunityConversation) -> Int {
+    if let online { return online.inbox.first { $0.id == conversation.id }?.initialUnread ?? 0 }
     if let marked = library.chatState?.unreadMarks?[conversation.id] { return marked }
     if library.chatState?.readIDs.contains(conversation.id) == true { return 0 }
     return conversation.initialUnread
   }
 
   func isChatPinned(_ conversation: CommunityConversation) -> Bool {
-    library.chatState?.pinOverrides[conversation.id] ?? conversation.initiallyPinned
+    if let online { return online.members.first { $0.conversation_id.uuidString == conversation.id && $0.user_id == online.services.accountID }?.pinned ?? false }
+    return library.chatState?.pinOverrides[conversation.id] ?? conversation.initiallyPinned
   }
 
   func isChatMuted(_ conversation: CommunityConversation) -> Bool {
-    library.chatState?.mutedIDs?.contains(conversation.id) == true
+    if let online { return online.members.first { $0.conversation_id.uuidString == conversation.id && $0.user_id == online.services.accountID }?.muted ?? false }
+    return library.chatState?.mutedIDs?.contains(conversation.id) == true
   }
 
   func markChatRead(_ id: String? = nil) async {
+    if let online {
+      for room in online.conversations where id == nil || room.id.uuidString == id {
+        let sequence = online.messages[room.id]?.last?.sequence ?? 0
+        _ = await remoteMutation("chat_preferences", payload: ["target_id": .string(room.id.uuidString), "read_sequence": .integer(Int(sequence))])
+      }
+      return
+    }
     var updated = library
     var state = updated.chatState ?? ChatLocalState()
     let ids = id.map { Set([$0]) } ?? Set(chatConversations.map(\.id))
@@ -666,6 +786,7 @@ final class AppStore: ObservableObject {
 
   /// Forces a local unread count of 1. This does not deliver a message.
   func markChatUnread(_ conversation: CommunityConversation) async {
+    if isOnline { noteSaveError("Read receipts cannot be undone."); return }
     var updated = library
     var state = updated.chatState ?? ChatLocalState()
     var marks = state.unreadMarks ?? [:]
@@ -677,6 +798,7 @@ final class AppStore: ObservableObject {
   }
 
   func toggleChatPin(_ conversation: CommunityConversation) async {
+    if isOnline { _ = await remoteMutation("chat_preferences", payload: ["target_id": .string(conversation.id), "pinned": .bool(!isChatPinned(conversation))]); return }
     var updated = library
     var state = updated.chatState ?? ChatLocalState()
     state.pinOverrides[conversation.id] = !isChatPinned(conversation)
@@ -685,6 +807,7 @@ final class AppStore: ObservableObject {
   }
 
   func toggleChatMute(_ conversation: CommunityConversation) async {
+    if isOnline { _ = await remoteMutation("chat_preferences", payload: ["target_id": .string(conversation.id), "muted": .bool(!isChatMuted(conversation))]); return }
     var updated = library
     var state = updated.chatState ?? ChatLocalState()
     var muted = state.mutedIDs ?? []
@@ -700,6 +823,7 @@ final class AppStore: ObservableObject {
 
   /// Hides the row on this device. The conversation is not removed from another account.
   func hideChat(_ conversation: CommunityConversation) async {
+    if isOnline { _ = await remoteMutation("chat_preferences", payload: ["target_id": .string(conversation.id), "hidden": .bool(true)]); return }
     var updated = library
     var state = updated.chatState ?? ChatLocalState()
     var hidden = state.hiddenChatIDs ?? []
@@ -711,8 +835,13 @@ final class AppStore: ObservableObject {
   }
 
   func saveChatDraft(_ text: String, conversationID: String) async -> Bool {
+    if let online, let account = online.services.accountID {
+      do { try await AccountCache.shared(account: account).saveDraft(text, conversation: conversationID); return true }
+      catch { noteSaveError(error.localizedDescription); return false }
+    }
     let known =
       CommunityChatCatalog.conversations.contains { $0.id == conversationID }
+      || CommunityChatCatalog.legacyGroups.contains { $0.id == conversationID }
       || (library.chatState?.createdGroups ?? []).contains { $0.id == conversationID }
     guard text.count <= 2_000, known else { return false }
     var updated = library
@@ -730,15 +859,28 @@ final class AppStore: ObservableObject {
   /// Pending submissions are private queue entries, not published works.
   func creatorWorks(for creatorID: String) -> [LocalVideo] {
     collectionVideos.filter {
-      $0.creatorID == creatorID && !pendingVideoIDs.contains($0.id) && !hidesListedVideo($0)
+      ($0.creatorID == creatorID || $0.bundledClip?.legacyCuratorID == creatorID)
+        && !pendingVideoIDs.contains($0.id) && !hidesListedVideo($0)
     }
   }
 
   func statistics(for creator: CreatorProfile) -> CreatorStatistics {
-    let totals = creatorWorks(for: creator.id).reduce(into: (likes: 0, saves: 0)) { total, video in
+    if let online {
+      let works = online.records.filter { $0.owner_id?.uuidString == creator.id && ($0.kind == "video" || $0.kind == "post") }
+      return CreatorStatistics(likes: works.reduce(0) { $0 + (online.counts[$1.id]?.likes ?? 0) },
+        saves: works.reduce(0) { $0 + (online.counts[$1.id]?.saves ?? 0) },
+        following: UUID(uuidString: creator.id).flatMap { online.profileCounts[$0]?.following } ?? 0,
+        followers: UUID(uuidString: creator.id).flatMap { online.profileCounts[$0]?.followers } ?? 0)
+    }
+    var totals = creatorWorks(for: creator.id).reduce(into: (likes: 0, saves: 0)) { total, video in
       let counts = shortsSocial.counts(for: video)
       total.likes += counts.likes
       total.saves += counts.saves
+    }
+    for post in creatorPosts(for: creator.id) {
+      let counts = circlePostCounts(for: post)
+      totals.likes += counts.likes
+      totals.saves += counts.saves
     }
     if creator.isLocalOwner {
       let creatorFollows = library.creatorState?.followedIDs.count ?? 0
@@ -749,7 +891,7 @@ final class AppStore: ObservableObject {
         likes: totals.likes, saves: totals.saves,
         following: creatorFollows + chatFollows, followers: 0)
     }
-    let relationships = creator.relationshipStatistics
+    let relationships = (CommunityCatalog.storyAuthor(id: creator.id) ?? creator).relationshipStatistics
     return CreatorStatistics(
       likes: totals.likes, saves: totals.saves,
       following: relationships.following,
@@ -761,6 +903,7 @@ final class AppStore: ObservableObject {
   }
 
   func toggleCreatorFollow(_ id: String) async {
+    if isOnline { _ = await remoteMutation("follow", payload: ["target_id": .string(id), "selected": .bool(!isFollowingCreator(id))]); return }
     guard isLoaded, !isBusy, !isCreatorBlocked(id) else { return }
     var updated = library
     var state = updated.creatorState ?? CreatorLocalState()
@@ -774,6 +917,7 @@ final class AppStore: ObservableObject {
   }
 
   func saveCreatorMessageDraft(_ text: String, creator: CreatorProfile) async -> Bool {
+    if let online, let room = online.inbox.first(where: { $0.creator?.id == creator.id }) { return await saveChatDraft(text, conversationID: room.id) }
     guard !isCreatorBlocked(creator.id), text.count <= 2_000 else { return false }
     var updated = library
     var state = updated.creatorState ?? CreatorLocalState()
@@ -796,6 +940,7 @@ final class AppStore: ObservableObject {
   /// A report hides that film on its own surface. A block hides every film from that creator.
   func hidesVideo(_ video: LocalVideo, live: Bool) -> Bool {
     if isCreatorBlocked(video.creatorID) { return true }
+    if let legacyID = video.bundledClip?.legacyCuratorID, isCreatorBlocked(legacyID) { return true }
     return isContentReported(video.id.uuidString, kind: live ? .live : .shortVideo)
   }
 
@@ -825,6 +970,7 @@ final class AppStore: ObservableObject {
 
   /// Removes every saved reason for one item so it can appear again. Media stays on device.
   func removeReports(contentID: String, kind: ContentSafetyTarget.Kind) async -> Bool {
+    if isOnline { return await remoteMutation("unhide_report", payload: [(kind == .profile ? "user_id" : "target_id"): .string(contentID)]) }
     var updated = library
     var safety = updated.contentSafety ?? ContentSafetyState()
     let before = safety.reports.count
@@ -835,6 +981,9 @@ final class AppStore: ObservableObject {
   }
 
   func blockCreator(_ creator: CreatorProfile) async -> Bool {
+    guard !creator.isLocalOwner,
+      creator.id.lowercased() != CreatorProfile.signedIn(library.profile).id.lowercased() else { return false }
+    if isOnline { return await remoteMutation("block", payload: ["target_id": .string(creator.id), "selected": .bool(true)]) }
     guard !creator.isLocalOwner, !isBusy else { return false }
     var updated = library
     var safety = updated.contentSafety ?? ContentSafetyState()
@@ -850,6 +999,7 @@ final class AppStore: ObservableObject {
   }
 
   func unblockCreator(_ id: String) async -> Bool {
+    if isOnline { return await remoteMutation("block", payload: ["target_id": .string(id), "selected": .bool(false)]) }
     var updated = library
     var safety = updated.contentSafety ?? ContentSafetyState()
     safety.blockedCreators[id] = nil
@@ -860,6 +1010,12 @@ final class AppStore: ObservableObject {
   func saveContentReport(
     _ target: ContentSafetyTarget, reason: ContentReportReason, details: String
   ) async -> Bool {
+    guard !target.creator.isLocalOwner,
+      target.creator.id.lowercased() != CreatorProfile.signedIn(library.profile).id.lowercased() else { return false }
+    if isOnline {
+      let key = target.kind == .profile ? "user_id" : "target_id"
+      return await remoteMutation("report", payload: [key: .string(target.id), "reason": .string(reason.rawValue), "details": .string(details)])
+    }
     let text = details.trimmingCharacters(in: .whitespacesAndNewlines)
     lastSaveError = nil
     guard text.count <= 500,
@@ -896,6 +1052,7 @@ final class AppStore: ObservableObject {
 
   /// Copy new files first, commit their references atomically, then release unused app-owned copies.
   func commit(_ updated: LocalLibrary, permitsEntry: Bool = false) async -> Bool {
+    if isOnline { noteSaveError("This action requires an online service operation."); return false }
     guard isLoaded, !isBusy, sessionActive || permitsEntry else { return false }
     lastSaveError = nil
     busyMessage = "Saving…"
@@ -908,6 +1065,69 @@ final class AppStore: ObservableObject {
       lastSaveError = message(for: error)
       return false
     }
+  }
+
+  func completeOnlineSignIn() async throws {
+    guard let online else { throw BackendError.unavailable }
+    let generation = online.services.generation
+    try await refreshOnline()
+    try online.services.check(generation)
+    sessionActive = true; isLoaded = true; loadError = nil
+    Task { [weak self] in
+      await online.sync.start { [weak self] in try? await self?.refreshOnline() }
+    }
+    await online.wallet.start()
+    try online.services.check(generation)
+    _ = try online.services.requireAccount()
+  }
+
+  func refreshOnline() async throws {
+    guard let online else { throw BackendError.unavailable }
+    try await online.refresh()
+    library = online.projectLibrary()
+    shortsSocial.adoptRemote(online)
+  }
+
+  func endOnlineSession(notify: Bool = true) {
+    online?.clear(); library = LocalLibrary(); sessionActive = false
+    shortsSocial.clearAccountMemory(); wallet.clearAccountMemory()
+    if notify { accountExitRevision += 1 }
+  }
+
+  func remoteMutation(_ action: String, payload: [String: AnyJSON]) async -> Bool {
+    guard let online, !isBusy else { return false }
+    busyMessage = "Saving online…"; defer { busyMessage = nil }
+    do {
+      _ = try await online.content.mutate(action, payload: payload)
+      do { try await refreshOnline() } catch { notice = AppNotice(title: "Saved online", message: "Refresh to update this view.") }
+      return true
+    } catch { noteSaveError(error.localizedDescription); return false }
+  }
+
+  func preparedVideoURL(_ video: LocalVideo) async throws -> URL {
+    guard let id = video.remoteMediaID, let online, let asset = online.assets[id] else { return videoURL(video) }
+    return try await online.media.signedURL(asset)
+  }
+
+  var chatDirectory: [CommunityConversation] {
+    guard let online else {
+      var seen = Set<String>()
+      return (CommunityChatCatalog.people + chatConversations.filter { $0.kind == .person })
+        .filter { seen.insert($0.id).inserted && !isCreatorBlocked($0.creator?.id ?? $0.id) }
+    }
+    return online.profiles.values.filter { $0.id != online.services.accountID }.map {
+      CommunityConversation(id: $0.id.uuidString, name: $0.display_name, avatars: ["BibiMark"], kind: .person,
+        time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [], creator: online.creator($0.id))
+    }
+  }
+
+  var availableCircles: [InterestCircle] {
+    guard let online else { return CommunityCatalog.circles }
+    return online.circles.map { InterestCircle(id: $0.id, title: $0.title, subtitle: $0.subtitle, artwork: $0.artwork, prompt: $0.prompt) }
+  }
+  var availableChallenges: [CreativeChallenge] {
+    guard let online else { return CommunityCatalog.challenges }
+    return online.challenges.map { CreativeChallenge(id: $0.id, title: $0.title, category: $0.category, summary: $0.summary, artwork: $0.artwork, steps: $0.steps, exampleIndex: 0) }
   }
 
   private func showSaveFailure() {

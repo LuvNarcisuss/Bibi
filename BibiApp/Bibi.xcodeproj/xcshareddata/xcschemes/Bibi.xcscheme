@@ -55,6 +55,17 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "591A8094BB5C6FCD712B6A14"
+               BuildableName = "BibiBackendTests.xctest"
+               BlueprintName = "BibiBackendTests"
+               ReferencedContainer = "container:Bibi.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "BFB47608D5613DC5C05FC19F"
                BuildableName = "BibiUITests.xctest"
                BlueprintName = "BibiUITests"

@@ -1,0 +1,286 @@
+[
+  {
+    "path": "BibiApp/Bibi/App/AppStore.swift",
+    "sha256": "bcbaf5e14061b634c0e2be98c16bb215859e73871af2b50da60b6c6b8201197c"
+  },
+  {
+    "path": "BibiApp/Bibi/App/BibiApplication.swift",
+    "sha256": "7600a1ed7d0294f8c7b9faee4071343cb36e86d40d4148d9467568aa269859de"
+  },
+  {
+    "path": "BibiApp/Bibi/App/BibiConfiguration.swift",
+    "sha256": "994d3b0c7621476794fdeda82d7915c073ed10edc1b80006e20c73aabc12d34f"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/AccountCache.swift",
+    "sha256": "52e6480442f9984fdeef6340ad6aeb8ea99473a2d35067c0479736bcf929204d"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/BackendConfiguration.swift",
+    "sha256": "e85111c86fadf052a761a6cd70d3f49f67a68ccf2ae49803e4763178f2c0b329"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/BackendKeychain.swift",
+    "sha256": "ebf310cd97e8385db7eedf0026055b0eee8f05c23089da300793e6cba92a1ff5"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/BackendModels.swift",
+    "sha256": "6123447ba2ac09b1de9aa71b6ed3dad4ee04dec9de5afef37d32f599dccaff12"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/BackendServices.swift",
+    "sha256": "7176f0e0c92b2d80900e3765c1e9d73932d6f72106a0bbd95059eeb90ac42711"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/BackendSync.swift",
+    "sha256": "9f3054df0329f2171483934e3185d56f976f667ebda5081684c6de42698a9673"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/ChatRepository.swift",
+    "sha256": "ddab231f8181496646222052d8ce4607678e3e7e6db7f33e849969b94fdbcba6"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/ContentRepository.swift",
+    "sha256": "7422725a236d0cf21d6a02f65868373997bc1adaae4722e3b3be644239874448"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/MediaRepository.swift",
+    "sha256": "2c8b4fb31f8f7a30986d534c3b21cdeb3b0b27a1bc6ad181ff172e7ff0e45300"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/OnlineAccountScreens.swift",
+    "sha256": "ab855795512d53df44651b79a1ff67fbd97308ce602aa79445fd9c82f02d8051"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/OnlineState.swift",
+    "sha256": "2591e303ad5a5f13e8ca91d3a34ea8afea6edba25ed4d396e5fc5bf8d80aaec9"
+  },
+  {
+    "path": "BibiApp/Bibi/Backend/OnlineWallet.swift",
+    "sha256": "318695e16c71016d7f8dd5a7e52a07d86449cbc5f3e64962216bbb1f23aec5dd"
+  },
+  {
+    "path": "BibiApp/Bibi/Data/LocalLibraryRepository.swift",
+    "sha256": "d4eb4f39696bbdd6b3d21c3191ca425310b2438dad68e2c50ac62dbc93428056"
+  },
+  {
+    "path": "BibiApp/Bibi/Data/ShortsInteractionRepository.swift",
+    "sha256": "dfb0549be04fae07d802e39060726a15315f5af5d78ff658e31f2b8814bf7bc0"
+  },
+  {
+    "path": "BibiApp/Bibi/Data/VideoViewingHistory.swift",
+    "sha256": "fa35966cdcbaeca3829b15e76ee126e1e73e41c52fa3be22ce18b4368e920877"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/BibiIcons.swift",
+    "sha256": "c6cf3eaa92964ac6445255564ed007d21e25c03ed0d6b4010c42fa09a108e1e6"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/BibiPalette.swift",
+    "sha256": "28d30bac10629312a79caf9d906ca7b51c3b1c7022bc77030a2edf683d652571"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+    "sha256": "e6794fd40720853da53c5fb607b4594e1022241a41eefae3007bc23a7a056c06"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/CommunityArtwork.swift",
+    "sha256": "5d1c745b8c0c99b133f3546dfb3b4f85a22429819adbe15d56e28f449ec9cb7f"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/ConstellationBanner.swift",
+    "sha256": "a319dd7f16aecf8677362a70015fd804a9fa6ed30f632ce75d567dd609df7cc7"
+  },
+  {
+    "path": "BibiApp/Bibi/DesignSystem/ExpandingSearchBar.swift",
+    "sha256": "5a564b80f72671d5978f54ba945ee34637e11ede7535e4d27aaab09650dba092"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/AnimationCatalog.swift",
+    "sha256": "6ddabfe383c0c9b4640dc0560dbedc060b7a8c621e811092a01d0e179618c4d6"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/CharacterDirectory.swift",
+    "sha256": "277f15aed797ebc145a3a1c025ad90b1cddf9f3cab412d0b0a30c179c0296a79"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/DancePhrase.swift",
+    "sha256": "5a9e3fbfd210bc6aa726d49c1f2f219d3dc52c91cf9c77fa3a2495f8683984eb"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/DancePhraseCatalog.swift",
+    "sha256": "0fcf7883e12c635de5941c5c9b21c4cb3934656d5fdbed9cce58a7a0b30c441a"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/FandomDiscussion.swift",
+    "sha256": "6eb242ff73122324b290bc5bb0dc2f2cba6065aa5ed1517117ab86752657e1b0"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/LocalLibrary.swift",
+    "sha256": "94a0ab79d871af5e37713e5ff4d65a1140f084fa438ab9ba8dbc77039aed0233"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/PhraseBook.swift",
+    "sha256": "bff60d6d627f653bfc4469d5a426da026f43b686fb75878b95e06c76db272f10"
+  },
+  {
+    "path": "BibiApp/Bibi/Domain/VideoRecommendations.swift",
+    "sha256": "a624b0723d25c6eb795121f5922c24f10a3dd786b74dace81e0a4640eb83cbb6"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Authentication/OnlineAccountController.swift",
+    "sha256": "948274323aeb43ec04d6f26278b7aad548e6966dd3c85b1154e4a44b8ffb9d57"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Authentication/UserAgreement.swift",
+    "sha256": "1f1506ca63b1c28118727cdf03c39ccf8dd410d682e77b173a875d0ecc4d2e7a"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Calls/CallCameraController.swift",
+    "sha256": "dcb7b4b4c67dbf3e15fdad6010bd783b5cfcab41e72cb5204d6b1c8da74f25de"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Calls/CallCameraSurface.swift",
+    "sha256": "ab4176bf37dafad5c2ca7c5cbd7a459cce46440abe188d0cc7e5992093b4b8f1"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Calls/CallController.swift",
+    "sha256": "c4eae55dbfa51b37f7f6bffaa281ed40deae1e886904338e70c4eee0aee4e38d"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Challenges/ChallengeControllers.swift",
+    "sha256": "fa3ab3d94ce6a6388fcc355abbab33449cf76ad40cb9576f76f7a4c2c6a909f5"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+    "sha256": "7cd84bd7a043b6a712b5cb848effd5a02d2d48a310e497290f8fc8b9f23b3b77"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Chats/ChatModels.swift",
+    "sha256": "8d5d35bef632884f314cdf14fbf62c424cd9f703f0f0e049f76a39940de3eaaa"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Circles/AppStore+Community.swift",
+    "sha256": "a046c307c6c9a93259a2a02562cfb9a32f1cdb3035ad9ead5f7b3298a5517f84"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Circles/CircleComposerController.swift",
+    "sha256": "195c0f8c937f578f27b1d92c2875a394453bdacf4b30b6eb00255be9594ac03d"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Circles/CircleControllers.swift",
+    "sha256": "987476d780c7f67d9db5214f5f7d9316b62d258437107e0cf0a9d5d1fcdcd1a0"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Circles/CommunityModels.swift",
+    "sha256": "5daac6e87b6f2b2a250dfa39e9b48e954ee5ebc254b4f278e5cbb51a5895b4da"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+    "sha256": "55c26604df8f321228b5e382c06a0b5a872d4e73386ec6a4464da49dc565295b"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Creation/CreationController.swift",
+    "sha256": "8ed364bf18f2bdc89181dfb58e2a13552e20956cf650cf5b3b37adee0494f9b0"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Creation/CreationSubmission.swift",
+    "sha256": "97f941c7f85332a4744a08f1ae464a7169f20c31b4e28a76be913b691d4180c3"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Creation/VideoCategory.swift",
+    "sha256": "ea064fd3a4c3f19b209ac8a5be4d5b477ebe700b0a87ba2cb851db048d9f3c3c"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Creators/CreatorProfile.swift",
+    "sha256": "7755de4b2f5ebb5e0dc5591cb3bda90284f8cfd5eb5e4df87d3c51878b2598fd"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Profile/ArtworkCreditsController.swift",
+    "sha256": "1d53e8935db467bdcbddc84314fc39277e66e6c6ffcdac4aeaf79911dee2a613"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+    "sha256": "d191857ca52719a39b1d7d0fb34b323e451c23ac3c171282458bc0fa86275f59"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Safety/ContentSafety.swift",
+    "sha256": "d4b1724f76bdf7132dcffb94f30814f40477a9e946e8323b066d9b2c0b27280a"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Shorts/FandomCommentScript.swift",
+    "sha256": "8a5b5dbc696eeca966666a808e837412fcda8fb9a4bfe337e830737402b05c1a"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Shorts/ShortsHomeController.swift",
+    "sha256": "3171ae8b6b1c75842e2dfaafb4ae715594b5f2562905a8fffa213138c5e10dad"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Shorts/ShortsInteractionStore.swift",
+    "sha256": "a69ca408891fcf1a7c10663e4e20c28f294202afd6331098b6c821fae7728eaf"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+    "sha256": "1c78d0c66176a7d45475e055890c7c99d8a9d5b7e3d663db2fc3a2674e144b8c"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Shorts/VideoGrid.swift",
+    "sha256": "ba09a2f31e4f147efb0d3e39f2b91121341a4e6c45cb19e87c733164cf3f2654"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Wallet/StoreKit1Purchasing.swift",
+    "sha256": "ff06c63fac1a627a3d7435bd887009355320348719dfc4a02a99a3e9b6eeae72"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Wallet/WalletModels.swift",
+    "sha256": "046c7fcd57e8220864662daaa022d927fa0379e36b92e68629d68506cbfafcd4"
+  },
+  {
+    "path": "BibiApp/Bibi/Features/Wallet/WalletStore.swift",
+    "sha256": "73933f209f4d29e6c161024c16b39fc14957210b90cd537b1092b2d59a52e2bb"
+  },
+  {
+    "path": "BibiApp/Bibi/Platform/Media/LocalVideoPlayback.swift",
+    "sha256": "57b35b211216f80d4b69a38cfc5523a3b2e44ace28b3cce594e6ccab8f8291dc"
+  },
+  {
+    "path": "BibiApp/Bibi/Platform/Media/ShortsPlayback.swift",
+    "sha256": "585485c362fe0ab610e53888ebdfc4099e06bb5ea6f880da0e1aa85b114a0ee5"
+  },
+  {
+    "path": "BibiApp/Bibi/Support/Info.plist",
+    "sha256": "5428ad00712bd82df1145473ba97eb6e74c2f48b0c914f7e9eafab5a41b674ca"
+  },
+  {
+    "path": "BibiApp/Bibi.xcodeproj/project.pbxproj",
+    "sha256": "0e85e7367b9e7591860fe5b7ea26b9d7102d1036336711578655c08ebcc6e8c4"
+  },
+  {
+    "path": "BibiApp/Tests/Backend/BackendBoundaryTests.swift",
+    "sha256": "8aaf8c4890b66cdd0d406dcf99d63d65f5693f50627c7fd627336199c7d27b59"
+  },
+  {
+    "path": "BibiApp/Tests/Purchases/PurchaseUITests.swift",
+    "sha256": "7e6a40fce9b33ef48b95bbaf6c083f44d75bb19f57c346368ba4ab67e603d19c"
+  },
+  {
+    "path": "BibiApp/Tests/Typography/AssetResourceTests.swift",
+    "sha256": "97e986d120772bd4a89d6c56f583a7cba8ab996e25091b0dfede15155e27b0d1"
+  },
+  {
+    "path": "BibiApp/Tests/Typography/TypographyTests.swift",
+    "sha256": "348d19587eed821c6595704134b0a94315eba1f31695793f1c41f8c5add597c8"
+  },
+  {
+    "path": "BibiApp/Tests/UI/AppCoverageUITests.swift",
+    "sha256": "9cc5a94d1efbea6ef6e32f5eb34a00a62b80ae5ed69bac1f3df0a0db9684f6f2"
+  },
+  {
+    "path": "BibiApp/Tests/UI/TypographyUITests.swift",
+    "sha256": "73a965a560d9019cfbee23147f650ad986eb311d5a00a977d92fa0068015979f"
+  },
+  {
+    "path": "BibiApp/project.yml",
+    "sha256": "2eebd846e53d4ecf5a94576700460f2ab13ff95ee3b867483ab74d418abea45c"
+  }
+]

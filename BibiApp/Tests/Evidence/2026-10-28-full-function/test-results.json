@@ -1,0 +1,222 @@
+{
+  "scope": "Latest recorded result per current XCTest method across focused runs",
+  "tests": [
+    {
+      "class": "BibiTypographyTests.AssetResourceTests",
+      "method": "testAgreementFallbackReadsFlatHTML",
+      "status": "passed",
+      "seconds": 0.011,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiTypographyTests.TypographyTests",
+      "method": "testAllRootTitlesLoadOriginalArtwork",
+      "status": "passed",
+      "seconds": 0.006,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiTypographyTests.AssetResourceTests",
+      "method": "testAllVideosAndCoversDecodeFromBundle",
+      "status": "passed",
+      "seconds": 0.528,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testApplePaymentSheetCancellation",
+      "status": "passed",
+      "seconds": 21.577,
+      "log": "bibi-full-qa-20261028-purchases-final.log"
+    },
+    {
+      "class": "BibiTypographyTests.TypographyTests",
+      "method": "testBundledFontsResolveWithIntendedWeights",
+      "status": "passed",
+      "seconds": 0.002,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiBackendTests.BackendBoundaryTests",
+      "method": "testCallbacksRejectForeignOriginsAndAmbiguousCredentials",
+      "status": "passed",
+      "seconds": 0.004,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testCatalogPurchasesCancellationAndPersistence",
+      "status": "passed",
+      "seconds": 73.506,
+      "log": "bibi-full-qa-20261028-purchases-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testChallengesChatsAndMe",
+      "status": "passed",
+      "seconds": 199.782,
+      "log": "bibi-full-qa-20261028-complete.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testChatCreationAndSwipeActions",
+      "status": "passed",
+      "seconds": 61.032,
+      "log": "bibi-full-qa-20261028-creation.log"
+    },
+    {
+      "class": "BibiBackendTests.BackendBoundaryTests",
+      "method": "testConcurrentRetryIdentityAndAccountIsolation",
+      "status": "passed",
+      "seconds": 0.176,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiBackendTests.BackendBoundaryTests",
+      "method": "testDisabledBackendGateKeepsOnlineServicesUninitialized",
+      "status": "passed",
+      "seconds": 0.004,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiTypographyTests.CommunityProfileTests",
+      "method": "testEachFictionalAuthorHasPostsAndShorts",
+      "status": "passed",
+      "seconds": 0.005,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiTypographyTests.AssetResourceTests",
+      "method": "testEveryBundledImageAndColorLoads",
+      "status": "passed",
+      "seconds": 0.071,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiUITests.TypographyUITests",
+      "method": "testFiveIllustratedTitles",
+      "status": "passed",
+      "seconds": 38.209,
+      "log": "bibi-full-qa-20261028-ui.log"
+    },
+    {
+      "class": "BibiUITests.TypographyUITests",
+      "method": "testFiveIllustratedTitlesWithLargerText",
+      "status": "passed",
+      "seconds": 33.059,
+      "log": "bibi-full-qa-20261028-ui.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testFreshLocalAccountForPurchaseAcceptance",
+      "status": "passed",
+      "seconds": 46.096,
+      "log": "bibi-full-qa-20261028-account-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testIsolatedStateChanges",
+      "status": "passed",
+      "seconds": 347.901,
+      "log": "bibi-full-qa-20261028-account-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testLargerTextAcrossModules",
+      "status": "passed",
+      "seconds": 75.786,
+      "log": "bibi-full-qa-20261028-ui.log"
+    },
+    {
+      "class": "BibiTypographyTests.AssetResourceTests",
+      "method": "testLooksAndChallengeLedgerRoundTrip",
+      "status": "passed",
+      "seconds": 0.02,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testLooksPurchaseEquipAndPersistence",
+      "status": "passed",
+      "seconds": 80.342,
+      "log": "bibi-full-qa-20261028-purchases-final.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testPendingAndFailedPurchasesKeepBalance",
+      "status": "passed",
+      "seconds": 23.055,
+      "log": "bibi-full-qa-20261028-payment-states.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testPostCreationBookmarkAndPersistence",
+      "status": "passed",
+      "seconds": 76.395,
+      "log": "bibi-full-qa-20261028-creation.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testPostGiftsRemovedAndSafetyAvailable",
+      "status": "passed",
+      "seconds": 40.108,
+      "log": "bibi-full-qa-20261028-purchases-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testProfileEditSurvivesRelaunch",
+      "status": "passed",
+      "seconds": 59.924,
+      "log": "bibi-full-qa-20261028-account-safety.log"
+    },
+    {
+      "class": "BibiTypographyTests.CommunityProfileTests",
+      "method": "testProfileTotalsIncludePostsAndShorts",
+      "status": "passed",
+      "seconds": 0.016,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testRootsStayPortraitWhenDeviceRotates",
+      "status": "passed",
+      "seconds": 35.496,
+      "log": "bibi-full-qa-20261028-interactions.log"
+    },
+    {
+      "class": "BibiPurchaseUITests.PurchaseUITests",
+      "method": "testSavedShortJoinsChallengeAndRefundsOnWithdraw",
+      "status": "passed",
+      "seconds": 76.0,
+      "log": "bibi-full-qa-20261028-purchases-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testShortCommentAndReply",
+      "status": "passed",
+      "seconds": 42.45,
+      "log": "bibi-full-qa-20261028-account-final.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testShortVideoMediaUploadAndRemoval",
+      "status": "passed",
+      "seconds": 95.744,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    },
+    {
+      "class": "BibiUITests.AppCoverageUITests",
+      "method": "testShortsAndCircles",
+      "status": "passed",
+      "seconds": 176.55,
+      "log": "bibi-full-qa-20261028-safety-upload.log"
+    },
+    {
+      "class": "BibiTypographyTests.AssetResourceTests",
+      "method": "testWalletRejectsInsufficientFundsAndFailedPersistence",
+      "status": "passed",
+      "seconds": 0.003,
+      "log": "bibi-full-qa-20261028-final-verification.log"
+    }
+  ]
+}

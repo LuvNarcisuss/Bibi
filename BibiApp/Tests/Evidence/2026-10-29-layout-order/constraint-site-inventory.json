@@ -1,0 +1,545 @@
+{
+  "scope": "Manual source review of constraint activation sites and the UIView.pin helper call sites. Inventory is not proof of runtime safety.",
+  "sites": [
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 68,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 83,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 174,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 243,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 278,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 470,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 504,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 534,
+      "statement": "space.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 567,
+      "statement": "box.widthAnchor.constraint(equalToConstant: 44).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 724,
+      "statement": "text.heightAnchor.constraint(equalToConstant: max(48, height)).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/App/BibiApplication.swift",
+      "line": 783,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 9,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 20,
+      "statement": "func height(_ value: CGFloat) { heightAnchor.constraint(equalToConstant: value).isActive = true }"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 49,
+      "statement": "b.widthAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 50,
+      "statement": "b.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 69,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 153,
+      "statement": "NSLayoutConstraint.activate(pins)"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 155,
+      "statement": "iconView.widthAnchor.constraint(equalToConstant: iconSize).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 156,
+      "statement": "iconView.heightAnchor.constraint(equalToConstant: iconSize).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 162,
+      "statement": "heightAnchor.constraint(greaterThanOrEqualToConstant: axis == .vertical ? 108 : 48).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 333,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 423,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 476,
+      "statement": "widthAnchor.constraint(equalToConstant: 52).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 477,
+      "statement": "heightAnchor.constraint(equalToConstant: 32).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 519,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 624,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 634,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 658,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 685,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 709,
+      "statement": "widthAnchor.constraint(equalToConstant: size).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 805,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1116,
+      "statement": "scroller.heightAnchor.constraint(equalToConstant: 96).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1121,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1130,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1181,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1215,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1279,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1318,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1382,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1390,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1418,
+      "statement": "bottom.isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1450,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/BibiUIKit.swift",
+      "line": 1513,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/ConstellationBanner.swift",
+      "line": 26,
+      "statement": "heightAnchor.constraint(greaterThanOrEqualToConstant: 176).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/ConstellationBanner.swift",
+      "line": 40,
+      "statement": "text.heightAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/ConstellationBanner.swift",
+      "line": 45,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/DesignSystem/ConstellationBanner.swift",
+      "line": 52,
+      "statement": "scroll.heightAnchor.constraint(equalToConstant: max(30, BibiPalette.font(12).lineHeight + 14)).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Authentication/OnlineAccountController.swift",
+      "line": 24,
+      "statement": "field.heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Calls/CallController.swift",
+      "line": 41,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Calls/CallController.swift",
+      "line": 51,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Calls/CallController.swift",
+      "line": 81,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Calls/CallController.swift",
+      "line": 96,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Calls/CallController.swift",
+      "line": 106,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Challenges/ChallengeControllers.swift",
+      "line": 37,
+      "statement": "art.heightAnchor.constraint(equalTo: art.widthAnchor).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 50,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 141,
+      "statement": "bell.widthAnchor.constraint(equalToConstant: 18).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 142,
+      "statement": "bell.heightAnchor.constraint(equalToConstant: 18).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 157,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 240,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 312,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 384,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 394,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 489,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 523,
+      "statement": "art.widthAnchor.constraint(equalToConstant: size).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 524,
+      "statement": "art.heightAnchor.constraint(equalToConstant: size).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 536,
+      "statement": "button.heightAnchor.constraint(greaterThanOrEqualToConstant: 88).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 591,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 612,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 731,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 838,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 952,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 1104,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 1130,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 1184,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Chats/ChatControllers.swift",
+      "line": 1283,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Circles/CircleControllers.swift",
+      "line": 115,
+      "statement": "image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: ratio).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Circles/CircleControllers.swift",
+      "line": 134,
+      "statement": "credit.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Circles/CircleControllers.swift",
+      "line": 197,
+      "statement": "art.heightAnchor.constraint(equalTo: art.widthAnchor).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+      "line": 81,
+      "statement": "NSLayoutConstraint.activate(pins)"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+      "line": 137,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+      "line": 232,
+      "statement": "view.widthAnchor.constraint(equalToConstant: 36).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+      "line": 233,
+      "statement": "view.heightAnchor.constraint(equalToConstant: 36).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Community/CommunityControllers.swift",
+      "line": 575,
+      "statement": "topUp.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 39,
+      "statement": "categorySlot.heightAnchor.constraint(equalToConstant: categoryHeight).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 126,
+      "statement": "NSLayoutConstraint.activate(categoryPins)"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 223,
+      "statement": "height.isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 413,
+      "statement": ".isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 414,
+      "statement": "row.heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 426,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 467,
+      "statement": "button.heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 582,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 716,
+      "statement": "button.widthAnchor.constraint(equalToConstant: 220).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 744,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 827,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 886,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 927,
+      "statement": "height.isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 977,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 1107,
+      "statement": "swatch.widthAnchor.constraint(equalToConstant: 28).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Profile/ProfileControllers.swift",
+      "line": 1108,
+      "statement": "swatch.heightAnchor.constraint(equalToConstant: 28).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 113,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 148,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 162,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 170,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 457,
+      "statement": "avatar.widthAnchor.constraint(equalToConstant: 48).isActive = true"
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 674,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoFeedController.swift",
+      "line": 767,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoGrid.swift",
+      "line": 31,
+      "statement": "NSLayoutConstraint.activate(["
+    },
+    {
+      "file": "BibiApp/Bibi/Features/Shorts/VideoGrid.swift",
+      "line": 97,
+      "statement": "height.isActive = true"
+    }
+  ]
+}

@@ -8,6 +8,12 @@ final class WalletStore: ObservableObject {
     @Published private(set) var prices: [String: String] = [:]
     @Published private(set) var catalog = StoreProductStatus()
     private let purchasing = StoreKit1Purchasing()
+    private var online: OnlineWallet?
+    func configureOnline(_ wallet: OnlineWallet) {
+        online = wallet
+        wallet.onChange = { [weak self] snapshot, prices in self?.snapshot = snapshot; self?.prices = prices }
+        wallet.onCatalog = { [weak self] state in self?.catalog = state }
+    }
 
     init() {
         purchasing.onChange = { [weak self] ledger, prices in
@@ -27,10 +33,11 @@ final class WalletStore: ObservableObject {
         prices[package.storeProductID] != nil
     }
 
-    func retryProducts() { purchasing.retryProducts() }
-    var diagnostics: String { purchasing.diagnostics }
+    func retryProducts() { if let online { Task { await online.reload() } } else { purchasing.retryProducts() } }
+    var diagnostics: String { online == nil ? purchasing.diagnostics : "Server-verified purchases" }
 
     func prepareProducts() {
+        if let online { Task { await online.reload() }; return }
         purchasing.reloadProductsIfNeeded()
     }
 
@@ -43,14 +50,17 @@ final class WalletStore: ObservableObject {
     }
 
     func startPayments() async {
+        if let online { await online.start(); return }
         await purchasing.start()
     }
 
     func stopPayments() async {
+        if let online { online.stop(); return }
         await purchasing.stop()
     }
 
     func clearAccountMemory() {
+        if let online { online.stop(); snapshot = WalletSnapshot(); prices = [:]; return }
         purchasing.clearMemory()
     }
 
@@ -58,29 +68,51 @@ final class WalletStore: ObservableObject {
         guard !isBusy else { return "Please wait for the current request to finish." }
         isBusy = true
         defer { isBusy = false }
+        if let online { return await online.purchase(package) }
         return await purchasing.purchase(package)
     }
 
     func send(_ gift: StarGift, quantity: Int, target: GiftTarget,
               isAvailable: @escaping @MainActor () -> Bool) async -> String? {
+        "Post gifts are no longer available. No diamonds were spent."
+    }
+
+    func unlock(_ item: CosmeticItem) async -> String? {
+        guard online == nil else { return "Looks and challenge entries use the balance on this device. Online spending is not connected." }
         guard !isBusy else { return "Please wait for the current request to finish." }
         isBusy = true
         defer { isBusy = false }
-        return await purchasing.spend(gift, quantity: quantity, target: target, isAvailable: isAvailable)
+        return await purchasing.unlock(item)
     }
+
+    func equip(_ kind: CosmeticKind, id: String?) async -> String? {
+        guard online == nil else { return "Looks and challenge entries use the balance on this device. Online spending is not connected." }
+        guard !isBusy else { return "Please wait for the current request to finish." }
+        isBusy = true
+        defer { isBusy = false }
+        return await purchasing.equip(kind, id: id)
+    }
+
+    func payForChallenge(_ challengeID: String) async -> String? {
+        guard online == nil else { return "Looks and challenge entries use the balance on this device. Online spending is not connected." }
+        guard !isBusy else { return "Please wait for the current request to finish." }
+        isBusy = true
+        defer { isBusy = false }
+        return await purchasing.payForChallenge(challengeID)
+    }
+
+    func refundChallenge(_ challengeID: String) async -> String? {
+        guard online == nil else { return nil }
+        guard !isBusy else { return "Please wait for the current request to finish." }
+        isBusy = true
+        defer { isBusy = false }
+        return await purchasing.refundChallenge(challengeID)
+    }
+
 }
 
 extension AppStore {
-    func giftTarget(postID: UUID) -> GiftTarget? {
-        guard let post = circlePosts().first(where: { $0.id == postID }),
-              !post.author.isLocalOwner else { return nil }
-        return GiftTarget(kind: .circlePost, id: postID,
-                          title: String(post.body.prefix(60)), creatorID: post.author.id)
-    }
-
-    func canGift(_ target: GiftTarget) -> Bool {
-        guard canUseGifts else { return false }
-        let current = giftTarget(postID: target.id)
-        return current?.creatorID == target.creatorID
-    }
+    // Keep these compatibility entry points inert for old screens and stored activity.
+    func giftTarget(postID: UUID) -> GiftTarget? { nil }
+    func canGift(_ target: GiftTarget) -> Bool { false }
 }

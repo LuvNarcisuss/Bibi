@@ -59,7 +59,9 @@ enum WalletCatalog {
         (2_450, 499),
         (5_150, 999),
         (10_800, 1_999),
+        (16_800, 2_999),
         (29_400, 4_999),
+        (42_700, 6_999),
         (63_700, 9_999)
     ]
 
@@ -124,7 +126,87 @@ struct WalletActivity: Codable, Identifiable {
 struct WalletSnapshot {
     var diamonds = 0
     var activity: [WalletActivity] = []
+    var cosmetics = CosmeticState()
     func balance(_ currency: WalletCurrency) -> Int { diamonds }
+}
+
+enum CosmeticKind: String, Codable {
+    case avatarFrame, profileBackground, chatBubble, chatBackground, coverTemplate
+}
+
+struct CosmeticItem: Identifiable, Equatable {
+    let id: String
+    let kind: CosmeticKind
+    let name: String
+    let diamonds: Int
+    let hex: UInt32
+    let lineWidth: Double
+}
+
+enum CosmeticCatalog {
+    static let challengeEntryDiamonds = 100
+    static let items: [CosmeticItem] = [
+        .init(id: "frame-sakura", kind: .avatarFrame, name: "Sakura Ring", diamonds: 200, hex: 0xE74F92, lineWidth: 4),
+        .init(id: "frame-ice", kind: .avatarFrame, name: "Ice Ring", diamonds: 200, hex: 0x3DB9C9, lineWidth: 4),
+        .init(id: "frame-violet", kind: .avatarFrame, name: "Violet Ring", diamonds: 500, hex: 0x6943BD, lineWidth: 6),
+        .init(id: "frame-gold", kind: .avatarFrame, name: "Moon Ring", diamonds: 500, hex: 0xC4922A, lineWidth: 6),
+        .init(id: "ground-sakura", kind: .profileBackground, name: "Sakura Header", diamonds: 800, hex: 0xF8D5E6, lineWidth: 0),
+        .init(id: "ground-night", kind: .profileBackground, name: "Night Header", diamonds: 800, hex: 0xE4D7FF, lineWidth: 0),
+        .init(id: "ground-ice", kind: .profileBackground, name: "Ice Header", diamonds: 800, hex: 0xD8F6F8, lineWidth: 0),
+        .init(id: "bubble-sakura", kind: .chatBubble, name: "Sakura Bubble", diamonds: 300, hex: 0xF6C3DA, lineWidth: 0),
+        .init(id: "bubble-ink", kind: .chatBubble, name: "Ink Bubble", diamonds: 300, hex: 0x28213F, lineWidth: 0),
+        .init(id: "bubble-ice", kind: .chatBubble, name: "Ice Bubble", diamonds: 300, hex: 0xC9F1F4, lineWidth: 0),
+        .init(id: "chat-paper", kind: .chatBackground, name: "Paper Room", diamonds: 600, hex: 0xF8F5FF, lineWidth: 0),
+        .init(id: "chat-dusk", kind: .chatBackground, name: "Dusk Room", diamonds: 600, hex: 0xE7DEF8, lineWidth: 0),
+        .init(id: "cover-blossom", kind: .coverTemplate, name: "Blossom Frame", diamonds: 400, hex: 0xE74F92, lineWidth: 4),
+        .init(id: "cover-night", kind: .coverTemplate, name: "Night Frame", diamonds: 400, hex: 0x6943BD, lineWidth: 4),
+        .init(id: "cover-gold", kind: .coverTemplate, name: "Gold Frame", diamonds: 400, hex: 0xC4922A, lineWidth: 4),
+        .init(id: "cover-ice", kind: .coverTemplate, name: "Ice Frame", diamonds: 400, hex: 0x3DB9C9, lineWidth: 4),
+    ]
+
+    static func items(_ kind: CosmeticKind) -> [CosmeticItem] { items.filter { $0.kind == kind } }
+    static func item(_ id: String?) -> CosmeticItem? { items.first { $0.id == id } }
+}
+
+/// Owned looks and paid challenge entries. Missing on older wallet files.
+struct CosmeticState: Codable, Equatable {
+    var ownedIDs: [String] = []
+    var avatarFrameID: String? = nil
+    var profileBackgroundID: String? = nil
+    var chatBubbleID: String? = nil
+    var chatBackgroundID: String? = nil
+    var coverTemplateID: String? = nil
+    var paidChallengeIDs: [String] = []
+
+    var isConsistent: Bool {
+        Set(ownedIDs).count == ownedIDs.count
+            && ownedIDs.allSatisfy { CosmeticCatalog.item($0) != nil }
+            && [avatarFrameID, profileBackgroundID, chatBubbleID, chatBackgroundID, coverTemplateID].allSatisfy { id in
+                id == nil || ownedIDs.contains(id!)
+            }
+            && Set(paidChallengeIDs).count == paidChallengeIDs.count
+            && paidChallengeIDs.allSatisfy { !$0.isEmpty && $0.count <= 40 }
+    }
+
+    mutating func equip(_ kind: CosmeticKind, id: String?) {
+        switch kind {
+        case .avatarFrame: avatarFrameID = id
+        case .profileBackground: profileBackgroundID = id
+        case .chatBubble: chatBubbleID = id
+        case .chatBackground: chatBackgroundID = id
+        case .coverTemplate: coverTemplateID = id
+        }
+    }
+
+    func equippedID(_ kind: CosmeticKind) -> String? {
+        switch kind {
+        case .avatarFrame: return avatarFrameID
+        case .profileBackground: return profileBackgroundID
+        case .chatBubble: return chatBubbleID
+        case .chatBackground: return chatBackgroundID
+        case .coverTemplate: return coverTemplateID
+        }
+    }
 }
 
 /// Device ledger for consumable diamond purchases. Missing file means an empty ledger.
@@ -133,10 +215,13 @@ struct WalletLedger: Codable {
     var diamonds: Int
     var activity: [WalletActivity]
     var creditedTransactionIDs: [String]
+    var cosmetics: CosmeticState? = nil
 
     static let empty = WalletLedger(diamonds: 0, activity: [], creditedTransactionIDs: [])
 
-    var snapshot: WalletSnapshot { WalletSnapshot(diamonds: diamonds, activity: activity) }
+    var snapshot: WalletSnapshot {
+        WalletSnapshot(diamonds: diamonds, activity: activity, cosmetics: cosmetics ?? CosmeticState())
+    }
 
     var isValid: Bool {
         schemaVersion == 1
@@ -148,8 +233,16 @@ struct WalletLedger: Codable {
                 guard item.amount > 0, !item.id.isEmpty, !item.title.isEmpty, item.currency == .diamonds else {
                     return false
                 }
-                if item.kind == "gift" { return true }
+                if item.kind == "gift" || item.kind == "unlock" || item.kind == "challenge" || item.kind == "refund" { return true }
                 return (item.kind == nil || item.kind == "credit") && creditedTransactionIDs.contains(item.id)
             }
+            && (cosmetics?.isConsistent ?? true)
+    }
+
+    mutating func recordSpend(id: String, title: String, amount: Int, kind: String) {
+        activity.insert(
+            WalletActivity(id: id, title: title, currency: .diamonds, amount: amount, date: Date(), kind: kind),
+            at: 0)
+        if activity.count > 40 { activity = Array(activity.prefix(40)) }
     }
 }

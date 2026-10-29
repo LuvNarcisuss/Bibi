@@ -20,7 +20,7 @@ enum CharacterDirectory {
     ]
 
     static let creators: [String: String] = [
-        "local-owner": "Portrait51",
+        "local-owner": "BibiMark",
         "bibi-curator:Animation Club": "Portrait52"
     ]
 
@@ -30,6 +30,6 @@ enum CharacterDirectory {
     }
 
     static func asset(forCreator id: String) -> String {
-        creators[id] ?? "Portrait51"
+        CommunityCatalog.storyAuthor(id: id)?.avatarAsset ?? creators[id] ?? "Portrait51"
     }
 }

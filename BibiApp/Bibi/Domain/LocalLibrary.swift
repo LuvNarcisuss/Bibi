@@ -1,8 +1,10 @@
 import Foundation
 
 struct LocalProfile: Codable, Equatable {
-    var displayName = "Stargazer"
-    var biography = "Collecting stories under the same sky."
+    var remoteAvatarURL: URL? = nil
+    var remoteAccountID: UUID? = nil
+    var displayName = "New member"
+    var biography = ""
     var avatarSymbol = "figure.dance"
     /// Optional so older libraries still decode. The photo file lives beside the library.
     var hasCustomAvatar: Bool? = nil
@@ -10,6 +12,8 @@ struct LocalProfile: Codable, Equatable {
 
 struct LocalVideo: Codable, Identifiable, Equatable {
     let id: UUID
+    var remoteCreator: CreatorProfile? = nil
+    var remoteMediaID: UUID? = nil
     var title: String
     let fileExtension: String
     let duration: Double

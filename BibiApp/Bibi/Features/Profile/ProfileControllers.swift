@@ -1,94 +1,272 @@
+import Combine
 import PhotosUI
 import UIKit
 import UniformTypeIdentifiers
 
-final class MeController: StackScreen {
+final class MeController: StackScreen, UIScrollViewDelegate {
   private var selection = 0
+  private let profileHeader = stack(spacing: 18)
+  private let body = stack(spacing: 18)
+  private let categorySlot = UIView()
+  private let categoryChrome = UIView()
+  private let categoryWash = StarlightCanvas()
+  private var categories: StudioChoice?
+  private var categoryPins: [NSLayoutConstraint] = []
+  private var categoryHeight: CGFloat {
+    max(50, BibiPalette.font(14, title: true).lineHeight + 24)
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if isViewLoaded { refresh() }
+  }
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    placeCategoryBar()
+  }
   override func build() {
     super.build()
     title = "Me"
     navigationItem.leftBarButtonItem = barButton(bibiMark())
     scroll.contentInset.bottom = 28
+    scroll.delegate = self
     navigationItem.rightBarButtonItem = barButton(
       iconButton(.settings, "Settings") { [weak self] in
         guard let self else { return }
         self.push(SettingsController(store: self.store))
       })
+    content.addArrangedSubview(profileHeader)
+    categorySlot.translatesAutoresizingMaskIntoConstraints = false
+    categorySlot.heightAnchor.constraint(equalToConstant: categoryHeight).isActive = true
+    content.addArrangedSubview(categorySlot)
+    content.addArrangedSubview(body)
+    categoryChrome.backgroundColor = .clear
+    categoryChrome.clipsToBounds = true
+    categoryChrome.isHidden = true
+    categoryChrome.translatesAutoresizingMaskIntoConstraints = true
+    categoryWash.isUserInteractionEnabled = false
+    categoryChrome.addSubview(categoryWash)
+    scroll.addSubview(categoryChrome)
   }
+  func scrollViewDidScroll(_ scrollView: UIScrollView) { placeCategoryBar() }
   override func refresh() {
     guard isViewLoaded else { return }
-    clear()
+    updateHeader()
+    ensureCategories()
+    fillBody()
+    placeCategoryBar()
+  }
+  private func updateHeader() {
+    profileHeader.arrangedSubviews.forEach { $0.removeFromSuperview() }
     let photo = BibiArtwork(size: 92, round: true)
     photo.image =
       store.ownerAvatarImage()
       ?? UIImage(named: CommunityArtwork.creatorAvatar(for: "local-owner"))
+    if store.isOnline { photo.load(store.library.profile.remoteAvatarURL, fallback: "BibiMark") }
+    paintAvatarFrame(photo, itemID: store.wallet.snapshot.cosmetics.avatarFrameID)
     let identity = stack([
       photo, label(store.library.profile.displayName, 26, title: true),
       label(store.library.profile.biography, 16, BibiPalette.muted),
     ])
     identity.alignment = .center
-    content.addArrangedSubview(identity)
-    content.addArrangedSubview(
+    let wash = CosmeticCatalog.item(store.wallet.snapshot.cosmetics.profileBackgroundID).map { BibiPalette.color($0.hex) }
+    profileHeader.addArrangedSubview(starlightProfileCard([identity], wash: wash))
+    profileHeader.addArrangedSubview(
       actionButton("Wallet", icon: .diamond, tone: .lime) { [weak self] in
         guard let self else { return }
         self.push(WalletController(store: self.store))
       })
-    content.addArrangedSubview(actionButton("My circles · \(store.community.joinedCircleIDs.count)", icon: .planet) { [weak self] in
-      guard let self else { return }; self.push(CirclesController(store: self.store, filter: 1))
-    })
-    content.addArrangedSubview(actionButton("Saved circle posts", icon: .bookmark) { [weak self] in
-      guard let self else { return }; self.push(CirclesController(store: self.store, filter: 2))
-    })
-    content.addArrangedSubview(actionButton("My challenges · \(store.community.entries.count)", icon: .comet) { [weak self] in
-      guard let self else { return }; self.push(ChallengeEntriesController(store: self.store, title: "My challenges"))
-    })
+  }
+  private func categoryTitles() -> [String] {
     let works = store.personalWorks
-    let liked = store.likedVideos
-    let saved = store.savedVideos
-    let tabs = StudioChoice(
-      items: [
-        "Works (\(works.count))", "Liked (\(liked.count))",
-        "Saved (\(saved.count))",
-        "Uploads (\(store.pendingSubmissions.count))", "About",
-      ], index: selection)
-    tabs.onChange = { [weak self] next in
-      self?.selection = next
-      self?.refresh()
-    }
-    content.addArrangedSubview(tabs)
-    if selection == 3 {
-      showPending()
+    let posts = store.creatorPosts(for: CreatorProfile.signedIn(store.library.profile).id)
+    let savedPosts = store.circlePosts(savedOnly: true)
+    let joined = store.availableCircles.filter { store.community.joinedCircleIDs.contains($0.id) }
+    return [
+      "Works (\(works.count + posts.count))", "Liked (\(store.likedVideos.count))",
+      "Saved (\(store.savedVideos.count + savedPosts.count))",
+      "Circles (\(joined.count))", "Challenges (\(store.community.entries.count))",
+      "Uploads (\(store.pendingSubmissions.count))", "About",
+    ]
+  }
+  private func ensureCategories() {
+    let titles = categoryTitles()
+    if let categories {
+      categories.updateTitles(titles)
       return
     }
-    if selection == 4 {
-      heading("Your constellation")
+    let tabs = StudioChoice(items: titles, index: selection)
+    tabs.onChange = { [weak self] next in
+      guard let self, next != self.selection else { return }
+      self.selection = next
+      self.fillBody()
+      self.placeCategoryBar()
+    }
+    categories = tabs
+    placeCategories(pinned: false)
+  }
+  /// The chips stay in the scrolling slot until the bar pins. A frame-only overlay
+  /// stays at zero size through the first layout pass, so the chips would not appear
+  /// until the next interaction.
+  @discardableResult
+  private func placeCategories(pinned: Bool) -> Bool {
+    guard let tabs = categories else { return false }
+    let host: UIView = pinned ? categoryChrome : categorySlot
+    if tabs.superview === host { return false }
+    NSLayoutConstraint.deactivate(categoryPins)
+    tabs.removeFromSuperview()
+    host.addSubview(tabs)
+    let inset: CGFloat = pinned ? 16 : 0
+    tabs.translatesAutoresizingMaskIntoConstraints = false
+    categoryPins = [
+      tabs.leadingAnchor.constraint(equalTo: host.leadingAnchor, constant: inset),
+      tabs.trailingAnchor.constraint(equalTo: host.trailingAnchor, constant: -inset),
+      tabs.topAnchor.constraint(equalTo: host.topAnchor),
+      tabs.bottomAnchor.constraint(equalTo: host.bottomAnchor),
+    ]
+    NSLayoutConstraint.activate(categoryPins)
+    return true
+  }
+  private func placeCategoryBar() {
+    guard categorySlot.bounds.height > 0, scroll.bounds.width > 0 else { return }
+    let slot = categorySlot.convert(categorySlot.bounds, to: scroll)
+    let pinned = slot.minY < scroll.contentOffset.y
+    if pinned {
+      categoryChrome.isHidden = false
+      categoryChrome.frame = CGRect(
+        x: 0, y: scroll.contentOffset.y, width: scroll.bounds.width, height: slot.height)
+      categoryWash.frame = categoryChrome.convert(atmosphereFrame(), from: view)
+      scroll.bringSubviewToFront(categoryChrome)
+      if placeCategories(pinned: true) { categoryChrome.layoutIfNeeded() }
+      return
+    }
+    if placeCategories(pinned: false) { categorySlot.layoutIfNeeded() }
+    categoryChrome.isHidden = true
+  }
+  private func fillBody() {
+    body.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    let works = store.personalWorks
+    let posts = store.creatorPosts(for: CreatorProfile.signedIn(store.library.profile).id)
+    let liked = store.likedVideos
+    let saved = store.savedVideos
+    let savedPosts = store.circlePosts(savedOnly: true)
+    let joined = store.availableCircles.filter { store.community.joinedCircleIDs.contains($0.id) }
+    switch selection {
+    case 1:
+      showVideos(liked)
+    case 2:
+      showVideos(saved)
+      showSavedPosts(savedPosts)
+      if saved.isEmpty, savedPosts.isEmpty {
+        body.addArrangedSubview(label("Saved videos and circle posts will appear here.", 16, BibiPalette.muted))
+      }
+    case 3:
+      showJoinedCircles(joined)
+    case 4:
+      showChallengeEntries()
+    case 5:
+      showPending()
+    case 6:
+      heading("Your constellation", host: body)
       var shortCreate: BibiButton!
       shortCreate = actionButton("Create a short video", icon: .shorts) { [weak self] in
         guard let self else { return }
         self.presentExpanded(
           from: shortCreate, CreationController(store: self.store))
       }
-      content.addArrangedSubview(shortCreate)
-      return
+      body.addArrangedSubview(shortCreate)
+    default:
+      showVideos(works)
+      if !posts.isEmpty { heading("Posts", host: body); addProfilePosts(posts, host: body) }
+      for video in works {
+        body.addArrangedSubview(
+          actionButton("Manage " + video.title, icon: .more) { [weak self] in self?.manage(video) })
+      }
     }
-    let videos = selection == 0 ? works : selection == 1 ? liked : saved
-    videoGrid(videos) { [weak self] video in
+  }
+  private func showVideos(_ videos: [LocalVideo]) {
+    guard !videos.isEmpty else { return }
+    videoGrid(videos, host: body) { [weak self] video in
       guard let self else { return }
       self.presentScreen(
         VideoFeedController(store: self.store, videos: videos, initial: video.id),
         full: true)
     }
-    if selection == 0 {
-      for video in videos {
-        content.addArrangedSubview(
-          actionButton("Manage " + video.title, icon: .more) { [weak self] in self?.manage(video) })
+  }
+  private func showSavedPosts(_ posts: [CirclePost]) {
+    guard !posts.isEmpty else { return }
+    let columns = traitCollection.preferredContentSizeCategory.isAccessibilityCategory ? 1 : 2
+    let spacing: CGFloat = 14
+    for start in stride(from: 0, to: posts.count, by: columns) {
+      let row = stack(axis: .horizontal, spacing: spacing)
+      row.distribution = .fillEqually
+      row.alignment = .fill
+      row.setContentCompressionResistancePriority(.required, for: .vertical)
+      row.setContentHuggingPriority(.required, for: .vertical)
+      for post in posts[start..<min(start + columns, posts.count)] {
+        let tile = ProfilePostTile()
+        tile.configure(post, store: store)
+        tile.accessibilityIdentifier = "profile.post." + post.id.uuidString
+        tile.onTap = { [weak self] in
+          guard let self else { return }
+          self.push(CirclePostController(store: self.store, postID: post.id))
+        }
+        row.addArrangedSubview(tile)
       }
+      if row.arrangedSubviews.count < columns { row.addArrangedSubview(UIView()) }
+      body.addArrangedSubview(row)
+      // Height follows the row width, matching the saved-video tiles.
+      let height = row.heightAnchor.constraint(
+        equalTo: body.widthAnchor,
+        multiplier: 1.38 / CGFloat(columns),
+        constant: -(spacing * 1.38 * CGFloat(columns - 1) / CGFloat(columns)))
+      height.priority = .required
+      height.isActive = true
+    }
+  }
+  private func showJoinedCircles(_ circles: [InterestCircle]) {
+    if circles.isEmpty {
+      body.addArrangedSubview(label("Your joined circles will appear here.", 16, BibiPalette.muted))
+      return
+    }
+    for circle in circles {
+      let open: () -> Void = { [weak self] in
+        guard let self else { return }
+        self.push(CircleDetailController(store: self.store, circle: circle))
+      }
+      let title = label(circle.title, 18, title: true)
+      title.numberOfLines = 2
+      let subtitle = label(circle.subtitle, 14, BibiPalette.muted)
+      subtitle.numberOfLines = 2
+      body.addArrangedSubview(communityCard([title, subtitle], onOpen: open))
+    }
+  }
+  private func showChallengeEntries() {
+    let entries = store.community.entries.sorted { $0.createdAt > $1.createdAt }
+    if entries.isEmpty {
+      body.addArrangedSubview(label("You have not entered a challenge yet.", 16, BibiPalette.muted))
+      return
+    }
+    for entry in entries {
+      guard let challenge = store.availableChallenges.first(where: { $0.id == entry.challengeID }) else { continue }
+      let video = store.communityVideo(entry.videoID)
+      let open: () -> Void = { [weak self] in
+        guard let self else { return }
+        self.push(ChallengeDetailController(store: self.store, challenge: challenge))
+      }
+      body.addArrangedSubview(communityCard([
+        label(challenge.title, 18, title: true),
+        label(video?.title ?? "Video unavailable", 15, BibiPalette.muted),
+        label(
+          (store.isOnline ? "Submitted · " : "Saved locally · ")
+            + entry.createdAt.formatted(date: .abbreviated, time: .omitted),
+          13, BibiPalette.muted),
+      ], onOpen: open))
     }
   }
   private func showPending() {
     if store.pendingSubmissions.isEmpty {
-      heading("Make your next move.")
-      content.addArrangedSubview(label("Your submitted works will appear here."))
+      heading("Make your next move.", host: body)
+      body.addArrangedSubview(label("Your submitted works will appear here."))
     }
     for submission in store.pendingSubmissions {
       if let url = store.submissionCoverURL(submission) {
@@ -96,17 +274,18 @@ final class MeController: StackScreen {
         cover.load(url)
         cover.height(140)
         cover.rounded(18)
-        content.addArrangedSubview(cover)
+        paintCoverTemplate(cover, itemID: submission.coverStyleID)
+        body.addArrangedSubview(cover)
       }
-      content.addArrangedSubview(label(submission.title, 20, title: true))
-      content.addArrangedSubview(
+      body.addArrangedSubview(label(submission.title, 20, title: true))
+      body.addArrangedSubview(
         label(submission.kind.label + " · " + submission.category, 13, BibiPalette.muted))
-      content.addArrangedSubview(label(submission.caption))
-      content.addArrangedSubview(label("Waiting to submit", 14, BibiPalette.accent))
+      body.addArrangedSubview(label(submission.caption))
+      body.addArrangedSubview(label(store.isOnline ? (submission.status == .rejected ? "Not approved · You can revise or remove this upload" : "Submitted · Awaiting review") : "Waiting to submit", 14, BibiPalette.accent))
       if let id = submission.videoID,
         let video = store.collectionVideos.first(where: { $0.id == id })
       {
-        content.addArrangedSubview(
+        body.addArrangedSubview(
           actionButton("Watch video", icon: .play) { [weak self] in
             guard let self else { return }
             self.presentScreen(
@@ -114,7 +293,7 @@ final class MeController: StackScreen {
               full: true)
           })
       }
-      content.addArrangedSubview(
+      body.addArrangedSubview(
         actionButton("Remove", icon: .trash) { [weak self] in
           guard let self else { return }
           self.confirm(
@@ -147,6 +326,7 @@ final class MeController: StackScreen {
   }
 }
 final class CreatorController: StackScreen {
+  private var workSelection = 0
   let creator: CreatorProfile
   init(store: AppStore, creator: CreatorProfile) {
     self.creator = creator
@@ -161,7 +341,6 @@ final class CreatorController: StackScreen {
         ownerPortrait(size: 88), label(creator.name, 26, title: true),
       ], axis: .horizontal)
     header.alignment = .center
-    content.addArrangedSubview(header)
     let stats = store.statistics(for: creator)
     let row = stack(axis: .horizontal, spacing: 7)
     row.distribution = .fillEqually
@@ -173,20 +352,50 @@ final class CreatorController: StackScreen {
       l.textAlignment = .center
       row.addArrangedSubview(l)
     }
-    content.addArrangedSubview(row)
-    content.addArrangedSubview(label(creator.biography))
+    content.addArrangedSubview(starlightProfileCard([header, row, label(creator.biography, 15, BibiPalette.muted)]))
     if !creator.isLocalOwner {
       content.addArrangedSubview(profileActions())
+      let safety = actionButton("Report or block", icon: .flag, compact: true) { [weak self] in
+        guard let self else { return }
+        let screen = SafetyController(store: self.store, target: ContentSafetyTarget(
+          id: self.creator.id, title: self.creator.name, kind: .profile, creator: self.creator))
+        screen.onResolved = { [weak self] in
+          guard let self else { return }
+          if self.store.isCreatorBlocked(self.creator.id) { self.leaveAfterBlock() }
+          else { self.refresh() }
+        }
+        self.presentScreen(screen)
+      }
+      safety.accessibilityIdentifier = "profile.safety"
+      content.addArrangedSubview(safety)
     }
     content.addArrangedSubview(
       label("IP: " + (creator.ipRegion ?? "Not shared"), 12, BibiPalette.muted))
     let videos = store.creatorWorks(for: creator.id)
-    heading("Works (\(videos.count))")
-    videoGrid(videos) { [weak self] video in
-      guard let self else { return }
-      self.presentScreen(
-        VideoFeedController(store: self.store, videos: videos, initial: video.id),
-        full: true)
+    let posts = store.creatorPosts(for: creator.id)
+    heading("Works (\(videos.count + posts.count))")
+    let filters = StudioChoice(items: ["All", "Shorts (\(videos.count))", "Posts (\(posts.count))"], index: workSelection)
+    filters.onChange = { [weak self] next in
+      self?.workSelection = next
+      self?.refresh()
+    }
+    content.addArrangedSubview(filters)
+    let showVideos = workSelection != 2 && !videos.isEmpty
+    let showPosts = workSelection != 1 && !posts.isEmpty
+    if showVideos {
+      if workSelection == 0 { heading("Shorts") }
+      videoGrid(videos) { [weak self] video in
+        guard let self else { return }
+        self.presentScreen(
+          VideoFeedController(store: self.store, videos: videos, initial: video.id), full: true)
+      }
+    }
+    if showPosts {
+      if workSelection == 0 { heading("Posts") }
+      addProfilePosts(posts)
+    }
+    if !showVideos && !showPosts {
+      content.addArrangedSubview(label("No works in this collection yet.", 16, BibiPalette.muted))
     }
   }
   /// Only mutual follows show Message. Otherwise Follow fills its former space.
@@ -342,6 +551,7 @@ final class CreatorController: StackScreen {
     if creator.isLocalOwner, let image = store.ownerAvatarImage() {
       photo.image = image
     }
+    if store.isOnline { photo.load(creator.avatarURL, fallback: "BibiMark") }
     return photo
   }
 }
@@ -358,6 +568,7 @@ final class EditProfileController: StackScreen, PHPickerViewControllerDelegate {
     portrait.image =
       store.ownerAvatarImage()
       ?? UIImage(named: portraitAsset(nil, personID: "local-owner"))
+    if store.isOnline { portrait.load(store.library.profile.remoteAvatarURL, fallback: "BibiMark") }
     portrait.isAccessibilityElement = false
     let ring = UIButton(type: .custom)
     ring.accessibilityLabel = "Change photo"
@@ -374,10 +585,15 @@ final class EditProfileController: StackScreen, PHPickerViewControllerDelegate {
       portrait.centerXAnchor.constraint(equalTo: ring.centerXAnchor),
       portrait.centerYAnchor.constraint(equalTo: ring.centerYAnchor),
     ])
+    paintAvatarFrame(ring, itemID: store.wallet.snapshot.cosmetics.avatarFrameID, fallbackWidth: 2, fallbackColor: BibiPalette.accent)
     ring.addAction(UIAction { [weak self] _ in self?.choosePhoto() }, for: .touchUpInside)
     soften(ring)
     let change = actionButton("Change photo", icon: .photo) { [weak self] in self?.choosePhoto() }
-    let header = stack([ring, change], spacing: 12)
+    let looks = actionButton("Profile looks", icon: .sparkle) { [weak self] in
+      guard let self else { return }
+      self.push(CosmeticPickerController(store: self.store, kinds: [.avatarFrame, .profileBackground]))
+    }
+    let header = stack([ring, change, looks], spacing: 12)
     header.alignment = .center
     content.addArrangedSubview(header)
     content.addArrangedSubview(name)
@@ -403,6 +619,10 @@ final class EditProfileController: StackScreen, PHPickerViewControllerDelegate {
           }
         }
       })
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    paintAvatarFrame(portrait.superview ?? portrait, itemID: store.wallet.snapshot.cosmetics.avatarFrameID, fallbackWidth: 2, fallbackColor: BibiPalette.accent)
   }
   private func choosePhoto() {
     guard !picking, !store.isBusy else { return }
@@ -455,6 +675,11 @@ final class SettingsController: StackScreen {
       guard let self else { return }
       self.push(ArtworkCreditsController(store: self.store))
     })
+    if store.isOnline {
+      content.addArrangedSubview(actionButton("Device archive", icon: .bookmark) { [weak self] in
+        guard let self else { return }; self.push(LegacyArchiveController(store: self.store, title: "Device archive"))
+      })
+    }
     let blocked = store.library.contentSafety?.blockedCreators ?? [:]
     let blockedTitle = blocked.isEmpty ? "Blocked" : "Blocked (\(blocked.count))"
     let blockedButton = actionButton(blockedTitle, icon: .block) { [weak self] in
@@ -473,12 +698,13 @@ final class SettingsController: StackScreen {
     let logout = actionButton("Log out", icon: .logout) { [weak self] in
       guard let self else { return }
       self.confirm(
-        "Log out?", message: "Your saved videos and drafts will stay on this device.",
+        "Log out?", message: store.online?.services.isGuest == true ? "Your guest account cannot be recovered after logging out. Its cloud balance and data will no longer be accessible. Your separate device archive stays on this iPhone." : "Your saved videos and drafts will stay on this device.",
         button: "Log out"
       ) { self.save { await self.store.logOut() } }
     }
     let delete = actionButton("Delete account", icon: .trash) { [weak self] in
       guard let self else { return }
+      if self.store.isOnline { self.push(OnlineDeletionController(store: self.store, title: "Delete account")); return }
       self.confirm(
         "Delete account?",
         message:
@@ -539,6 +765,11 @@ final class BlockedCreatorsController: StackScreen {
     guard isViewLoaded else { return }
     clear()
     title = "Blocked"
+    if store.isOnline {
+      content.addArrangedSubview(actionButton("Device archive", icon: .bookmark) { [weak self] in
+        guard let self else { return }; self.push(LegacyArchiveController(store: self.store, title: "Device archive"))
+      })
+    }
     let blocked = store.library.contentSafety?.blockedCreators ?? [:]
     if blocked.isEmpty {
       content.addArrangedSubview(label("No blocked creators.", 15, BibiPalette.muted))
@@ -564,6 +795,11 @@ final class BlockedCreatorsController: StackScreen {
     askToUnblock(creatorID: row.creatorID)
   }
   private func askToUnblock(creatorID: String) {
+    if store.isOnline {
+      content.addArrangedSubview(actionButton("Device archive", icon: .bookmark) { [weak self] in
+        guard let self else { return }; self.push(LegacyArchiveController(store: self.store, title: "Device archive"))
+      })
+    }
     let blocked = store.library.contentSafety?.blockedCreators ?? [:]
     guard let creator = blocked[creatorID] else { return }
     confirm(
@@ -609,7 +845,7 @@ private final class ReportedCard: UIControl {
         tile.configureStatic(video, store: store)
         return tile
       }
-    case .party, .phrase, .circlePost:
+    case .party, .phrase, .circlePost, .profile:
       return commentRow(item)
     case .comment:
       return commentRow(item)
@@ -720,3 +956,175 @@ final class ReportedContentController: StackScreen {
 }
 
 
+
+
+/// Saved circle posts use the same cover tile as saved videos.
+private final class ProfilePostTile: UIControl {
+  private let cover = BibiArtwork()
+  private let caption = label("", 15, .white)
+  var onTap: (() -> Void)?
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = BibiPalette.soft
+    rounded(20)
+    addSubview(cover)
+    cover.pin(to: self)
+    let shade = UIView()
+    shade.backgroundColor = UIColor.black.withAlphaComponent(0.65)
+    shade.isUserInteractionEnabled = false
+    addSubview(shade)
+    shade.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      shade.leadingAnchor.constraint(equalTo: leadingAnchor),
+      shade.trailingAnchor.constraint(equalTo: trailingAnchor),
+      shade.bottomAnchor.constraint(equalTo: bottomAnchor),
+    ])
+    caption.numberOfLines = 3
+    shade.addSubview(caption)
+    caption.pin(to: shade, insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12))
+    cover.isUserInteractionEnabled = false
+    isAccessibilityElement = true
+    accessibilityTraits = .button
+    addAction(UIAction { [weak self] _ in self?.onTap?() }, for: .touchUpInside)
+  }
+  required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
+  func configure(_ post: CirclePost, store: AppStore) {
+    if let asset = post.bundledArtwork {
+      cover.image = UIImage(named: CommunityArtwork.avatar(asset))
+    } else if let url = post.remotePhotoURL {
+      cover.load(url)
+    } else if let data = post.photo, let image = UIImage(data: data) {
+      cover.image = image
+    } else {
+      cover.image = nil
+    }
+    paintCoverTemplate(self, itemID: post.coverStyleID)
+    caption.text = post.body
+    let author = post.author.isLocalOwner
+      ? CreatorProfile.signedIn(store.library.profile).name
+      : post.author.name
+    accessibilityLabel = post.body + ", " + author
+  }
+}
+
+extension StackScreen {
+  func addProfilePosts(_ posts: [CirclePost], host: UIStackView? = nil) {
+    let column = host ?? content
+    for post in posts {
+      let openPost: () -> Void = { [weak self] in
+        guard let self else { return }
+        self.push(CirclePostController(store: self.store, postID: post.id))
+      }
+      let excerpt = label(post.body, 16)
+      excerpt.numberOfLines = 4
+      var rows: [UIView] = []
+      if let asset = post.bundledArtwork {
+        rows.append(circleStoryArtwork(asset, postID: post.id, onOpen: openPost))
+      } else if post.remotePhotoURL != nil || post.photo != nil {
+        let art = BibiArtwork()
+        if let url = post.remotePhotoURL { art.load(url) }
+        else if let data = post.photo { art.image = UIImage(data: data) }
+        art.contentMode = .scaleAspectFit
+        art.height(180)
+        art.rounded(18)
+        paintCoverTemplate(art, itemID: post.coverStyleID)
+        rows.append(communityMediaLink(art, label: "Read discussion",
+                                      identifier: "profile.post.cover." + post.id.uuidString, action: openPost))
+      }
+      let counts = store.circlePostCounts(for: post)
+      rows.append(excerpt)
+      rows.append(label("\(counts.likes) likes · \(counts.saves) saves", 12, BibiPalette.muted))
+      rows.append(actionButton("Read discussion", icon: .comment, action: openPost))
+      if !post.author.isLocalOwner { rows.append(communitySafetyButton(post)) }
+      let card = communityCard(rows, onOpen: openPost)
+      card.accessibilityIdentifier = "profile.post." + post.id.uuidString
+      column.addArrangedSubview(card)
+    }
+  }
+}
+
+final class CosmeticPickerController: StackScreen {
+  private let kinds: [CosmeticKind]
+  init(store: AppStore, kinds: [CosmeticKind]) {
+    self.kinds = kinds
+    super.init(store: store, title: "Looks")
+  }
+  required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
+  override func build() {
+    super.build()
+    store.wallet.objectWillChange.receive(on: DispatchQueue.main).sink { [weak self] _ in
+      self?.refresh()
+    }.store(in: &tokens)
+  }
+  override func refresh() {
+    guard isViewLoaded else { return }
+    clear()
+    let balance = store.wallet.snapshot.diamonds
+    content.addArrangedSubview(label("\(balance.formatted()) diamonds", 16, BibiPalette.muted))
+    content.addArrangedSubview(label("Looks stay on this device. Publishing, messages, comments, reports and blocks stay free.", 14, BibiPalette.muted))
+    let owned = store.wallet.snapshot.cosmetics
+    for kind in kinds {
+      heading(Self.heading(kind))
+      let classic = actionButton(owned.equippedID(kind) == nil ? "Classic · Using" : "Classic · Use", icon: .check, primary: owned.equippedID(kind) == nil) { [weak self] in
+        self?.equip(kind, id: nil)
+      }
+      content.addArrangedSubview(classic)
+      for item in CosmeticCatalog.items(kind) {
+        let isOwned = owned.ownedIDs.contains(item.id)
+        let isUsing = owned.equippedID(kind) == item.id
+        let title = isUsing ? "\(item.name) · Using" : isOwned ? "\(item.name) · Use" : "\(item.name) · \(item.diamonds.formatted()) diamonds"
+        let button = actionButton(title, icon: .sparkle, primary: isUsing) { [weak self] in
+          guard let self else { return }
+          if isOwned { self.equip(kind, id: item.id); return }
+          guard self.store.wallet.snapshot.diamonds >= item.diamonds else {
+            self.confirm(
+              "Not enough diamonds",
+              message: "\(item.name) costs \(item.diamonds.formatted()) diamonds. No diamonds were spent.",
+              button: "Add diamonds"
+            ) { [weak self] in
+              guard let self else { return }
+              self.push(WalletController(store: self.store))
+            }
+            return
+          }
+          self.confirm(
+            "Use \(item.diamonds.formatted()) diamonds?",
+            message: "\(item.name) stays yours. You can switch back to Classic at any time.",
+            button: "Use diamonds"
+          ) { [weak self] in
+            Task { @MainActor in
+              guard let self else { return }
+              if let error = await self.store.wallet.unlock(item) {
+                self.message(error)
+              }
+            }
+          }
+        }
+        let swatch = UIView()
+        swatch.backgroundColor = BibiPalette.color(item.hex)
+        swatch.rounded(8)
+        swatch.translatesAutoresizingMaskIntoConstraints = false
+        swatch.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        swatch.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        swatch.isAccessibilityElement = false
+        let row = stack([swatch, button], axis: .horizontal, spacing: 10)
+        row.alignment = .center
+        content.addArrangedSubview(row)
+      }
+    }
+  }
+  private func equip(_ kind: CosmeticKind, id: String?) {
+    Task { @MainActor in
+      if let error = await store.wallet.equip(kind, id: id) { message(error) }
+    }
+  }
+  private static func heading(_ kind: CosmeticKind) -> String {
+    switch kind {
+    case .avatarFrame: return "Avatar frames"
+    case .profileBackground: return "Profile headers"
+    case .chatBubble: return "Chat bubbles"
+    case .chatBackground: return "Chat rooms"
+    case .coverTemplate: return "Cover frames"
+    }
+  }
+}

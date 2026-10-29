@@ -1,6 +1,6 @@
 import UIKit
 
-/// Interface icons are image-model drawings; brand artwork is generated for Bibi.
+/// Interface icons are image-model drawings; brand artwork uses the owner-provided Bibi logo.
 /// The app never substitutes a system symbol.
 enum BibiIcon: String, CaseIterable {
   static var wordmark: UIImage {

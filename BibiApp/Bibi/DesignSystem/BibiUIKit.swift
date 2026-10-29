@@ -335,7 +335,7 @@ final class StudioChoice: UIView {
       scroller.trailingAnchor.constraint(equalTo: trailingAnchor),
       scroller.topAnchor.constraint(equalTo: topAnchor),
       scroller.bottomAnchor.constraint(equalTo: bottomAnchor),
-      heightAnchor.constraint(equalToConstant: 44),
+      heightAnchor.constraint(equalToConstant: max(50, BibiPalette.font(14, title: true).lineHeight + 24)),
       row.leadingAnchor.constraint(equalTo: scroller.contentLayoutGuide.leadingAnchor),
       row.trailingAnchor.constraint(equalTo: scroller.contentLayoutGuide.trailingAnchor),
       row.topAnchor.constraint(equalTo: scroller.contentLayoutGuide.topAnchor),
@@ -361,6 +361,10 @@ final class StudioChoice: UIView {
     for (offset, chip) in chips.enumerated() {
       chip.apply(selected: offset == index)
     }
+  }
+  func updateTitles(_ items: [String]) {
+    guard items.count == chips.count else { return }
+    for (chip, title) in zip(chips, items) { chip.setTitle(title) }
   }
 }
 
@@ -399,10 +403,17 @@ final class StudioOptions: UIStackView {
 
 final class StudioChip: UIControl {
   private let caption = UILabel()
+  private let painted = UIImageView(image: UIImage(named: "Filter-StarlightCapsule"))
   init(_ text: String, multiline: Bool) {
     super.init(frame: .zero)
+    painted.isUserInteractionEnabled = false
+    painted.isAccessibilityElement = false
+    painted.contentMode = .scaleToFill
+    addSubview(painted)
+    painted.frame = bounds
+    painted.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     caption.text = text
-    caption.font = BibiPalette.font(14)
+    caption.font = BibiPalette.font(14, title: true)
     caption.numberOfLines = multiline ? 0 : 1
     caption.textAlignment = multiline ? .natural : .center
     caption.adjustsFontForContentSizeCategory = true
@@ -412,8 +423,8 @@ final class StudioChip: UIControl {
     NSLayoutConstraint.activate([
       caption.topAnchor.constraint(equalTo: topAnchor, constant: 10),
       caption.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-      caption.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
-      caption.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14),
+      caption.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
+      caption.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
       heightAnchor.constraint(greaterThanOrEqualToConstant: 40),
     ])
     layer.cornerRadius = 20
@@ -423,9 +434,14 @@ final class StudioChip: UIControl {
     accessibilityLabel = text
     accessibilityTraits = .button
   }
+  func setTitle(_ text: String) {
+    caption.text = text
+    accessibilityLabel = text
+  }
   required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
   func apply(selected: Bool) {
-    backgroundColor = selected ? BibiPalette.selection : UIColor.white.withAlphaComponent(0.86)
+    painted.alpha = selected ? 1 : 0.18
+    backgroundColor = selected ? .clear : UIColor.white.withAlphaComponent(0.82)
     caption.textColor = selected ? BibiPalette.ink : BibiPalette.muted
     layer.borderWidth = selected ? 0 : 1
     layer.borderColor = BibiPalette.line.cgColor
@@ -573,6 +589,9 @@ final class StudioCounter: UIControl {
 }
 /// A portrait that is present in the asset catalog. Missing names fall back to a stable photograph.
 @MainActor func portraitAsset(_ asset: String?, personID: String) -> String {
+  // Persisted conversation snapshots can contain an earlier portrait for the same persona.
+  if let current = CommunityCatalog.storyAuthor(id: personID)?.avatarAsset,
+     UIImage(named: current) != nil { return current }
   if let asset {
     let mapped = CommunityArtwork.avatar(asset)
     if UIImage(named: mapped) != nil { return mapped }
@@ -587,7 +606,7 @@ final class StudioCounter: UIControl {
   guard conversation.kind == .group else {
     return roundPortrait(
       asset: conversation.avatars.first ?? conversation.creator?.avatarAsset,
-      size: size, personID: conversation.creator?.id ?? conversation.id)
+      size: size, personID: conversation.creator?.id ?? conversation.id, remoteURL: conversation.creator?.avatarURL)
   }
   var seen = Set<String>()
   let assets = Array(conversation.avatars.map { CommunityArtwork.avatar($0) }
@@ -649,7 +668,7 @@ final class StudioCounter: UIControl {
 
 /// Circular portrait with an evergreen frame for an individual account.
 @MainActor func roundPortrait(
-  asset: String?, size: CGFloat, personID: String = "dancer", image: UIImage? = nil
+  asset: String?, size: CGFloat, personID: String = "dancer", image: UIImage? = nil, remoteURL: URL? = nil
 ) -> UIView {
   let ring = UIView()
   ring.translatesAutoresizingMaskIntoConstraints = false
@@ -661,6 +680,7 @@ final class StudioCounter: UIControl {
   let photo = BibiArtwork(
     asset: image == nil ? portraitAsset(asset, personID: personID) : nil, size: size - 6, round: true)
   if let image { photo.image = image }
+  if let remoteURL { photo.load(remoteURL, fallback: "BibiMark") }
   ring.addSubview(photo)
   NSLayoutConstraint.activate([
     ring.widthAnchor.constraint(equalToConstant: size),
@@ -693,11 +713,21 @@ final class BibiArtwork: UIImageView {
     isAccessibilityElement = false
   }
   required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
-  func load(_ url: URL?) {
+  func load(_ url: URL?, fallback: String? = nil) {
     let id = UUID()
     request = id
     guard let url else {
-      image = BibiIcon.photo.image(size: 64)
+      image = fallback.flatMap { UIImage(named: $0) } ?? BibiIcon.photo.image(size: 64)
+      return
+    }
+    if url.scheme == "https", url.host == BackendConfiguration.projectURL.host {
+      image = fallback.flatMap { UIImage(named: $0) } ?? BibiIcon.photo.image(size: 64)
+      Task { [weak self] in
+        guard let (data, response) = try? await URLSession.shared.data(from: url),
+          (response as? HTTPURLResponse)?.statusCode == 200, data.count <= 1_000_000,
+          let loaded = UIImage(data: data), let self, self.request == id else { return }
+        self.image = loaded
+      }
       return
     }
     let key = url as NSURL
@@ -890,6 +920,7 @@ private enum CoverDecoding {
   func refresh() {}
   /// Artwork frame covering the physical screen, including the status bar and home indicator.
   /// Sheets stay inside their own bounds so the artwork does not spill over the page behind them.
+  func atmosphereFrame() -> CGRect { canvas.frame }
   func coverFrame() -> CGRect {
     let style = navigationController?.modalPresentationStyle ?? modalPresentationStyle
     if style == .pageSheet || style == .formSheet || style == .popover { return view.bounds }
@@ -1410,7 +1441,7 @@ private enum CoverDecoding {
   }
   func clear() { content.arrangedSubviews.forEach { $0.removeFromSuperview() } }
   @discardableResult
-  func heading(_ text: String) -> UILabel {
+  func heading(_ text: String, host: UIStackView? = nil) -> UILabel {
     let title = label(text, 26, title: true)
     let mark = UIView()
     mark.backgroundColor = BibiPalette.selection
@@ -1422,7 +1453,7 @@ private enum CoverDecoding {
     ])
     let column = stack([title, mark], spacing: 6)
     column.alignment = .leading
-    content.addArrangedSubview(column)
+    (host ?? content).addArrangedSubview(column)
     return title
   }
 }
@@ -1665,3 +1696,44 @@ final class BubbleTrack: UIView, UIGestureRecognizerDelegate {
   }
 }
 
+
+
+/// Generated artwork stays decorative; profile content remains native accessible text.
+func paintAvatarFrame(_ view: UIView, itemID: String?, fallbackWidth: CGFloat = 0, fallbackColor: UIColor? = nil) {
+  if let item = CosmeticCatalog.item(itemID), item.kind == .avatarFrame {
+    view.layer.borderWidth = CGFloat(item.lineWidth)
+    view.layer.borderColor = BibiPalette.color(item.hex).cgColor
+  } else {
+    view.layer.borderWidth = fallbackWidth
+    view.layer.borderColor = fallbackColor?.cgColor
+  }
+}
+
+func paintCoverTemplate(_ view: UIView, itemID: String?) {
+  guard let item = CosmeticCatalog.item(itemID), item.kind == .coverTemplate else {
+    view.layer.borderWidth = 0
+    return
+  }
+  view.layer.borderWidth = CGFloat(item.lineWidth)
+  view.layer.borderColor = BibiPalette.color(item.hex).cgColor
+}
+
+@MainActor func starlightProfileCard(_ rows: [UIView], wash: UIColor? = nil) -> UIView {
+  let card = UIView()
+  card.rounded(28)
+  card.backgroundColor = wash ?? BibiPalette.background
+  card.layer.borderWidth = 1
+  card.layer.borderColor = UIColor.white.withAlphaComponent(0.9).cgColor
+  let art = UIImageView(image: UIImage(named: "Profile-StarlightCard"))
+  art.alpha = wash == nil ? 1 : 0.28
+  art.contentMode = .scaleAspectFill
+  art.isUserInteractionEnabled = false
+  art.isAccessibilityElement = false
+  art.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+  art.frame = card.bounds
+  card.addSubview(art)
+  let content = stack(rows, spacing: 18)
+  card.addSubview(content)
+  content.pin(to: card, insets: UIEdgeInsets(top: 34, left: 24, bottom: 32, right: 24))
+  return card
+}

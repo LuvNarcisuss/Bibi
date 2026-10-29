@@ -2,7 +2,7 @@
 
 Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
 
-Configuration date: October 26, 2026.
+Configuration date: October 28, 2026. Historical build and transaction results below cover the earlier seven-tier catalog only. This nine-tier revision has static verification only; no build, launch or purchase test was run.
 
 The owner supplied seven iOS consumable diamond product IDs in a screenshot. The IDs were transcribed and cross-checked with local OCR; lowercase characters were checked against the image. Payment/bank details from the screenshot are not required by StoreKit and are not stored in the app.
 
@@ -13,22 +13,28 @@ The owner supplied seven iOS consumable diamond product IDs in a screenshot. The
 | 2,450 | 4.99 | `akafhhbydyymfpzk` |
 | 5,150 | 9.99 | `ffzwgpuvsyyhaeeg` |
 | 10,800 | 19.99 | `ofgjvlbwtzchgvbx` |
+| 16,800 | 29.99 | `fyongbrslseicxya` |
 | 29,400 | 49.99 | `azacbzpzvvvpblzu` |
+| 42,700 | 69.99 | `xutwylpejsdvkwpm` |
 | 63,700 | 99.99 | `lghwqjsuuxivrdrf` |
+
+The two new IDs for 16,800 and 42,700 diamonds were generated at the owner's request and are not evidence of Apple registration. Register them as consumables before Apple catalog acceptance. The other seven IDs and quantities are unchanged. `app-store-products.csv` lists all nine definitions for manual setup; it is not an Apple bulk-import format.
+
+`BibiApp/Backend/wallet-products.sql` adds only the two approved mappings to the private server catalog and rejects conflicting existing values. It is prepared but not deployed. Apply it after the existing sources before enabling online purchases. Keep `BibiBackendEnabled=false`; no balance or historical transaction was changed.
 
 ## Configuration and purchase flow
 
-`Bibi/Support/Info.plist` stores the mapping under `BibiDiamondProducts`, keyed by diamond quantity. `BibiConfiguration` reads the values; `WalletCatalog` supplies seven matching tiers. The 16,800 and 42,600 tiers have no supplied product IDs and are removed from the offered catalog. Existing balances and transaction history remain intact.
+`Bibi/Support/Info.plist` stores the mapping under `BibiDiamondProducts`, keyed by diamond quantity. `BibiConfiguration` reads the values; `WalletCatalog` supplies nine matching tiers. The existing three-column wallet layout now produces three complete rows. Existing balances and transaction history remain intact.
 
-Wallet → tier selection → confirmation → StoreKit product lookup → Apple payment sheet → transaction callback → atomic local wallet save → finishTransaction. Actual prices use SKProduct.price and priceLocale; USD values above are references only. An unavailable product does not start payment or credit diamonds. Cancellation/failure adds no diamonds, deferred transactions wait for approval, and repeated transaction IDs are not credited twice. Save failure leaves a completed purchase unfinished for retry on a later launch. Circle-post gifts spend the same local balance after an explicit quantity/total confirmation. They provide a local animation and history entry only; no creator transfer or delivery is connected. Shorts has no gift entry.
+Wallet → tier selection → confirmation → StoreKit product lookup → Apple payment sheet → transaction callback → atomic local wallet save → finishTransaction. Actual prices use SKProduct.price and priceLocale; USD values above are references only. An unavailable product does not start payment or credit diamonds. Cancellation/failure adds no diamonds, deferred transactions wait for approval, and repeated transaction IDs are not credited twice. Save failure leaves a completed purchase unfinished for retry on a later launch. Shorts and circle-post gifts are retired. Diamond spending remains within existing profile looks, chat styles, cover frames and challenge entries.
 
 ## Store and service boundaries
 
 The user changed the bundle identifier to `im.seex.sao2-neiku-30` and selected development team `JPTS6M4T5B`. Both the Xcode project and project.yml now preserve those values. The screenshot does not establish that the products are registered to this bundle or available in App Store Connect. Configure the same exact IDs as consumables for the intended application, with the appropriate signing identity and store account setup. No App Store Connect changes, real purchase, or financial account changes were performed.
 
-The Bibi scheme now uses Configuration/BibiDiamonds.storekit for Xcode Run, following the local testing setup in Teto. It contains only Bibi's seven configured consumables. The BibiAppStore scheme has no local StoreKit configuration and uses Apple's catalog. The BibiPurchases scheme runs isolated StoreKit Test UI regression checks. Local fixture success does not establish App Store Connect product availability or a successful real-device sandbox purchase.
+The Bibi scheme now uses Configuration/BibiDiamonds.storekit for Xcode Run, following the local testing setup in Teto. It contains Bibi's nine configured consumables. The BibiAppStore scheme has no local StoreKit configuration and uses Apple's catalog. The BibiPurchases scheme runs isolated StoreKit Test UI regression checks. Local fixture success does not establish App Store Connect product availability or a successful real-device sandbox purchase.
 
-For an interactive local purchase run, select **Bibi** and **Bibi UI Acceptance** in Xcode, confirm **Edit Scheme > Run > Options > StoreKit Configuration > BibiDiamonds.storekit**, and use **Product > Run**. Keep the Xcode run session active while testing. Building with `xcodebuild` and then installing/launching with `simctl` does not apply the scheme's Run configuration to that launch. A successful app launch alone therefore does not verify the local catalog. Confirm that all seven offers show prices before starting a payment. XCTest uses its own explicit SKTestSession and is a separate verification path.
+For an interactive local purchase run, select **Bibi** and **Bibi UI Acceptance** in Xcode, confirm **Edit Scheme > Run > Options > StoreKit Configuration > BibiDiamonds.storekit**, and use **Product > Run**. Keep the Xcode run session active while testing. Building with `xcodebuild` and then installing/launching with `simctl` does not apply the scheme's Run configuration to that launch. A successful app launch alone therefore does not verify the local catalog. Confirm that all nine offers show prices before starting a payment. XCTest uses its own explicit SKTestSession and is a separate verification path.
 
 The existing StoreKit 1 implementation keeps a device-local ledger. It does not implement receipt validation or a server-authoritative wallet, refund reconciliation, cross-device balances, or remote gift delivery. This configuration change does not establish those services. Account deletion removes the local wallet but cannot delete Apple transaction history.
 
@@ -55,11 +61,11 @@ Confirmed local findings and changes:
 
 No physical device was available through devicectl during this investigation, and the browser automation transport could not connect to App Store Connect. Therefore no Apple account/product status or real-device catalog response was verified. No purchase or account setting change was performed during that real-device catalog investigation.
 
-To complete Apple sandbox verification, confirm the selected app contains these exact seven consumable IDs, each with price/localization and availability, and that the account's Paid Apps Agreement is active. In a Debug device run, Retry App Store and copy Store Diagnostics if prices are missing. A product rejected for this app cannot be made purchasable by substituting a hardcoded price or a local StoreKit fixture.
+To complete Apple sandbox verification, confirm the selected app contains all nine configured consumable IDs, each with price/localization and availability, and that the account's Paid Apps Agreement is active. In a Debug device run, Retry App Store and copy Store Diagnostics if prices are missing. A product rejected for this app cannot be made purchasable by substituting a hardcoded price or a local StoreKit fixture.
 
 References: [Apple TN3186](https://developer.apple.com/documentation/technotes/tn3186-troubleshooting-in-app-purchases-availability-in-the-sandbox), [Configure In-App Purchases](https://developer.apple.com/help/app-store-connect/configure-in-app-purchase-settings/overview-for-configuring-in-app-purchases/).
 
-The updated code compiled successfully and 407 static checks passed. `app-store-products.csv` provides the seven product definitions for manual comparison or entry in App Store Connect; it is a preparation sheet, not an Apple bulk-import format or evidence that products were created.
+The updated code compiled successfully and 407 static checks passed. The earlier version of `app-store-products.csv` provided seven product definitions for manual comparison or entry in App Store Connect; it is a preparation sheet, not an Apple bulk-import format or evidence that products were created.
 
 
 ## Teto configuration comparison and local transaction verification

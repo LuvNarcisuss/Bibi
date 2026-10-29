@@ -12,8 +12,10 @@ final class ConstellationBanner: UIView {
     art.contentMode = .scaleAspectFill
     art.isAccessibilityElement = false
     art.alpha = 0.48
+    // Decorative image dimensions must not expand the text-sized banner.
+    art.frame = bounds
+    art.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addSubview(art)
-    art.pin(to: self)
     let category = label(eyebrow.uppercased(), 11, BibiPalette.cyan)
     let heading = label(title, 27, .white, title: true)
     heading.accessibilityTraits = .header

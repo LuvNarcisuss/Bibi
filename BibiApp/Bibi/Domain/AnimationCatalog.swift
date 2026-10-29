@@ -7,6 +7,8 @@ struct AnimationClip: Decodable {
   let id: UUID
   let title: String
   let creator: String
+  let curatorID: String?
+  let legacyCuratorID: String?
   let assetName: String
   let duration: Double
   let surface: ContentSurface

@@ -5,15 +5,16 @@ struct ContentSafetyTarget: Identifiable {
         case live = "Live video", shortVideo = "Short video", comment = "Comment", party = "Voice room"
         case phrase = "Phrase"
         case circlePost = "Circle post"
+        case profile = "Profile"
     }
     let id: String
     let title: String
     let kind: Kind
     let creator: CreatorProfile
 
-    static func comment(id: String, name: String, text: String) -> Self {
+    static func comment(id: String, name: String, text: String, authorID: String? = nil) -> Self {
         Self(id: id, title: text, kind: .comment,
-             creator: CreatorProfile(id: "comment-author:" + name, name: name, biography: ""))
+             creator: CreatorProfile(id: authorID ?? ("comment-author:" + name), name: name, biography: ""))
     }
 
     static func phrase(id: String, title: String, authorID: String, authorName: String) -> Self {

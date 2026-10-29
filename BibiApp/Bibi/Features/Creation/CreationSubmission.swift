@@ -10,7 +10,7 @@ enum CreationKind: String, Codable, Identifiable {
 
 /// A durable submission outbox. Only a review service may advance this status.
 struct CreationSubmission: Identifiable, Codable {
-    enum Status: String, Codable { case awaitingSubmission }
+    enum Status: String, Codable { case awaitingSubmission, underReview, rejected }
     var id = UUID()
     let kind: CreationKind
     let title: String
@@ -18,6 +18,7 @@ struct CreationSubmission: Identifiable, Codable {
     let category: String
     var videoID: UUID? = nil
     var hasCover = false
+    var coverStyleID: String? = nil
     var createdAt = Date()
     var status: Status = .awaitingSubmission
 }

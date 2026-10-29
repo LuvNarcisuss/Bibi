@@ -1,0 +1,27 @@
+-- Acceptance specification. Do not run without the owner's test authorization.
+-- Use separate authenticated accounts A, B, C and a trusted service-role harness.
+-- 1. Anonymous and unverified accounts cannot read business tables or enroll.
+-- 2. Enrollment rejects under-18 declarations and unavailable agreement versions.
+-- 3. A cannot mutate B's profile, saves, follows, content, wallet, or membership.
+-- 4. Two concurrent first-contact sends from A to B commit at most one message.
+-- 5. A repeated operation UUID returns its original result; changed payload fails.
+-- 6. A block in either direction prevents direct sends and invitations immediately.
+-- 7. A group invite does not expose messages until accepted; history begins at join.
+-- 8. Removing a member rejects future reads even if their JWT remains valid.
+-- 9. Draft and pending media are owner-only; only approved revisions are public.
+-- 10. Client Storage uploads cannot exceed their bucket's type/size/owner restrictions.
+-- 11. Credits require service-role Apple verification; duplicate transaction IDs
+--     cannot credit another account or credit the same account twice.
+-- 12. Concurrent gifts cannot overdraw; invalid quantities, own posts, and hidden
+--     targets fail without creating ledger entries.
+-- 13. Deletion-pending accounts lose business access before Auth deletion completes.
+-- 14. A rollback after an operation error leaves neither partial business state
+--     nor a successful operation receipt.
+-- 15. Refund notification before credit leaves a durable tombstone and rejects
+--     a later credit, including concurrently submitted credit/revocation RPCs.
+-- 16. Group creation with one invalid invite rolls back the group and all invites.
+-- 17. Video/challenge creation with an invalid challenge rolls back publication.
+-- 18. Unhiding reported content preserves the submitted moderation report.
+-- 19. Comment replies require a visible comment on the same video.
+-- 20. New inserts during keyset pagination do not repeat primary keys or crash
+--     snapshot projection. A later refresh discovers earlier-key inserts.

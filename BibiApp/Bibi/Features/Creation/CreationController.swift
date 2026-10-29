@@ -28,14 +28,25 @@ final class CreationController: StackScreen, PHPickerViewControllerDelegate {
     content.addArrangedSubview(caption)
     content.addArrangedSubview(category)
     content.addArrangedSubview(
+      actionButton("Cover style", icon: .sparkle) { [weak self] in
+        guard let self else { return }
+        self.push(CosmeticPickerController(store: self.store, kinds: [.coverTemplate]))
+      })
+    content.addArrangedSubview(
       actionButton(
         "Choose an anime video", icon: .shorts
       ) { [weak self] in self?.chooseMedia() })
     content.addArrangedSubview(mediaLabel)
     content.addArrangedSubview(
       label(
-        "Anime videos up to 3 minutes and 250 MB. Uploads are saved on this device; online publishing is not connected.",
+        store.isOnline ? "Anime videos up to 3 minutes. Uploads are compressed below 50 MB and submitted for review." : "Anime videos up to 3 minutes and 250 MB. Uploads are saved on this device; online publishing is not connected.",
         13, BibiPalette.muted))
+    if challengeID != nil {
+      content.addArrangedSubview(
+        label(
+          "A new entry uses \(CosmeticCatalog.challengeEntryDiamonds.formatted()) diamonds. Replacing an entry you already joined stays free.",
+          13, BibiPalette.muted))
+    }
     let row = stack(
       [label("This is anime-related content and I have permission to share it.", 14), consent],
       axis: .horizontal)

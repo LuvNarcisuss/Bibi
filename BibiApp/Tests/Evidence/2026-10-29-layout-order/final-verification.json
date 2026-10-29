@@ -1,0 +1,18 @@
+{
+  "simulator": "Bibi UI Acceptance",
+  "deviceID": "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+  "launchPID": 75046,
+  "installedExecutableMatchesBuild": true,
+  "executableSHA256": "37e324f134b0a16087e8dda6fb32558b042df14738a804c9c485988a9442b717",
+  "backendEnabled": false,
+  "restoredStateHashesStillMatchAfterLaunch": true,
+  "sourceHashes": {
+    "BibiApp/Bibi/App/BibiApplication.swift": "1db20ff1007f4d65a6307fd28c4f7e9dc1fd71a17b5c0a8adad3a4ae0c670147",
+    "BibiApp/Tests/Typography/TypographyTests.swift": "2ce6d220b70ca326600ce6a1aacf7bb54d41093605d1f368bd6d295b2721db55",
+    "BibiApp/Tests/UI/TypographyUITests.swift": "e2c090dbc9a76ec5ce9fd52efb286cd386430d166326af9b815e1c78c367dc13",
+    "BibiApp/Tests/UI/AppCoverageUITests.swift": "5e9779e86d36957cc1395aaec5e5b3af3dfefd313fa2a3602c875ec24964bc2e",
+    "BibiApp/scripts/static_audit.py": "ef7bb77b14827e71196cf20590a4028139886c6c23c3e7675bf5f40d39bc9977"
+  },
+  "passedTests": 5,
+  "failedTests": 0
+}

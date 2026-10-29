@@ -131,51 +131,102 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
         publish()
     }
 
-    /// Shares the transaction queue with purchase credits so suspended writes cannot overwrite each other.
+    /// Retained for callers compiled against the previous wallet interface.
     func spend(_ gift: StarGift, quantity: Int, target: GiftTarget,
                isAvailable: @escaping @MainActor () -> Bool) async -> String? {
-        await withCheckedContinuation { continuation in
-            let previous = tail
-            tail = Task { @MainActor in
-                await previous?.value
-                guard self.acceptingPurchases, isAvailable() else {
-                    continuation.resume(returning: "This content is unavailable. No diamonds were spent.")
-                    return
-                }
-                let result = await self.saveGift(gift, quantity: quantity, target: target)
-                continuation.resume(returning: result)
+        "Post gifts are no longer available. No diamonds were spent."
+    }
+
+    func unlock(_ item: CosmeticItem) async -> String? {
+        await editLedger(failure: "No diamonds were spent.") { ledger in
+            var state = ledger.cosmetics ?? CosmeticState()
+            if state.ownedIDs.contains(item.id) {
+                state.equip(item.kind, id: item.id)
+                ledger.cosmetics = state
+                return .changed
             }
+            let (balance, overflow) = ledger.diamonds.subtractingReportingOverflow(item.diamonds)
+            guard item.diamonds > 0, !overflow, balance >= 0 else {
+                return .failed("\(item.name) costs \(item.diamonds.formatted()) diamonds. No diamonds were spent.")
+            }
+            ledger.diamonds = balance
+            state.ownedIDs.append(item.id)
+            state.equip(item.kind, id: item.id)
+            ledger.cosmetics = state
+            ledger.recordSpend(id: "unlock-" + item.id + "-" + UUID().uuidString, title: item.name, amount: item.diamonds, kind: "unlock")
+            return .changed
         }
     }
 
-    private func saveGift(_ gift: StarGift, quantity: Int, target: GiftTarget) async -> String? {
-        guard (1...99).contains(quantity), gift.diamonds > 0,
-              StarGift.catalog.contains(where: { $0.id == gift.id && $0.diamonds == gift.diamonds }) else {
-            return "Please check the quantity and try again."
+    func equip(_ kind: CosmeticKind, id: String?) async -> String? {
+        await editLedger(failure: "The look was not changed.") { ledger in
+            var state = ledger.cosmetics ?? CosmeticState()
+            if let id, !state.ownedIDs.contains(id) { return .failed("Unlock this look before using it.") }
+            state.equip(kind, id: id)
+            ledger.cosmetics = state
+            return .changed
         }
-        let (cost, overflow) = gift.diamonds.multipliedReportingOverflow(by: quantity)
-        guard !overflow, cost > 0 else { return "Please check the quantity and try again." }
-        guard ledger.diamonds >= cost else { return "Not enough diamonds. No diamonds were spent." }
+    }
+
+    /// Charges once per challenge. A challenge already in the paid set is unchanged.
+    func payForChallenge(_ challengeID: String) async -> String? {
+        await editLedger(failure: "No diamonds were spent.") { ledger in
+            var state = ledger.cosmetics ?? CosmeticState()
+            if state.paidChallengeIDs.contains(challengeID) { return .unchanged }
+            let cost = CosmeticCatalog.challengeEntryDiamonds
+            let (balance, overflow) = ledger.diamonds.subtractingReportingOverflow(cost)
+            guard !overflow, balance >= 0 else {
+                return .failed("Joining a challenge costs \(cost.formatted()) diamonds. No diamonds were spent.")
+            }
+            ledger.diamonds = balance
+            state.paidChallengeIDs.append(challengeID)
+            ledger.cosmetics = state
+            ledger.recordSpend(id: "challenge-" + challengeID + "-" + UUID().uuidString, title: "Challenge entry", amount: cost, kind: "challenge")
+            return .changed
+        }
+    }
+
+    func refundChallenge(_ challengeID: String) async -> String? {
+        await editLedger(failure: "The diamond refund could not be saved.") { ledger in
+            var state = ledger.cosmetics ?? CosmeticState()
+            guard state.paidChallengeIDs.contains(challengeID) else { return .unchanged }
+            let cost = CosmeticCatalog.challengeEntryDiamonds
+            let (balance, overflow) = ledger.diamonds.addingReportingOverflow(cost)
+            guard !overflow else { return .failed("The diamond refund could not be saved.") }
+            ledger.diamonds = balance
+            state.paidChallengeIDs.removeAll { $0 == challengeID }
+            ledger.cosmetics = state
+            ledger.recordSpend(id: "refund-" + challengeID + "-" + UUID().uuidString, title: "Challenge entry refund", amount: cost, kind: "refund")
+            return .changed
+        }
+    }
+
+    private final class LedgerEditBox { var message: String? }
+    private enum LedgerEdit { case unchanged, changed, failed(String) }
+
+    private func editLedger(failure: String, _ body: @escaping (inout WalletLedger) -> LedgerEdit) async -> String? {
+        let box = LedgerEditBox()
+        let previous = tail
+        let next = Task { @MainActor in
+            await previous?.value
+            box.message = await self.commitLedgerEdit(failure: failure, body)
+        }
+        tail = next
+        await next.value
+        return box.message
+    }
+
+    private func commitLedgerEdit(failure: String, _ body: (inout WalletLedger) -> LedgerEdit) async -> String? {
         var next = ledger
-        next.diamonds -= cost
-        let countText = quantity.formatted(.number.locale(Locale(identifier: "en_US")))
-        let costText = cost.formatted(.number.locale(Locale(identifier: "en_US")))
-        next.activity.insert(
-            WalletActivity(
-                id: UUID().uuidString,
-                title: "Local gift · \(countText) × \(gift.name) · \(target.title) · \(costText) diamonds",
-                currency: .diamonds, amount: cost, date: Date(), kind: "gift",
-                giftTarget: target, giftID: gift.id, giftQuantity: quantity
-            ),
-            at: 0
-        )
-        if next.activity.count > 40 { next.activity = Array(next.activity.prefix(40)) }
-        guard next.isValid, let persist, await persist(next) else {
-            return "Gift could not be saved. No diamonds were spent."
+        switch body(&next) {
+        case .failed(let message): return message
+        case .unchanged: return nil
+        case .changed:
+            guard next.isValid, let persist, await persist(next) else { return failure }
+            ledger = next
+            publish()
+            return nil
         }
-        ledger = next
-        publish()
-        return nil
     }
 
     func purchase(_ package: WalletPackage) async -> String? {
@@ -329,7 +380,7 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
             resumeWaiting(productID, message: failureMessage(transaction.error))
         case .purchased, .restored:
             guard WalletCatalog.package(forProductID: productID) != nil else {
-                resumeWaiting(productID, message: "This package is not available. You have not been charged.")
+                resumeWaiting(productID, message: "This purchase could not be matched to a diamond package. No diamonds were added. Please check your App Store purchase history.")
                 return
             }
             switch await credit(transaction) {

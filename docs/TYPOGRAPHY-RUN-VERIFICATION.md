@@ -1,5 +1,9 @@
 # Typography run verification
 
+> Historical verification: this report covers the October 26 Fredoka/Nunito
+> revision. The October 27 Kalam/Comic Neue refresh has only static verification;
+> these runtime results do not validate the new fonts. See IMPLEMENTATION.md.
+
 Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
 
 Date: October 26, 2026. The owner authorized compilation, launch, five-page visual inspection, direct fixes and XCTest UI automation.

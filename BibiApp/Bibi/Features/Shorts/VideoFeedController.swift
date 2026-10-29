@@ -407,8 +407,21 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
       return
     }
     attachSurfaceToCurrentCell()
-    playback.select(video, url: store.videoURL(video))
-    surface.videoLayer.player = playback.player
+    if video.remoteMediaID != nil {
+      playback.stop()
+      Task { [weak self] in
+        guard let self else { return }
+        do {
+          let url = try await self.store.preparedVideoURL(video)
+          guard self.current?.id == video.id, !self.leavingFeed else { return }
+          self.playback.select(video, url: url); self.surface.videoLayer.player = self.playback.player
+          self.resume()
+        } catch { self.status.text = "This video is unavailable. Refresh and try again." }
+      }
+    } else {
+      playback.select(video, url: store.videoURL(video))
+      surface.videoLayer.player = playback.player
+    }
     store.shortsSocial.prepareComments(for: video)
     Task { await store.recordVideoViewed(video.id) }
     let playingID = video.id
@@ -433,6 +446,12 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
     avatar.setImage(
       portrait ?? UIImage(named: portraitAsset(creator.avatarAsset, personID: creator.id)),
       for: .normal)
+    if store.isOnline {
+      let photo = BibiArtwork(size: 48, round: true)
+      photo.load(creator.avatarURL, fallback: "BibiMark")
+      photo.isUserInteractionEnabled = false
+      avatar.addSubview(photo); photo.pin(to: avatar)
+    }
     avatar.imageView?.contentMode = .scaleAspectFill
     avatar.rounded(24)
     avatar.widthAnchor.constraint(equalToConstant: 48).isActive = true
@@ -462,7 +481,7 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
     desc.numberOfLines = 3
     footer.addArrangedSubview(desc)
     if store.pendingVideoIDs.contains(video.id) {
-      footer.addArrangedSubview(label("Local upload · Not published", 13, .white))
+      footer.addArrangedSubview(label(store.isOnline ? "Private upload · Not approved for publication" : "Local upload · Not published", 13, .white))
     }
 
     likeButton = counter(.heartOutline, "Like") { [weak self] in
@@ -484,6 +503,8 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
       self?.showVideoShare(video)
     }
     shareButton?.isEnabled = !store.pendingVideoIDs.contains(video.id)
+    shareButton?.accessibilityTraits = store.pendingVideoIDs.contains(video.id)
+      ? [.button, .notEnabled] : .button
     shareButton?.alpha = store.pendingVideoIDs.contains(video.id) ? 0.45 : 1
     shareButton?.accessibilityHint =
       store.pendingVideoIDs.contains(video.id)

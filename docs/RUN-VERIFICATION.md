@@ -2,6 +2,10 @@
 
 Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
 
+## Full-app pass — October 27, 2026, incomplete
+
+The authorized full-app XCTest pass did not finish. Bibi UI Acceptance (`0C3DC278-7663-4B7E-9FCD-10F2FF679569`) was booted, and the expanded UI coverage file was added, but `xcodebuild test` exited 65 before installing or launching the app. The build service could not apply its sandbox (`sandbox_apply: Operation not permitted`). No screenshot, XCTest result, or runtime acceptance exists for this pass. Evidence: `BibiApp/Design/RunEvidence/FullApp/20261027-185727/verification.md`. Earlier sections below do not cover this revision.
+
 Date: 2026-10-26 (Asia/Shanghai). The user explicitly requested running the application in Xcode, authorizing compilation and simulator launch after the initial static-only delivery.
 
 - Xcode 26.0.1, build 17A400.

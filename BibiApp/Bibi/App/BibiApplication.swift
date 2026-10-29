@@ -25,9 +25,14 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     window.backgroundColor = BibiPalette.background
     self.window = window
     coordinator = BibiCoordinator(window: window)
-    coordinator?.start()
+    coordinator?.start(callback: options.urlContexts.first?.url)
     window.makeKeyAndVisible()
   }
+  func scene(_ scene: UIScene, openURLContexts contexts: Set<UIOpenURLContext>) {
+    if let url = contexts.first?.url { coordinator?.handleCallback(url) }
+  }
+  func sceneDidBecomeActive(_ scene: UIScene) { coordinator?.refreshAccount() }
+  func sceneWillEnterForeground(_ scene: UIScene) { coordinator?.returnToDefaultHome() }
 }
 @MainActor final class BibiCoordinator {
   let store = AppStore()
@@ -44,14 +49,12 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     window.rootViewController = controller
     window.sendSubviewToBack(backdrop)
   }
-  func start() {
+  func start(callback: URL? = nil) {
     let loading = UIViewController()
     loading.overrideUserInterfaceStyle = .light
     loading.view.backgroundColor = BibiPalette.background
     let brand = UIImageView(image: BibiIcon.wordmark)
     brand.contentMode = .scaleAspectFit
-    brand.layer.cornerRadius = 36
-    brand.layer.cornerCurve = .continuous
     brand.clipsToBounds = true
     brand.isAccessibilityElement = true
     brand.accessibilityLabel = "Bibi"
@@ -59,7 +62,7 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     brand.translatesAutoresizingMaskIntoConstraints = false
     let spinner = UIActivityIndicatorView(style: .medium)
     spinner.color = BibiPalette.accent
-    spinner.accessibilityLabel = "Opening your universe"
+    spinner.accessibilityLabel = "Opening Bibi"
     loading.view.addSubview(spinner)
     spinner.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -68,7 +71,19 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
       brand.widthAnchor.constraint(equalToConstant: 160),
       brand.heightAnchor.constraint(equalToConstant: 160),
       spinner.centerXAnchor.constraint(equalTo: loading.view.centerXAnchor),
-      spinner.topAnchor.constraint(equalTo: brand.bottomAnchor, constant: 24),
+    ])
+    let name = UILabel()
+    name.text = "Bibi"
+    name.font = .systemFont(ofSize: 36, weight: .bold)
+    name.textColor = BibiPalette.ink
+    name.textAlignment = .center
+    name.isAccessibilityElement = false
+    loading.view.addSubview(name)
+    name.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      name.centerXAnchor.constraint(equalTo: brand.centerXAnchor),
+      name.topAnchor.constraint(equalTo: brand.bottomAnchor, constant: 16),
+      spinner.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20),
     ])
     spinner.startAnimating()
     install(loading)
@@ -78,9 +93,42 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     Task {
       await store.load()
       showEntry(welcome: true)
+      if let callback { handleCallback(callback) }
     }
   }
+  func refreshAccount() {
+    guard store.online?.services.phase == .signedIn else { return }
+    Task { try? await store.refreshOnline() }
+  }
+  func returnToDefaultHome() {
+    (window.rootViewController as? BibiTabController)?.returnToDefaultHome()
+  }
+  func handleCallback(_ url: URL) {
+    guard store.isOnline, BackendConfiguration.acceptsCallback(url) else { return }
+    guard store.online?.services.isAuthenticating != true else {
+      store.notice = AppNotice(title: "Account request in progress", message: "Please reopen the email link when the current request finishes."); return
+    }
+    store.endOnlineSession(notify: false)
+    let entry = OnlineAccountController(store: store, title: "Account recovery")
+    entry.onContinue = { [weak self] in
+      guard let self else { return }; self.install(BibiTabController(store: self.store))
+    }
+    let nav = UINavigationController(rootViewController: entry); BibiNavigation.style(nav); install(nav)
+    entry.handleCallback(url)
+  }
+  private func showOnlineEntry(welcome: Bool = false) {
+    let entry = EntryController(store: store, welcome: welcome)
+    entry.onContinue = { [weak self] in
+      guard let self else { return }; self.install(BibiTabController(store: self.store))
+    }
+    let nav = UINavigationController(rootViewController: entry); BibiNavigation.style(nav); install(nav)
+  }
   func showEntry(welcome: Bool) {
+    if store.isOnline {
+      if store.online?.services.phase == .signedIn, store.isLoaded, store.loadError == nil { install(BibiTabController(store: store)) }
+      else { showOnlineEntry(welcome: welcome) }
+      return
+    }
     let entry = EntryController(store: store, welcome: welcome)
     entry.onContinue = { [weak self] in
       guard let self else { return }
@@ -249,6 +297,14 @@ final class BibiTabController: UIViewController, UINavigationControllerDelegate 
     dock.addGestureRecognizer(pan)
     select(0)
   }
+  /// Reopening the app starts on Shorts unless a detail or presentation is in progress.
+  func returnToDefaultHome() {
+    guard isViewLoaded, pages.indices.contains(index),
+          presentedViewController == nil, commentSheet == nil,
+          pages[index].presentedViewController == nil,
+          pages[index].viewControllers.count == 1 else { return }
+    select(0)
+  }
   @objc private func dragDock(_ gesture: UIPanGestureRecognizer) {
     let width = dock.bounds.width
     guard width > 0 else { return }
@@ -393,6 +449,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
   private let content = UIStackView()
   private var welcome: Bool
   private var accepted = false
+  private var signingIn = false
   init(store: AppStore, welcome: Bool) {
     self.welcome = welcome
     super.init(store: store)
@@ -432,42 +489,45 @@ final class EntryController: BibiScreen, UITextViewDelegate {
   override func refresh() {
     guard isViewLoaded else { return }
     content.arrangedSubviews.forEach { $0.removeFromSuperview() }
-    let logo = UIImageView(image: BibiIcon.wordmark)
+    let logo = UIImageView(image: BibiIcon.appMark)
     logo.contentMode = .scaleAspectFit
-    logo.layer.cornerRadius = 26
+    logo.layer.cornerRadius = 40
     logo.layer.cornerCurve = .continuous
     logo.clipsToBounds = true
-    logo.isAccessibilityElement = true
-    logo.accessibilityLabel = "Bibi"
+    logo.isAccessibilityElement = false
     let mark = UIView()
+    mark.accessibilityIdentifier = "entry.brandHero"
     logo.translatesAutoresizingMaskIntoConstraints = false
     mark.addSubview(logo)
+    // Join the stack hierarchy before activating the logo-to-content width constraint.
+    content.addArrangedSubview(mark)
+    let preferredLogoWidth = logo.widthAnchor.constraint(equalTo: content.widthAnchor, multiplier: 0.78)
+    preferredLogoWidth.priority = .defaultHigh
     NSLayoutConstraint.activate([
       logo.topAnchor.constraint(equalTo: mark.topAnchor),
       logo.bottomAnchor.constraint(equalTo: mark.bottomAnchor),
       logo.centerXAnchor.constraint(equalTo: mark.centerXAnchor),
-      logo.widthAnchor.constraint(equalToConstant: 112),
-      logo.heightAnchor.constraint(equalToConstant: 112),
+      logo.widthAnchor.constraint(lessThanOrEqualToConstant: 272),
+      logo.widthAnchor.constraint(lessThanOrEqualTo: mark.widthAnchor),
+      logo.heightAnchor.constraint(equalTo: logo.widthAnchor),
+      preferredLogoWidth,
     ])
-    content.addArrangedSubview(mark)
-    content.setCustomSpacing(4, after: mark)
-    let dancers = UIImageView(image: UIImage(named: "BibiWelcome"))
-    dancers.contentMode = .scaleAspectFill
-    dancers.clipsToBounds = true
-    dancers.layer.cornerRadius = 30
-    dancers.isAccessibilityElement = false
-    content.addArrangedSubview(dancers)
-    // Both views must share the stack hierarchy before activating this constraint.
-    dancers.heightAnchor.constraint(equalTo: content.widthAnchor, multiplier: 0.95).isActive = true
-    let title = label(welcome ? "Your world.\nYour people." : "A universe\nto belong to.", 36, title: true)
+    content.setCustomSpacing(12, after: mark)
+    let name = label("Bibi", 42, title: true)
+    name.textAlignment = .center
+    name.accessibilityTraits = .header
+    name.setContentCompressionResistancePriority(.required, for: .vertical)
+    content.addArrangedSubview(name)
+    content.setCustomSpacing(4, after: name)
+    let title = label(welcome ? "A little hi.\nA whole new world." : "Your people are here.", 28, title: true)
     title.textAlignment = .center
     title.accessibilityTraits = .header
     title.setContentCompressionResistancePriority(.required, for: .vertical)
     content.addArrangedSubview(title)
     content.setCustomSpacing(8, after: title)
     let subtitle = label(
-      welcome ? "Anime hearts. Real connections." : "Find a story. Join a constellation.",
-      18, BibiPalette.muted)
+      welcome ? "Anime hearts. Real connections." : "Shorts, circles and stories that feel like you.",
+      17, BibiPalette.muted)
     subtitle.textAlignment = .center
     subtitle.setContentCompressionResistancePriority(.required, for: .vertical)
     content.addArrangedSubview(subtitle)
@@ -476,7 +536,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     space.setContentHuggingPriority(.init(1), for: .vertical)
     content.addArrangedSubview(space)
     content.setCustomSpacing(0, after: space)
-    if let error = store.loadError {
+    if let error = store.loadError, !store.isOnline {
       content.addArrangedSubview(label(error))
       content.addArrangedSubview(
         actionButton("Try again", icon: .refresh) { [weak self] in
@@ -489,7 +549,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     }
     if welcome {
       content.addArrangedSubview(
-        actionButton("Get started", icon: .forward, tone: .lime) { [weak self] in
+        actionButton("Get started", primary: true) { [weak self] in
           self?.welcome = false
           self?.refresh()
           self?.scroll.setContentOffset(.zero, animated: false)
@@ -510,8 +570,25 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     row.alignment = .top
     content.addArrangedSubview(row)
     content.addArrangedSubview(
-      actionButton("Enter Bibi", icon: .forward, tone: .lime) { [weak self] in self?.continueEntry() }
+      actionButton(store.isOnline ? "Log in" : "Enter Bibi", primary: true) { [weak self] in self?.continueEntry() }
     )
+    if store.isOnline {
+      let note = label("Your guest account stays on this iPhone. Logging out or losing its session means you cannot recover it.", 13, BibiPalette.muted)
+      note.numberOfLines = 0; content.addArrangedSubview(note)
+      if store.online?.services.isGuest == true {
+        content.addArrangedSubview(actionButton("Resume account deletion", icon: .trash) { [weak self] in
+          guard let self, !self.signingIn else { return }
+          self.confirm("Delete guest account?", message: "This permanently deletes your current guest account and cannot be undone.", destructive: true, button: "Delete account") {
+            self.signingIn = true
+            Task { @MainActor in
+              defer { self.signingIn = false }
+              do { try await self.store.online?.services.resumeGuestDeletion() }
+              catch { self.message(error.localizedDescription) }
+            }
+          }
+        })
+      }
+    }
   }
   private func agreementText() -> UITextView {
     let text = UITextView()
@@ -535,7 +612,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
       .paragraphStyle: bodyStyle,
     ]
     let body = NSMutableAttributedString(
-      string: "I have read and agree to the ", attributes: base)
+      string: "I am 18 or older and agree to the ", attributes: base)
     for (index, document) in AgreementDocument.allCases.enumerated() {
       if index > 0 {
         body.append(NSAttributedString(string: " and ", attributes: base))
@@ -549,7 +626,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     body.append(NSAttributedString(string: ".", attributes: base))
     text.attributedText = body
     text.accessibilityLabel =
-      "I have read and agree to the Terms of Service and Privacy Policy."
+      "I am 18 or older and agree to the Terms of Service and Privacy Policy."
     return text
   }
   func textView(
@@ -587,6 +664,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     return AgreementDocument(rawValue: String(name))
   }
   private func continueEntry() {
+    guard !signingIn else { return }
     guard accepted else {
       askToAgree()
       return
@@ -627,7 +705,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
       .paragraphStyle: bodyStyle,
     ]
     let body = NSMutableAttributedString(
-      string: "Please read and agree to the ", attributes: base)
+      string: "Confirm that you are 18 or older and agree to the ", attributes: base)
     for (index, document) in AgreementDocument.allCases.enumerated() {
       if index > 0 {
         body.append(NSAttributedString(string: " and ", attributes: base))
@@ -641,14 +719,26 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     body.append(NSAttributedString(string: " before you continue.", attributes: base))
     text.attributedText = body
     text.accessibilityLabel =
-      "Please read and agree to the Terms of Service and Privacy Policy before you continue."
+      "Confirm that you are 18 or older and agree to the Terms of Service and Privacy Policy before you continue."
     text.frame.size.width = 284
     let height = text.sizeThatFits(CGSize(width: 284, height: 240)).height
     text.heightAnchor.constraint(equalToConstant: max(48, height)).isActive = true
     return text
   }
   private func enterApp() {
-    Task {
+    guard !signingIn else { return }
+    signingIn = true
+    Task { @MainActor in
+      defer { signingIn = false }
+      if store.isOnline {
+        do {
+          guard let services = store.online?.services else { throw BackendError.unavailable }
+          try await services.signInAsGuest(adult: accepted, agreement: BibiUserAgreement.version)
+          try await store.completeOnlineSignIn()
+          onContinue?()
+        } catch { message(error.localizedDescription) }
+        return
+      }
       if await store.acceptUserAgreement() {
         onContinue?()
       } else {
@@ -670,6 +760,20 @@ final class AgreementController: BibiScreen, WKNavigationDelegate {
   override func build() {
     let configuration = WKWebViewConfiguration()
     configuration.websiteDataStore = .nonPersistent()
+    // Style only the bundled copy, preserving agreement bytes and acceptance versions.
+    let typography = WKUserScript(source: """
+      if (window.location.protocol === 'file:') {
+        const style = document.createElement('style');
+        style.textContent = `
+          @font-face { font-family: BibiReading; src: url('ComicNeue-Regular.ttf'); font-weight: 400; }
+          @font-face { font-family: BibiHeading; src: url('Kalam-Bold.ttf'); font-weight: 700; }
+          body { font-family: BibiReading; }
+          h1, h2, h3, h4, h5, h6 { font-family: BibiHeading; font-weight: 700; }
+        `;
+        document.head.appendChild(style);
+      }
+      """, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+    configuration.userContentController.addUserScript(typography)
     let web = WKWebView(frame: .zero, configuration: configuration)
     web.navigationDelegate = self
     view.addSubview(web)
@@ -682,6 +786,7 @@ final class AgreementController: BibiScreen, WKNavigationDelegate {
       loading.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
     loading.startAnimating()
+    if store.isOnline { showSavedCopy(in: web); title = document.title; return }
     let timeout = DispatchWorkItem { [weak self, weak web] in
       guard let self, let web else { return }
       self.showSavedCopy(in: web)

@@ -1,0 +1,12 @@
+{
+  "scope": "Static inspection only. No build, typecheck, simulator or XCTest execution.",
+  "posts": 12,
+  "distinct_covers": 8,
+  "licensed_photos": 6,
+  "existing_film_stills": 2,
+  "asset_links_and_hashes": "passed",
+  "gift_entry_points": 2,
+  "gift_presentation": "single compact bottom sheet, maximum 480 points",
+  "gift_icon_points": 28,
+  "backend_enabled": false
+}

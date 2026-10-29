@@ -8,6 +8,7 @@ struct ShortComment: Identifiable, Codable {
     var avatarAsset: String? = nil
     var parentID: UUID? = nil
     var replyToName: String? = nil
+    var remoteAuthorID: String? = nil
 }
 
 struct ShortBullet: Identifiable {
@@ -33,6 +34,7 @@ final class ShortsInteractionStore: ObservableObject {
     private var preparedVideos: Set<UUID> = []
     private var pendingLikes: [UUID: Int] = [:]
     private var likeFlush: Task<Void, Never>?
+    var online: OnlineState?
     private let repository: ShortsInteractionRepository
     static let maximumComments = 500
 
@@ -67,7 +69,25 @@ final class ShortsInteractionStore: ObservableObject {
         }
     }
 
+    func adoptRemote(_ state: OnlineState) {
+        online = state; loaded = true; sessionActive = true
+        liked = state.likes
+        var next: [UUID: [ShortComment]] = [:]
+        for record in state.records where record.kind == "comment" {
+            guard let parent = record.parent_id, let revision = state.revision(record) else { continue }
+            let author = state.creator(record.owner_id)
+            next[parent, default: []].append(ShortComment(id: record.id, name: author.name, text: revision.body,
+                avatarAsset: author.avatarAsset, parentID: record.reply_to, remoteAuthorID: record.owner_id?.uuidString))
+        }
+        comments = next
+    }
+
     func counts(for video: LocalVideo) -> ShortVideoCounts {
+        if let online {
+            let value = online.counts[video.id]
+            return ShortVideoCounts(likes: value?.likes ?? 0, comments: value?.comments ?? 0,
+                saves: value?.saves ?? 0, shares: value?.shares ?? 0)
+        }
         let baseline = video.isBundled ? ShortVideoCounts.authored(for: video.id)
             : ShortVideoCounts(likes: 0, comments: 0, saves: 0, shares: 0)
         return ShortVideoCounts(likes: baseline.likes + (liked.contains(video.id) ? 1 : 0) + bonusLikes[video.id, default: 0],
@@ -83,6 +103,7 @@ final class ShortsInteractionStore: ObservableObject {
     }
 
     func prepareComments(for video: LocalVideo) {
+        if online != nil { return }
         guard loaded, sessionActive else { return }
         guard preparedVideos.insert(video.id).inserted else { return }
         let initial = (video.isBundled ? FandomDiscussion.lines(for: video) : []).map {
@@ -93,6 +114,9 @@ final class ShortsInteractionStore: ObservableObject {
 
     @discardableResult
     func toggleLike(_ id: UUID) async -> Bool {
+        if let online { return await remote {
+            _ = try await online.content.mutate("like", payload: ["target_id": .string(id.uuidString), "selected": .bool(!self.liked.contains(id))])
+        } }
         guard !AnimationCatalog.entries.contains(where: { $0.id == id && $0.surface == .live }) else {
             return false
         }
@@ -151,6 +175,13 @@ final class ShortsInteractionStore: ObservableObject {
 
     @discardableResult
     func addComment(_ text: String, to id: UUID, floating: Bool, replyingTo target: ShortComment? = nil) async -> Bool {
+        if let online {
+            let saved = await remote {
+                _ = try await online.content.publish(kind: "comment", body: text, parent: id, replyingTo: target?.id)
+            }
+            if saved, floating { bulletsEnabled = true; latestBullet = ShortBullet(videoID: id, text: text) }
+            return saved
+        }
         guard loaded, sessionActive, !isSaving else { return false }
         storageError = nil
         let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -175,6 +206,7 @@ final class ShortsInteractionStore: ObservableObject {
 
     @discardableResult
     func recordCompletedShare(for id: UUID) async -> Bool {
+        if let online { return await remote { _ = try await online.content.mutate("share", payload: ["target_id": .string(id.uuidString)]) } }
         // A system completion may arrive while a different local write is finishing.
         while isSaving {
             do { try await Task.sleep(for: .milliseconds(50)) } catch { return false }
@@ -183,6 +215,16 @@ final class ShortsInteractionStore: ObservableObject {
         var updated = snapshot
         updated.completedShares[id, default: 0] += 1
         return await commit(updated)
+    }
+
+    private func remote(_ action: () async throws -> Void) async -> Bool {
+        guard !isSaving, let online else { return false }
+        isSaving = true; defer { isSaving = false }
+        do {
+            try await action()
+            do { try await online.refresh(); adoptRemote(online) } catch { storageError = "Saved online. Refresh to update this view." }
+            return true
+        } catch { storageError = error.localizedDescription; return false }
     }
 
     private var snapshot: ShortsInteractionSnapshot {
@@ -225,7 +267,7 @@ extension LocalVideo {
         if let clip = bundledClip { return clip.caption }
         return "\(title) · A story from your constellation. #Anime #Bibi"
     }
-    func creatorName(profile: LocalProfile) -> String { bundledClip?.creator ?? profile.displayName }
+    func creatorName(profile: LocalProfile) -> String { remoteCreator?.name ?? bundledClip?.creator ?? profile.displayName }
 }
 
 enum ShortsPanelKind: String { case floating, comments, profile, share, more, gifts }

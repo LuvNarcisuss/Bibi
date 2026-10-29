@@ -58,10 +58,12 @@ extension StackScreen {
   func videoGrid(
     _ videos: [LocalVideo], duration: Bool = true,
     onCreator: ((LocalVideo) -> Void)? = nil,
+    host: UIStackView? = nil,
     onSelect: @escaping (LocalVideo) -> Void
   ) -> [VideoTile] {
+    let column = host ?? content
     guard !videos.isEmpty else {
-      content.addArrangedSubview(
+      column.addArrangedSubview(
         label("Your next favorite story is waiting.", 17, BibiPalette.muted))
       return []
     }
@@ -85,10 +87,10 @@ extension StackScreen {
         tiles.append(tile)
       }
       if row.arrangedSubviews.count < columns { row.addArrangedSubview(UIView()) }
-      content.addArrangedSubview(row)
+      column.addArrangedSubview(row)
       // Height follows the row width. A tile aspect constraint can lose to the stack and drop a row.
       let height = row.heightAnchor.constraint(
-        equalTo: content.widthAnchor,
+        equalTo: column.widthAnchor,
         multiplier: 1.38 / CGFloat(columns),
         constant: -(spacing * 1.38 * CGFloat(columns - 1) / CGFloat(columns)))
       height.priority = .required

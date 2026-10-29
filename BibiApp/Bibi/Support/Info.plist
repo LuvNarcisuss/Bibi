@@ -6,12 +6,16 @@
 	<dict>
 		<key>10800</key>
 		<string>ofgjvlbwtzchgvbx</string>
+		<key>16800</key>
+		<string>fyongbrslseicxya</string>
 		<key>2450</key>
 		<string>akafhhbydyymfpzk</string>
 		<key>29400</key>
 		<string>azacbzpzvvvpblzu</string>
 		<key>400</key>
 		<string>ldbsrbbhebevxdjf</string>
+		<key>42700</key>
+		<string>xutwylpejsdvkwpm</string>
 		<key>5150</key>
 		<string>ffzwgpuvsyyhaeeg</string>
 		<key>63700</key>
@@ -64,23 +68,31 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>BibiLaunchBackground</string>
-	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fredoka-Variable.ttf</string>
-		<string>Nunito-Variable.ttf</string>
+		<string>Kalam-Bold.ttf</string>
+		<string>ComicNeue-Regular.ttf</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>BibiBackendEnabled</key>
+	<false/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>im.seex.sao2-neiku-30.auth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bibi</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

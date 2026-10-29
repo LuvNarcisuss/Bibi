@@ -1,10 +1,11 @@
 import Foundation
 
-struct CreatorProfile: Identifiable, Codable {
+struct CreatorProfile: Identifiable, Codable, Equatable {
     let id: String
     let name: String
     let biography: String
     var coverURL: URL? = nil
+    var avatarURL: URL? = nil
     var avatarAsset: String? = nil
     var avatarSymbol = "figure.dance"
     var likes: Int? = nil
@@ -23,7 +24,13 @@ struct CreatorProfile: Identifiable, Codable {
     }
 
     static func from(video: LocalVideo, profile: LocalProfile, coverURL: URL) -> Self {
+        if let remote = video.remoteCreator { return remote }
         let clip = video.bundledClip
+        if var curator = CommunityCatalog.storyAuthor(id: video.creatorID) {
+            curator.coverURL = coverURL
+            curator.sourceURL = clip?.sourceURL
+            return curator
+        }
         return Self(id: video.creatorID, name: video.creatorName(profile: profile),
                     biography: clip == nil ? profile.biography : "Animation, worldbuilding and stories worth sharing.",
                     coverURL: coverURL,
@@ -35,14 +42,17 @@ struct CreatorProfile: Identifiable, Codable {
 
     static func signedIn(_ profile: LocalProfile) -> Self {
         Self(
-            id: "local-owner", name: profile.displayName, biography: profile.biography,
-            avatarAsset: CommunityArtwork.creatorAvatar(for: "local-owner"),
+            id: profile.remoteAccountID?.uuidString ?? "local-owner", name: profile.displayName, biography: profile.biography,
+            avatarURL: profile.remoteAvatarURL,
+            avatarAsset: profile.remoteAccountID == nil ? CommunityArtwork.creatorAvatar(for: "local-owner") : "BibiMark",
             avatarSymbol: profile.avatarSymbol, isLocalOwner: true)
     }
 }
 
 extension LocalVideo {
-    var creatorID: String { bundledClip.map { "bibi-curator:\($0.creator)" } ?? "local-owner" }
+    var creatorID: String {
+        remoteCreator?.id ?? bundledClip.map { $0.curatorID ?? "bibi-curator:\($0.creator)" } ?? "local-owner"
+    }
 }
 
 /// Optional in LocalLibrary for backward-compatible decoding of saved libraries.
