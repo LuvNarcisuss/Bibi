@@ -1,5 +1,26 @@
 # Bibi implementation record
 
+## Missing App Store profile handling — October 29, 2026
+
+The reported com.bibi.quadratic/app_store failure came from the workflow's
+upfront Code signing identities selector. The project and generator identity
+already match. codemagic.yaml now uses CLI signing: initialize the keychain,
+fetch IOS_APP_STORE files with --create for the exact Bundle ID, import
+certificates and apply profiles. The previous ios_signing selector is removed.
+
+The remote application must expose a bibi_signing environment group containing
+the existing distribution certificate's CERTIFICATE_PRIVATE_KEY as a Secret.
+The Bibi integration remains responsible for API authentication and must have
+the intended team's provisioning permissions. App Store record/bundle matching
+and remote resource delivery still require verification. See CODEMAGIC-SIGNING.md.
+
+Static YAML, script order/identity/publishing assertions and all five Bash script
+syntax checks passed, along with whitespace inspection. No signing request,
+Apple resource creation, keychain operation, build, simulator, Codemagic job or
+upload was executed. The original cloud error remains unverified after this
+source correction.
+
+
 ## Codemagic distribution configuration — October 29, 2026
 
 The root workflow now targets `BibiApp/Bibi.xcodeproj`, shared scheme `Bibi`,
