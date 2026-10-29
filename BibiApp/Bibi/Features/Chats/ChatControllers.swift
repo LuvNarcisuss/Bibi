@@ -535,7 +535,6 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
     row.pin(to: button, insets: UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18))
     button.heightAnchor.constraint(greaterThanOrEqualToConstant: 88).isActive = true
     button.addAction(UIAction { _ in action() }, for: .touchUpInside)
-    button.adjustsImageWhenHighlighted = false
     button.addAction(UIAction { [weak button] _ in button?.alpha = 0.72 }, for: .touchDown)
     button.addAction(UIAction { [weak button] _ in button?.alpha = 1 },
       for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])

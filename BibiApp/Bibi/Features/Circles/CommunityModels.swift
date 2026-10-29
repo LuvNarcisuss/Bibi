@@ -192,15 +192,24 @@ enum CommunityCatalog {
       bundledArtwork: story.artwork)
   }
 
-  static let storyReplies: [CircleReply] = stories.flatMap { story in
-    story.replies.enumerated().map { index, text in
-      CircleReply(
-        id: UUID(uuidString: String(format: "CB130000-0000-4000-8000-%012d", story.id * 10 + index))!,
-        postID: UUID(uuidString: String(format: "CB120000-0000-4000-8000-%012d", story.id))!,
-        author: storyAuthors[(story.author + index + 1) % storyAuthors.count], text: text,
-        createdAt: Date(timeIntervalSince1970: 1_792_929_600 + Double((13 - story.id) * 3600 + (index + 1) * 300)))
-    }
+  private static func makeStoryReply(story: Story, index: Int, text: String) -> CircleReply {
+    let replyID = UUID(uuidString: String(format: "CB130000-0000-4000-8000-%012d", story.id * 10 + index))!
+    let postID = UUID(uuidString: String(format: "CB120000-0000-4000-8000-%012d", story.id))!
+    let author = storyAuthors[(story.author + index + 1) % storyAuthors.count]
+    let createdAt = Date(
+      timeIntervalSince1970: 1_792_929_600 + Double((13 - story.id) * 3600 + (index + 1) * 300))
+    return CircleReply(id: replyID, postID: postID, author: author, text: text, createdAt: createdAt)
   }
+
+  static let storyReplies: [CircleReply] = {
+    var replies: [CircleReply] = []
+    for story in stories {
+      for (index, text) in story.replies.enumerated() {
+        replies.append(makeStoryReply(story: story, index: index, text: text))
+      }
+    }
+    return replies
+  }()
 }
 
 struct CirclePost: Identifiable, Codable {
