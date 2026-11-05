@@ -17,6 +17,7 @@ workflows:
         APPLE_TEAM_ID: "93BX5X327N"
         XCODE_PROJECT: "BibiApp/Bibi.xcodeproj"
         XCODE_SCHEME: "Bibi"
+        BIBI_MARKETING_VERSION: "0.1.1"
         APP_STORE_APPLE_ID: "6828253391"
         GIT_LFS_SKIP_SMUDGE: "1"
 
@@ -95,7 +96,7 @@ workflows:
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME" \
             --config Release \
-            --archive-xcargs "CURRENT_PROJECT_VERSION=$BIBI_BUILD_NUMBER DEVELOPMENT_TEAM=$APPLE_TEAM_ID" \
+            --archive-xcargs "MARKETING_VERSION=$BIBI_MARKETING_VERSION CURRENT_PROJECT_VERSION=$BIBI_BUILD_NUMBER DEVELOPMENT_TEAM=$APPLE_TEAM_ID" \
             --ipa-directory "$CM_BUILD_DIR/build/ios/ipa"
 
     artifacts:

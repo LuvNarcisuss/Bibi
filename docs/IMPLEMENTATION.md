@@ -1,5 +1,15 @@
 # Bibi implementation record
 
+## Marketing version alignment - November 5, 2026
+
+The owner selected marketing version `0.1.1` after App Store Connect rejected
+build 25 because the approved `0.1.0` release train is closed. The XcodeGen
+source and all three generated Xcode project configurations now use `0.1.1`.
+Codemagic explicitly passes the same marketing version to Archive; its existing
+build-number increment, signing, application identity and release gates are
+unchanged. Validation is limited to static configuration and diff checks;
+no build, app launch, cloud run or App Store Connect version creation was performed.
+
 ## Agreement resource snapshot alignment — November 5, 2026
 
 The approved agreement update changed both Git-owned PDFs, while CIResources.json
