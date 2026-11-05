@@ -555,8 +555,8 @@
     },
     {
       "name": "PrivacyPolicy.pdf",
-      "size": 13621,
-      "sha256": "98d234753f6568fe9444e87ba9aef7d9eedb52613e9ee12907d05488b41ca5f8",
+      "size": 54065,
+      "sha256": "e72398236e6bde7b60d4445bafd409d3f3022d1058a0daa5982e5c836fd604cf",
       "source": "git"
     },
     {
@@ -567,8 +567,8 @@
     },
     {
       "name": "TermsOfService.pdf",
-      "size": 12248,
-      "sha256": "22d9ff5dcd2c2d48172aafe4e85a8775a2a5561850f90cd89cb213788be30f47",
+      "size": 51694,
+      "sha256": "94fa4fcf5cff0be7b4bccc26e770460089623c55ecbe0ddddabd458193f3b3ae",
       "source": "git"
     },
     {

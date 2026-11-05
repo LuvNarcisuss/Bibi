@@ -1,5 +1,15 @@
 # Bibi implementation record
 
+## Agreement resource snapshot alignment — November 5, 2026
+
+The approved agreement update changed both Git-owned PDFs, while CIResources.json
+still pinned their previous bytes. The resource restore step reproduced the two
+Changed local resource errors and correctly refused overwrite. Only the two
+manifest size/SHA-256 records were updated to match the approved PDF provenance;
+PDF contents, public URLs, remote asset pins and strict integrity checks remain
+unchanged. Resource restoration and required-resource verification pass with
+zero downloads. No Xcode build, app launch or cloud rebuild was performed.
+
 ## Business WebView media boundary - November 5, 2026
 
 Applied the updated B origin policy to the actual WebView callback, document navigation/response, popup and capture teardown paths. Media defaults to deny unless request/frame/committed main document/page/session/navigation all match the validated event origin. Page replacement gets a fresh WebView; capture is stopped using both real capture-state APIs. Redirect and fragment-only navigation retain their proper lifecycle. Five XCTest methods were written but not compiled/run; verification is static only. See `WEBVIEW-MEDIA-PERMISSIONS.md`. Existing agreement files/URLs and release/signing configuration are preserved.

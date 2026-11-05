@@ -1,5 +1,15 @@
 # Static audit — Bibi
 
+## Agreement resource snapshot alignment — November 5, 2026
+
+The approved agreement update changed both Git-owned PDFs, while CIResources.json
+still pinned their previous bytes. The resource restore step reproduced the two
+Changed local resource errors and correctly refused overwrite. Only the two
+manifest size/SHA-256 records were updated to match the approved PDF provenance;
+PDF contents, public URLs, remote asset pins and strict integrity checks remain
+unchanged. Resource restoration and required-resource verification pass with
+zero downloads. No Xcode build, app launch or cloud rebuild was performed.
+
 ## P1 WebView media authorization source fix - November 5, 2026
 
 The unconditional `.grant` is replaced by the actual request/frame/document/session/navigation policy. Both navigation decision handlers and popup opening enforce the frozen origin; teardown/replacement/failure/inactive paths stop camera and microphone capture. SDK headers and real call sites were inspected, and whitespace checks pass. Five regression methods are present but unexecuted; no compile, app launch, camera/iframe or simulator acceptance is claimed. See `WEBVIEW-MEDIA-PERMISSIONS.md` for the remaining runtime matrix. Previously published agreements remain frozen and unchanged.

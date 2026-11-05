@@ -39,6 +39,11 @@ all Git-owned Assets before retrying the cloud build. Merely editing .gitignore
 or running LFS locally does not put files in a remote checkout. Keep signing
 credentials out of the resource commit; this fix does not alter signing setup.
 
+The November 5 agreement refresh retains Git ownership of both PDFs. Their
+CIResources.json records must match the newly approved bundled PDF hashes in
+agreement-source-provenance.json; do not restore the older build-bucket copies
+or disable mismatch rejection to resolve a resource verification failure.
+
 For future resource changes, refresh the CI snapshot's size/hash and source for
 all changed/added project inputs. Select Supabase only when the approved remote manifest
 has the exact same bytes; otherwise commit the current asset and its ignore
