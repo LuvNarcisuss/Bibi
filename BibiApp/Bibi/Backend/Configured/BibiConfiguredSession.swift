@@ -178,7 +178,8 @@ final class BibiConfiguredSession {
 
     /// Called synchronously by the sole receiver before any presentation is scheduled.
     func receivePage(_ url: URL, messageID: String) {
-        guard context != nil else { return }
+        guard let context, accepts(context) else { return }
+        page?.invalidateMedia()
         pendingPage = (url, messageID)
         pageWait?.cancel(); pageWait = nil
         coverWait?.cancel(); coverWait = nil
@@ -202,7 +203,10 @@ final class BibiConfiguredSession {
             return
         }
         pendingPage = nil
-        let page = BibiConfiguredWebController(url: pending.url, pageID: pending.id)
+        let page = BibiConfiguredWebController(url: pending.url, pageID: pending.id,
+            sessionGeneration: context.generation, sessionIsCurrent: { [weak self] generation in
+                generation == context.generation && self?.accepts(context) == true
+            })
         self.page = page; committedPageID = nil; savedPageID = nil
         page.onCoverCheck = { [weak self] in self?.checkCover() }
         page.onLoaded = { [weak self] id in self?.pageLoaded(id) }
@@ -212,7 +216,7 @@ final class BibiConfiguredSession {
     }
 
     private func checkCover() {
-        guard let context, accepts(context), let page, page.covers(window),
+        guard pendingPage == nil, let context, accepts(context), let page, page.covers(window),
               committedPageID != page.pageID else { return }
         committedPageID = page.pageID
         pageWait?.cancel(); pageWait = nil; coverWait?.cancel(); coverWait = nil
@@ -226,7 +230,7 @@ final class BibiConfiguredSession {
     }
 
     private func pageLoaded(_ id: String) {
-        guard let context, accepts(context), page?.pageID == id, committedPageID == id,
+        guard pendingPage == nil, let context, accepts(context), page?.pageID == id, committedPageID == id,
               savedPageID != id else { return }
         do {
             try saveMarker(context.identity)

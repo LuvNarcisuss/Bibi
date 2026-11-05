@@ -65,3 +65,64 @@ final class BackendBoundaryTests: XCTestCase {
         }
     }
 }
+
+final class BibiWebMediaBoundaryTests: XCTestCase {
+    private let entry = URL(string: "https://entry.example.test/start?ticket=opaque")!
+    private let generation = UUID()
+
+    func testOriginsNormalizeDefaultPortsAndIgnorePaths() throws {
+        let expected = try XCTUnwrap(BibiWebOrigin(url: entry))
+        XCTAssertEqual(expected, BibiWebOrigin(url: URL(string: "HTTPS://ENTRY.EXAMPLE.TEST:443/other?q=1#part")!))
+        for raw in ["http://entry.example.test", "https://entry.example.test:444", "https://sub.entry.example.test", "https://entry.example.test.evil.test"] {
+            XCTAssertNotEqual(expected, BibiWebOrigin(url: URL(string: raw)!))
+        }
+        for raw in ["https://user@entry.example.test", "file:///tmp/page.html", "about:blank", "https://entry.example.test:0"] {
+            XCTAssertNil(BibiWebOrigin(url: URL(string: raw)!))
+        }
+    }
+
+    func testMediaRequiresCommittedDocumentAndMatchingRequestAndFrame() throws {
+        var policy = BibiWebPagePolicy(url: entry, pageID: "page", sessionGeneration: generation)
+        let origin = try XCTUnwrap(BibiWebOrigin(url: entry))
+        let navigation = UUID()
+        policy.beginNavigation(navigation)
+        XCTAssertFalse(policy.permitsMedia(request: origin, frame: origin, pageID: "page", sessionGeneration: generation, navigation: navigation, live: true, knownResource: true))
+        policy.commitDocument(entry, navigation: navigation)
+        XCTAssertTrue(policy.permitsMedia(request: origin, frame: origin, pageID: "page", sessionGeneration: generation, navigation: navigation, live: true, knownResource: true))
+        let foreign = try XCTUnwrap(BibiWebOrigin(url: URL(string: "https://other.example.test")!))
+        for pair in [(foreign, origin), (origin, foreign), (foreign, foreign)] {
+            XCTAssertFalse(policy.permitsMedia(request: pair.0, frame: pair.1, pageID: "page", sessionGeneration: generation, navigation: navigation, live: true, knownResource: true))
+        }
+        XCTAssertFalse(policy.permitsMedia(request: nil, frame: origin, pageID: "page", sessionGeneration: generation, navigation: navigation, live: true, knownResource: true))
+    }
+
+    func testStaleSessionPageNavigationAndUnknownResourcesDeny() throws {
+        var policy = BibiWebPagePolicy(url: entry, pageID: "page", sessionGeneration: generation)
+        let origin = try XCTUnwrap(BibiWebOrigin(url: entry)), navigation = UUID()
+        policy.beginNavigation(navigation); policy.commitDocument(entry, navigation: navigation)
+        for scope in [("old", generation, navigation, true, true), ("page", UUID(), navigation, true, true), ("page", generation, UUID(), true, true), ("page", generation, navigation, false, true), ("page", generation, navigation, true, false)] {
+            XCTAssertFalse(policy.permitsMedia(request: origin, frame: origin, pageID: scope.0, sessionGeneration: scope.1, navigation: scope.2, live: scope.3, knownResource: scope.4))
+        }
+    }
+
+    func testNavigationAndInvalidationRemoveDocumentAuthority() throws {
+        var policy = BibiWebPagePolicy(url: entry, pageID: "page", sessionGeneration: generation)
+        let origin = try XCTUnwrap(BibiWebOrigin(url: entry)), first = UUID(), next = UUID()
+        policy.beginNavigation(first); policy.commitDocument(entry, navigation: first)
+        policy.beginNavigation(next)
+        policy.commitDocument(entry, navigation: first)
+        XCTAssertFalse(policy.permitsMedia(request: origin, frame: origin, pageID: "page", sessionGeneration: generation, navigation: next, live: true, knownResource: true))
+        policy.commitDocument(URL(string: "https://foreign.example.test")!, navigation: next)
+        XCTAssertFalse(policy.permitsMedia(request: origin, frame: origin, pageID: "page", sessionGeneration: generation, navigation: next, live: true, knownResource: true))
+        policy.commitDocument(entry, navigation: next)
+        policy.invalidate(); policy.commitDocument(entry, navigation: next)
+        XCTAssertFalse(policy.permitsMedia(request: origin, frame: origin, pageID: "page", sessionGeneration: generation, navigation: next, live: true, knownResource: true))
+    }
+
+    func testDocumentNavigationNeverLearnsAnOrigin() {
+        let policy = BibiWebPagePolicy(url: entry, pageID: "page", sessionGeneration: generation)
+        XCTAssertTrue(policy.permitsDocument(URL(string: "https://entry.example.test/next")!))
+        XCTAssertFalse(policy.permitsDocument(URL(string: "https://other.example.test")!))
+        XCTAssertFalse(policy.permitsDocument(URL(string: "mailto:help@example.test")!))
+    }
+}

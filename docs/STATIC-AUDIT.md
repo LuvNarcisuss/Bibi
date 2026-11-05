@@ -1,5 +1,13 @@
 # Static audit — Bibi
 
+## P1 WebView media authorization source fix - November 5, 2026
+
+The unconditional `.grant` is replaced by the actual request/frame/document/session/navigation policy. Both navigation decision handlers and popup opening enforce the frozen origin; teardown/replacement/failure/inactive paths stop camera and microphone capture. SDK headers and real call sites were inspected, and whitespace checks pass. Five regression methods are present but unexecuted; no compile, app launch, camera/iframe or simulator acceptance is claimed. See `WEBVIEW-MEDIA-PERMISSIONS.md` for the remaining runtime matrix. Previously published agreements remain frozen and unchanged.
+
+## Agreement refresh evidence - November 5, 2026
+
+Explicit owner approval covers both agreements and fixed-link in-place publication. Final canonical anonymous HTTP 200/application/pdf readbacks match the approved sources and bundled PDF bytes; embedded fonts and all nine rendered pages were checked. Current consent inputs derive `local-da6e1e00f32c`; an installed binary is not updated by Storage publication. The temporary publisher is now inert HTTP 410 with JWT verification retained. Five skill privacy checks and nineteen Python contract checks pass; Swift compilation was excluded. No Bibi build or runtime result is claimed. Operational retention, support readiness, full external-recipient verification and renewed-consent/runtime behavior remain limited as detailed in `AGREEMENT-UPDATE-2026-11-05.md`. Both agreements are frozen again.
+
 ## Verified App Store push signing repair — November 5, 2026
 
 The owner requested restoration of the 15:00 baseline, commit `08acb96` from

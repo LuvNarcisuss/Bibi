@@ -1,5 +1,13 @@
 # Bibi implementation record
 
+## Business WebView media boundary - November 5, 2026
+
+Applied the updated B origin policy to the actual WebView callback, document navigation/response, popup and capture teardown paths. Media defaults to deny unless request/frame/committed main document/page/session/navigation all match the validated event origin. Page replacement gets a fresh WebView; capture is stopped using both real capture-state APIs. Redirect and fragment-only navigation retain their proper lifecycle. Five XCTest methods were written but not compiled/run; verification is static only. See `WEBVIEW-MEDIA-PERMISSIONS.md`. Existing agreement files/URLs and release/signing configuration are preserved.
+
+## Authorized agreement refresh - November 5, 2026
+
+The owner authorized updates to both English agreements and their existing online PDF objects. Canonical Supabase URLs are unchanged. Sources, HTML, embedded-font PDFs, provenance, current asset hashes and existing consent-version inputs are synchronized; previous versions are archived outside the target. Final anonymous public PDF bytes/text match the bundles/sources after CDN propagation. The scoped publisher is disabled with deployed source readback. Agreements resume their default freeze. See `AGREEMENT-UPDATE-2026-11-05.md` for evidence, retention/contact/external-recipient limits and installed-binary consent implications. This task performed no Bibi build, typecheck, launch or runtime test; signing/release gates and unrelated existing changes are preserved.
+
 ## Verified App Store push signing repair — November 5, 2026
 
 The owner requested restoration of the 15:00 baseline, commit `08acb96` from

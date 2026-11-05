@@ -1,0 +1,174 @@
+Bibi - Privacy Policy
+Last updated: November 5, 2026
+Operator: Chengdu Yuehui Xingyu Technology Co., Ltd.
+Privacy contact: trvahai996@icloud.com
+1. Scope and service availability
+This policy covers Bibi's Shorts, Circles, Challenges, Chats and Me features. It explains both
+device-only records and online processing. Your installed version and available services
+determine which features you can use. An unavailable service must not be treated as a
+successful upload, message delivery, purchase or moderation decision.
+Online use connects to Bibi's cloud services. Device-only features and an existing Device archive
+remain separate; an archive is not automatically uploaded. Online features are available only
+when offered in your installed app.
+2. Information and purposes
+2.1 Account, profile and choices
+One-tap online sign-in creates or restores a guest account through Supabase. We process its
+account identifier, session information, chosen display name, biography, avatar, agreement
+version, acceptance time and adult declaration to provide access, maintain your profile and
+remember your choices. The normal guest flow does not request a password, phone number,
+government ID or birth date. Declaring that you are 18 or older is not independent age
+verification.
+Guest sign-in does not make your data fully anonymous or unlinked. Content, relationships,
+messages and transactions can be associated with your service identity. Session credentials and
+a separate installation identifier are kept in the iOS Keychain. The installation identifier may
+survive logout or reinstallation; this does not guarantee account recovery.
+2.2 Content, selected media and activity
+We process the text, titles, captions, comments, replies, circle memberships, challenge entries,
+likes, saves, follows, blocks and timestamps that you create or select. These records support the
+requested content, social features, preferences and safety controls. Online actions store the
+corresponding records in the cloud; device-only actions remain local.
+When you choose photos or videos, Bibi can create an app-owned copy, resize images, prepare a
+video and generate a cover. Online uploads send the selected media and related records to cloud
+storage. Files can include sound and embedded metadata; we do not promise to remove all
+metadata. Your original Photos items remain separate. Importing an archived item requires an
+explicit upload action.
+A device-only viewing-history feature keeps up to the 2,000 most recent video records for local
+ordering. This limit does not apply to every cloud record. We do not use a third-party advertising
+or analytics SDK to collect this local history.
+2.3 Messages, safety and visibility
+Online Chats stores conversation membership, message text, sender references, sequence and
+time information, and available read-position and conversation preferences. Supabase Realtime
+supports updates to authorized participants. These messages are not end-to-end encrypted: the
+cloud service processes their contents and authorized administration may access held records for
+support, security or legal obligations. A local draft or outbox item is not proof of delivery or
+reading.
+Published content and profile information associated with it may be visible to other users
+according to the feature's access rules. Conversations are restricted to authorized participants.
+Reports contain the selected content or profile, reason, details and submission time; blocks
+record the affected relationship and restrict supported interactions. Online reports can be stored
+for review, but submission is not a promise of staffed monitoring, immediate review or removal
+everywhere. Do not include unnecessary sensitive information in messages, public posts or
+reports.
+2.4 Purchases and technical information
+Where purchasing is available, Apple processes payment through StoreKit. Bibi processes product
+and transaction identifiers, purchase source, receipt evidence, confirmation/retry status, diamond
+activity and the relevant account association to deliver items, prevent duplicate credit and
+reconcile transactions. Cloud native-wallet records and a separate local archive are not
+interchangeable. Bibi does not receive your full payment-card number, card security code or
+Apple Account password through StoreKit.
+Online connection services receive the app version, persistent installation identifier and an APNs
+device token when available. Requests also expose ordinary network information such as IP
+address, request time and service diagnostics. These are used for sign-in,
+connection/subscription handling, notification routing where available, troubleshooting and
+security. A token registration does not establish that push delivery is operational.
+3. Providers and connected services
+Supabase provides authentication, database, media storage, functions, realtime messaging and
+public agreement hosting on our behalf. It processes the applicable account, content, message,
+media and technical records described above. Our project's primary infrastructure region is
+Singapore; provider support, logs, backups and subprocessors may involve other locations. We do
+not promise that every copy remains in one country.
+Supabase customer-data processing terms:
+https://supabase.com/legal/customer-resources/data-processing-addendum
+Supabase privacy notice: https://supabase.com/privacy
+When Bibi's connected sign-in and web services are used, our cloud first forwards the connection
+information described in section 2.4 to the connected authentication service. Where the response
+requires an external session, your app contacts that service again and establishes the related
+realtime connection. The first request can expose a cloud-server IP; the direct request exposes
+your device's public network IP. It is not a device-IP-only process. Supabase session credentials
+are not sent to that connected authentication service.
+A connected page can receive its session information, normal web requests, and information or
+media you choose to submit there. Its content and associated providers may have their own
+notices, including promotional content. The in-app web store is nonpersistent, but that does not
+erase server-side records or prevent a page from using cookies during a session. Review the
+page's notice before submitting information. This policy does not claim that every external page
+or recipient has been independently verified.
+Apple handles purchasing, operating-system permissions, notification transport and device
+backups according to your settings and its applicable notices. App Store privacy notice:
+https://www.apple.com/legal/privacy/data/en/app-store/
+If you contact trvahai996@icloud.com, the operator and iCloud Mail receive your email address,
+message and chosen attachments to address the request. External credits/licensing links and
+backup providers process your visit or backup under their own notices. Opening our public
+agreement PDFs exposes normal request information to Supabase; no account is required, and a
+matching bundled copy is available if loading fails.
+Bibi has no user-facing third-party AI inference feature in the current app. Your messages are not
+submitted to an AI model for generated replies. We do not currently sell personal information,
+integrate targeted-advertising tracking, or use a third-party analytics or crash-reporting SDK in
+the native app. These statements do not describe the independent practices of external websites.
+4. Permissions and choices
+The iOS photo picker supplies the items you select rather than unrestricted access to your library.
+Online upload is a separate action. Optional native camera use supports your own preview and
+friend-code scanning; the native call preview does not provide a live call or transmit its camera
+feed. The native app does not currently capture microphone audio for a live calling service.
+Selected videos may already contain audio.
+A connected webpage may request camera or microphone access for its own features. Granting
+access can let that page receive the corresponding media; native preview behavior does not
+describe webpage capture. iOS permission controls still apply. You can deny or revoke
+permissions in iOS Settings and use features that do not depend on them, or close the page to
+stop using that feature. Camera or microphone permission is not blanket permission for unrelated
+sharing.
+Bibi does not request native access to contacts, precise location or health data. You can change
+notification permission in iOS Settings. Declining notifications does not require you to stop using
+unrelated features. Reading an agreement does not accept it or start sign-in. This policy is a
+notice, not blanket consent to new processing or a substitute for any specific permission required
+before sharing personal data.
+5. Storage, retention and safeguards
+Device records and upload copies use the app's storage; core writes are atomic and protected by
+iOS file protection. Online records use authenticated access and ownership/membership controls;
+media access links are time-limited where appropriate. These measures do not guarantee
+absolute security, end-to-end encryption, or protection on a compromised or unlocked shared
+device.
+Ordinary cloud profiles, content, relationships and media remain while the account or related
+record is retained, until an available deletion action removes them. There is no automatic
+fixed-day expiry for all account data. Deleting a post, attachment or challenge entry does not
+necessarily delete its underlying media or separate safety or financial records. Message text may
+remain in a retained conversation after account deletion with its sender-profile association
+removed; personal information typed into the text is not automatically removed by unlinking the
+profile.
+Restricted purchase, order, reconciliation and deletion-job evidence can remain after account
+deletion for duplicate prevention, unresolved transactions, disputes, security and legal
+obligations. There is no configured automatic deletion deadline for all such evidence. Service
+logs, backups and support correspondence have no single verified fixed retention period in the
+current setup; provider controls and applicable obligations also affect removal. We cannot
+promise immediate erasure of every copy. Contact us about the information held and any
+retention limitation relevant to your request.
+Local records remain until removed with an available control or by deleting the app's data.
+Offloading can preserve data. Keychain identifiers, cloud records, original Photos items and
+existing backups may survive app deletion. Backups must be managed with the backup provider;
+app deletion does not erase them.
+6. Access, deletion and withdrawal
+You can edit your profile in Me > Settings > Edit profile and use available content, saved-item,
+relationship, block and report controls. Bibi currently has no dedicated self-service export control.
+For access, correction, a copy of information held, deletion or other applicable rights, contact
+trvahai996@icloud.com. Reasonable identity verification may be required; rights and response
+duties depend on applicable law.
+In an online session, Me > Settings > Delete account starts authenticated server deletion after
+confirmation. It locks business access, attempts to remove account-owned cloud media, revokes
+sessions and removes the authentication identity and dependent account records. A failed
+cleanup is not success: use Resume account deletion on the sign-in screen where available, or
+contact support. Messages, restricted transaction evidence, provider logs/backups and the
+separate Device archive have the limits described above.
+In a device-only session, Delete account clears the local library, app-owned media, local
+social/chat/safety records, agreement acceptance and local wallet records. It is not a
+cloud-account deletion request. Online deletion keeps the separate Device archive. Neither
+option removes original Photos items, Apple's purchase records, copies already held by other
+recipients or existing backups, and neither requests a refund.
+Log out ends the relevant session rather than deleting cloud data. A guest account may become
+inaccessible after logout, credential loss or device loss; a new guest is a different identity.
+Request deletion before losing access where possible. The persistent installation identifier is
+separate from the account and is not removed by logout; account deletion does not guarantee its
+removal. Stop optional uploads or connected-page use and revoke relevant iOS permissions to
+stop future optional collection; this does not reverse prior processing or erase retained records.
+Contact us to withdraw applicable consent or ask about held data.
+7. Age, international processing and updates
+Bibi is intended for adults aged 18 or older, or a higher minimum where required. It is not
+directed to children. An adult declaration does not independently verify age. If you believe we
+hold a child's information, contact us; appropriate deletion is subject to applicable law and the
+limits described above.
+Cloud, connected-service, Apple, email and backup processing can take place outside your
+country. Available safeguards and rights depend on the service and applicable arrangements; we
+do not assert an unverified storage location or transfer guarantee. Information may be disclosed
+where legally required, limited to information actually held and the applicable obligation.
+We will update this policy for material changes and provide notice and obtain additional
+permission where required before new processing. A document update alone does not activate an
+unavailable service, upload an archive or authorize unrelated uses. For questions, rights requests
+or privacy concerns, contact trvahai996@icloud.com.

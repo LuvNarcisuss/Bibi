@@ -1,12 +1,82 @@
 import UIKit
 import WebKit
 
+struct BibiWebOrigin: Equatable {
+    let scheme: String
+    let host: String
+    let port: Int
+
+    init?(url: URL) {
+        guard let parts = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              let scheme = parts.scheme?.lowercased(), ["https", "http"].contains(scheme),
+              parts.user == nil, parts.password == nil,
+              let host = parts.url?.host?.lowercased(), !host.isEmpty,
+              !host.contains("%"), !host.contains("{"), !host.contains("}"),
+              parts.port == nil || (1...65535).contains(parts.port!) else { return nil }
+        self.scheme = scheme; self.host = host
+        port = parts.port ?? (scheme == "https" ? 443 : 80)
+    }
+
+    @MainActor
+    init?(securityOrigin: WKSecurityOrigin) {
+        guard !securityOrigin.host.isEmpty, (0...65535).contains(securityOrigin.port) else { return nil }
+        var parts = URLComponents()
+        parts.scheme = securityOrigin.protocol; parts.host = securityOrigin.host
+        parts.port = securityOrigin.port == 0 ? nil : securityOrigin.port
+        guard let url = parts.url else { return nil }
+        self.init(url: url)
+    }
+}
+
+struct BibiWebPagePolicy {
+    private let entryOrigin: BibiWebOrigin?
+    private let pageID: String
+    private let sessionGeneration: UUID
+    private var navigation: UUID?
+    private var committedNavigation: UUID?
+    private var documentOrigin: BibiWebOrigin?
+    private var invalidated = false
+
+    init(url: URL, pageID: String, sessionGeneration: UUID) {
+        entryOrigin = BibiWebOrigin(url: url)
+        self.pageID = pageID; self.sessionGeneration = sessionGeneration
+    }
+    func permitsDocument(_ url: URL) -> Bool {
+        guard !invalidated, let entryOrigin else { return false }
+        return BibiWebOrigin(url: url) == entryOrigin
+    }
+    mutating func beginNavigation(_ id: UUID) {
+        navigation = id; committedNavigation = nil; documentOrigin = nil
+    }
+    mutating func commitDocument(_ url: URL, navigation id: UUID) {
+        guard navigation == id else { return }
+        documentOrigin = nil; committedNavigation = nil
+        guard !invalidated, permitsDocument(url) else { return }
+        documentOrigin = BibiWebOrigin(url: url); committedNavigation = id
+    }
+    mutating func invalidate() {
+        invalidated = true; committedNavigation = nil; documentOrigin = nil
+    }
+    func permitsMedia(request: BibiWebOrigin?, frame: BibiWebOrigin?, pageID: String,
+                      sessionGeneration: UUID, navigation: UUID, live: Bool, knownResource: Bool) -> Bool {
+        guard !invalidated, live, knownResource, let entryOrigin,
+              self.pageID == pageID, self.sessionGeneration == sessionGeneration,
+              self.navigation == navigation, committedNavigation == navigation,
+              documentOrigin == entryOrigin else { return false }
+        return request == entryOrigin && frame == entryOrigin
+    }
+}
+
 @MainActor
 final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate, WKUIDelegate {
-    private let web: WKWebView
+    private var web: WKWebView
+    private var policy: BibiWebPagePolicy
+    private let sessionGeneration: UUID
+    private let sessionIsCurrent: (UUID) -> Bool
     private let progress = BibiWebProgress()
     private var errorPanel: UIView?
     private var navigation: WKNavigation?
+    private var awaitingDocumentStart = false
     private var rejected: Set<ObjectIdentifier> = []
     private var navigationID = UUID()
     private var deadline: BibiForegroundTimeout?
@@ -19,17 +89,23 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
     var onLoaded: ((String) -> Void)?
     var onBack: (() -> Void)?
 
-    init(url: URL, pageID: String) {
+    init(url: URL, pageID: String, sessionGeneration: UUID,
+         sessionIsCurrent: @escaping (UUID) -> Bool) {
         self.url = url; self.pageID = pageID
+        self.sessionGeneration = sessionGeneration; self.sessionIsCurrent = sessionIsCurrent
+        policy = BibiWebPagePolicy(url: url, pageID: pageID, sessionGeneration: sessionGeneration)
+        web = Self.makeWebView()
+        super.init(nibName: nil, bundle: nil)
+        modalPresentationStyle = .fullScreen
+        isModalInPresentation = true
+    }
+    private static func makeWebView() -> WKWebView {
         let configuration = WKWebViewConfiguration()
         configuration.allowsAirPlayForMediaPlayback = true
         configuration.allowsInlineMediaPlayback = true
         configuration.mediaTypesRequiringUserActionForPlayback = []
         configuration.websiteDataStore = .nonPersistent()
-        web = WKWebView(frame: .zero, configuration: configuration)
-        super.init(nibName: nil, bundle: nil)
-        modalPresentationStyle = .fullScreen
-        isModalInPresentation = true
+        return WKWebView(frame: .zero, configuration: configuration)
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) is unavailable") }
 
@@ -45,6 +121,10 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
         blur.isUserInteractionEnabled = false
         if UIAccessibility.isReduceTransparencyEnabled { blur.backgroundColor = BibiPalette.background }
         view.addSubview(blur); blur.pin(to: view)
+        installWebView()
+        begin()
+    }
+    private func installWebView() {
         web.navigationDelegate = self; web.uiDelegate = self
         web.isOpaque = false; web.backgroundColor = .clear; web.scrollView.backgroundColor = .clear
         web.allowsBackForwardNavigationGestures = true
@@ -52,18 +132,23 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
         web.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
         web.scrollView.contentInset = .zero; web.scrollView.scrollIndicatorInsets = .zero
         view.addSubview(web); web.pin(to: view)
-        begin()
     }
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated); onCoverCheck?() }
     override func viewDidLayoutSubviews() { super.viewDidLayoutSubviews(); onCoverCheck?() }
 
     func replace(url: URL, pageID: String) {
+        policy.invalidate(); stopCapture()
+        web.stopLoading(); web.navigationDelegate = nil; web.uiDelegate = nil
+        web.removeFromSuperview()
+        web = Self.makeWebView()
         self.url = url; self.pageID = pageID
-        loadViewIfNeeded(); begin()
+        policy = BibiWebPagePolicy(url: url, pageID: pageID, sessionGeneration: sessionGeneration)
+        if isViewLoaded { installWebView(); begin() } else { loadViewIfNeeded() }
     }
     func commitCover() { coverCommitted = true; settle() }
     func becameActive() { progress.resume(); onCoverCheck?(); settle() }
-    func becameInactive() { progress.pause() }
+    func becameInactive() { progress.pause(); stopCapture() }
+    func invalidateMedia() { policy.invalidate(); stopCapture() }
 
     func covers(_ window: UIWindow) -> Bool {
         guard isViewLoaded, view.window === window, !isBeingPresented, !isBeingDismissed,
@@ -77,6 +162,7 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
     }
 
     func stop() {
+        policy.invalidate(); stopCapture()
         navigationID = UUID(); deadline?.cancel(); deadline = nil
         web.stopLoading(); web.navigationDelegate = nil; web.uiDelegate = nil
         progress.pause(); progress.removeFromSuperview(); errorPanel?.removeFromSuperview()
@@ -84,6 +170,9 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
     }
 
     private func begin() {
+        guard sessionIsCurrent(sessionGeneration), policy.permitsDocument(url) else {
+            result = nil; finish(success: false); return
+        }
         if let navigation { rejected.insert(ObjectIdentifier(navigation)) }
         web.stopLoading()
         prepareNavigation()
@@ -92,8 +181,11 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
     }
     private func prepareNavigation() {
         navigationID = UUID(); result = nil; responseValid = false
+        awaitingDocumentStart = true
+        policy.beginNavigation(navigationID); stopCapture()
         deadline?.cancel()
         if progress.superview == nil { view.addSubview(progress); progress.pin(to: view) }
+        view.bringSubviewToFront(progress)
         progress.resume()
         errorPanel?.removeFromSuperview(); errorPanel = nil
         let id = navigationID
@@ -105,6 +197,7 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
     private func finish(success: Bool) {
         guard result == nil else { return }
         result = success
+        if !success { policy.beginNavigation(navigationID); stopCapture() }
         deadline?.cancel(); deadline = nil
         settle()
     }
@@ -136,11 +229,24 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
         UIAccessibility.post(notification: .screenChanged, argument: message)
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        guard let navigation, !rejected.contains(ObjectIdentifier(navigation)) else { return }
-        if self.navigation !== navigation { self.navigation = navigation; prepareNavigation() }
+        guard webView === web, sessionIsCurrent(sessionGeneration),
+              let navigation, !rejected.contains(ObjectIdentifier(navigation)) else { return }
+        if self.navigation !== navigation || !awaitingDocumentStart { prepareNavigation() }
+        self.navigation = navigation; awaitingDocumentStart = false
+    }
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        guard webView === web, sessionIsCurrent(sessionGeneration), responseValid, !awaitingDocumentStart,
+              let navigation, self.navigation === navigation,
+              !rejected.contains(ObjectIdentifier(navigation)), let url = webView.url else { return }
+        policy.commitDocument(url, navigation: navigationID)
+    }
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        guard webView === web, let navigation, self.navigation === navigation else { return }
+        responseValid = false; policy.beginNavigation(navigationID); stopCapture()
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard let navigation, self.navigation === navigation, !rejected.contains(ObjectIdentifier(navigation)) else { return }
+        guard webView === web, sessionIsCurrent(sessionGeneration),
+              let navigation, self.navigation === navigation, !rejected.contains(ObjectIdentifier(navigation)) else { return }
         finish(success: responseValid)
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) { failed(navigation) }
@@ -150,33 +256,81 @@ final class BibiConfiguredWebController: UIViewController, WKNavigationDelegate,
         finish(success: false)
     }
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+        guard webView === web else { return }
         result = nil; finish(success: false)
     }
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse,
                  decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard webView === web, sessionIsCurrent(sessionGeneration),
+              let url = navigationResponse.response.url, policy.permitsDocument(url) else {
+            decisionHandler(.cancel)
+            if webView === web, navigationResponse.isForMainFrame { rejectMainNavigation() }
+            return
+        }
         guard navigationResponse.isForMainFrame else { decisionHandler(.allow); return }
         guard let response = navigationResponse.response as? HTTPURLResponse,
               (200..<400).contains(response.statusCode), navigationResponse.canShowMIMEType else {
-            decisionHandler(.cancel); finish(success: false); return
+            decisionHandler(.cancel); rejectMainNavigation(); return
         }
         responseValid = true; decisionHandler(.allow)
     }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard let url = navigationAction.request.url else { decisionHandler(.cancel); return }
-        if ["https", "http"].contains(url.scheme?.lowercased() ?? "") { decisionHandler(.allow) }
-        else { decisionHandler(.cancel); UIApplication.shared.open(url) }
+        guard webView === web, sessionIsCurrent(sessionGeneration),
+              let url = navigationAction.request.url, policy.permitsDocument(url) else {
+            decisionHandler(.cancel)
+            if webView === web, navigationAction.targetFrame?.isMainFrame == true { rejectMainNavigation() }
+            return
+        }
+        if navigationAction.targetFrame == nil {
+            decisionHandler(permitsWindow(navigationAction) ? .allow : .cancel)
+            return
+        }
+        // The current document remains same-origin until a provisional load starts.
+        // Anchor/history actions may never start or commit a new document.
+        decisionHandler(.allow)
     }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration,
                  for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if let url = navigationAction.request.url, ["https", "http"].contains(url.scheme?.lowercased() ?? "") {
+        if webView === web, permitsWindow(navigationAction), let url = navigationAction.request.url {
             UIApplication.shared.open(url)
         }
         return nil
     }
     func webView(_ webView: WKWebView, requestMediaCapturePermissionFor origin: WKSecurityOrigin,
                  initiatedByFrame frame: WKFrameInfo, type: WKMediaCaptureType,
-                 decisionHandler: @escaping (WKPermissionDecision) -> Void) { decisionHandler(.grant) }
+                 decisionHandler: @escaping (WKPermissionDecision) -> Void) {
+        let knownResource: Bool
+        switch type {
+        case .camera, .microphone, .cameraAndMicrophone: knownResource = true
+        @unknown default: knownResource = false
+        }
+        let allowed = policy.permitsMedia(request: BibiWebOrigin(securityOrigin: origin),
+            frame: BibiWebOrigin(securityOrigin: frame.securityOrigin), pageID: pageID,
+            sessionGeneration: sessionGeneration, navigation: navigationID,
+            live: webView === web && frame.webView === web && isLivePage, knownResource: knownResource)
+        decisionHandler(allowed ? .grant : .deny)
+    }
+    private var isLivePage: Bool {
+        sessionIsCurrent(sessionGeneration) && UIApplication.shared.applicationState == .active
+            && viewIfLoaded?.window != nil && !isBeingDismissed && result != false
+    }
+    private func permitsWindow(_ action: WKNavigationAction) -> Bool {
+        guard let url = action.request.url, policy.permitsDocument(url) else { return false }
+        let source = BibiWebOrigin(securityOrigin: action.sourceFrame.securityOrigin)
+        return action.sourceFrame.webView === web && policy.permitsMedia(request: source, frame: source,
+            pageID: pageID, sessionGeneration: sessionGeneration, navigation: navigationID,
+            live: isLivePage, knownResource: true)
+    }
+    private func stopCapture() {
+        web.setCameraCaptureState(.none, completionHandler: nil)
+        web.setMicrophoneCaptureState(.none, completionHandler: nil)
+    }
+    private func rejectMainNavigation() {
+        if let navigation { rejected.insert(ObjectIdentifier(navigation)) }
+        navigationID = UUID(); policy.beginNavigation(navigationID)
+        web.stopLoading(); result = nil; finish(success: false)
+    }
 }
 
 @MainActor

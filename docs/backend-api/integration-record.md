@@ -302,3 +302,7 @@ run with `BibiApp/scripts/run_online_acceptance.sh` or the BibiOnlineAcceptance
 Xcode scheme; do not disable signing for this interactive Keychain flow.
 
 Evidence: `BibiApp/Backend/IntegrationEvidence/b-online-acceptance-2026-11-05.json`.
+
+## Explicit fixed-link agreement update - November 5, 2026
+
+The owner explicitly authorized both agreement revisions and online replacement at the original October 29 URLs. Final canonical anonymous PDF readbacks match the revised bundles and extracted source text. Consent inputs now derive `local-da6e1e00f32c`; existing installed binaries still need an updated bundle and renewed consent where required. The agreements are frozen again; future edits require another explicit scoped request. See `../AGREEMENT-UPDATE-2026-11-05.md` and `../../BibiApp/Design/AgreementPDF/Privacy-Update-2026-11-05/public-readback.json`. Retention/support/external-recipient operational gaps remain recorded, and no app build or runtime acceptance was performed for this update.

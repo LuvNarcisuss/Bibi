@@ -54,9 +54,11 @@ acceptance item below. See `../../docs/backend-api/integration-record.md` and
   signing, push entitlement/APNs delivery and product association.
 - [ ] Review guest rate limits and abuse prevention; assign moderation operators
   and a report/deletion escalation process.
-- [ ] Have the owner review existing agreements for service readiness. Agreements
-  are frozen by the current instruction; no wording, public URL, PDF or consent
-  version may be changed without a new explicit request.
+- [ ] Resolve operational retention schedules, support readiness, external-recipient
+  verification and renewed-consent/runtime acceptance described in
+  `../../docs/AGREEMENT-UPDATE-2026-11-05.md`. The owner authorized both PDF
+  updates in place on November 5; canonical URLs are unchanged. The revised
+  agreements are frozen again and require a new explicit request for changes.
 
 ## Authorized device acceptance still required
 
@@ -86,6 +88,11 @@ run incomplete; never substitute an old build or another simulator.
   request volume; offline correctness checks are not load acceptance.
 - [ ] Distinguish static, build, iOS tests, local StoreKit Test, Apple Sandbox,
   actual external service and Production results in the evidence ledger.
+
+- [ ] Validate the November 5 WebView origin/media source fix on the required
+  latest-source device run, including iframe origins, redirects/fragments,
+  replacement/logout and stopping active capture. The five new XCTest methods
+  are written but unexecuted; see `../../docs/WEBVIEW-MEDIA-PERMISSIONS.md`.
 
 ## Cutover
 

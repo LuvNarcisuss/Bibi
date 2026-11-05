@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-05",
+  "scope": "P1 unconditional business WebView media grant source fix",
+  "verification": "Static inspection and independent read-only review; no new P1/P2 finding in final review",
+  "sourceSHA256": {
+    "BibiApp/Bibi/Backend/Configured/BibiConfiguredWebController.swift": "d2f37186e866993c9c469b5462197b8cefbf81b5b099aefb34869745a397383a",
+    "BibiApp/Bibi/Backend/Configured/BibiConfiguredSession.swift": "c30baccbd25b27dd5c83e3e2d9680592c94b52b4d544d2a6eaec8cc6f962f01e",
+    "BibiApp/Tests/Backend/BackendBoundaryTests.swift": "2f5eff8b2559ed1968229fe0e2037ad4481101a17d19f4916d6e3c1647142437"
+  },
+  "xctestMethodsWritten": 5,
+  "xctestMethodsExecuted": 0,
+  "buildPerformed": false,
+  "typecheckPerformed": false,
+  "appLaunched": false,
+  "deviceCaptureVerified": false,
+  "contractsAndReleaseGateChanged": false,
+  "agreementsRepublishedForThisFix": false,
+  "checks": [
+    "request/frame/document origins",
+    "fixed page/session/navigation scope",
+    "default deny and known resource types",
+    "main action/final response document restriction",
+    "popup source and destination restriction",
+    "no unknown-scheme browser fallback",
+    "capture stop on teardown/replacement/failure/inactive",
+    "synchronous old-page invalidation before replacement presentation",
+    "same-document history does not require a new commit",
+    "all three playback settings preserved"
+  ]
+}

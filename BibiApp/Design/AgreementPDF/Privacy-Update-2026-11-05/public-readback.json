@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-05",
+  "agreements_frozen": true,
+  "consent_version_from_existing_algorithm": "local-da6e1e00f32c",
+  "documents": [
+    {
+      "name": "TermsOfService",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/TermsOfService.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "sha256": "94fa4fcf5cff0be7b4bccc26e770460089623c55ecbe0ddddabd458193f3b3ae",
+      "bytes": 51694,
+      "pages": 4,
+      "matches_bundled_bytes": true,
+      "matches_source_text": true,
+      "fonts_embedded": true,
+      "anonymous_access_verified": true,
+      "canonical_url_unchanged": true
+    },
+    {
+      "name": "PrivacyPolicy",
+      "url": "https://yepycfnkkfrfmuwdekka.supabase.co/storage/v1/object/public/bibi-agreements/2026-10-29/PrivacyPolicy.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "sha256": "e72398236e6bde7b60d4445bafd409d3f3022d1058a0daa5982e5c836fd604cf",
+      "bytes": 54065,
+      "pages": 5,
+      "matches_bundled_bytes": true,
+      "matches_source_text": true,
+      "fonts_embedded": true,
+      "anonymous_access_verified": true,
+      "canonical_url_unchanged": true
+    }
+  ],
+  "publisher": {
+    "function": "bibi-agreement-publish",
+    "final_version": 2,
+    "verify_jwt": true,
+    "status": "disabled_410_source_readback_verified"
+  },
+  "app_build_or_runtime_performed": false
+}

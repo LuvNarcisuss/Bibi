@@ -41,5 +41,13 @@
     },
     "jwtVerification": true
   },
-  "purchaseRecoveryEvidence": "../../BibiApp/Backend/IntegrationEvidence/b-purchase-chain-verification.json"
+  "purchaseRecoveryEvidence": "../../BibiApp/Backend/IntegrationEvidence/b-purchase-chain-verification.json",
+  "agreementUpdate": {
+    "date": "2026-11-05",
+    "scope": "Explicit owner request to update both agreements in place; future changes remain frozen.",
+    "canonicalURLsUnchanged": true,
+    "consentVersion": "local-da6e1e00f32c",
+    "evidence": "../../BibiApp/Design/AgreementPDF/Privacy-Update-2026-11-05/public-readback.json",
+    "operationalRetentionAndExternalRecipients": "Specific limitations are disclosed; see docs/AGREEMENT-UPDATE-2026-11-05.md. No universal readiness claim."
+  }
 }

@@ -1,0 +1,145 @@
+Bibi - Terms of Service
+Last updated: November 5, 2026
+Operator: Chengdu Yuehui Xingyu Technology Co., Ltd.
+Contact: trvahai996@icloud.com
+1. Agreement and eligibility
+These Terms govern Bibi, an anime-themed iPhone app with Shorts, Circles, Challenges, Chats
+and Me. "We" means the operator above. Read these Terms and the Privacy Policy before
+accepting. If you do not agree, do not continue using Bibi.
+You must be at least 18 years old, or older where required by applicable law, and able to enter
+this agreement. An adult declaration does not independently verify your age or identity. Bibi is
+not intended for children.
+2. Services and accounts
+Bibi supports viewing and creating short-form content, circles and challenges, conversations,
+profiles and optional diamond features. Depending on your installed version and available
+services, features may operate locally or through online services. An unavailable service is not a
+completed publication, delivered message, reviewed report or successful purchase. Live streams
+and voice rooms are not Bibi services. Native call previews do not establish live voice or video
+communication.
+Online one-tap sign-in creates or restores a Supabase guest account with an actual service
+identity. It is separate from a device-only library or Device archive. A guest account does not
+require a password in the normal entry flow, but it can still be associated with content, messages
+and transaction records. Fictional editorial profiles and catalog artwork are not proof that those
+people are real, available or online.
+Keep your device and credentials secure. A display name or friend code is not proof of identity. A
+guest may permanently lose access after logout, loss of credentials or device loss; signing in as a
+new guest does not recover the previous account or its balance. Keychain persistence is not a
+recovery guarantee. Bibi is not an emergency communication service or a secure archive for
+irreplaceable media.
+Online use may also require connected authentication, realtime and webpage services. They can
+present their own content and notices. Their availability and capabilities are not guaranteed by
+the native app. Acceptance of these Terms does not represent acceptance of every third-party
+page's terms or permission for unrelated data use.
+3. Your content
+You retain your rights in content you create or import. You authorize us and necessary service
+providers to copy, store, process, resize, create covers for, display and transmit the content to
+provide the feature and audience you choose. Public posts may be seen by other users;
+conversations are available to authorized participants. Selecting a file locally does not by itself
+authorize publication to a new unrelated service.
+Only upload or share content you own or are permitted to use, including music, videos, artwork,
+character designs and identifiable people. Follow attribution and license requirements. Attribution
+alone does not replace permission. Do not disclose another person's private information or media
+without authorization.
+This service permission does not grant a right to sell your content or use it to train AI models.
+Existing archived media is not uploaded automatically; an explicit import/upload action creates a
+separate cloud copy. Deletion has the limits in section 7 and the Privacy Policy, including retained
+conversation text and separate records.
+4. Community and safety
+Do not create, upload or share illegal material, child sexual abuse material, sexually explicit
+content, nonconsensual intimate images, threats, targeted harassment, hate, scams, malicious
+software or dangerous conduct. Do not impersonate people, expose private information, infringe
+rights, spam, manipulate balances or transactions, or bypass access and security controls.
+Take care when filming and joining challenges. Do not endanger yourself or others, trespass or
+film without necessary permission. Challenges are creative activities, not promises of prizes,
+exposure, income or creator earnings.
+Use available reporting and blocking controls for relevant concerns. Online reports are stored for
+review; local safety choices affect the local experience. A submitted report is not proof of
+completed review or a guarantee of round-the-clock staffing, a particular response time or
+removal from every device. Contact trvahai996@icloud.com for safety or copyright concerns and
+provide only necessary details. For copyright concerns, identify the work, relevant content
+location and your authority to act.
+We may restrict access, remove content or suspend an account for substantiated violations,
+security needs or legal obligations, proportionately and subject to applicable law. We cannot
+inspect or erase arbitrary private files on your device.
+5. Diamonds and purchases
+Diamonds are optional consumable items. Where available, native purchases use Apple's StoreKit
+purchase flow. Review the product, quantity, localized price and Apple confirmation. A
+cancellation, failed or pending payment is not success. Credit requires successful confirmation
+and durable recording; interrupted confirmation may need retry with the original transaction and
+account.
+Native online-wallet transactions are recorded in Bibi's cloud wallet. A purchase initiated through
+a connected service is confirmed with that service; its corresponding balance follows that
+service's records and is not also credited to the native wallet. A displayed receipt alone does not
+confirm payment or delivery. Products and purchasing services must actually be available before
+an order can complete.
+Where shown, diamonds can pay for existing cosmetic choices, reply effects or challenge
+publication. The confirmation shows the cost. Shorts and circle posts do not offer diamond
+tipping; these features do not transfer money to creators or establish creator earnings. Diamonds
+are not cash, a bank deposit or an investment, and cannot be traded between users or redeemed
+for money through Bibi. The native diamond flow has no subscription or automatic renewal.
+Cloud and local archive balances are separate. Consumables generally cannot be restored with
+Apple's ordinary restore-purchases function. Lost guest access, local data loss or account deletion
+can remove access to remaining items or balance; do not assume a new account can reclaim
+them. Keep this in mind before purchasing or deleting an account. These limits do not remove
+statutory rights.
+Apple handles refund requests for its purchases under applicable law and policies. Use
+https://reportaproblem.apple.com/ or consult https://support.apple.com/en-us/118223. Deleting
+an account or app does not request a refund. These Terms do not make every purchase
+categorically nonrefundable.
+6. Privacy and permissions
+The Privacy Policy describes local and cloud records, anonymous identity, selected media,
+messages, connected services, purchases, retention and deletion. Reading or accepting an
+agreement does not authorize unrelated processing. Specific disclosures and permissions remain
+necessary where required.
+Optional native camera features, selected-media uploads and connected webpage media
+features have different processing paths. You may deny system permissions and use unrelated
+features. A connected webpage can process media you permit it to receive; a native
+local-preview statement does not apply to all webpage features.
+7. Deletion and ending use
+You can stop using Bibi at any time. In an online session, Me > Settings > Delete account starts
+authenticated server cleanup. It locks business access, removes account-owned media and
+dependent account records, revokes sessions and removes the authentication identity.
+Interrupted cleanup must be resumed; an error does not mean deletion finished.
+Messages may remain in retained conversations without a sender-profile association, including
+personal details you typed into their text. Restricted transaction/reconciliation and deletion-job
+evidence, provider logs/backups and other recipients' copies may remain as explained in the
+Privacy Policy. Online deletion does not remove the separate Device archive. It does not itself
+request an Apple refund or erase Apple's purchase records.
+In a device-only session, Delete account removes the local library and app-owned data, including
+local wallet records; it is not a request to erase an online identity. Original Photos files and
+existing backups are separate. Removing a post, challenge entry or attachment does not
+necessarily remove its underlying media or other records. Logout ends a session and does not
+delete cloud data; guests should consider access-loss limits before logging out.
+8. Bibi materials and third-party services
+Bibi and its licensors retain rights in the app, original artwork, interface and supplied material.
+You may use the app for lawful personal use on supported Apple devices you own or control,
+subject to applicable Apple usage rules. Do not sell unauthorized access or redistribute protected
+material. Reverse-engineering restrictions apply only as allowed by law.
+Artwork & Credits identifies separately licensed films, fonts and materials; their licenses continue
+to apply. Fictional or anime-inspired artwork does not imply another creator's or franchise's
+endorsement. External websites, connected pages and services have their own terms and
+notices, and their content is not a promise about Bibi's native services.
+9. Availability and legal rights
+We aim to describe Bibi accurately but cannot guarantee uninterrupted services, error-free
+storage, third-party availability, recovery of deleted information or successful payments. Save
+originals of important media outside Bibi. Features remain subject to service readiness and actual
+availability.
+To the extent permitted by law, the app is provided as available without additional implied
+warranties. Any limitation applies only where lawful. Nothing excludes liability for fraud,
+deliberate misconduct, gross negligence, death or injury where liability cannot be excluded, or
+any non-excludable consumer, refund, repair or compensation right.
+These Terms are between you and Bibi's operator, not Apple. The operator is responsible for
+applicable app support and claims; Apple has no support obligation under these Terms. If an
+applicable warranty fails, you may notify Apple for a refund where available. To the extent
+permitted by law, Apple has no further warranty obligation. Apple and its subsidiaries are
+third-party beneficiaries of the applicable Apple terms and may enforce them.
+10. Updates, disputes and contact
+Material changes will be explained with renewed acceptance where required. A wording update
+does not activate unavailable services or retroactively remove accrued rights. If you disagree
+with updated Terms, stop using Bibi and use available deletion controls.
+Applicable law determines your rights and competent courts. These Terms do not impose a
+specific jurisdiction, mandatory private arbitration or a waiver of class-action or other procedural
+rights. If one provision is unenforceable, the rest continues to the extent allowed by law. Ending
+use does not extinguish rights and obligations that should continue by their nature.
+For questions, purchases, content concerns or disputes, contact Chengdu Yuehui Xingyu
+Technology Co., Ltd. at trvahai996@icloud.com.
