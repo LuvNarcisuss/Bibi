@@ -68,6 +68,9 @@ def save(content, identities):
         raise RuntimeError("Apple's returned profile does not match Bibi's team, identity and production push requirements.")
     OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / "Bibi-AppStore-Push.mobileprovision").write_bytes(content)
+    installed = Path.home() / "Library/Developer/Xcode/UserData/Provisioning Profiles"
+    installed.mkdir(parents=True, exist_ok=True)
+    (installed / f"{profile['UUID']}.mobileprovision").write_bytes(content)
     summary = {
         "bundle_id": BUNDLE, "team": TEAM, "name": profile["Name"],
         "uuid": profile["UUID"], "aps_environment": "production",
@@ -75,7 +78,7 @@ def save(content, identities):
         "matching_private_key_installed": True,
     }
     (OUTPUT / "profile-summary.json").write_text(json.dumps(summary, indent=2) + "\n")
-    print(f"Verified App Store profile {profile['Name']} for {TEAM}.{BUNDLE}, production APNs.")
+    print(f"Verified and installed App Store profile {profile['Name']} for {TEAM}.{BUNDLE}, production APNs.")
 
 
 def main():

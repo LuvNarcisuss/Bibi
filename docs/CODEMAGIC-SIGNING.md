@@ -31,7 +31,8 @@ It does not create, export or revoke a certificate or register another Bundle ID
 Missing API permissions fail the signing step before Archive.
 
 The selected profile must pass team, Bundle ID, expiration, App Store type,
-usable signing identity and production APNs checks. The build applies only
+usable signing identity and production APNs checks. The UUID-named profile is
+installed in Xcode's UserData/Provisioning Profiles directory. The build applies only
 build/signing/Bibi-AppStore-Push.mobileprovision and retains that public profile
 and a sanitized profile-summary.json as artifacts. After a successful repair,
 fetch the new Bibi App Store Push profile into Codemagic Code signing identities.

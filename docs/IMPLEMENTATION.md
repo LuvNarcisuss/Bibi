@@ -21,8 +21,13 @@ Static Python/YAML/plist parsing and workflow shell syntax checks passed. Cloud
 validation `6aec3284004ce28f20ee106b` confirmed successful Push Notifications
 enablement and readback through the existing Bibi API integration. It then stopped
 on a missing --bundle-ids option in the profile-list CLI command. That argument
-is corrected. Profile generation/storage and Archive/export remain pending the
-next validation; capability enablement alone does not establish package success.
+is corrected. Validation `6aec3342004ce28f20ee10b1` then created and verified
+Bibi App Store Push 2 (UUID 8bc9273a-e442-44f7-a228-1cc5b910782d), production
+APNs and the existing certificate/private-key match. The new profile was fetched
+into Codemagic as bibi_app_store_push. Archive reported that the profile was not
+installed in Xcode's lookup directory. The helper now installs the verified UUID
+file in Library/Developer/Xcode/UserData/Provisioning Profiles before applying it.
+Archive/export remain pending the next validation.
 
 ## Confirmed App Store signing team — November 5, 2026
 
