@@ -1,0 +1,6 @@
+{
+  "signal": "ConstellationReady",
+  "page": {
+    "address": "#{h5Url}"
+  }
+}

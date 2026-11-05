@@ -53,23 +53,23 @@ enum ChatInboxFilter: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
-/// Community people remain discoverable; inbox entries require personal activity.
+/// Resolve existing private records; new contacts come only from server profiles.
 enum CommunityChatCatalog {
     static let initialMutualIDs: Set<String> = []
     static let initialFollowerIDs: Set<String> = []
     static let conversations: [CommunityConversation] = [
-        CommunityConversation(id: "maya", name: "Maya Chen", avatars: ["Portrait1"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "leo", name: "Leo Brooks", avatars: ["Portrait2"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "zoe", name: "Zoe Park", avatars: ["Portrait3"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "noah", name: "Noah Rivera", avatars: ["Portrait4"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "aria", name: "Aria Wilson", avatars: ["Portrait5"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "finn", name: "Finn Taylor", avatars: ["Portrait6"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
+        CommunityConversation(id: "maya", name: "Maya Chen", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "leo", name: "Leo Brooks", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "zoe", name: "Zoe Park", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "noah", name: "Noah Rivera", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "aria", name: "Aria Wilson", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "finn", name: "Finn Taylor", avatars: ["BibiMark"], kind: .person, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
     ]
-    static var people: [CommunityConversation] { conversations }
+    static var people: [CommunityConversation] { [] }
     /// Resolve older user-written drafts/outbox records without restoring authored messages.
     static let legacyGroups: [CommunityConversation] = [
-        CommunityConversation(id: "after-class", name: "Starlight Society", avatars: ["Portrait1"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "kpop-circle", name: "Cosplay Constellation", avatars: ["Portrait3"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
-        CommunityConversation(id: "ballet-balance", name: "Moonlit Readers", avatars: ["Portrait7"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
+        CommunityConversation(id: "after-class", name: "Starlight Society", avatars: ["BibiMark"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "kpop-circle", name: "Cosplay Constellation", avatars: ["BibiMark"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: []),
+        CommunityConversation(id: "ballet-balance", name: "Moonlit Readers", avatars: ["BibiMark"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
     ]
 }

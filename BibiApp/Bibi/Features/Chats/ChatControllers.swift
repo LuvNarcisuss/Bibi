@@ -545,6 +545,15 @@ final class ChatsController: BibiScreen, UITableViewDelegate, UITableViewDataSou
     table.isHidden = isEmpty
     emptyScroll.isHidden = !isEmpty
     guard isEmpty else { return }
+    if let error = store.online?.chatLoadError ?? store.online?.loadError {
+      emptyContent.arrangedSubviews.forEach {
+        emptyContent.removeArrangedSubview($0)
+        $0.removeFromSuperview()
+      }
+      emptyContent.addArrangedSubview(label("Conversations could not load. " + error, 16, BibiPalette.muted))
+      emptyContent.addArrangedSubview(actionButton("Try again", icon: .refresh) { [weak self] in self?.store.retryOnlineContent() })
+      return
+    }
     let showWelcome = store.chatConversations.isEmpty && filter == .all && !searching
     let panel = showWelcome ? welcomeContent : noResultsContent
     if emptyContent.arrangedSubviews.first !== panel {
@@ -807,7 +816,8 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
     super.viewDidAppear(animated)
     if let online = store.online, let id = UUID(uuidString: conversation.id) {
       Task { [weak self] in
-        try? await online.chat.watch(conversation: id) { [weak self] in try? await self?.store.refreshOnline() }
+        do { try await online.chat.watch(conversation: id) { [weak self] in try? await self?.store.refreshOnlineChats() } }
+        catch { self?.message("Live messages could not connect. " + error.localizedDescription) }
       }
     }
     if let entryNotice {
@@ -883,7 +893,12 @@ final class ConversationController: BibiScreen, UITableViewDataSource, UITextFie
       table.backgroundColor = .clear
     }
     if store.isOnline, !store.chatConversations.contains(where: { $0.id.lowercased() == conversation.id.lowercased() }) {
-      table.reloadData(); input.isEnabled = false; input.text = ""
+      table.reloadData(); input.isEnabled = false
+      if !belongsToCurrentAccount { input.text = "" }
+      if store.online?.isRefreshing == true || store.online?.isChatRefreshing == true {
+        hint.text = "Refreshing conversation…"
+        return
+      }
       hint.text = "This conversation is no longer available."
       if let online = store.online { online.chat.stop() }
       return

@@ -1,0 +1,49 @@
+{
+  "linkSuccessMessage": {
+    "name": "ConstellationReady",
+    "discriminator": [
+      "signal"
+    ],
+    "values": {
+      "h5Url": [
+        "page",
+        "address"
+      ]
+    }
+  },
+  "pay": {
+    "name": "DiamondCheckout",
+    "discriminator": [
+      "signal"
+    ],
+    "values": {
+      "orderCode": [
+        "purchase",
+        "reference"
+      ],
+      "batchNo": [
+        "purchase",
+        "product"
+      ]
+    }
+  },
+  "logout": {
+    "name": "ConstellationExpired",
+    "discriminator": [
+      "signal"
+    ],
+    "values": {}
+  },
+  "openBrowser": {
+    "name": "OpenStoryLink",
+    "discriminator": [
+      "signal"
+    ],
+    "values": {
+      "openUrl": [
+        "navigation",
+        "destination"
+      ]
+    }
+  }
+}

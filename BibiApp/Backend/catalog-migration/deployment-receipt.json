@@ -1,0 +1,27 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "schema_migrations": [
+    {
+      "version": "20261104015639",
+      "name": "editorial_catalog_media_identity"
+    },
+    {
+      "version": "20261104020045",
+      "name": "editorial_catalog_hash_integrity"
+    }
+  ],
+  "transfer_function": {
+    "name": "bibi-catalog-transfer",
+    "final_revision": 3,
+    "final_status": "disabled",
+    "http_status": 410,
+    "response": {
+      "error": "Catalog transfer is disabled."
+    },
+    "temporary_secret_files_removed": true
+  },
+  "seed": "catalog-seed.sql",
+  "verification": "verification.json",
+  "agreement_changes": false,
+  "auth_users_created": 0
+}

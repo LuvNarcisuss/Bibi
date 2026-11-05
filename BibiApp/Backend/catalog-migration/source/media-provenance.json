@@ -1,0 +1,983 @@
+[
+  {
+    "source_file": "Assets/avatar-photography-provenance.json",
+    "source_sha256": "7d5027c81c9c88abb11f57ec0aeca5fc91d1c8ee1735eb08c47232d7766dde1b",
+    "matched_records": [
+      {
+        "creator_id": "bibi-story:luna",
+        "asset": "Avatar-LunaCosplay",
+        "file": "Assets/Avatar-LunaCosplay.jpg",
+        "author": "Adriana Hernandez",
+        "source_url": "https://www.pexels.com/photo/portrait-of-woman-cosplaying-anime-character-13190257/",
+        "download_url": "https://images.pexels.com/photos/13190257/pexels-photo-13190257.jpeg?cs=srgb&fm=jpg&w=640&h=640&fit=crop&crop=faces",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "3a0f5bc0fb36c9874ec82508b1de10da2cfcab4dc6a0b32eacf430fc237d8630",
+        "dimensions": [
+          640,
+          640
+        ],
+        "description": "Real cosplay portrait with a blue wig and a futuristic costume."
+      },
+      {
+        "creator_id": "bibi-story:kai",
+        "asset": "Avatar-KaiPortrait",
+        "file": "Assets/Avatar-KaiPortrait.jpg",
+        "author": "fauxels",
+        "source_url": "https://www.pexels.com/photo/portrait-photo-of-man-wearing-eyeglasses-3228892/",
+        "download_url": "https://images.pexels.com/photos/3228892/pexels-photo-3228892.jpeg?cs=srgb&fm=jpg&w=640&h=640&fit=crop&crop=faces",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "1c85423c0d903bd708c68da1ebd3463b40732f94f07b0500f08b2c4adff4c8fb",
+        "dimensions": [
+          640,
+          640
+        ],
+        "description": "Outdoor portrait of a smiling man wearing glasses."
+      },
+      {
+        "creator_id": "bibi-story:mira",
+        "asset": "Avatar-MiraPortrait",
+        "file": "Assets/Avatar-MiraPortrait.jpg",
+        "author": "Murat I\u015eIK",
+        "source_url": "https://www.pexels.com/photo/candid-portrait-of-a-young-woman-in-urban-setting-31546395/",
+        "download_url": "https://images.pexels.com/photos/31546395/pexels-photo-31546395.jpeg?cs=srgb&fm=jpg&w=640&h=640&fit=crop&crop=faces",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "f4d6f681984b252a7364a51ae49d883d572ae4301158d87359c7435597e146b8",
+        "dimensions": [
+          640,
+          640
+        ],
+        "description": "Casual portrait of a woman in a softly lit cafe."
+      },
+      {
+        "creator_id": "bibi-story:nova",
+        "asset": "Avatar-NovaCosplay",
+        "file": "Assets/Avatar-NovaCosplay.jpg",
+        "author": "Vika Glitter",
+        "source_url": "https://www.pexels.com/photo/a-woman-wearing-a-steampunk-costume-9849182/",
+        "download_url": "https://images.pexels.com/photos/9849182/pexels-photo-9849182.jpeg?cs=srgb&fm=jpg&w=640&h=640&fit=crop&crop=faces",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "08c676ebc13c97c2103e71776db2704735da3247f0289a37f416be32ac037511",
+        "dimensions": [
+          640,
+          640
+        ],
+        "description": "Studio photograph of a steampunk cosplayer wearing a hat and goggles."
+      },
+      {
+        "creator_id": "bibi-story:theo",
+        "asset": "Avatar-TheoCosplay",
+        "file": "Assets/Avatar-TheoCosplay.jpg",
+        "author": "cottonbro studio",
+        "source_url": "https://www.pexels.com/photo/man-wearing-black-hat-7792284/",
+        "download_url": "https://images.pexels.com/photos/7792284/pexels-photo-7792284.jpeg?cs=srgb&fm=jpg&w=640&h=640&fit=crop&crop=bottom",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "e96da2a064df3f14060d4ff6e5dad34006ff13ac2bef317003065c620b224ad3",
+        "dimensions": [
+          640,
+          640
+        ],
+        "description": "A male cosplayer with a conical hat in blue light. Face remains visible in the square rendition."
+      },
+      {
+        "bibi-story:rowan": "Portrait4"
+      }
+    ],
+    "notes": null,
+    "generator": null
+  },
+  {
+    "source_file": "Assets/artwork-manifest.json",
+    "source_sha256": "5b4f1292e3f35c54ec5060e959275b50d1d15414746f8a39f1ed9a1a915fc0cf",
+    "matched_records": [
+      {
+        "path": "Assets/Portrait52.png",
+        "sha256": "4e33a4d9a1eeacfbaadb2368fc1428d17078661353ad212e45c39ebbaf358a18"
+      },
+      {
+        "path": "Assets/Portrait4.png",
+        "sha256": "13a5ed92e206a334f49d0c96caf63cd9557e48f3edb8bac6be5677a2bd0655e1"
+      }
+    ],
+    "notes": null,
+    "generator": "Built-in image_gen"
+  },
+  {
+    "source_file": "Assets/media-provenance.json",
+    "source_sha256": "029c5b4016c5c2c6c282b8db74ca5502ee2487bddbb29bc64287772efe3a6b07",
+    "matched_records": [
+      {
+        "id": "7b699b42-1d53-546c-9ee6-b15c1abb751f",
+        "title": "Beyond the rooftops",
+        "creator": "Animation Club",
+        "assetName": "bibi-sky-chase",
+        "duration": 12.011292,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/hero/",
+        "collectionGeneration": 1,
+        "caption": "An adventure above the clouds. #Animation #Worldbuilding",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/hero/",
+          "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+          "author": "Blender Foundation; directed by Daniel Martinez Lara",
+          "license": "CC BY 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+          "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+        },
+        "original": "Assets/original-hero.mp4",
+        "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+        "startSeconds": 28,
+        "excerptSeconds": 12,
+        "runtimeSHA256": "9f60b5538b58badbe96cfb363e79320181da2019fc730b68a3c4a9a2e5cd1e34",
+        "coverSHA256": "5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24000/1001"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "12.011292"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "9115a7cf-e96d-51f8-8ff4-377079bed362",
+        "title": "A paper sky",
+        "creator": "Animation Club",
+        "assetName": "bibi-paper-sky",
+        "duration": 12.012,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/hero/",
+        "collectionGeneration": 1,
+        "caption": "Bold lines and impossible journeys. #Animation #Fantasy",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/hero/",
+          "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+          "author": "Blender Foundation; directed by Daniel Martinez Lara",
+          "license": "CC BY 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+          "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+        },
+        "original": "Assets/original-hero.mp4",
+        "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+        "startSeconds": 60,
+        "excerptSeconds": 12,
+        "runtimeSHA256": "3a5ec449dbc3562fcb7417b11dc0b20a195682d95bd896d1ae3ab5f6b1a02aae",
+        "coverSHA256": "929945cf20280b8c7fa9dda267564ecf385908ed38e10ced93a7a7255a3b1dd4",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24000/1001"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "12.012000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "a2694a14-04bd-5179-b228-9d29aee31eea",
+        "title": "The way back",
+        "creator": "Animation Club",
+        "assetName": "bibi-quiet-return",
+        "duration": 12.012,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/hero/",
+        "collectionGeneration": 1,
+        "caption": "Quiet moments can say the most. #Animation #Storytelling",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/hero/",
+          "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+          "author": "Blender Foundation; directed by Daniel Martinez Lara",
+          "license": "CC BY 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+          "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+        },
+        "original": "Assets/original-hero.mp4",
+        "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+        "startSeconds": 100,
+        "excerptSeconds": 12,
+        "runtimeSHA256": "f4c7bba1966b1a2bdc1c96ff504a6c6cafe24578430bdc432169c576f43d9576",
+        "coverSHA256": "23d10a9a5ea124d2718e805ae5b1f454219db6104633c05f54e54695f8d2caac",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24000/1001"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "12.012000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "e5a2805a-47a1-5086-bced-e665e450e233",
+        "title": "Another world blooms",
+        "creator": "Animation Club",
+        "assetName": "bibi-green-world",
+        "duration": 12.012,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/hero/",
+        "collectionGeneration": 1,
+        "caption": "A world waiting to wake up. #Animation #Fantasy",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/hero/",
+          "download": "https://video.blender.org/object-storage/web_videos/6c79205c-bd3a-42b5-a8a2-ce7a2a166154-536.mp4",
+          "author": "Blender Foundation; directed by Daniel Martinez Lara",
+          "license": "CC BY 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+          "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+        },
+        "original": "Assets/original-hero.mp4",
+        "originalSHA256": "80b5120047b6c42dd82ddfe9115172e2b0498cd119cdec60480b4c42508de485",
+        "startSeconds": 130,
+        "excerptSeconds": 12,
+        "runtimeSHA256": "9e7aa4231ac685e1fa6a0a5ce92f1a42e2c8ee540df0a819e8a872ee7faf7ecc",
+        "coverSHA256": "420b57550627de9c891bcbe4643829c41de6ee262c4c6dae77c8bab51acdc33c",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24000/1001"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "12.012000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "a0c71d98-a6a0-5e38-aad8-2fc87b871086",
+        "title": "A little companion",
+        "creator": "Animation Club",
+        "assetName": "bibi-little-companion",
+        "duration": 16.0,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+        "collectionGeneration": 1,
+        "caption": "Every adventure needs a friend. #Animation #Spring",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/spring/pages/about/",
+          "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+          "author": "Blender Foundation; directed by Andy Goralczyk",
+          "license": "CC BY-SA 4.0 for these adaptations",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+          "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+        },
+        "original": "Assets/original-spring.mp4",
+        "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+        "startSeconds": 44,
+        "excerptSeconds": 16,
+        "runtimeSHA256": "495c7145ee80e16ba39c952b3f3d4e23f90d4ab0a473f5f687e4453a7e379021",
+        "coverSHA256": "f7dffdf763e27261205ed5ec155aa241ee330bb3f174b3cba3212f82d287815d",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "16.000000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "8e5ccf5e-9e83-5314-a2cc-cef514e517c2",
+        "title": "Among ancient roots",
+        "creator": "Animation Club",
+        "assetName": "bibi-ancient-roots",
+        "duration": 16.0,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+        "collectionGeneration": 1,
+        "caption": "An impossible world, beautifully imagined. #Worldbuilding #Spring",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/spring/pages/about/",
+          "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+          "author": "Blender Foundation; directed by Andy Goralczyk",
+          "license": "CC BY-SA 4.0 for these adaptations",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+          "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+        },
+        "original": "Assets/original-spring.mp4",
+        "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+        "startSeconds": 140,
+        "excerptSeconds": 16,
+        "runtimeSHA256": "7768de40bdb56180f0f91fe7bebdf29cb16a1ed0a8bde7cd0033d44b80d60bdb",
+        "coverSHA256": "61e60a26a8e3c9bde5ff864807473fae0d6659b511b13d0d800460d37d077d64",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "16.000000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "12cea62d-ce05-5a4a-843e-9362f6ef96bc",
+        "title": "A spark in the dark",
+        "creator": "Animation Club",
+        "assetName": "bibi-glowing-staff",
+        "duration": 16.0,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+        "collectionGeneration": 1,
+        "caption": "A small spark against a vast world. #Spring #Fantasy",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/spring/pages/about/",
+          "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+          "author": "Blender Foundation; directed by Andy Goralczyk",
+          "license": "CC BY-SA 4.0 for these adaptations",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+          "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+        },
+        "original": "Assets/original-spring.mp4",
+        "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+        "startSeconds": 218,
+        "excerptSeconds": 16,
+        "runtimeSHA256": "e2e635105522091182de66ebef3d6d5571ff287fc14f80d0c1abff21e8013f1c",
+        "coverSHA256": "fb34be7cb9e27c9f36a3d21abc550b8c9f4f12c826117e9d4c87425d1dba92a2",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "16.000000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "94158b52-7118-5dc3-a53a-629f89d7112b",
+        "title": "The world wakes up",
+        "creator": "Animation Club",
+        "assetName": "bibi-spring-awakens",
+        "duration": 16.0,
+        "surface": "shorts",
+        "sourceURL": "https://studio.blender.org/projects/spring/pages/about/",
+        "collectionGeneration": 1,
+        "caption": "A new season. A new beginning. #Spring #Fantasy",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+        "source": {
+          "url": "https://studio.blender.org/projects/spring/pages/about/",
+          "download": "https://video.blender.org/object-storage/web_videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-720.mp4",
+          "author": "Blender Foundation; directed by Andy Goralczyk",
+          "license": "CC BY-SA 4.0 for these adaptations",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0",
+          "licenseNote": "Project page specifies CC BY 4.0; official download host labels Attribution-ShareAlike. Adaptations and covers are offered under CC BY-SA 4.0."
+        },
+        "original": "Assets/original-spring.mp4",
+        "originalSHA256": "9bff819bad5c957f9b09344950db1f03084437b76dd577730c031b30cab36461",
+        "startSeconds": 372,
+        "excerptSeconds": 16,
+        "runtimeSHA256": "88c5f6f6d5b8616ffc530f2357e9739b3b69d5de2ecedb284940a1680a59f91b",
+        "coverSHA256": "dedffd81fffb23c4b5414161a23e8c81c3732c8da04f94180ebf6c3b55ff6a42",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 960,
+              "height": 402,
+              "r_frame_rate": "24/1"
+            },
+            {
+              "codec_name": "aac",
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "16.000000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 960; H.264/AAC encoding; extracted midpoint cover. Original speed retained."
+      },
+      {
+        "id": "81f706b5-ee96-5309-824c-df1d8fb31455",
+        "title": "Lavender costume details",
+        "creator": "Nova Stitch",
+        "curatorID": "bibi-story:nova",
+        "assetName": "bibi-cosplay-convention",
+        "duration": 18.018,
+        "surface": "shorts",
+        "sourceURL": "https://www.pexels.com/video/cosplay-portrait-with-detailed-costume-in-indoor-setting-31038234/",
+        "collectionGeneration": 2,
+        "caption": "A cosplay reference: lavender layers, butterfly details and expressive gestures. #Cosplay #CostumeStudy",
+        "credit": "Video: TBD Tuyen \u00b7 Pexels License",
+        "source": {
+          "url": "https://www.pexels.com/video/cosplay-portrait-with-detailed-costume-in-indoor-setting-31038234/",
+          "download": "https://videos.pexels.com/video-files/31038234/13265855_1080_1920_30fps.mp4",
+          "author": "TBD Tuy\u00ean",
+          "license": "Pexels License",
+          "licenseURL": "https://www.pexels.com/license/",
+          "credit": "Video: TBD Tuyen \u00b7 Pexels License"
+        },
+        "original": "Assets/original-cosplay-convention.mp4",
+        "originalSHA256": "e914a7aa3be444470562b05fe47105719af6c9cbbdb13296294bc41612d79072",
+        "startSeconds": 0,
+        "excerptSeconds": 18,
+        "runtimeSHA256": "17f3dde42cac594e11ee964bcf43e81b482cf035aea2d24e0de16021851a3485",
+        "coverSHA256": "ae9f9533a9813716ef1202b00b5b0e83ac8d18812e346831f251863c19830536",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 540,
+              "height": 960,
+              "r_frame_rate": "30000/1001"
+            }
+          ],
+          "format": {
+            "duration": "18.018000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 540; H.264 encoding; no audio; midpoint cover. Original speed retained."
+      },
+      {
+        "id": "17a08c4f-3d4a-506a-b0eb-6b61f3d44603",
+        "title": "Silver and blue costume study",
+        "creator": "Theo Lantern",
+        "curatorID": "bibi-story:theo",
+        "assetName": "bibi-cosplay-garden",
+        "duration": 7.007,
+        "surface": "shorts",
+        "sourceURL": "https://www.pexels.com/video/elegant-woman-in-intricate-cosplay-costume-30794058/",
+        "collectionGeneration": 2,
+        "caption": "A cosplay reference: silver fabric, blue accents and a floral prop. #Cosplay #ColorStudy",
+        "credit": "Video: TBD Tuyen \u00b7 Pexels License",
+        "source": {
+          "url": "https://www.pexels.com/video/elegant-woman-in-intricate-cosplay-costume-30794058/",
+          "download": "https://videos.pexels.com/video-files/30794058/13171124_1080_2048_60fps.mp4",
+          "author": "TBD Tuy\u00ean",
+          "license": "Pexels License",
+          "licenseURL": "https://www.pexels.com/license/",
+          "credit": "Video: TBD Tuyen \u00b7 Pexels License"
+        },
+        "original": "Assets/original-cosplay-garden.mp4",
+        "originalSHA256": "194591ced9523189b13bbbcb303d2ea8d91eb88bd6e04633721dec2a8301989e",
+        "startSeconds": 4,
+        "excerptSeconds": 7,
+        "runtimeSHA256": "a48987fe5ff05081cbad0a5c4f614db96d81a2c119e5db72491a5443ef69e02a",
+        "coverSHA256": "277b34bc7be656926acfa465e5ff4ad154c3339af9c1859f4ab14cfbe3db25ef",
+        "metadata": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 540,
+              "height": 1024,
+              "r_frame_rate": "60000/1001"
+            },
+            {
+              "r_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "7.007000"
+          }
+        },
+        "changes": "Time excerpt; proportional resize to width 540; H.264 encoding; no audio; midpoint cover. Original speed retained."
+      }
+    ],
+    "notes": null,
+    "generator": null
+  },
+  {
+    "source_file": "Assets/cosplay-cover-provenance.json",
+    "source_sha256": "7fa80191ea60e23024d493e3509352a85c39e8cf790ec7d5df9483e030ced607",
+    "matched_records": [
+      {
+        "asset": "ChallengeCover-OrangeScarf",
+        "file": "Assets/challenge-cover-orange-scarf.jpg",
+        "author": "\u962e \u5357\u5e86",
+        "source_url": "https://www.pexels.com/photo/dynamic-anime-cosplay-character-portrait-29355064/",
+        "download_url": "https://images.pexels.com/photos/29355064/pexels-photo-29355064.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "1ee74f2f50f3d2be96e651f67de5c30083927102e8eafe93c790ba5a3e4f8431",
+        "dimensions": [
+          1200,
+          1752
+        ],
+        "description": "A close portrait of a cosplayer with orange hair, a red scarf and a dark glove."
+      },
+      {
+        "asset": "ChallengeCover-BlueCostume",
+        "file": "Assets/challenge-cover-blue-costume.jpg",
+        "author": "Quyet Nguyen",
+        "source_url": "https://www.pexels.com/photo/anime-inspired-blue-costume-cosplay-portrait-39815674/",
+        "download_url": "https://images.pexels.com/photos/39815674/pexels-photo-39815674.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "3a08779cfd6d36327748e3a68b155495fc897d4094ab20a784b3446357a2d242",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer in a blue and white costume with a light blue wig and a black bow."
+      },
+      {
+        "asset": "ChallengeCover-GreenArmor",
+        "file": "Assets/challenge-cover-green-armor.jpg",
+        "author": "Calvin Seng",
+        "source_url": "https://www.pexels.com/photo/vibrant-cosplay-portrait-at-anime-convention-31490103/",
+        "download_url": "https://images.pexels.com/photos/31490103/pexels-photo-31490103.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "8068ff3623d29e88b333171a1aba8b0d26c37e8c76cd6fea36bde41b5071240a",
+        "dimensions": [
+          1200,
+          1680
+        ],
+        "description": "A cosplayer with green hair and black-and-gold armor in front of pink blossoms."
+      },
+      {
+        "asset": "ChallengeCover-WhiteFox",
+        "file": "Assets/challenge-cover-white-fox.jpg",
+        "author": "Martin.que",
+        "source_url": "https://www.pexels.com/photo/elegant-cosplay-portrait-at-anime-convention-30462155/",
+        "download_url": "https://images.pexels.com/photos/30462155/pexels-photo-30462155.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "25e75c9142a9fb8eed8e27e01dbaf5fea5dd0dadac0b5403824eeaeb19672467",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A close portrait of a cosplayer with long white hair and pale fox ears."
+      },
+      {
+        "asset": "PostCover-RedHorns",
+        "file": "Assets/post-cover-red-horns.jpg",
+        "author": "Quyet Nguyen",
+        "source_url": "https://www.pexels.com/photo/vibrant-anime-cosplay-costume-portrait-39797621/",
+        "download_url": "https://images.pexels.com/photos/39797621/pexels-photo-39797621.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "9a2d254a965088d316e8b6e359f9c11592a4892f2a504b2a14a7b185463828e8",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer in a red dress with blue horn accessories and clasped hands."
+      },
+      {
+        "asset": "PostCover-PinkSuit",
+        "file": "Assets/post-cover-pink-suit.jpg",
+        "author": "Mario Spencer",
+        "source_url": "https://www.pexels.com/photo/cosplay-enthusiast-at-outdoor-anime-convention-29901442/",
+        "download_url": "https://images.pexels.com/photos/29901442/pexels-photo-29901442.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "9f0409c21b475ddd967f54b9b235084ff351a49a226b9b4d237b654be50b635e",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "description": "A cosplayer with a pink wig and a black suit turned toward another attendee."
+      },
+      {
+        "asset": "PostCover-MintHall",
+        "file": "Assets/post-cover-mint-hall.jpg",
+        "author": "TBD Tuyen",
+        "source_url": "https://www.pexels.com/photo/cosplay-character-at-convention-center-event-37206376/",
+        "download_url": "https://images.pexels.com/photos/37206376/pexels-photo-37206376.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "7da3c5bcba04625f04ffdeb255fdeb89d233a637b3af0b5a5ee67d1799774e5d",
+        "dimensions": [
+          1200,
+          900
+        ],
+        "description": "A cosplayer with mint hair standing in a busy convention hall."
+      },
+      {
+        "asset": "PostCover-RedBlackHair",
+        "file": "Assets/post-cover-red-black-hair.jpg",
+        "author": "TBD Tuyen",
+        "source_url": "https://www.pexels.com/photo/colorful-cosplay-portrait-at-convention-33156707/",
+        "download_url": "https://images.pexels.com/photos/33156707/pexels-photo-33156707.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "49bbfb06eb8684aedfab8534a82337a626a9593a95e9228afba25efc55f08fea",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A close portrait of a cosplayer with black and red hair holding the ends of the wig."
+      },
+      {
+        "asset": "PostCover-GreenHeadband",
+        "file": "Assets/post-cover-green-headband.jpg",
+        "author": "Martin.que",
+        "source_url": "https://www.pexels.com/photo/cosplay-enthusiast-in-anime-character-costume-29797036/",
+        "download_url": "https://images.pexels.com/photos/29797036/pexels-photo-29797036.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "05bc0eb60238faaf3951a14f578e250194d8b832e23143038cd5d3a9b18cfb7e",
+        "dimensions": [
+          1200,
+          800
+        ],
+        "description": "A cosplayer with a dark wig, a green and yellow headband and a cream vest."
+      },
+      {
+        "asset": "PostCover-PurpleRibbon",
+        "file": "Assets/post-cover-purple-ribbon.jpg",
+        "author": "Vladimir Flores",
+        "source_url": "https://www.pexels.com/photo/stylish-anime-inspired-cosplay-portrait-35526892/",
+        "download_url": "https://images.pexels.com/photos/35526892/pexels-photo-35526892.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "d71330e428bc58cbf1a5fb85270d86986217a08f9c310315189b6b213ea8f745",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer with a purple wig, a white sleeveless shirt and a long black ribbon."
+      },
+      {
+        "asset": "PostCover-PinkBows",
+        "file": "Assets/post-cover-pink-bows.jpg",
+        "author": "Ti\u1ebfn Anh Ho\u00e0ng",
+        "source_url": "https://www.pexels.com/photo/vibrant-cosplayer-in-pink-wig-and-dress-at-convention-32313090/",
+        "download_url": "https://images.pexels.com/photos/32313090/pexels-photo-32313090.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "bf4a121467427791c081fcadd68babccc0e5023b080ce92692d77e4aee1f20ff",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer in a pink wig and a pastel dress covered in bows and lace."
+      },
+      {
+        "asset": "PostCover-PinkBraids",
+        "file": "Assets/post-cover-pink-braids.jpg",
+        "author": "Mario Spencer",
+        "source_url": "https://www.pexels.com/photo/anime-cosplay-enthusiast-with-pink-hair-in-costa-rica-29901306/",
+        "download_url": "https://images.pexels.com/photos/29901306/pexels-photo-29901306.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "32155274380d374cb60c010a90f38b0b5fdeaa1bddfd936d92ebfacc064d423b",
+        "dimensions": [
+          1200,
+          1501
+        ],
+        "description": "A smiling cosplayer with pink and yellow braids and a white coat."
+      },
+      {
+        "asset": "PostCover-PinkCape",
+        "file": "Assets/post-cover-pink-cape.jpg",
+        "author": "Ho\u00e0ng Ti\u1ebfn Anh",
+        "source_url": "https://www.pexels.com/photo/pink-haired-cosplay-enthusiast-at-convention-31471180/",
+        "download_url": "https://images.pexels.com/photos/31471180/pexels-photo-31471180.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "45e66f6226a3514da39530d0b6e8e8bf291081604a0888a197799da63212ce97",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer with a pink bob, a red outfit and a cream cape, arms crossed."
+      },
+      {
+        "asset": "PostCover-PinkArmor",
+        "file": "Assets/post-cover-pink-armor.jpg",
+        "author": "TBD Tuyen",
+        "source_url": "https://www.pexels.com/photo/stunning-cosplay-portrait-with-pink-wig-and-armor-37301596/",
+        "download_url": "https://images.pexels.com/photos/37301596/pexels-photo-37301596.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "7bc9ff8015b7656582490c6241d5abab74f674de1a6e44e5c85efba12195e85b",
+        "dimensions": [
+          1200,
+          1600
+        ],
+        "description": "A cosplayer with a pink wig, silver ear pieces and red and teal armor."
+      },
+      {
+        "asset": "PostCover-BlueBow",
+        "file": "Assets/post-cover-blue-bow.jpg",
+        "author": "S\u01a1n Ng\u1ecdc",
+        "source_url": "https://www.pexels.com/photo/young-woman-in-blue-wig-and-red-bow-at-convention-28793664/",
+        "download_url": "https://images.pexels.com/photos/28793664/pexels-photo-28793664.jpeg?cs=srgb&fm=jpg&w=1200",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "sha256": "1708a0a5d6136d8702bc7626161e55d92531f9c043564a14ba1e58c334c7d7a5",
+        "dimensions": [
+          1200,
+          1800
+        ],
+        "description": "A cosplayer with long blue hair, a large red bow and a white dress with gold trim."
+      }
+    ],
+    "notes": null,
+    "generator": null
+  },
+  {
+    "source_file": "Assets/post-cover-provenance.json",
+    "source_sha256": "30f40b0cfe3ba778ddfa8dd8b6832241320eac6881942fa476514608283782b1",
+    "matched_records": [
+      {
+        "asset": "PostCover-AnimationCity",
+        "path": "Assets/bibi-sky-chase.jpg",
+        "author": "Blender Foundation",
+        "sourceURL": "https://studio.blender.org/projects/hero/",
+        "license": "CC BY 4.0",
+        "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+        "downloadURL": null,
+        "sha256": "5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
+        "dimensions": [
+          960,
+          402
+        ],
+        "credit": "Film still: Hero \u00b7 Blender Foundation",
+        "description": "An animated city with warm buildings and glowing blue machinery."
+      },
+      {
+        "asset": "PostCover-SteampunkCostume",
+        "path": "Assets/post-cover-steampunk-costume.jpg",
+        "author": "Vika Glitter",
+        "sourceURL": "https://www.pexels.com/photo/a-woman-wearing-a-steampunk-costume-9849182/",
+        "license": "Pexels License",
+        "licenseURL": "https://www.pexels.com/license/",
+        "downloadURL": "https://images.pexels.com/photos/9849182/pexels-photo-9849182.jpeg?cs=srgb&fm=jpg&w=1000",
+        "sha256": "fc447073bc7f007d21241a5d53834a1466cc6318804179eb2393fa387cc6f590",
+        "dimensions": [
+          1000,
+          1303
+        ],
+        "credit": "Photo: Vika Glitter \u00b7 Pexels",
+        "description": "A steampunk costume with goggles, a top hat and a small belt bag."
+      },
+      {
+        "asset": "PostCover-CosplayConvention",
+        "path": "Assets/PostCover-CosplayConvention.jpg",
+        "author": "TBD Tuy\u00ean",
+        "sourceURL": "https://www.pexels.com/video/cosplay-portrait-with-detailed-costume-in-indoor-setting-31038234/",
+        "license": "Pexels License",
+        "licenseURL": "https://www.pexels.com/license/",
+        "downloadURL": "https://videos.pexels.com/video-files/31038234/13265855_1080_1920_30fps.mp4",
+        "sha256": "ae9f9533a9813716ef1202b00b5b0e83ac8d18812e346831f251863c19830536",
+        "dimensions": [
+          540,
+          960
+        ],
+        "credit": "Video still: TBD Tuyen \u00b7 Pexels",
+        "description": "Lavender costume details",
+        "processing": "Unmodified copy of the matching runtime video midpoint cover."
+      },
+      {
+        "asset": "PostCover-CosplayGarden",
+        "path": "Assets/PostCover-CosplayGarden.jpg",
+        "author": "TBD Tuy\u00ean",
+        "sourceURL": "https://www.pexels.com/video/elegant-woman-in-intricate-cosplay-costume-30794058/",
+        "license": "Pexels License",
+        "licenseURL": "https://www.pexels.com/license/",
+        "downloadURL": "https://videos.pexels.com/video-files/30794058/13171124_1080_2048_60fps.mp4",
+        "sha256": "277b34bc7be656926acfa465e5ff4ad154c3339af9c1859f4ab14cfbe3db25ef",
+        "dimensions": [
+          540,
+          1024
+        ],
+        "credit": "Video still: TBD Tuyen \u00b7 Pexels",
+        "description": "Silver and blue costume study",
+        "processing": "Unmodified copy of the matching runtime video midpoint cover."
+      }
+    ],
+    "notes": null,
+    "generator": null
+  },
+  {
+    "source_file": "Assets/community-curation-provenance.json",
+    "source_sha256": "f4f77ca3e7faf04b4664aa58a2ba323be5aa0849c8959fb04e619e0ae34e2224",
+    "matched_records": [
+      {
+        "video_id": "7b699b42-1d53-546c-9ee6-b15c1abb751f",
+        "asset": "bibi-sky-chase",
+        "surface": "shorts",
+        "curator_id": "bibi-story:luna",
+        "curator_name": "Luna Frames",
+        "source_url": "https://studio.blender.org/projects/hero/",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+      },
+      {
+        "video_id": "9115a7cf-e96d-51f8-8ff4-377079bed362",
+        "asset": "bibi-paper-sky",
+        "surface": "shorts",
+        "curator_id": "bibi-story:kai",
+        "curator_name": "Kai Orbit",
+        "source_url": "https://studio.blender.org/projects/hero/",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+      },
+      {
+        "video_id": "a2694a14-04bd-5179-b228-9d29aee31eea",
+        "asset": "bibi-quiet-return",
+        "surface": "shorts",
+        "curator_id": "bibi-story:rowan",
+        "curator_name": "Rowan Tales",
+        "source_url": "https://studio.blender.org/projects/hero/",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+      },
+      {
+        "video_id": "e5a2805a-47a1-5086-bced-e665e450e233",
+        "asset": "bibi-green-world",
+        "surface": "shorts",
+        "curator_id": "bibi-story:mira",
+        "curator_name": "Mira Ink",
+        "source_url": "https://studio.blender.org/projects/hero/",
+        "credit": "Hero \u00a9 Blender Foundation \u00b7 CC BY 4.0"
+      },
+      {
+        "video_id": "a0c71d98-a6a0-5e38-aad8-2fc87b871086",
+        "asset": "bibi-little-companion",
+        "surface": "shorts",
+        "curator_id": "bibi-story:nova",
+        "curator_name": "Nova Stitch",
+        "source_url": "https://studio.blender.org/projects/spring/pages/about/",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0"
+      },
+      {
+        "video_id": "8e5ccf5e-9e83-5314-a2cc-cef514e517c2",
+        "asset": "bibi-ancient-roots",
+        "surface": "shorts",
+        "curator_id": "bibi-story:theo",
+        "curator_name": "Theo Lantern",
+        "source_url": "https://studio.blender.org/projects/spring/pages/about/",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0"
+      },
+      {
+        "video_id": "12cea62d-ce05-5a4a-843e-9362f6ef96bc",
+        "asset": "bibi-glowing-staff",
+        "surface": "shorts",
+        "curator_id": "bibi-story:kai",
+        "curator_name": "Kai Orbit",
+        "source_url": "https://studio.blender.org/projects/spring/pages/about/",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0"
+      },
+      {
+        "video_id": "94158b52-7118-5dc3-a53a-629f89d7112b",
+        "asset": "bibi-spring-awakens",
+        "surface": "shorts",
+        "curator_id": "bibi-story:luna",
+        "curator_name": "Luna Frames",
+        "source_url": "https://studio.blender.org/projects/spring/pages/about/",
+        "credit": "Spring \u00a9 Blender Foundation \u00b7 CC BY-SA 4.0"
+      },
+      {
+        "video_id": "81f706b5-ee96-5309-824c-df1d8fb31455",
+        "asset": "bibi-cosplay-convention",
+        "surface": "shorts",
+        "curator_id": "bibi-story:nova",
+        "curator_name": "Nova Stitch",
+        "source_url": "https://www.pexels.com/video/cosplay-portrait-with-detailed-costume-in-indoor-setting-31038234/",
+        "credit": "Video: TBD Tuyen \u00b7 Pexels License"
+      },
+      {
+        "video_id": "17a08c4f-3d4a-506a-b0eb-6b61f3d44603",
+        "asset": "bibi-cosplay-garden",
+        "surface": "shorts",
+        "curator_id": "bibi-story:theo",
+        "curator_name": "Theo Lantern",
+        "source_url": "https://www.pexels.com/video/elegant-woman-in-intricate-cosplay-costume-30794058/",
+        "credit": "Video: TBD Tuyen \u00b7 Pexels License"
+      }
+    ],
+    "notes": null,
+    "generator": null
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "excluded_catalog_prefixes": [
+    "Portrait",
+    "Avatar-",
+    "PostCover-",
+    "ChallengeCover-"
+  ],
+  "reason": "Business portraits, post images and challenge covers are served through authenticated Supabase media. Original source files remain outside the app target for migration provenance.",
+  "retained_interface_artwork": [
+    "AppIcon",
+    "BibiIcon-*",
+    "BibiLaunchBackground",
+    "BibiMark",
+    "BibiWordmark",
+    "BibiWelcome",
+    "BibiRoom*",
+    "BibiTitle-*",
+    "Profile-StarlightCard",
+    "Filter-StarlightCapsule"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "constellation_pass": {
+      "orbit_address": "#{webSocketUrl}",
+      "orbit_join": {
+        "join_step": 10,
+        "orbit_scope": "#{roomId}"
+      }
+    },
+    "constellation_gateway": "#{h5Url}"
+  }
+}

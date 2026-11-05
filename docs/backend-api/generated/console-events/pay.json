@@ -1,0 +1,7 @@
+{
+  "signal": "DiamondCheckout",
+  "purchase": {
+    "reference": "#{orderCode}",
+    "product": "#{batchNo}"
+  }
+}

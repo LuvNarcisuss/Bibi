@@ -152,7 +152,7 @@ final class CirclesController: StackScreen {
     content.addArrangedSubview(
       ConstellationBanner(
         eyebrow: "Find your people", title: "A place for every\nimagination.",
-        subtitle: "Join a circle. Start a conversation.", artwork: "PostCover-PinkArmor"))
+        subtitle: "Join a circle. Start a conversation.", artwork: "BibiWelcome"))
     query.accessibilityLabel = "Search circles by name or topic"
     query.addAction(UIAction { [weak self] _ in self?.refresh() }, for: .editingChanged)
     content.addArrangedSubview(query)
@@ -167,6 +167,11 @@ final class CirclesController: StackScreen {
   override func refresh() {
     guard isViewLoaded else { return }
     results.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    if let error = store.online?.loadError {
+      results.addArrangedSubview(label("Content could not load. " + error, 16, BibiPalette.muted))
+      results.addArrangedSubview(actionButton("Try again", icon: .refresh) { [weak self] in self?.store.retryOnlineContent() })
+      return
+    }
     let text = (query.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
     if filter == 2 {
       let posts = store.circlePosts(savedOnly: true).filter {
@@ -192,7 +197,8 @@ final class CirclesController: StackScreen {
     var cards: [UIView] = []
     for circle in circles {
       let joined = store.community.joinedCircleIDs.contains(circle.id)
-      let art = BibiArtwork(asset: circle.artwork)
+      let art = BibiArtwork(asset: store.isOnline ? nil : circle.artwork)
+      if store.isOnline { art.load(circle.artworkURL) }
       art.translatesAutoresizingMaskIntoConstraints = false
       art.heightAnchor.constraint(equalTo: art.widthAnchor).isActive = true
       art.rounded(14)
@@ -250,7 +256,7 @@ final class CircleDetailController: StackScreen {
     content.addArrangedSubview(
       ConstellationBanner(
         eyebrow: "Interest circle", title: circle.title, subtitle: circle.subtitle,
-        artwork: circle.artwork))
+        artwork: circle.artwork, artworkURL: circle.artworkURL))
     content.addArrangedSubview(
       actionButton(
         joined ? "Joined · Leave circle" : "Join circle", icon: joined ? .check : .plus,

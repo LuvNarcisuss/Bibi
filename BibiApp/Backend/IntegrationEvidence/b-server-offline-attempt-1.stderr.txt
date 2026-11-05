@@ -1,0 +1,29 @@
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at globalThis.fetch (file:///Users/apple/Desktop/Bibi/BibiApp/scripts/verify_b_server_offline.mjs:118:91)
+    at /private/tmp/bibi-a-validation-runtime/node_modules/@supabase/auth-js/dist/main/lib/helpers.js:118:25
+    at _handleRequest (/private/tmp/bibi-a-validation-runtime/node_modules/@supabase/auth-js/dist/main/lib/fetch.js:106:24)
+    at _request (/private/tmp/bibi-a-validation-runtime/node_modules/@supabase/auth-js/dist/main/lib/fetch.js:95:24)
+    at SupabaseAuthClient._getUser (/private/tmp/bibi-a-validation-runtime/node_modules/@supabase/auth-js/dist/main/GoTrueClient.js:1080:51)
+    at SupabaseAuthClient.getUser (/private/tmp/bibi-a-validation-runtime/node_modules/@supabase/auth-js/dist/main/GoTrueClient.js:1069:31)
+    at authenticate (file:///private/tmp/bibi-b-server-validation/compiled-d461158f-3dd6-4abe-a40e-ba22a04b15a4/_shared/http.js:21:43)
+    at file:///private/tmp/bibi-b-server-validation/compiled-d461158f-3dd6-4abe-a40e-ba22a04b15a4/bibi-begin/index.js:6:11
+    at file:///private/tmp/bibi-b-server-validation/compiled-d461158f-3dd6-4abe-a40e-ba22a04b15a4/_shared/http.js:86:34
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+401 !== 503
+
+    at file:///Users/apple/Desktop/Bibi/BibiApp/scripts/verify_b_server_offline.mjs:161:8 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 401,
+  expected: 503,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.0

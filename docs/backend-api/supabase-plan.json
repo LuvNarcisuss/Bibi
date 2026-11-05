@@ -1,0 +1,45 @@
+{
+  "projectRef": "yepycfnkkfrfmuwdekka",
+  "projectURL": "https://yepycfnkkfrfmuwdekka.supabase.co",
+  "binding": "Existing owner-selected project; November 4 completes its missing A work before B.",
+  "newProjectCreated": false,
+  "bootstrapFunction": "bibi-begin",
+  "stage": "A complete; B code and deployment complete; online/device/payment acceptance pending",
+  "externalRequest": {
+    "applicationID": "48369038",
+    "origin": "https://bibi.byig.top",
+    "status": "Two console imports ready; no live external Auth, Socket, confirmation or Apple call executed."
+  },
+  "catalog": {
+    "contentRecords": 56,
+    "editorialProfilesWithoutAuth": 7,
+    "circles": 4,
+    "challenges": 4,
+    "privateMediaObjects": 43,
+    "mediaBytes": 19953660,
+    "manifest": "../../BibiApp/Backend/catalog-migration/media-manifest.json"
+  },
+  "agreementsFrozen": true,
+  "releaseGateEnabled": false,
+  "verification": {
+    "mediaNewUserReadback": "passed",
+    "businessOperations": "passed",
+    "persistentRealtime": "passed after explicit pre-JOIN session authentication",
+    "sandboxSpendingFixtures": "passed and cleaned; no Apple purchase or Production funds",
+    "appBuild": "passed latest purchase-chain source; unsigned Debug simulator build installed and launched on Bibi UI Acceptance",
+    "iosLaunchAndTests": "owner-authorized offline validation: 31 passed, zero failed/skipped; no real purchase",
+    "bOfflineSQLAndEdge": "eleven scenario groups passed; controlled substitutes, not live upstream",
+    "iOSPurchaseChain": "22 actual service-chain plus 9 existing recovery tests passed; Apple/account/network boundaries controlled"
+  },
+  "bDeployment": {
+    "status": "deployed_readback_verified",
+    "sqlSHA256": "2b65b5e3e607838d35e18af24927748c858a7b78a297fd809d77b7484313f5f9",
+    "migration": "20261104030119 bibi_dual_source_settlement",
+    "functions": {
+      "bibi-settlement": 1,
+      "bibi-begin": 2
+    },
+    "jwtVerification": true
+  },
+  "purchaseRecoveryEvidence": "../../BibiApp/Backend/IntegrationEvidence/b-purchase-chain-verification.json"
+}

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-05",
+  "device": "Owner-selected iPhone 12, iOS 16.5.1 (20F75)",
+  "scheme": "BibiOnlineAcceptance",
+  "configuration": "OnlineAcceptance",
+  "test_bundle_id": "im.seex.sao2",
+  "team": "JPTS6M4T5B",
+  "profile": {
+    "name": "iOS Team Provisioning Profile: im.seex.sao2",
+    "uuid": "fa223d28-3402-4668-95b0-9bbcf4658877",
+    "application_identifier": "JPTS6M4T5B.im.seex.sao2",
+    "aps_environment": "development",
+    "expires": "2027-11-04T03:16:45",
+    "includes_target_device": true
+  },
+  "build": "succeeded",
+  "signature_verification": "passed with system trust access",
+  "installed": true,
+  "launched": true,
+  "running_pid_after_detach": 10250,
+  "online_gate": true,
+  "observed": "Real external B page rendered on the physical iPhone. Diamonds / Recharge content and offer cards are visible.",
+  "entry_path": "Existing authentication, native Socket page receiver and full-screen WKWebView; no forced URL or synthetic event.",
+  "screenshot": "b-physical-online-2026-11-05.png",
+  "screenshot_sha256": "b0ce359d3c344eddb9583b897560bbc8a3e4ce1eccf69c66a9d743c18c845279",
+  "build_log": "/private/tmp/bibi-physical-online-build.log",
+  "build_log_sha256": "ceb24132a49140e3910c5ee25ff280bf26b85b8fd221d42ecbe8ec0acdb2ff8f",
+  "artifact": "/private/tmp/bibi-physical-online/Build/Products/OnlineAcceptance-iphoneos/Bibi.app",
+  "executable_sha256": "e2ce9cfe31bfd1176c4f1abc00adac1f80d586902ce628bda796b6ff4ab72f29",
+  "purchase_initiated_by_agent": false,
+  "real_payment_verified": false,
+  "runtime_limitations": [
+    "An existing StoreKit XcodeTest queue callback reported payment sheet error 907. Purchase, credit delivery and Apple sandbox product availability are not validated."
+  ],
+  "restoration": {
+    "project_yml_and_generated_project": "com.bibi.quadratic",
+    "all_app_configurations": [
+      "Debug",
+      "OnlineAcceptance",
+      "Release"
+    ],
+    "default_debug_release_gate": false,
+    "online_acceptance_gate": true,
+    "phone_installation_retained_as": "im.seex.sao2",
+    "original_bundle_id_signing_retested": false
+  },
+  "scope": "No account reset, Keychain deletion, agreement change, TLS bypass, push-capability removal or purchase initiated by the agent. No iOS test suite ran."
+}

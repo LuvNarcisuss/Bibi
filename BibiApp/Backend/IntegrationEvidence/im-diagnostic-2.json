@@ -1,0 +1,75 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "mode": "chat_only",
+  "diagnostics": [
+    {
+      "phase": "before_subscribe",
+      "hasSession": true,
+      "hasSessionToken": true,
+      "hasRealtimeToken": false
+    },
+    {
+      "phase": "channel_status",
+      "status": "SUBSCRIBED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "system",
+      "status": "error",
+      "extension": "postgres_changes",
+      "message": "Unable to subscribe to changes with given parameters. An exception happened so please check your connect parameters: [event: INSERT, schema: public, table: bibi_messages, filters: [{\"conversation_id\", \"eq\", \"5863dd39-8dec-43f5-8daf-2531cebe5628\", false}], select: nil]. Exception: ERROR P0001 (raise_exception) invalid column for filter conversation_id"
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "new_account_personal_state_empty",
+    "authenticated_catalog_read",
+    "authenticated_a_bootstrap_empty_configuration",
+    "new_user_complete_content_editorial_and_media_visibility"
+  ],
+  "cleanup": [
+    {
+      "label": "C",
+      "user_id": "176cd049-3525-471f-8267-716048c68226",
+      "status": "deleted"
+    },
+    {
+      "label": "B",
+      "user_id": "32384b8b-9f89-4d61-8421-9b7358567326",
+      "status": "deleted"
+    },
+    {
+      "label": "A",
+      "user_id": "d5fbc9de-3e6d-442c-82e2-8d20f3cc420b",
+      "status": "deleted"
+    }
+  ],
+  "failure": "Postgres Changes extension rejected subscription.",
+  "scoped_admin_cleanup_conversation_ids": [
+    "5863dd39-8dec-43f5-8daf-2531cebe5628"
+  ],
+  "limits": [
+    "No iOS UI or simulator acceptance.",
+    "No real purchase or fabricated wallet credit.",
+    "No RTC, push, presence or typing claim.",
+    "DELETE transport metadata needs separate privacy verification."
+  ]
+}

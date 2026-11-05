@@ -1,0 +1,58 @@
+[
+  {
+    "id": "character-switch",
+    "title": "Character Switch",
+    "category": "Cosplay",
+    "summary": "Turn an everyday look into a character from your imagination.",
+    "artwork": "",
+    "steps": [
+      "Sketch an original character or credit your inspiration.",
+      "Film a safe transition using clothing, props or editing.",
+      "Share the transformation in a short video."
+    ],
+    "active": true,
+    "artwork_media_id": "6b328e65-096f-5bc0-b9b2-116618859939"
+  },
+  {
+    "id": "first-frame",
+    "title": "One Frame, One Feeling",
+    "category": "Animation",
+    "summary": "Tell a small story through color, movement and one clear emotion.",
+    "artwork": "",
+    "steps": [
+      "Choose an emotion and a simple setting.",
+      "Create a short scene with your own art or licensed footage.",
+      "Add a title and explain your creative choice."
+    ],
+    "active": true,
+    "artwork_media_id": "390dccba-e7c7-587a-a814-912cae684278"
+  },
+  {
+    "id": "quiet-story",
+    "title": "A Story Without Words",
+    "category": "Animation",
+    "summary": "Make a character's intention clear without dialogue.",
+    "artwork": "",
+    "steps": [
+      "Give your character one small goal.",
+      "Use a gesture, expression or visual change to tell the story.",
+      "Keep it under three minutes and credit your sources."
+    ],
+    "active": true,
+    "artwork_media_id": "611b1e92-82e0-5258-9d43-f0e33f2698b8"
+  },
+  {
+    "id": "world-sketch",
+    "title": "Build a Tiny World",
+    "category": "Art",
+    "summary": "Give a sketch, model or miniature a story of its own.",
+    "artwork": "",
+    "steps": [
+      "Pick a place that could only exist in your world.",
+      "Record your process or a short tour of the finished piece.",
+      "Introduce the world with an English title and caption."
+    ],
+    "active": true,
+    "artwork_media_id": "aab4e43f-9b6d-582a-937d-8e7fd8f0d5a5"
+  }
+]

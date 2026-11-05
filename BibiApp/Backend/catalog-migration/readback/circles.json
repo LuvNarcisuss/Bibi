@@ -1,0 +1,38 @@
+[
+  {
+    "id": "animation",
+    "title": "Animation Club",
+    "subtitle": "Frames worth talking about",
+    "prompt": "Which tiny animation detail made a story feel alive to you? Share a frame, a thought, or your own short.",
+    "artwork": "",
+    "active": true,
+    "artwork_media_id": "fdf189a6-f283-5809-88a1-517d97844f56"
+  },
+  {
+    "id": "characters",
+    "title": "Character Corner",
+    "subtitle": "Big feelings. Favorite characters.",
+    "prompt": "Design a character around one unexpected strength. What would their first adventure be?",
+    "artwork": "",
+    "active": true,
+    "artwork_media_id": "168ab8c1-2fc3-5196-a4f6-150e448a2ecd"
+  },
+  {
+    "id": "cosplay",
+    "title": "Cosplay Studio",
+    "subtitle": "Bring your imagination to life",
+    "prompt": "What everyday object could become a prop for an original character? Share your process, not just the result.",
+    "artwork": "",
+    "active": true,
+    "artwork_media_id": "f10fb566-7f9e-5200-b214-1f8a46522398"
+  },
+  {
+    "id": "sketchbook",
+    "title": "Sketchbook Society",
+    "subtitle": "From first sketch to original world",
+    "prompt": "Show a work in progress and tell us one thing you want to try next. Credit every reference you use.",
+    "artwork": "",
+    "active": true,
+    "artwork_media_id": "8a39493e-39af-5acb-a489-fe6476c3c2c2"
+  }
+]

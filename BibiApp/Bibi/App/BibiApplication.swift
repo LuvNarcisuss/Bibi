@@ -3,6 +3,17 @@ import UIKit
 import WebKit
 
 @main final class BibiAppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    if BackendConfiguration.isEnabled { BibiDeviceContext.shared.start() }
+    return true
+  }
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    BibiDeviceContext.shared.didRegister(deviceToken)
+  }
+  func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    BibiDeviceContext.shared.didFailRegistration()
+  }
   func application(
     _ application: UIApplication, configurationForConnecting session: UISceneSession,
     options: UIScene.ConnectionOptions
@@ -32,111 +43,130 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     if let url = contexts.first?.url { coordinator?.handleCallback(url) }
   }
   func sceneDidBecomeActive(_ scene: UIScene) { coordinator?.refreshAccount() }
+  func sceneWillResignActive(_ scene: UIScene) { coordinator?.sceneResignedActive() }
+  func sceneDidDisconnect(_ scene: UIScene) { coordinator?.stop() }
   func sceneWillEnterForeground(_ scene: UIScene) { coordinator?.returnToDefaultHome() }
 }
 @MainActor final class BibiCoordinator {
   let store = AppStore()
   private let window: UIWindow
-  private let backdrop = StarlightCanvas()
+  private let host = BibiRootHost()
   private var token: AnyCancellable?
+  private var startup: Task<Void, Never>?
+  private var restoring = true
+  private lazy var configured = BibiConfiguredSession(store: store, window: window, host: host)
   init(window: UIWindow) {
     self.window = window
-    backdrop.isUserInteractionEnabled = false
-    window.addSubview(backdrop)
-    backdrop.pin(to: window)
+    window.rootViewController = host
+    if store.isOnline {
+      configured.showHome = { [weak self] in self?.showHome() }
+      configured.showLogin = { [weak self] in self?.showOnlineEntry(welcome: false) }
+      store.configuredEntry = { [weak self] in
+        guard let self else { throw BackendError.unavailable }
+        try await self.configured.enter(cold: self.restoring)
+      }
+      BibiDeviceContext.shared.onNetworkAvailability = { [weak self] available in
+        self?.configured.networkChanged(available: available)
+        if available { self?.store.wallet.resumeRecovery() }
+      }
+    }
   }
-  private func install(_ controller: UIViewController) {
-    window.rootViewController = controller
-    window.sendSubviewToBack(backdrop)
+  private func install(_ controller: UIViewController) { host.replace(controller) }
+  private func showHome() {
+    if host.content is BibiTabController { return }
+    install(BibiTabController(store: store))
   }
-  func start(callback: URL? = nil) {
+  private func loadingController(error: String? = nil) -> UIViewController {
     let loading = UIViewController()
     loading.overrideUserInterfaceStyle = .light
     loading.view.backgroundColor = BibiPalette.background
-    let brand = UIImageView(image: BibiIcon.wordmark)
+    loading.view.isOpaque = true; loading.view.alpha = 1
+    let brand = UIImageView(image: BibiIcon.appMark)
     brand.contentMode = .scaleAspectFit
-    brand.clipsToBounds = true
-    brand.isAccessibilityElement = true
-    brand.accessibilityLabel = "Bibi"
-    loading.view.addSubview(brand)
-    brand.translatesAutoresizingMaskIntoConstraints = false
-    let spinner = UIActivityIndicatorView(style: .medium)
-    spinner.color = BibiPalette.accent
-    spinner.accessibilityLabel = "Opening Bibi"
-    loading.view.addSubview(spinner)
-    spinner.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      brand.centerXAnchor.constraint(equalTo: loading.view.centerXAnchor),
-      brand.centerYAnchor.constraint(equalTo: loading.view.centerYAnchor, constant: -24),
-      brand.widthAnchor.constraint(equalToConstant: 160),
-      brand.heightAnchor.constraint(equalToConstant: 160),
-      spinner.centerXAnchor.constraint(equalTo: loading.view.centerXAnchor),
-    ])
-    let name = UILabel()
-    name.text = "Bibi"
-    name.font = .systemFont(ofSize: 36, weight: .bold)
-    name.textColor = BibiPalette.ink
-    name.textAlignment = .center
-    name.isAccessibilityElement = false
-    loading.view.addSubview(name)
-    name.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      name.centerXAnchor.constraint(equalTo: brand.centerXAnchor),
-      name.topAnchor.constraint(equalTo: brand.bottomAnchor, constant: 16),
-      spinner.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20),
-    ])
-    spinner.startAnimating()
-    install(loading)
-    token = store.$accountExitRevision.dropFirst().receive(on: DispatchQueue.main).sink {
-      [weak self] _ in self?.showEntry(welcome: false)
+    brand.isAccessibilityElement = true; brand.accessibilityLabel = "Bibi"
+    var rows: [UIView] = [brand]
+    brand.heightAnchor.constraint(equalToConstant: 160).isActive = true
+    if let error {
+      let message = label(error, 16)
+      message.textAlignment = .center
+      rows.append(message)
+      rows.append(actionButton("Try again", icon: .refresh) { [weak self] in self?.restoreStartup() })
+    } else {
+      let spinner = UIActivityIndicatorView(style: .medium)
+      spinner.color = BibiPalette.accent; spinner.accessibilityLabel = "Opening Bibi"
+      spinner.startAnimating(); rows.append(spinner)
     }
-    Task {
+    let column = stack(rows, spacing: 20)
+    loading.view.addSubview(column); column.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      column.centerXAnchor.constraint(equalTo: loading.view.centerXAnchor),
+      column.centerYAnchor.constraint(equalTo: loading.view.centerYAnchor),
+      column.widthAnchor.constraint(equalTo: loading.view.widthAnchor, multiplier: 0.78)])
+    return loading
+  }
+  func start(callback: URL? = nil) {
+    install(loadingController())
+    token = store.$accountExitRevision.dropFirst().receive(on: DispatchQueue.main).sink { [weak self] _ in
+      guard let self else { return }
+      self.configured.stop(clearReceipts: true)
+      self.showEntry(welcome: false)
+    }
+    restoreStartup(callback: callback)
+  }
+  private func restoreStartup(callback: URL? = nil) {
+    startup?.cancel(); restoring = true
+    install(loadingController())
+    startup = Task { @MainActor [weak self] in
+      guard let self else { return }
+      if store.isOnline { await store.wallet.prepareRecovery() }
+      guard !Task.isCancelled else { return }
       await store.load()
-      showEntry(welcome: true)
+      guard !Task.isCancelled else { return }
+      restoring = false
+      if store.isOnline, !store.sessionActive, !configured.needsManualEntry,
+         store.online?.services.client.auth.currentSession != nil, let error = store.loadError {
+        install(loadingController(error: error))
+      } else { showEntry(welcome: true) }
       if let callback { handleCallback(callback) }
     }
   }
   func refreshAccount() {
-    guard store.online?.services.phase == .signedIn else { return }
+    if store.isOnline {
+      configured.becameActive(); store.wallet.resumeRecovery()
+    }
+    guard store.sessionActive, store.online?.services.phase == .signedIn else { return }
     Task { try? await store.refreshOnline() }
   }
-  func returnToDefaultHome() {
-    (window.rootViewController as? BibiTabController)?.returnToDefaultHome()
-  }
+  func sceneResignedActive() { if store.isOnline { configured.becameInactive() } }
+  func stop() { startup?.cancel(); if store.isOnline { configured.stop(clearReceipts: false) } }
+  func returnToDefaultHome() { (host.content as? BibiTabController)?.returnToDefaultHome() }
   func handleCallback(_ url: URL) {
     guard store.isOnline, BackendConfiguration.acceptsCallback(url) else { return }
     guard store.online?.services.isAuthenticating != true else {
-      store.notice = AppNotice(title: "Account request in progress", message: "Please reopen the email link when the current request finishes."); return
+      store.notice = AppNotice(title: "Account request in progress", message: "Please reopen the account link when the current request finishes."); return
     }
+    configured.stop(clearReceipts: false)
     store.endOnlineSession(notify: false)
     let entry = OnlineAccountController(store: store, title: "Account recovery")
-    entry.onContinue = { [weak self] in
-      guard let self else { return }; self.install(BibiTabController(store: self.store))
-    }
+    entry.onContinue = { [weak self] in self?.showHome() }
     let nav = UINavigationController(rootViewController: entry); BibiNavigation.style(nav); install(nav)
     entry.handleCallback(url)
   }
   private func showOnlineEntry(welcome: Bool = false) {
+    restoring = false
     let entry = EntryController(store: store, welcome: welcome)
-    entry.onContinue = { [weak self] in
-      guard let self else { return }; self.install(BibiTabController(store: self.store))
-    }
+    entry.onContinue = { [weak self] in self?.showHome() }
     let nav = UINavigationController(rootViewController: entry); BibiNavigation.style(nav); install(nav)
   }
   func showEntry(welcome: Bool) {
     if store.isOnline {
-      if store.online?.services.phase == .signedIn, store.isLoaded, store.loadError == nil { install(BibiTabController(store: store)) }
+      if store.online?.services.phase == .signedIn, store.sessionActive { showHome() }
       else { showOnlineEntry(welcome: welcome) }
       return
     }
     let entry = EntryController(store: store, welcome: welcome)
-    entry.onContinue = { [weak self] in
-      guard let self else { return }
-      self.install(BibiTabController(store: self.store))
-    }
-    let nav = UINavigationController(rootViewController: entry)
-    BibiNavigation.style(nav)
-    install(nav)
+    entry.onContinue = { [weak self] in self?.showHome() }
+    let nav = UINavigationController(rootViewController: entry); BibiNavigation.style(nav); install(nav)
   }
 }
 /// Bottom-tab control drawn as an icon over an italic word, without a system button label.
@@ -449,7 +479,9 @@ final class EntryController: BibiScreen, UITextViewDelegate {
   private let content = UIStackView()
   private var welcome: Bool
   private var accepted = false
-  private var signingIn = false
+  private var signingIn = false { didSet { updateSignInFeedback() } }
+  private weak var signInButton: BibiButton?
+  private weak var signInSpinner: UIActivityIndicatorView?
   init(store: AppStore, welcome: Bool) {
     self.welcome = welcome
     super.init(store: store)
@@ -569,9 +601,21 @@ final class EntryController: BibiScreen, UITextViewDelegate {
     let row = stack([box, agreementText()], axis: .horizontal, spacing: 10)
     row.alignment = .top
     content.addArrangedSubview(row)
-    content.addArrangedSubview(
-      actionButton(store.isOnline ? "Log in" : "Enter Bibi", primary: true) { [weak self] in self?.continueEntry() }
-    )
+    let login = actionButton(store.isOnline ? "Log in" : "Enter Bibi", primary: true) { [weak self] in self?.continueEntry() }
+    let spinner = UIActivityIndicatorView(style: .medium)
+    spinner.color = .white
+    spinner.hidesWhenStopped = true
+    spinner.isUserInteractionEnabled = false
+    spinner.translatesAutoresizingMaskIntoConstraints = false
+    login.addSubview(spinner)
+    NSLayoutConstraint.activate([
+      spinner.trailingAnchor.constraint(equalTo: login.trailingAnchor, constant: -16),
+      spinner.centerYAnchor.constraint(equalTo: login.centerYAnchor),
+    ])
+    signInButton = login
+    signInSpinner = spinner
+    content.addArrangedSubview(login)
+    updateSignInFeedback()
     if store.isOnline {
       let note = label("Your guest account stays on this iPhone. Logging out or losing its session means you cannot recover it.", 13, BibiPalette.muted)
       note.numberOfLines = 0; content.addArrangedSubview(note)
@@ -589,6 +633,14 @@ final class EntryController: BibiScreen, UITextViewDelegate {
         })
       }
     }
+  }
+  private func updateSignInFeedback() {
+    guard let button = signInButton else { return }
+    button.isEnabled = !signingIn
+    button.caption.text = signingIn ? "Signing in…" : (store.isOnline ? "Log in" : "Enter Bibi")
+    button.accessibilityLabel = button.caption.text
+    if signingIn { button.alpha = 1; signInSpinner?.startAnimating() }
+    else { signInSpinner?.stopAnimating() }
   }
   private func agreementText() -> UITextView {
     let text = UITextView()
@@ -735,6 +787,7 @@ final class EntryController: BibiScreen, UITextViewDelegate {
           guard let services = store.online?.services else { throw BackendError.unavailable }
           try await services.signInAsGuest(adult: accepted, agreement: BibiUserAgreement.version)
           try await store.completeOnlineSignIn()
+          guard store.sessionActive else { throw BackendError.accountChanged }
           onContinue?()
         } catch { message(error.localizedDescription) }
         return

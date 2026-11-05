@@ -2,13 +2,14 @@ import UIKit
 
 /// Editorial art is separate from controls, so native text remains accessible and scalable.
 final class ConstellationBanner: UIView {
-  init(eyebrow: String, title: String, subtitle: String, artwork: String) {
+  init(eyebrow: String, title: String, subtitle: String, artwork: String, artworkURL: URL? = nil) {
     super.init(frame: .zero)
     backgroundColor = BibiPalette.color(0x302248)
     layer.cornerRadius = 26
     layer.cornerCurve = .continuous
     clipsToBounds = true
-    let art = UIImageView(image: UIImage(named: artwork))
+    let art = BibiArtwork(asset: artwork.isEmpty ? nil : artwork)
+    if let artworkURL { art.load(artworkURL) }
     art.contentMode = .scaleAspectFill
     art.isAccessibilityElement = false
     art.alpha = 0.48

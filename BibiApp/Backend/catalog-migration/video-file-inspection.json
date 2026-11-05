@@ -1,0 +1,220 @@
+{
+  "method": "Static ffprobe file inspection; no player execution",
+  "videos": [
+    {
+      "id": "e89cf6c2-38b3-5444-9b2b-d9188a1d7acc",
+      "source_path": "Assets/bibi-sky-chase.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "12.011292",
+        "size": "1116053"
+      }
+    },
+    {
+      "id": "906bebe2-be2c-5ef3-86e6-d0f32bea71d2",
+      "source_path": "Assets/bibi-paper-sky.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "12.012000",
+        "size": "1322688"
+      }
+    },
+    {
+      "id": "44de9ff4-a488-50e5-9d8d-fdba7b2bdc08",
+      "source_path": "Assets/bibi-quiet-return.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "12.012000",
+        "size": "1280312"
+      }
+    },
+    {
+      "id": "30497588-bd61-55f7-9d92-34491242957a",
+      "source_path": "Assets/bibi-green-world.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "12.012000",
+        "size": "1442323"
+      }
+    },
+    {
+      "id": "645a9f5b-0521-5fed-9896-3fe22b1af217",
+      "source_path": "Assets/bibi-little-companion.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "16.000000",
+        "size": "2197481"
+      }
+    },
+    {
+      "id": "19db2e12-39c6-5b83-a5ef-02fd7a88902b",
+      "source_path": "Assets/bibi-ancient-roots.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "16.000000",
+        "size": "1468353"
+      }
+    },
+    {
+      "id": "4c724c5b-0d7d-5bbd-9d65-624d80d61087",
+      "source_path": "Assets/bibi-glowing-staff.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "16.000000",
+        "size": "1484759"
+      }
+    },
+    {
+      "id": "7f78e960-1be6-51c6-8a91-68c9e5afc4bf",
+      "source_path": "Assets/bibi-spring-awakens.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 960,
+          "height": 402
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "16.000000",
+        "size": "2126811"
+      }
+    },
+    {
+      "id": "acef6426-a5da-5048-9a88-3fa2618aa943",
+      "source_path": "Assets/bibi-cosplay-convention.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 540,
+          "height": 960
+        }
+      ],
+      "format": {
+        "duration": "18.018000",
+        "size": "2369484"
+      }
+    },
+    {
+      "id": "87abfc5d-0810-55af-ab78-79a46bdbbd84",
+      "source_path": "Assets/bibi-cosplay-garden.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 540,
+          "height": 1024
+        },
+        {
+          "codec_type": "data"
+        }
+      ],
+      "format": {
+        "duration": "7.007000",
+        "size": "1336621"
+      }
+    }
+  ]
+}

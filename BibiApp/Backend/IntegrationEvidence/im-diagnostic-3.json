@@ -1,0 +1,225 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "mode": "chat_only",
+  "diagnostics": [
+    {
+      "phase": "before_subscribe",
+      "hasSession": true,
+      "hasSessionToken": true,
+      "hasRealtimeToken": false
+    },
+    {
+      "phase": "authenticated_before_join",
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "channel_status",
+      "status": "SUBSCRIBED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "system",
+      "status": "ok",
+      "extension": "postgres_changes",
+      "message": "Subscribed to PostgreSQL"
+    },
+    {
+      "phase": "first_send_persisted",
+      "recipientCanRead": true
+    },
+    {
+      "phase": "before_subscribe",
+      "hasSession": true,
+      "hasSessionToken": true,
+      "hasRealtimeToken": false
+    },
+    {
+      "phase": "authenticated_before_join",
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "channel_status",
+      "status": "SUBSCRIBED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "system",
+      "status": "ok",
+      "extension": "postgres_changes",
+      "message": "Subscribed to PostgreSQL"
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "before_subscribe",
+      "hasSession": true,
+      "hasSessionToken": true,
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "authenticated_before_join",
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "channel_status",
+      "status": "SUBSCRIBED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "system",
+      "status": "ok",
+      "extension": "postgres_changes",
+      "message": "Subscribed to PostgreSQL"
+    },
+    {
+      "phase": "before_subscribe",
+      "hasSession": true,
+      "hasSessionToken": true,
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "authenticated_before_join",
+      "hasRealtimeToken": true
+    },
+    {
+      "phase": "channel_status",
+      "status": "SUBSCRIBED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "system",
+      "status": "ok",
+      "extension": "postgres_changes",
+      "message": "Subscribed to PostgreSQL"
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    },
+    {
+      "phase": "channel_status",
+      "status": "CLOSED",
+      "postgresBindings": [
+        {
+          "hasServerID": true,
+          "event": "INSERT",
+          "schema": "public",
+          "table": "bibi_messages"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "new_account_personal_state_empty",
+    "authenticated_catalog_read",
+    "authenticated_a_bootstrap_empty_configuration",
+    "new_user_complete_content_editorial_and_media_visibility",
+    "a_to_b_actual_realtime_and_persistent_read",
+    "stable_operation_id_deduplicates_and_rejects_changed_payload",
+    "b_to_a_actual_realtime_and_persistent_read",
+    "nonmember_read_send_sender_forgery_and_read_state_denied",
+    "reconnect_history_catchup_and_concurrent_history_event_merge",
+    "own_read_progress_persisted",
+    "invite_history_boundary_and_removed_member_body_revocation",
+    "actual_private_upload_finalize_owner_read_and_nonowner_denial",
+    "block_revokes_direct_reads_and_sends"
+  ],
+  "cleanup": [
+    {
+      "label": "C",
+      "user_id": "a4e45584-41de-45b8-abf1-0f61b4fb7709",
+      "status": "deleted"
+    },
+    {
+      "label": "B",
+      "user_id": "a93982c2-1952-4e60-bfad-435785db164a",
+      "status": "deleted"
+    },
+    {
+      "label": "A",
+      "user_id": "3b39b47e-c4c8-4f82-bf78-462331ccb5cd",
+      "status": "deleted"
+    }
+  ],
+  "failure": null,
+  "scoped_admin_cleanup_conversation_ids": [
+    "bc941d51-46a1-4222-a39c-034a018e36c7",
+    "3ab88c94-288d-413c-b4e4-125d43109007"
+  ],
+  "limits": [
+    "No iOS UI or simulator acceptance.",
+    "No real purchase or fabricated wallet credit.",
+    "No RTC, push, presence or typing claim.",
+    "DELETE transport metadata needs separate privacy verification."
+  ]
+}

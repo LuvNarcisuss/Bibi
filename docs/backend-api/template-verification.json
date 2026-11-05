@@ -1,0 +1,20 @@
+{
+  "source_app_id": "48369038",
+  "external_origin": "https://bibi.byig.top",
+  "interfaces": 2,
+  "configuration_entries": 14,
+  "parameter_types": {
+    "request_fields": 7,
+    "web_fields": 3,
+    "event_slots": 4
+  },
+  "legacy_app_id_transport": "none",
+  "socket_balance_authority": "external",
+  "local_balance_authority": "supabase",
+  "template_hashes": {
+    "interface-template-48369038.json": "7d3e654e3e6b94fcebd94083a546698eb6eec807e042e9981bdd27908b9647b4",
+    "configuration-template-48369038.json": "6ae063fb3f7301c1036d31df2079ef07911e909608a2fc25e59553df054091f8"
+  },
+  "contract_sha256": "a82cec51c10dda9b2484613b2571a30fd4f512b43146428a21bf58fcef07104c",
+  "verification": "Static outer/inner JSON, exact shape, route and AppID comparison; no external service request."
+}

@@ -9,6 +9,7 @@ struct ShortComment: Identifiable, Codable {
     var parentID: UUID? = nil
     var replyToName: String? = nil
     var remoteAuthorID: String? = nil
+    var remoteAvatarURL: URL? = nil
 }
 
 struct ShortBullet: Identifiable {
@@ -75,9 +76,10 @@ final class ShortsInteractionStore: ObservableObject {
         var next: [UUID: [ShortComment]] = [:]
         for record in state.records where record.kind == "comment" {
             guard let parent = record.parent_id, let revision = state.revision(record) else { continue }
-            let author = state.creator(record.owner_id)
+            let author = state.creator(for: record)
             next[parent, default: []].append(ShortComment(id: record.id, name: author.name, text: revision.body,
-                avatarAsset: author.avatarAsset, parentID: record.reply_to, remoteAuthorID: record.owner_id?.uuidString))
+                avatarAsset: author.avatarAsset, parentID: record.reply_to, remoteAuthorID: record.owner_id?.uuidString,
+                remoteAvatarURL: author.avatarURL))
         }
         comments = next
     }
@@ -88,28 +90,20 @@ final class ShortsInteractionStore: ObservableObject {
             return ShortVideoCounts(likes: value?.likes ?? 0, comments: value?.comments ?? 0,
                 saves: value?.saves ?? 0, shares: value?.shares ?? 0)
         }
-        let baseline = video.isBundled ? ShortVideoCounts.authored(for: video.id)
-            : ShortVideoCounts(likes: 0, comments: 0, saves: 0, shares: 0)
-        return ShortVideoCounts(likes: baseline.likes + (liked.contains(video.id) ? 1 : 0) + bonusLikes[video.id, default: 0],
-            comments: comments[video.id]?.count ?? (video.isBundled ? FandomDiscussion.commentCount(for: video.id) : 0),
-            saves: baseline.saves + (video.isSaved ? 1 : 0),
-            shares: baseline.shares + completedShares[video.id, default: 0])
+        return ShortVideoCounts(likes: (liked.contains(video.id) ? 1 : 0) + bonusLikes[video.id, default: 0],
+            comments: comments[video.id]?.count ?? 0,
+            saves: video.isSaved ? 1 : 0,
+            shares: completedShares[video.id, default: 0])
     }
 
     func liveLikeCount(for video: LocalVideo) -> Int {
-        let baseline = video.isBundled ? ShortVideoCounts.authored(for: video.id).likes : 0
-        let (total, overflow) = baseline.addingReportingOverflow(liveLikes[video.id, default: 0])
-        return overflow ? Int.max : total
+        liveLikes[video.id, default: 0]
     }
 
     func prepareComments(for video: LocalVideo) {
         if online != nil { return }
         guard loaded, sessionActive else { return }
         guard preparedVideos.insert(video.id).inserted else { return }
-        let initial = (video.isBundled ? FandomDiscussion.lines(for: video) : []).map {
-            ShortComment(name: $0.name, text: $0.text, avatarAsset: $0.avatarAsset)
-        }
-        comments[video.id] = initial + (comments[video.id] ?? [])
     }
 
     @discardableResult
@@ -241,8 +235,7 @@ final class ShortsInteractionStore: ObservableObject {
         defer { isSaving = false }
         do {
             try await repository.save(updated)
-            // Read-only discussion seeding may happen while the actor writes. Preserve
-            // newly opened videos without replacing the persisted snapshot's stable IDs.
+            // Preserve independently loaded user comments without replacing stable IDs.
             var merged = updated
             for (id, entries) in comments where merged.comments[id] == nil { merged.comments[id] = entries }
             apply(merged)
@@ -277,7 +270,7 @@ struct ShortsPanel: Identifiable {
     var id: String { "\(video.id)-\(kind.rawValue)" }
 }
 
-/// Stable authored totals; no analytics or remote activity is inferred.
+/// Counts come from actual server records or explicit device activity.
 struct ShortVideoCounts {
     let likes: Int
     let comments: Int
@@ -285,14 +278,6 @@ struct ShortVideoCounts {
     let shares: Int
 
     static func authored(for id: UUID) -> Self {
-        func value(_ field: String) -> UInt64 {
-            (id.uuidString + ":" + field).utf8.reduce(UInt64(14695981039346656037)) {
-                ($0 ^ UInt64($1)) &* 1099511628211
-            }
-        }
-        let likes = 10 + Int(value("likes") % 20)
-        let saves = 10 + Int(value("saves") % 20)
-        let shares = 10 + Int(value("shares") % 21)
-        return Self(likes: likes, comments: FandomDiscussion.commentCount(for: id), saves: saves, shares: shares)
+        Self(likes: 0, comments: 0, saves: 0, shares: 0)
     }
 }

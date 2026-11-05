@@ -1,0 +1,30 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "date": "2026-11-04",
+  "migrations": [
+    {"version": "20261104015945", "name": "bibi_realtime_snapshot_invalidation"},
+    {"version": "20261104020757", "name": "complete_a_spending_and_retire_gifts"},
+    {"version": "20261104020808", "name": "membership_event_privacy"}
+  ],
+  "frozen_sources": {
+    "online-spending.sql": "2f47bfe06d52ee6db9329157946e7ee4dd18f884be61d43014282874f17a0ee3",
+    "membership-event-privacy.sql": "1ebac202c557b93b4ce1a6b3392a688118621b2a3f0ee4b4e8a9705d9b3ecce1"
+  },
+  "readback": {
+    "gift_branch_rejects_spending": true,
+    "cosmetic_commands_present": true,
+    "membership_primary_key": ["id"],
+    "membership_unique_key": ["conversation_id", "user_id"],
+    "cosmetics_owner_only_select_rls": true,
+    "private_spending_tables_deny_client_access": true,
+    "entry_delete_refund_trigger": true,
+    "invalid_video_entry_cleanup_trigger": true,
+    "published_tables": ["bibi_content", "bibi_content_revisions", "bibi_conversation_members", "bibi_conversations", "bibi_messages", "bibi_profiles"]
+  },
+  "security_advisors": {
+    "warning_count": 31,
+    "names": ["auth_allow_anonymous_sign_ins"],
+    "interpretation": "Expected guest-authentication category; ownership, live sessions and private false policies remain enforced. This is not a clean-advisor result."
+  },
+  "approval_status": "Earlier automatic-review rejections resolved after explicit owner approval of both frozen hashes; successful apply_migration receipts and fresh readback recorded."
+}

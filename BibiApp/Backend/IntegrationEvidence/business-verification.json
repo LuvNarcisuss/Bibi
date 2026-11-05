@@ -1,0 +1,44 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "mode": "business_only",
+  "diagnostics": [],
+  "checks": [
+    "new_account_personal_state_empty",
+    "authenticated_catalog_read",
+    "authenticated_a_bootstrap_empty_configuration",
+    "new_user_complete_content_editorial_and_media_visibility",
+    "profile_update_and_cross_user_public_readback",
+    "circle_join_persisted",
+    "save_and_like_add_remove_owner_readback",
+    "content_and_profile_reports_unhide_preserves_report",
+    "post_publish_edit_withdraw_pending_status_and_nonowner_draft_denial",
+    "comment_and_reply_publish_edit_withdraw_public_readback",
+    "actual_own_video_upload_pending_visibility_and_insufficient_spending_atomic_rollback",
+    "circle_leave_persisted"
+  ],
+  "cleanup": [
+    {
+      "label": "C",
+      "user_id": "b337289c-96a6-49f1-aebb-983f678ea4f5",
+      "status": "deleted"
+    },
+    {
+      "label": "B",
+      "user_id": "3746631d-51f2-4e46-a0be-baf1170b5bb4",
+      "status": "deleted"
+    },
+    {
+      "label": "A",
+      "user_id": "bcc2a4ff-47c7-4746-a33c-a7f1c7aac5e0",
+      "status": "deleted"
+    }
+  ],
+  "failure": null,
+  "scoped_admin_cleanup_conversation_ids": [],
+  "limits": [
+    "No iOS UI or simulator acceptance.",
+    "No real purchase or fabricated wallet credit.",
+    "No RTC, push, presence or typing claim.",
+    "DELETE transport metadata needs separate privacy verification."
+  ]
+}

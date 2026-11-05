@@ -1,0 +1,60 @@
+{
+  "externalOrigin": "https://bibi.byig.top",
+  "sourceAppId": "48369038",
+  "bootstrapPreflight": {
+    "authenticatePath": "/bibi/constellation/entry",
+    "method": "POST",
+    "requestFields": {
+      "appVersion": "bibi_edition",
+      "pushToken": "bell_mark",
+      "deviceNo": "starlight_installation",
+      "roomPushMsgType": "constellation_delivery"
+    },
+    "roomPushMsgType": 2,
+    "legacyAppIdTransport": {
+      "location": "none"
+    },
+    "responseFields": {
+      "code": "code",
+      "message": "message",
+      "data": "data"
+    },
+    "continuationField": "constellation_gateway",
+    "bootstrapFields": {
+      "backendOrigin": "constellation_origin",
+      "applicationID": "constellation_app"
+    },
+    "nativeOrigin": "https://yepycfnkkfrfmuwdekka.supabase.co",
+    "timeoutSeconds": 15,
+    "maxResponseBytes": 1048576,
+    "decisionPolicy": "integer-code-and-object-data: key-present-on-2xx-or-401-external; key-absent-only-on-2xx-code0-native; otherwise-error",
+    "preserveExternalOrigin": true,
+    "automaticRetry": false
+  },
+  "confirmPurchasePath": "/bibi/diamonds/settle",
+  "requestFields": {
+    "appVersion": "bibi_edition",
+    "deviceNo": "starlight_installation",
+    "transactionId": "diamond_reference",
+    "payload": "diamond_proof",
+    "callbackResult": "orbit_order"
+  },
+  "responseFields": {
+    "code": "code",
+    "message": "message"
+  },
+  "balanceAuthority": "external",
+  "localBalanceAuthority": "supabase",
+  "purchaseFields": {
+    "source": "diamond_origin",
+    "productID": "diamond_product",
+    "quantity": "diamond_count"
+  },
+  "purchaseSources": {
+    "local": "bibi_wallet",
+    "socket": "constellation_order"
+  },
+  "localSettlementPolicy": "client-trusted-no-apple-server-verification",
+  "purchaseFunction": "bibi-settlement",
+  "bootstrapFunction": "bibi-begin"
+}

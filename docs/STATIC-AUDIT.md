@@ -1,5 +1,124 @@
 # Static audit — Bibi
 
+## Physical B entry with temporary identity — November 5, 2026
+
+The owner authorized temporarily aligning all configuration and generated Bundle
+IDs with `im.seex.sao2` for the physical iPhone. The latest workspace built with
+`BibiOnlineAcceptance` / `OnlineAcceptance`, team `JPTS6M4T5B` and the matching
+`iOS Team Provisioning Profile: im.seex.sao2`. The profile includes the target
+phone and development APNs entitlement; strict signature verification passed
+with access to the system trust store. The signed artifact was installed on the
+owner-selected iPhone 12 (iOS 16.5.1), launched and left running after debugger
+detach. A direct device screenshot confirmed the actual external B page
+displaying Diamonds / Recharge content. No page URL or event was forced, no
+account data was reset, and no TLS check or push capability was disabled.
+
+After page verification, `project.yml` and the regenerated Xcode project were
+restored to `com.bibi.quadratic` for every app configuration and test target.
+Static readback confirms the original team, iPhone family and closed Debug /
+Release defaults; the explicit OnlineAcceptance configuration remains enabled.
+The phone retains the signed `im.seex.sao2` test installation. The restored
+original identifier was not rebuilt or registered; its prior registration/profile
+availability is not resolved by this temporary test.
+
+No purchase was initiated by the agent. An existing Xcode StoreKit Test queue
+reported payment-sheet error 907; real purchase, credit delivery and Apple
+sandbox/store product availability remain unverified. No iOS test suite ran.
+Evidence: `BibiApp/Backend/IntegrationEvidence/b-physical-online-2026-11-05.json`
+and the adjacent device screenshot.
+
+## Signed online B entry — November 5, 2026
+
+The owner completed agreement consent/login on Bibi UI Acceptance. The first
+online artifact was unsigned and the real system Keychain denied access with
+OSStatus -34018 (missing application identity/access-group entitlements). The
+application was rebuilt from the current workspace with simulator ad-hoc signing
+(`CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=-`), installed and launched again.
+Its simulated application identifier is `JPTS6M4T5B.com.bibi.quadratic`. No secure
+storage fallback, service-name change, credential deletion or account reset was
+used. The signed run passed the Keychain gate and continued actual login.
+
+Computer-use inspection confirmed the remote B web page rendering full-screen
+with its promotional offer overlay. The existing real authentication / native
+Socket page-event / WKWebView path was used; no URL or message was synthesized.
+No offer purchase was initiated and real payment/refund acceptance remains
+pending. Default Debug/Release backend gates remain false. Reproduce the online
+run with `BibiApp/scripts/run_online_acceptance.sh` or the BibiOnlineAcceptance
+Xcode scheme; do not disable signing for this interactive Keychain flow.
+
+Evidence: `BibiApp/Backend/IntegrationEvidence/b-online-acceptance-2026-11-05.json`.
+
+
+## Explicit online acceptance entry — November 5, 2026
+
+The owner requested a latest-source build/install/launch on Bibi UI Acceptance
+to view the actual B web application. BibiOnlineAcceptance uses the explicit
+OnlineAcceptance Debug-type configuration and a generated plist derived from
+the canonical Info.plist with its backend gate enabled. Debug/Release defaults
+remain false; no origin/key value, Socket ticket or page URL is forced. Real
+service responses still control the native/external branch. Build and interactive
+entry results are recorded separately from the prior offline validation.
+
+
+## Purchase recovery offline validation — November 4, 2026
+
+The owner subsequently authorized the missing actual iOS purchase-chain offline
+validation. The latest source built, installed and launched on Bibi UI Acceptance;
+31 tests passed (22 service-chain tests and nine existing recovery checks), with
+zero failures/skips. The tests inject only Apple/account/network boundaries and
+execute the original observer, protected journal, receipt coordinator, actual
+URLSession DTO/parser, recovery scheduler, delivery and finish/removal paths.
+
+Actual failures exposed and fixed paid-callback replay after a storage error,
+confirmation retries during unwritable storage, removal-state recovery and freed
+object-address collisions in finish deduplication. Initial failures and the final
+passing result are retained separately. The final read-only review found no
+additional P1/P2 in these changes. No real payment/live settlement or agreement
+change occurred; the backend gate remains false. This supersedes earlier
+statements that the nine recovery tests and this iOS chain were unexecuted.
+See BibiApp/Backend/IntegrationEvidence/B-Purchase-Chain-Verification-2026-11-04.md
+and b-purchase-chain-verification.json for matrix coverage, source/log hashes and
+remaining online/device checks and historical/upstream capability gaps.
+
+
+## B code completion — November 4, 2026
+
+The frozen two-route/fourteen-entry console contract is implemented through
+bootstrap preflight, App direct authentication, the native Socket receiver,
+full-screen web entry and dual-source StoreKit 1 recovery. Native local credits
+have one Supabase writer using explicit client-reported trust; external orders
+have a separate original-service authority. Unknown historical transaction
+ownership and ambiguous upstream confirmation remain documented capability gaps.
+
+The final B source compiled successfully as an unsigned Debug simulator artifact.
+Eleven offline SQL/Edge scenario groups and final static/hash checks passed;
+no app/simulator launch, iOS tests or real external/Apple transactions ran.
+The owner approved the exact financial SQL after automatic review rejection;
+the migration and both JWT-protected B functions deployed with exact source and
+privilege readback. Online acceptance remains pending. The gate remains false and agreements
+remain frozen. Current details and import files are in
+`backend-api/integration-record.md`; entries below describe earlier revisions.
+
+
+## Staged Supabase completion — November 4, 2026
+
+The owner selected completion of A before the requested B integration. A now
+has the complete 56-record community catalog, seven non-Auth editorial profiles
+and 43 private cloud-media objects. Bundled business catalogs and media are
+retired while original source assets and actual private state remain intact.
+Authenticated bootstrap, device context, current business spending/refunds and
+Realtime reconciliation are wired and deployed.
+
+Full user-permission media/data readback, real bidirectional IM, business writes
+and isolated Sandbox spending checks passed; exact fixtures were removed. The
+latest unsigned Debug simulator build passed, and its resources/Info.plist were
+inspected. No app/simulator launch or iOS tests ran. The gate remains false and
+agreements remain frozen. B is requested for app ID `48369038` and origin
+`https://bibi.byig.top`; see `backend-api/integration-record.md` for current stage
+status, receipts, limits and subsequent B work. Earlier entries below are
+historical evidence for their named revisions.
+
+
 ## Supabase build assets — October 29, 2026
 
 The public `bibi-build-assets` bucket exists in Supabase. Resource URLs and

@@ -1,0 +1,22 @@
+{
+  "mode": "offline_only",
+  "checks": [
+    "actual_postgresql_migration_executes",
+    "local_atomic_once_cross_user_cross_source_and_legacy_adapter_deduplication",
+    "owner_scoped_unknown_status_never_claims_and_verified_legacy_local_recovery",
+    "local_credit_ledger_failure_rolls_back_balance_transaction_and_settlement_atomically",
+    "external_only_authority_and_upstream_confirmed_persistence_recovery_without_forwarding",
+    "expired_sent_lease_never_blindly_resends_unsent_lease_reclaims_and_old_CAS_fails",
+    "rejected_evidence_updates_without_business_rebinding_and_existing_revocation_compatibility",
+    "authenticated_role_cannot_call_service_rpc_or_read_private_settlements",
+    "literal_integer_code_rejects_bool_string_decimal_exponent_and_duplicate",
+    "actual_bootstrap_key_presence_native_error_branches_whitelist_self_origin_limits_and_timeout",
+    "actual_edge_local_never_forwards_external_whitelist_confirmation_persistence_retry_and_unknown_no_resend"
+  ],
+  "sql_sha256": "2b65b5e3e607838d35e18af24927748c858a7b78a297fd809d77b7484313f5f9",
+  "limits": [
+    "No real external authentication, Socket, confirmation or Apple request.",
+    "PGlite uses actual PostgreSQL/PLpgSQL but one exclusive connection; not a concurrency load test.",
+    "Offline transaction and receipt values are fixtures, never production records."
+  ]
+}

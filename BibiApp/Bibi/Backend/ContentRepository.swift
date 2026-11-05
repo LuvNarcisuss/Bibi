@@ -45,6 +45,7 @@ final class ContentRepository {
         var payload: [String: AnyJSON] = ["kind": .string(kind), "title": .string(title), "body": .string(body)]
         payload["reply_to"] = replyingTo.map { .string($0.uuidString) }
         payload["challenge_id"] = challenge.map(AnyJSON.string)
+        if challenge != nil { payload["environment"] = .string(BackendConfiguration.environment) }
         payload["circle_id"] = circle.map(AnyJSON.string)
         payload["parent_id"] = parent.map { .string($0.uuidString) }
         payload["media_id"] = media.map { .string($0.uuidString) }

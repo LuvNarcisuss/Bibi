@@ -1,0 +1,17 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "status": "deployed_exact_source_readback_verified",
+  "files": {
+    "BibiApp/Backend/b-settlement.sql": "2b65b5e3e607838d35e18af24927748c858a7b78a297fd809d77b7484313f5f9",
+    "BibiApp/Backend/functions/bibi-begin/index.ts": "eee0c8cd072ffd090bdb172618686436c2ea56035892273f40fc9c21b274958b",
+    "BibiApp/Backend/functions/bibi-settlement/index.ts": "378b0f983465c1f4d398262afa5fdedb29c5a2b99c3b24332f9856e480d99ef2",
+    "BibiApp/Backend/functions/_shared/http.ts": "9982affcf04f0bd5ffd8af376b98be35b09cfaa6730b4697841411454e2f9a9f",
+    "BibiApp/Backend/functions/_shared/bibi-config.ts": "e5160f7d3e8ae68dba52a92a03d6d4f828503d461f27ffe7ef2ad299bbb9b36f",
+    "BibiApp/Backend/functions/_shared/bibi-upstream.ts": "690a95c1dee5780536c843af08ece0364e2e0ed20d6038dcb1c6da945e0f4632",
+    "BibiApp/Backend/functions/_shared/bibi-settings.json": "6bb39d7aabe84d07fc8c0e1f07a7f171f403ad623aff3596cf7f2b8332e09376",
+    "docs/backend-api/contract.json": "a82cec51c10dda9b2484613b2571a30fd4f512b43146428a21bf58fcef07104c",
+    "docs/backend-api/generated/supabase-server-settings.json": "6bb39d7aabe84d07fc8c0e1f07a7f171f403ad623aff3596cf7f2b8332e09376"
+  },
+  "sql_frozen": true,
+  "no_real_upstream_requests": true
+}

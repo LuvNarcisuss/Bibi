@@ -110,7 +110,7 @@ final class CommentsController: BibiScreen, UITableViewDataSource, UITableViewDe
     cell.selectionStyle = .none
     let photo = roundPortrait(
       asset: entry.avatarAsset, size: 34, personID: entry.name,
-      image: isOwnComment(entry) ? store.ownerAvatarImage() : nil)
+      image: isOwnComment(entry) ? store.ownerAvatarImage() : nil, remoteURL: entry.remoteAvatarURL)
     let name = label(
       entry.name + (entry.replyToName.map { " → " + $0 } ?? ""), 14, BibiPalette.accent, title: true)
     let body = label(entry.text, 15)
@@ -272,8 +272,9 @@ final class SafetyController: StackScreen {
           self.reportFormReady = false
           self.refresh()
         })
-      content.addArrangedSubview(
-        actionButton("Block " + target.creator.name, icon: .block) { [weak self] in
+      if !store.isOnline || UUID(uuidString: target.creator.id) != nil {
+        content.addArrangedSubview(
+          actionButton("Block " + target.creator.name, icon: .block) { [weak self] in
           guard let self else { return }
           self.confirm(
             "Block this creator?",
@@ -290,7 +291,8 @@ final class SafetyController: StackScreen {
               }
             }
           }
-        })
+          })
+      }
       return
     }
     let reasons = StudioOptions(items: ContentReportReason.allCases.map(\.rawValue))
@@ -351,9 +353,20 @@ final class WalletController: StackScreen {
     image.contentMode = .scaleAspectFit
     image.height(76)
     content.addArrangedSubview(image)
-    let balance = heading("\(store.wallet.snapshot.diamonds.formatted()) Diamonds")
+    let balanceUnavailable = store.isOnline && (store.wallet.balanceLoading || store.wallet.balanceError != nil)
+    let balance = heading(balanceUnavailable
+      ? (store.wallet.balanceLoading ? "Loading balance…" : "Balance unavailable")
+      : "\(store.wallet.snapshot.diamonds.formatted()) Diamonds")
     balance.accessibilityIdentifier = "wallet.balance"
-    balance.accessibilityValue = String(store.wallet.snapshot.diamonds)
+    balance.accessibilityValue = balanceUnavailable ? nil : String(store.wallet.snapshot.diamonds)
+    if let error = store.wallet.balanceError, store.isOnline {
+      content.addArrangedSubview(label(error, 15, BibiPalette.muted))
+      content.addArrangedSubview(actionButton("Retry balance", icon: .refresh) { [weak self] in self?.store.wallet.retryBalance() })
+    }
+    if let notice = store.wallet.recoveryNotice {
+      content.addArrangedSubview(label(notice, 15, BibiPalette.muted))
+      content.addArrangedSubview(actionButton("Retry purchase confirmation", icon: .refresh) { [weak self] in self?.store.wallet.retryPurchaseConfirmations() })
+    }
     content.addArrangedSubview(
       label(
         "Your diamond balance is preserved. Post gifts are no longer available. Profile looks, chat styles and cover frames are optional. Joining a challenge uses 100 diamonds. Messages, posts, comments, reports and blocks stay free.",

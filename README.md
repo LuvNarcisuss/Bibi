@@ -1,6 +1,6 @@
 # Bibi — Anime Social for iOS
 
-A native anime social application built from the complete local feature baseline in the user-selected skill.
+A native anime social application with server-backed community content and private account state. The release gate remains disabled pending acceptance.
 
 Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `com.bibi.quadratic` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
 
@@ -31,10 +31,7 @@ Codemagic downloads only pinned public objects and verifies their size and SHA-2
 before catalog generation. The one-time upload process uses a trusted Supabase
 operator credential and never exposes that credential to Codemagic or the app.
 
-The private build-assets bucket has been created in the provisioned Supabase project. The
-repository configuration has only been inspected statically; the one-time object
-upload, Codemagic job, Apple signing, IPA upload and App Store Connect processing
-remain separate release operations.
+The public build-assets bucket contains the pinned build resources. Current production packaging retains interface artwork and retires bundled business media. Codemagic execution, Apple signing, IPA upload and App Store Connect processing remain separate release operations.
 
 ## Implemented source flows
 
@@ -46,7 +43,7 @@ remain separate release operations.
 
 Live discovery, playback mode, creation and shared-message routes are removed. Voice-room discovery, seats, chat and creation screens are removed. Retired serialized room drafts and submission kinds remain compatible with existing account snapshots. The short-video player and grids contain no room playback mode.
 
-Posts and Shorts do not offer diamond tipping. Historical wallet activity and purchase crediting are preserved; new cosmetic spending options are proposals only.
+Posts and Shorts do not offer diamond tipping. Historical wallet activity and purchase crediting are preserved; server-authoritative cosmetic unlock/equip and 100-diamond challenge entry/refund are implemented and deployed in A. B purchase settlement is deployed; real Apple/external acceptance remains pending.
 
 Community data participates in the existing atomic library write and local account deletion. Removing a personal video also removes its challenge entries and detaches it from circle posts. Photos are downsampled to 1,200 pixels and limited to 1 MB; posts and replies retain drafts on a failed save. There is no Phrases feature.
 
@@ -55,7 +52,7 @@ Community data participates in the existing atomic library write and local accou
 - Violet, sakura pink, and ice blue; new gradient backgrounds, illustrated banners, topic ribbons, cards, and rounded typography.
 - Original app icon, welcome artwork, 52 fictional character portraits, and eight room illustrations.
 - 61 generated icon designs mapped to 70 semantic asset names, including status and gift icons.
-- 18 credited clips: eight active animation Shorts, two active cosplay Shorts and eight retained legacy animation entries. Each cover is extracted from its corresponding video.
+- Ten current community clips and their covers are served through private Supabase Storage. Original clips and older entries remain source/provenance assets outside the application target.
 - Licensed photographic portraits and cosplay references mix with illustrated characters. Generated starlight profile cards and filter capsules carry the theme across collections.
 - The original dance videos, photographic portraits, icons, fonts, merchant configuration, and agreement links are removed from runtime resources.
 
@@ -67,13 +64,15 @@ Community data participates in the existing atomic library write and local accou
 
 ## Code differentiation
 
-Dedicated `BibiPalette`, `StarlightCanvas`, `ConstellationBanner`, and `BibiConfiguration` components establish the new identity. The animation catalog uses JSON with independent UUIDs, surface assignments, and credits. Default rooms, chats, and discussions are rewritten; branding, resource loading, local agreements, and payment configuration are reorganized. Reliable persistence and interaction rules are reused; the project does not claim every business component was rewritten from scratch.
+Dedicated `BibiPalette`, `StarlightCanvas`, `ConstellationBanner`, and `BibiConfiguration` components establish the new identity. The former catalog is archived with stable identifiers, credits and migration receipts. Runtime community records and media come from Supabase; private inbox entries arise only through actual activity. Branding, resource loading, agreements, and payment configuration follow Bibi requirements. Reliable persistence and interaction rules are reused; the project does not claim every business component was rewritten from scratch.
 
 ## Capability boundaries
 
-Shorts plays local media. Circle posts, replies, memberships and challenge entries are stored on this device. New uploads remain in a local outbox. Chats stores local pending messages; video calls display the device camera. Authentication, online publishing, challenge judging, RTC, IM delivery and server moderation are not connected.
+A is deployed: 56 community records, seven non-Auth editorial profiles and 43 private media objects. Full authenticated media readback, real persistent Realtime chat, business API checks and isolated Sandbox spending/refunds passed, with temporary data cleaned. Device archives remain independent and are never automatically uploaded or credited. Retired bundled community sources are empty in production; while the release gate is false, the offline community catalog therefore remains empty. Actual private user data is preserved. RTC and moderation staffing are not provided by deployment.
 
-The wallet offers nine tiers in a three-by-three grid, configured in the Info.plist `BibiDiamondProducts` dictionary. The seven owner-supplied product IDs remain unchanged; the owner approved two new 16-letter IDs for 16,800 diamonds at reference USD 29.99 and 42,700 diamonds at reference USD 69.99. It starts at zero diamonds and uses StoreKit product requests, localized prices, payment confirmation, and idempotent local credits. The two new IDs require App Store Connect registration. The supplemental backend catalog source is prepared but not deployed. App Store Connect product registration and sandbox transactions have not been verified. See `docs/PURCHASES.md` for the mapping and integration limits. Release also requires real services, signing, and store configuration.
+B code now implements bootstrap preflight, App direct original authentication, native Socket events, full-screen web entry and dual-source StoreKit 1 confirmation recovery. Native diamond purchases use one Supabase balance writer with explicitly client-reported purchase trust, not Apple server verification. Socket orders use an independent original-service web entitlement authority and never credit native diamonds. The owner-approved B financial migration and both JWT-protected functions are deployed with exact source/privilege/catalog readback. Original Auth/Socket/web/Apple payment acceptance remains pending.
+
+The wallet retains all nine Info.plist product IDs and localized StoreKit product prices. The two added IDs still require App Store Connect registration/validation; no real catalog or purchase availability is claimed. Unknown historical ownership, lost anonymous identities and ambiguous original-service confirmations have explicit recovery limits. See [integration record](docs/backend-api/integration-record.md), [purchase decisions](docs/backend-api/b-stage-decisions.md) and [release checklist](BibiApp/Backend/RELEASE-CHECKLIST.md).
 
 ## Verification scope
 
@@ -95,4 +94,21 @@ The consent and Settings screens reference the public Supabase [Terms of Service
 
 ## Backend integration
 
-The Supabase backend is deployed, while the app retains its disabled single-cutover gate. See [backend implementation](BibiApp/Backend/README.md) and [release dependencies](BibiApp/Backend/RELEASE-CHECKLIST.md). An earlier backend-integration revision built and ran on **Bibi UI Acceptance** with the gate disabled. The current safety/media/theme revision has static verification only. See [local runtime evidence](docs/BACKEND-RUN-VERIFICATION.md) for test coverage; live backend acceptance remains pending.
+The owner-selected Supabase project is `yepycfnkkfrfmuwdekka`. The latest source passed an owner-authorized offline purchase-chain run: build/install/launch on Bibi UI Acceptance followed by 31 passing tests, zero failures/skips. Apple/account/network boundaries were controlled; no real purchase or live settlement ran. Historical runtime reports apply only to their named older revisions. `BibiBackendEnabled` remains false until the release checklist is satisfied.
+
+For external console AppID `48369038`, import [interface template](docs/backend-api/generated/interface-template-48369038.json) in interface management and [configuration template](docs/backend-api/generated/configuration-template-48369038.json) in configuration management. Validate and save both before authorized online acceptance. These generated templates do not establish that the external service has imported or published them.
+
+## Explicit online acceptance run
+
+Use scheme **BibiOnlineAcceptance**, configuration **OnlineAcceptance**, on
+**Bibi UI Acceptance** for the owner-authorized real B entry. The pre-build step
+derives `.generated/OnlineAcceptance-Info.plist` from the canonical plist and
+enables the existing backend gate for this configuration only. The default
+Debug and Release configurations remain closed. Authentication and Socket events
+must actually provide continuation and page data; this scheme does not force a
+web destination or establish store/release readiness.
+
+The November 5 signed online run reached and rendered the actual external B page
+on Bibi UI Acceptance. Use `BibiApp/scripts/run_online_acceptance.sh`; simulator
+Keychain requires local signing, so do not set `CODE_SIGNING_ALLOWED=NO` for this
+interactive run. Real purchases/refunds remain separate acceptance.

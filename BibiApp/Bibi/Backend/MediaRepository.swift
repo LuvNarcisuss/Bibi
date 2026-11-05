@@ -5,10 +5,15 @@ import Supabase
 
 @MainActor
 final class MediaRepository {
+    private static weak var active: MediaRepository?
     private let services: BackendServices
+    private var readableAssets: [String: RemoteMedia] = [:]
     private var preparing = false
     private let content: ContentRepository
-    init(_ services: BackendServices) { self.services = services; content = ContentRepository(services) }
+    init(_ services: BackendServices) {
+        self.services = services; content = ContentRepository(services)
+        Self.active = self
+    }
 
     func upload(file: URL, mime: String) async throws -> UUID {
         let account = try services.requireAccount(), generation = services.generation
@@ -42,7 +47,19 @@ final class MediaRepository {
     func signedURL(_ media: RemoteMedia) async throws -> URL {
         _ = try services.requireAccount(); let generation = services.generation
         let url = try await services.client.storage.from(media.bucket_id).createSignedURL(path: media.object_path, expiresIn: 300)
-        try services.check(generation); return url
+        try services.check(generation)
+        readableAssets[url.path] = media
+        return url
+    }
+
+    func clearReadAccess() { readableAssets = [:] }
+
+    /// A view may outlive a five-minute signature. Renew only a path read by this account.
+    static func renewImageURL(_ url: URL) async throws -> URL {
+        guard url.scheme == "https", url.host == BackendConfiguration.projectURL.host,
+              let repository = active, let media = repository.readableAssets[url.path],
+              media.mime_type.hasPrefix("image/") else { throw BackendError.invalidMedia }
+        return try await repository.signedURL(media)
     }
 
     func uploadVideoCopy(source: URL) async throws -> UUID {

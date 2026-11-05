@@ -24,7 +24,7 @@ struct CreatorProfile: Identifiable, Codable, Equatable {
     }
 
     static func from(video: LocalVideo, profile: LocalProfile, coverURL: URL) -> Self {
-        if let remote = video.remoteCreator { return remote }
+        if var remote = video.remoteCreator { remote.coverURL = coverURL; return remote }
         let clip = video.bundledClip
         if var curator = CommunityCatalog.storyAuthor(id: video.creatorID) {
             curator.coverURL = coverURL
@@ -76,13 +76,6 @@ struct CreatorStatistics {
     let followers: Int
 
     static func authored(for creatorID: String) -> Self {
-        func value(_ field: String) -> UInt64 {
-            (creatorID + ":" + field).utf8.reduce(UInt64(14695981039346656037)) {
-                ($0 ^ UInt64($1)) &* 1099511628211
-            }
-        }
-        let following = 10 + Int(value("following") % 21)
-        let followers = 10 + Int(value("followers") % 20)
-        return Self(likes: 0, saves: 0, following: following, followers: followers)
+        Self(likes: 0, saves: 0, following: 0, followers: 0)
     }
 }

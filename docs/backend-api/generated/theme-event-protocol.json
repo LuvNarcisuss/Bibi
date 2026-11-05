@@ -1,0 +1,186 @@
+{
+  "events": [
+    {
+      "key": "circleContentChanged",
+      "name": "CircleContentChanged",
+      "direction": "inbound",
+      "discriminator": [
+        "signal"
+      ],
+      "template": {
+        "signal": "CircleContentChanged",
+        "work": {
+          "reference": "00000000-0000-4000-8000-000000000001"
+        }
+      },
+      "bindings": {
+        "contentReference": {
+          "path": [
+            "work",
+            "reference"
+          ],
+          "type": "string",
+          "required": true
+        }
+      },
+      "action": "Invalidate AppStore.refreshOnline after a real authorized content notification; preserve its stable event ID. Supabase Postgres Changes is an actual publisher through the project adapter; external Socket publishing remains unverified."
+    },
+    {
+      "key": "conversationMessagesChanged",
+      "name": "ConversationMessagesChanged",
+      "direction": "inbound",
+      "discriminator": [
+        "signal"
+      ],
+      "template": {
+        "signal": "ConversationMessagesChanged",
+        "conversation": {
+          "reference": "00000000-0000-4000-8000-000000000002"
+        }
+      },
+      "bindings": {
+        "conversationReference": {
+          "path": [
+            "conversation",
+            "reference"
+          ],
+          "type": "string",
+          "required": true
+        }
+      },
+      "action": "Reconcile existing OnlineState conversation/message repositories through AppStore.refreshOnlineChats. The real messages publication is the Supabase source; never synthesize message bodies or receipts."
+    },
+    {
+      "key": "businessApplied",
+      "name": "OrbitBusinessApplied",
+      "direction": "outbound",
+      "discriminator": [
+        "signal"
+      ],
+      "template": {
+        "signal": "OrbitBusinessApplied",
+        "receipt": {
+          "reference": "fixture-receipt",
+          "origin": "fixture-message",
+          "signal": "CircleContentChanged",
+          "stage": "applied",
+          "sequence": 2
+        }
+      },
+      "bindings": {
+        "receiptReference": {
+          "path": [
+            "receipt",
+            "reference"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "originReference": {
+          "path": [
+            "receipt",
+            "origin"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "originSignal": {
+          "path": [
+            "receipt",
+            "signal"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "stage": {
+          "path": [
+            "receipt",
+            "stage"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "sequence": {
+          "path": [
+            "receipt",
+            "sequence"
+          ],
+          "type": "integer",
+          "required": true
+        }
+      },
+      "action": "Persist only an actually applied business-stage receipt and publish it through the sole Socket owner. Transport ACK does not remove the receipt."
+    },
+    {
+      "key": "receiptAcknowledged",
+      "name": "OrbitReceiptAcknowledged",
+      "direction": "inbound",
+      "discriminator": [
+        "signal"
+      ],
+      "template": {
+        "signal": "OrbitReceiptAcknowledged",
+        "receipt": {
+          "reference": "fixture-receipt"
+        }
+      },
+      "bindings": {
+        "receiptReference": {
+          "path": [
+            "receipt",
+            "reference"
+          ],
+          "type": "string",
+          "required": true
+        }
+      },
+      "action": "Remove only the matching durable receipt after this business acknowledgement. Do not acknowledge an acknowledgement."
+    },
+    {
+      "key": "replayRequested",
+      "name": "OrbitReplayRequested",
+      "direction": "outbound",
+      "discriminator": [
+        "signal"
+      ],
+      "template": {
+        "signal": "OrbitReplayRequested",
+        "replay": {
+          "reference": "fixture-sync",
+          "reason": "reconnected",
+          "pending": [
+            "fixture-message"
+          ]
+        }
+      },
+      "bindings": {
+        "syncReference": {
+          "path": [
+            "replay",
+            "reference"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "reason": {
+          "path": [
+            "replay",
+            "reason"
+          ],
+          "type": "string",
+          "required": true
+        },
+        "pendingReferences": {
+          "path": [
+            "replay",
+            "pending"
+          ],
+          "type": "array",
+          "required": true
+        }
+      },
+      "action": "Request replay through the current Socket owner without inventing server replay support or refreshing business expiry."
+    }
+  ],
+  "consoleImport": "not supported: four fixed core slots only"
+}

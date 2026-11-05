@@ -1,0 +1,15 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "mode": "chat_only",
+  "diagnostics": [],
+  "checks": [],
+  "cleanup": [],
+  "failure": "Remote operation failed (service_error).",
+  "scoped_admin_cleanup_conversation_ids": [],
+  "limits": [
+    "No iOS UI or simulator acceptance.",
+    "No real purchase or fabricated wallet credit.",
+    "No RTC, push, presence or typing claim.",
+    "DELETE transport metadata needs separate privacy verification."
+  ]
+}

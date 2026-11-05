@@ -353,7 +353,7 @@ final class CreatorController: StackScreen {
       row.addArrangedSubview(l)
     }
     content.addArrangedSubview(starlightProfileCard([header, row, label(creator.biography, 15, BibiPalette.muted)]))
-    if !creator.isLocalOwner {
+    if !creator.isLocalOwner && (!store.isOnline || UUID(uuidString: creator.id) != nil) {
       content.addArrangedSubview(profileActions())
       let safety = actionButton("Report or block", icon: .flag, compact: true) { [weak self] in
         guard let self else { return }
@@ -1060,8 +1060,16 @@ final class CosmeticPickerController: StackScreen {
     guard isViewLoaded else { return }
     clear()
     let balance = store.wallet.snapshot.diamonds
+    if store.isOnline, store.wallet.balanceLoading || store.wallet.balanceError != nil {
+      content.addArrangedSubview(label(store.wallet.balanceLoading ? "Loading your wallet…" : "Your wallet is unavailable.", 18, title: true))
+      if let error = store.wallet.balanceError { content.addArrangedSubview(label(error, 15, BibiPalette.muted)) }
+      content.addArrangedSubview(actionButton("Retry wallet", icon: .refresh) { [weak self] in self?.store.wallet.retryBalance() })
+      return
+    }
     content.addArrangedSubview(label("\(balance.formatted()) diamonds", 16, BibiPalette.muted))
-    content.addArrangedSubview(label("Looks stay on this device. Publishing, messages, comments, reports and blocks stay free.", 14, BibiPalette.muted))
+    content.addArrangedSubview(label(store.isOnline
+      ? "Your looks are saved to your Bibi account. Publishing, messages, comments, reports and blocks stay free."
+      : "Looks stay on this device. Publishing, messages, comments, reports and blocks stay free.", 14, BibiPalette.muted))
     let owned = store.wallet.snapshot.cosmetics
     for kind in kinds {
       heading(Self.heading(kind))

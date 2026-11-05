@@ -19,10 +19,11 @@ final class ArtworkCreditsController: StackScreen {
     sourceLink("CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/")
     heading("Circle reference photography")
     content.addArrangedSubview(label("Challenge covers and circle discussions use licensed cosplay photographs from Pexels. The photographs are not uploads by the fictional characters; depicted people do not endorse Bibi.", 15, BibiPalette.muted))
-    let photoCredits = CommunityCatalog.storyMedia.merging(CommunityCatalog.challengeMedia) { current, _ in current }
-    for asset in photoCredits.keys.sorted() {
-      guard let media = photoCredits[asset], media.source.contains("pexels.com") else { continue }
-      sourceLink(media.credit, media.source)
+    var shownSources = Set<String>()
+    for revision in store.online?.revisions.values.sorted(by: { $0.id.uuidString < $1.id.uuidString }) ?? [] {
+      guard let address = revision.source_url, let credit = revision.credit,
+            shownSources.insert(address).inserted else { continue }
+      sourceLink(credit, address)
     }
     sourceLink("Pexels License", "https://www.pexels.com/license/")
     heading("Profile photography")
@@ -41,11 +42,14 @@ final class ArtworkCreditsController: StackScreen {
     sourceLink("Kalam · font & license", "https://github.com/google/fonts/tree/main/ofl/kalam")
     sourceLink("Comic Neue · font & license", "https://github.com/google/fonts/tree/main/ofl/comicneue")
     heading("On this device")
-    content.addArrangedSubview(label("Shorts play local videos. Circle posts, replies and challenge entries are saved on this device. Chats and uploads remain pending. A video call shows your own camera. Online publishing, messaging delivery and challenge judging are not connected.", 15, BibiPalette.muted))
+    content.addArrangedSubview(label(store.isOnline
+      ? "Community content, posts and messages use Bibi's online service. Your separate device library stays on this iPhone. Camera previews show only your own view."
+      : "Your personal library stays on this iPhone. Community content and message delivery require the online service. Camera previews show only your own view.", 15, BibiPalette.muted))
   }
   private func sourceLink(_ title: String, _ address: String) {
     content.addArrangedSubview(actionButton(title, icon: .share) {
-      guard let url = URL(string: address) else { return }
+      guard let url = URL(string: address), url.scheme?.lowercased() == "https", url.host != nil,
+            url.user == nil, url.password == nil else { return }
       UIApplication.shared.open(url)
     })
   }

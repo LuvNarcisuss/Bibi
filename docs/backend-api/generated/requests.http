@@ -1,0 +1,78 @@
+# Synthetic values only; never send fixture receipts. B bootstrap preflights auth on the server; only the external branch authenticates again from App.
+# Bootstrap sends the real four device fields plus existing function dispatch fields; Supabase Auth SDK requests are unchanged.
+# Freeze the source at purchase initiation; an absent backend reference never selects local.
+# Local settlement trusts the client purchase result; this is not Apple server verification.
+### bootstrap-with-device-context
+POST https://yepycfnkkfrfmuwdekka.supabase.co/functions/v1/bibi-begin
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer <CURRENT_SUPABASE_ACCESS_TOKEN>
+
+{
+  "bibi_edition": "1.0",
+  "bell_mark": "",
+  "starlight_installation": "fixture-installation-id",
+  "constellation_delivery": 2
+}
+
+### authenticate-direct
+POST https://bibi.byig.top/bibi/constellation/entry
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bibi_edition": "1.0",
+  "bell_mark": "",
+  "starlight_installation": "fixture-installation-id",
+  "constellation_delivery": 2
+}
+
+### confirmViaSupabaseSocket
+POST https://yepycfnkkfrfmuwdekka.supabase.co/functions/v1/bibi-settlement
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer <CURRENT_SUPABASE_ACCESS_TOKEN>
+
+{
+  "bibi_edition": "1.0",
+  "starlight_installation": "fixture-installation-id",
+  "diamond_reference": "fixture-apple-transaction",
+  "diamond_proof": "SYNTHETIC_RECEIPT_NOT_VALID_FOR_PAYMENT",
+  "orbit_order": "fixture-backend-order",
+  "diamond_product": "fixture.consumable.product",
+  "diamond_count": 1,
+  "diamond_origin": "constellation_order"
+}
+
+### confirmViaSupabaseSocketWithoutReference
+POST https://yepycfnkkfrfmuwdekka.supabase.co/functions/v1/bibi-settlement
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer <CURRENT_SUPABASE_ACCESS_TOKEN>
+
+{
+  "bibi_edition": "1.0",
+  "starlight_installation": "fixture-installation-id",
+  "diamond_reference": "fixture-apple-transaction",
+  "diamond_proof": "SYNTHETIC_RECEIPT_NOT_VALID_FOR_PAYMENT",
+  "diamond_product": "fixture.consumable.product",
+  "diamond_count": 1,
+  "diamond_origin": "constellation_order"
+}
+
+### confirmViaSupabaseLocal
+POST https://yepycfnkkfrfmuwdekka.supabase.co/functions/v1/bibi-settlement
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer <CURRENT_SUPABASE_ACCESS_TOKEN>
+
+{
+  "bibi_edition": "1.0",
+  "starlight_installation": "fixture-installation-id",
+  "diamond_reference": "fixture-local-apple-transaction",
+  "diamond_proof": "SYNTHETIC_RECEIPT_NOT_VALID_FOR_PAYMENT",
+  "diamond_product": "fixture.consumable.product",
+  "diamond_count": 1,
+  "diamond_origin": "bibi_wallet"
+}
+

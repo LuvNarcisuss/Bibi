@@ -6,10 +6,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "Assets"
 DESTINATION = ROOT / "BibiApp/.generated/Assets.xcassets"
+POLICY = ROOT / "BibiApp/Configuration/ProductionResourcePolicy.json"
+
+
+def production_entries(assets=ASSETS):
+    entries = json.loads((assets / "asset-catalog-index.json").read_text())
+    prefixes = tuple(json.loads(POLICY.read_text())["excluded_catalog_prefixes"])
+    return [entry for entry in entries if not entry["directory"].startswith(prefixes)]
 
 
 def prepare_catalog(assets=ASSETS, destination=DESTINATION):
-    entries = json.loads((assets / "asset-catalog-index.json").read_text())
+    entries = production_entries(assets)
     outputs = {}
     for entry in entries:
         directory = entry["directory"]

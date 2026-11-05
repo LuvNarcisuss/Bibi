@@ -587,8 +587,9 @@ final class StudioCounter: UIControl {
   f.accessibilityLabel = placeholder
   return f
 }
-/// A portrait that is present in the asset catalog. Missing names fall back to a stable photograph.
+/// Private snapshots retain their own portrait; missing artwork uses the brand mark.
 @MainActor func portraitAsset(_ asset: String?, personID: String) -> String {
+  if BackendConfiguration.isEnabled { return "BibiMark" }
   // Persisted conversation snapshots can contain an earlier portrait for the same persona.
   if let current = CommunityCatalog.storyAuthor(id: personID)?.avatarAsset,
      UIImage(named: current) != nil { return current }
@@ -598,7 +599,7 @@ final class StudioCounter: UIControl {
   }
   let fallback = CommunityArtwork.creatorAvatar(for: personID)
   if UIImage(named: fallback) != nil { return fallback }
-  return "Portrait1"
+  return "BibiMark"
 }
 
 /// Group artwork is composed from actual members, never the first member alone.
@@ -723,9 +724,18 @@ final class BibiArtwork: UIImageView {
     if url.scheme == "https", url.host == BackendConfiguration.projectURL.host {
       image = fallback.flatMap { UIImage(named: $0) } ?? BibiIcon.photo.image(size: 64)
       Task { [weak self] in
-        guard let (data, response) = try? await URLSession.shared.data(from: url),
-          (response as? HTTPURLResponse)?.statusCode == 200, data.count <= 1_000_000,
-          let loaded = UIImage(data: data), let self, self.request == id else { return }
+        var currentURL = url
+        var loaded: UIImage?
+        for attempt in 0..<2 {
+          guard let self, self.request == id else { return }
+          if let (data, response) = try? await URLSession.shared.data(from: currentURL),
+             (response as? HTTPURLResponse)?.statusCode == 200,
+             response.mimeType?.hasPrefix("image/") == true, data.count <= 1_000_000,
+             let value = UIImage(data: data) { loaded = value; break }
+          guard attempt == 0, let renewed = try? await MediaRepository.renewImageURL(currentURL) else { break }
+          currentURL = renewed
+        }
+        guard let loaded, let self, self.request == id else { return }
         self.image = loaded
       }
       return

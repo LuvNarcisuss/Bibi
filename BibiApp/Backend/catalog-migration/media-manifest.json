@@ -1,0 +1,981 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "objects": [
+    {
+      "id": "fdf189a6-f283-5809-88a1-517d97844f56",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/9a2d254a965088d316e8b6e359f9c11592a4892f2a504b2a14a7b185463828e8",
+      "mime_type": "image/jpeg",
+      "sha256": "9a2d254a965088d316e8b6e359f9c11592a4892f2a504b2a14a7b185463828e8",
+      "byte_count": 208425,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-red-horns.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-RedHorns"
+      ],
+      "references": [
+        {
+          "record_id": "animation",
+          "field": "bibi_circles.artwork_media_id"
+        },
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000001",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "168ab8c1-2fc3-5196-a4f6-150e448a2ecd",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/49bbfb06eb8684aedfab8534a82337a626a9593a95e9228afba25efc55f08fea",
+      "mime_type": "image/jpeg",
+      "sha256": "49bbfb06eb8684aedfab8534a82337a626a9593a95e9228afba25efc55f08fea",
+      "byte_count": 318702,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-red-black-hair.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-RedBlackHair"
+      ],
+      "references": [
+        {
+          "record_id": "characters",
+          "field": "bibi_circles.artwork_media_id"
+        },
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000004",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "8a39493e-39af-5acb-a489-fe6476c3c2c2",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/bf4a121467427791c081fcadd68babccc0e5023b080ce92692d77e4aee1f20ff",
+      "mime_type": "image/jpeg",
+      "sha256": "bf4a121467427791c081fcadd68babccc0e5023b080ce92692d77e4aee1f20ff",
+      "byte_count": 273531,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-pink-bows.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PinkBows"
+      ],
+      "references": [
+        {
+          "record_id": "sketchbook",
+          "field": "bibi_circles.artwork_media_id"
+        },
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000007",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "f10fb566-7f9e-5200-b214-1f8a46522398",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/1708a0a5d6136d8702bc7626161e55d92531f9c043564a14ba1e58c334c7d7a5",
+      "mime_type": "image/jpeg",
+      "sha256": "1708a0a5d6136d8702bc7626161e55d92531f9c043564a14ba1e58c334c7d7a5",
+      "byte_count": 203542,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-blue-bow.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-BlueBow"
+      ],
+      "references": [
+        {
+          "record_id": "cosplay",
+          "field": "bibi_circles.artwork_media_id"
+        },
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000012",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "390dccba-e7c7-587a-a814-912cae684278",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/1ee74f2f50f3d2be96e651f67de5c30083927102e8eafe93c790ba5a3e4f8431",
+      "mime_type": "image/jpeg",
+      "sha256": "1ee74f2f50f3d2be96e651f67de5c30083927102e8eafe93c790ba5a3e4f8431",
+      "byte_count": 228098,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/challenge-cover-orange-scarf.jpg"
+      ],
+      "source_asset_names": [
+        "ChallengeCover-OrangeScarf"
+      ],
+      "references": [
+        {
+          "record_id": "first-frame",
+          "field": "bibi_challenges.artwork_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "6b328e65-096f-5bc0-b9b2-116618859939",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/3a08779cfd6d36327748e3a68b155495fc897d4094ab20a784b3446357a2d242",
+      "mime_type": "image/jpeg",
+      "sha256": "3a08779cfd6d36327748e3a68b155495fc897d4094ab20a784b3446357a2d242",
+      "byte_count": 227643,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/challenge-cover-blue-costume.jpg"
+      ],
+      "source_asset_names": [
+        "ChallengeCover-BlueCostume"
+      ],
+      "references": [
+        {
+          "record_id": "character-switch",
+          "field": "bibi_challenges.artwork_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "aab4e43f-9b6d-582a-937d-8e7fd8f0d5a5",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/8068ff3623d29e88b333171a1aba8b0d26c37e8c76cd6fea36bde41b5071240a",
+      "mime_type": "image/jpeg",
+      "sha256": "8068ff3623d29e88b333171a1aba8b0d26c37e8c76cd6fea36bde41b5071240a",
+      "byte_count": 233696,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/challenge-cover-green-armor.jpg"
+      ],
+      "source_asset_names": [
+        "ChallengeCover-GreenArmor"
+      ],
+      "references": [
+        {
+          "record_id": "world-sketch",
+          "field": "bibi_challenges.artwork_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "611b1e92-82e0-5258-9d43-f0e33f2698b8",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/25e75c9142a9fb8eed8e27e01dbaf5fea5dd0dadac0b5403824eeaeb19672467",
+      "mime_type": "image/jpeg",
+      "sha256": "25e75c9142a9fb8eed8e27e01dbaf5fea5dd0dadac0b5403824eeaeb19672467",
+      "byte_count": 156572,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/challenge-cover-white-fox.jpg"
+      ],
+      "source_asset_names": [
+        "ChallengeCover-WhiteFox"
+      ],
+      "references": [
+        {
+          "record_id": "quiet-story",
+          "field": "bibi_challenges.artwork_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "4547642d-f8aa-5a92-aafa-2d0ac0b90a0f",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/4e33a4d9a1eeacfbaadb2368fc1428d17078661353ad212e45c39ebbaf358a18",
+      "mime_type": "image/png",
+      "sha256": "4e33a4d9a1eeacfbaadb2368fc1428d17078661353ad212e45c39ebbaf358a18",
+      "byte_count": 75203,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Portrait52.png"
+      ],
+      "source_asset_names": [
+        "Portrait52"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-editor",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "f45176a3-e6f4-5cfb-8699-2deda26a2132",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/3a0f5bc0fb36c9874ec82508b1de10da2cfcab4dc6a0b32eacf430fc237d8630",
+      "mime_type": "image/jpeg",
+      "sha256": "3a0f5bc0fb36c9874ec82508b1de10da2cfcab4dc6a0b32eacf430fc237d8630",
+      "byte_count": 70146,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Avatar-LunaCosplay.jpg"
+      ],
+      "source_asset_names": [
+        "Avatar-LunaCosplay"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:luna",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "55238c93-3a3a-551e-bfce-460eaeaea23e",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/1c85423c0d903bd708c68da1ebd3463b40732f94f07b0500f08b2c4adff4c8fb",
+      "mime_type": "image/jpeg",
+      "sha256": "1c85423c0d903bd708c68da1ebd3463b40732f94f07b0500f08b2c4adff4c8fb",
+      "byte_count": 41288,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Avatar-KaiPortrait.jpg"
+      ],
+      "source_asset_names": [
+        "Avatar-KaiPortrait"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:kai",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "11e090bd-5143-5af3-8297-eb61b032f18c",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/f4d6f681984b252a7364a51ae49d883d572ae4301158d87359c7435597e146b8",
+      "mime_type": "image/jpeg",
+      "sha256": "f4d6f681984b252a7364a51ae49d883d572ae4301158d87359c7435597e146b8",
+      "byte_count": 44748,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Avatar-MiraPortrait.jpg"
+      ],
+      "source_asset_names": [
+        "Avatar-MiraPortrait"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:mira",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "ffa0f533-f53f-5eb2-a675-e3eeea398eba",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/13a5ed92e206a334f49d0c96caf63cd9557e48f3edb8bac6be5677a2bd0655e1",
+      "mime_type": "image/png",
+      "sha256": "13a5ed92e206a334f49d0c96caf63cd9557e48f3edb8bac6be5677a2bd0655e1",
+      "byte_count": 169460,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Portrait4.png"
+      ],
+      "source_asset_names": [
+        "Portrait4"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:rowan",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "673402e6-75db-50ac-92f9-bb76ded70225",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/08c676ebc13c97c2103e71776db2704735da3247f0289a37f416be32ac037511",
+      "mime_type": "image/jpeg",
+      "sha256": "08c676ebc13c97c2103e71776db2704735da3247f0289a37f416be32ac037511",
+      "byte_count": 33568,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Avatar-NovaCosplay.jpg"
+      ],
+      "source_asset_names": [
+        "Avatar-NovaCosplay"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:nova",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "99e7f3b4-3307-55ac-8d36-0a3f4d11dffe",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/e96da2a064df3f14060d4ff6e5dad34006ff13ac2bef317003065c620b224ad3",
+      "mime_type": "image/jpeg",
+      "sha256": "e96da2a064df3f14060d4ff6e5dad34006ff13ac2bef317003065c620b224ad3",
+      "byte_count": 24192,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/Avatar-TheoCosplay.jpg"
+      ],
+      "source_asset_names": [
+        "Avatar-TheoCosplay"
+      ],
+      "references": [
+        {
+          "record_id": "bibi-story:theo",
+          "field": "bibi_editorial_profiles.avatar_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "574550c5-ed1f-5b38-887f-b3afa8c1f363",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/9f0409c21b475ddd967f54b9b235084ff351a49a226b9b4d237b654be50b635e",
+      "mime_type": "image/jpeg",
+      "sha256": "9f0409c21b475ddd967f54b9b235084ff351a49a226b9b4d237b654be50b635e",
+      "byte_count": 70245,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-pink-suit.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PinkSuit"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000002",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "e4c75821-6043-5a3c-b49f-c44603462c5c",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/7da3c5bcba04625f04ffdeb255fdeb89d233a637b3af0b5a5ee67d1799774e5d",
+      "mime_type": "image/jpeg",
+      "sha256": "7da3c5bcba04625f04ffdeb255fdeb89d233a637b3af0b5a5ee67d1799774e5d",
+      "byte_count": 95972,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-mint-hall.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-MintHall"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000003",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "3f20ef22-7958-5867-8e51-41ea4054a73b",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/05bc0eb60238faaf3951a14f578e250194d8b832e23143038cd5d3a9b18cfb7e",
+      "mime_type": "image/jpeg",
+      "sha256": "05bc0eb60238faaf3951a14f578e250194d8b832e23143038cd5d3a9b18cfb7e",
+      "byte_count": 77255,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-green-headband.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-GreenHeadband"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000005",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "52540ece-78f4-5bd8-a2ee-ef2376bb5ff7",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/d71330e428bc58cbf1a5fb85270d86986217a08f9c310315189b6b213ea8f745",
+      "mime_type": "image/jpeg",
+      "sha256": "d71330e428bc58cbf1a5fb85270d86986217a08f9c310315189b6b213ea8f745",
+      "byte_count": 138293,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-purple-ribbon.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PurpleRibbon"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000006",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "f2f65147-e2ef-5dc7-9536-0393589797a4",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/32155274380d374cb60c010a90f38b0b5fdeaa1bddfd936d92ebfacc064d423b",
+      "mime_type": "image/jpeg",
+      "sha256": "32155274380d374cb60c010a90f38b0b5fdeaa1bddfd936d92ebfacc064d423b",
+      "byte_count": 167392,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-pink-braids.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PinkBraids"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000008",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "a0a98d90-e6c6-5a78-a19a-144bb4cc78a9",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/45e66f6226a3514da39530d0b6e8e8bf291081604a0888a197799da63212ce97",
+      "mime_type": "image/jpeg",
+      "sha256": "45e66f6226a3514da39530d0b6e8e8bf291081604a0888a197799da63212ce97",
+      "byte_count": 231620,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-pink-cape.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PinkCape"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000009",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "93d33034-4ad4-56cf-bc5b-b88fcb50e4e0",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/fc447073bc7f007d21241a5d53834a1466cc6318804179eb2393fa387cc6f590",
+      "mime_type": "image/jpeg",
+      "sha256": "fc447073bc7f007d21241a5d53834a1466cc6318804179eb2393fa387cc6f590",
+      "byte_count": 80538,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-steampunk-costume.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-SteampunkCostume"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000010",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "8c1ea1d8-1d2e-5408-a249-f180ce85e27d",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/7bc9ff8015b7656582490c6241d5abab74f674de1a6e44e5c85efba12195e85b",
+      "mime_type": "image/jpeg",
+      "sha256": "7bc9ff8015b7656582490c6241d5abab74f674de1a6e44e5c85efba12195e85b",
+      "byte_count": 162388,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/post-cover-pink-armor.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-PinkArmor"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000011",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "c5ec49c3-629e-53d2-bd9f-d7646a4ba9e1",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/ae9f9533a9813716ef1202b00b5b0e83ac8d18812e346831f251863c19830536",
+      "mime_type": "image/jpeg",
+      "sha256": "ae9f9533a9813716ef1202b00b5b0e83ac8d18812e346831f251863c19830536",
+      "byte_count": 42349,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/PostCover-CosplayConvention.jpg",
+        "Assets/bibi-cosplay-convention.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-CosplayConvention",
+        "bibi-cosplay-convention.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000013",
+          "field": "bibi_content_revisions.media_id"
+        },
+        {
+          "record_id": "81f706b5-ee96-5309-824c-df1d8fb31455",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "a4e407e6-9d19-56a5-81e9-11046ba9915c",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/277b34bc7be656926acfa465e5ff4ad154c3339af9c1859f4ab14cfbe3db25ef",
+      "mime_type": "image/jpeg",
+      "sha256": "277b34bc7be656926acfa465e5ff4ad154c3339af9c1859f4ab14cfbe3db25ef",
+      "byte_count": 36413,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/PostCover-CosplayGarden.jpg",
+        "Assets/bibi-cosplay-garden.jpg"
+      ],
+      "source_asset_names": [
+        "PostCover-CosplayGarden",
+        "bibi-cosplay-garden.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "cb120000-0000-4000-8000-000000000014",
+          "field": "bibi_content_revisions.media_id"
+        },
+        {
+          "record_id": "17a08c4f-3d4a-506a-b0eb-6b61f3d44603",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "e89cf6c2-38b3-5444-9b2b-d9188a1d7acc",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/9f60b5538b58badbe96cfb363e79320181da2019fc730b68a3c4a9a2e5cd1e34",
+      "mime_type": "video/mp4",
+      "sha256": "9f60b5538b58badbe96cfb363e79320181da2019fc730b68a3c4a9a2e5cd1e34",
+      "byte_count": 1116053,
+      "duration_seconds": 12.011292,
+      "source_paths": [
+        "Assets/bibi-sky-chase.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-sky-chase.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "7b699b42-1d53-546c-9ee6-b15c1abb751f",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "ededaf6a-c66d-583c-9ea4-e18cf78d543d",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
+      "mime_type": "image/jpeg",
+      "sha256": "5e4e0355831faf629eaf6fa2d6404270f91ee291a8bedc6716003e5ea0acf624",
+      "byte_count": 65545,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-sky-chase.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-sky-chase.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "7b699b42-1d53-546c-9ee6-b15c1abb751f",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "906bebe2-be2c-5ef3-86e6-d0f32bea71d2",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/3a5ec449dbc3562fcb7417b11dc0b20a195682d95bd896d1ae3ab5f6b1a02aae",
+      "mime_type": "video/mp4",
+      "sha256": "3a5ec449dbc3562fcb7417b11dc0b20a195682d95bd896d1ae3ab5f6b1a02aae",
+      "byte_count": 1322688,
+      "duration_seconds": 12.012,
+      "source_paths": [
+        "Assets/bibi-paper-sky.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-paper-sky.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "9115a7cf-e96d-51f8-8ff4-377079bed362",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "7f63b107-b645-52bf-86d6-951ffe655ba2",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/929945cf20280b8c7fa9dda267564ecf385908ed38e10ced93a7a7255a3b1dd4",
+      "mime_type": "image/jpeg",
+      "sha256": "929945cf20280b8c7fa9dda267564ecf385908ed38e10ced93a7a7255a3b1dd4",
+      "byte_count": 28723,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-paper-sky.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-paper-sky.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "9115a7cf-e96d-51f8-8ff4-377079bed362",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "44de9ff4-a488-50e5-9d8d-fdba7b2bdc08",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/f4c7bba1966b1a2bdc1c96ff504a6c6cafe24578430bdc432169c576f43d9576",
+      "mime_type": "video/mp4",
+      "sha256": "f4c7bba1966b1a2bdc1c96ff504a6c6cafe24578430bdc432169c576f43d9576",
+      "byte_count": 1280312,
+      "duration_seconds": 12.012,
+      "source_paths": [
+        "Assets/bibi-quiet-return.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-quiet-return.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "a2694a14-04bd-5179-b228-9d29aee31eea",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "3b6dbdbd-dc33-5265-9944-f5b3cc41d51c",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/23d10a9a5ea124d2718e805ae5b1f454219db6104633c05f54e54695f8d2caac",
+      "mime_type": "image/jpeg",
+      "sha256": "23d10a9a5ea124d2718e805ae5b1f454219db6104633c05f54e54695f8d2caac",
+      "byte_count": 13791,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-quiet-return.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-quiet-return.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "a2694a14-04bd-5179-b228-9d29aee31eea",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "30497588-bd61-55f7-9d92-34491242957a",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/9e7aa4231ac685e1fa6a0a5ce92f1a42e2c8ee540df0a819e8a872ee7faf7ecc",
+      "mime_type": "video/mp4",
+      "sha256": "9e7aa4231ac685e1fa6a0a5ce92f1a42e2c8ee540df0a819e8a872ee7faf7ecc",
+      "byte_count": 1442323,
+      "duration_seconds": 12.012,
+      "source_paths": [
+        "Assets/bibi-green-world.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-green-world.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "e5a2805a-47a1-5086-bced-e665e450e233",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "dd84600d-d41d-56ef-b78b-c0f2ab3fad76",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/420b57550627de9c891bcbe4643829c41de6ee262c4c6dae77c8bab51acdc33c",
+      "mime_type": "image/jpeg",
+      "sha256": "420b57550627de9c891bcbe4643829c41de6ee262c4c6dae77c8bab51acdc33c",
+      "byte_count": 28395,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-green-world.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-green-world.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "e5a2805a-47a1-5086-bced-e665e450e233",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "645a9f5b-0521-5fed-9896-3fe22b1af217",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/495c7145ee80e16ba39c952b3f3d4e23f90d4ab0a473f5f687e4453a7e379021",
+      "mime_type": "video/mp4",
+      "sha256": "495c7145ee80e16ba39c952b3f3d4e23f90d4ab0a473f5f687e4453a7e379021",
+      "byte_count": 2197481,
+      "duration_seconds": 16.0,
+      "source_paths": [
+        "Assets/bibi-little-companion.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-little-companion.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "a0c71d98-a6a0-5e38-aad8-2fc87b871086",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "a70fc873-e406-5426-af0b-d4139287fb53",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/f7dffdf763e27261205ed5ec155aa241ee330bb3f174b3cba3212f82d287815d",
+      "mime_type": "image/jpeg",
+      "sha256": "f7dffdf763e27261205ed5ec155aa241ee330bb3f174b3cba3212f82d287815d",
+      "byte_count": 76069,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-little-companion.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-little-companion.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "a0c71d98-a6a0-5e38-aad8-2fc87b871086",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "19db2e12-39c6-5b83-a5ef-02fd7a88902b",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/7768de40bdb56180f0f91fe7bebdf29cb16a1ed0a8bde7cd0033d44b80d60bdb",
+      "mime_type": "video/mp4",
+      "sha256": "7768de40bdb56180f0f91fe7bebdf29cb16a1ed0a8bde7cd0033d44b80d60bdb",
+      "byte_count": 1468353,
+      "duration_seconds": 16.0,
+      "source_paths": [
+        "Assets/bibi-ancient-roots.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-ancient-roots.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "8e5ccf5e-9e83-5314-a2cc-cef514e517c2",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "cc15ea54-e18d-58a4-95a7-33e395c53fe0",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/61e60a26a8e3c9bde5ff864807473fae0d6659b511b13d0d800460d37d077d64",
+      "mime_type": "image/jpeg",
+      "sha256": "61e60a26a8e3c9bde5ff864807473fae0d6659b511b13d0d800460d37d077d64",
+      "byte_count": 66367,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-ancient-roots.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-ancient-roots.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "8e5ccf5e-9e83-5314-a2cc-cef514e517c2",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "4c724c5b-0d7d-5bbd-9d65-624d80d61087",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/e2e635105522091182de66ebef3d6d5571ff287fc14f80d0c1abff21e8013f1c",
+      "mime_type": "video/mp4",
+      "sha256": "e2e635105522091182de66ebef3d6d5571ff287fc14f80d0c1abff21e8013f1c",
+      "byte_count": 1484759,
+      "duration_seconds": 16.0,
+      "source_paths": [
+        "Assets/bibi-glowing-staff.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-glowing-staff.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "12cea62d-ce05-5a4a-843e-9362f6ef96bc",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "3e315fb0-ba13-5343-91a7-49df13f8610b",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/fb34be7cb9e27c9f36a3d21abc550b8c9f4f12c826117e9d4c87425d1dba92a2",
+      "mime_type": "image/jpeg",
+      "sha256": "fb34be7cb9e27c9f36a3d21abc550b8c9f4f12c826117e9d4c87425d1dba92a2",
+      "byte_count": 23661,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-glowing-staff.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-glowing-staff.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "12cea62d-ce05-5a4a-843e-9362f6ef96bc",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "7f78e960-1be6-51c6-8a91-68c9e5afc4bf",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/88c5f6f6d5b8616ffc530f2357e9739b3b69d5de2ecedb284940a1680a59f91b",
+      "mime_type": "video/mp4",
+      "sha256": "88c5f6f6d5b8616ffc530f2357e9739b3b69d5de2ecedb284940a1680a59f91b",
+      "byte_count": 2126811,
+      "duration_seconds": 16.0,
+      "source_paths": [
+        "Assets/bibi-spring-awakens.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-spring-awakens.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "94158b52-7118-5dc3-a53a-629f89d7112b",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "eed31650-306c-5b37-b6c2-6bd77d4c1b3c",
+      "bucket_id": "bibi-images",
+      "object_path": "catalog-v1/dedffd81fffb23c4b5414161a23e8c81c3732c8da04f94180ebf6c3b55ff6a42",
+      "mime_type": "image/jpeg",
+      "sha256": "dedffd81fffb23c4b5414161a23e8c81c3732c8da04f94180ebf6c3b55ff6a42",
+      "byte_count": 94945,
+      "duration_seconds": null,
+      "source_paths": [
+        "Assets/bibi-spring-awakens.jpg"
+      ],
+      "source_asset_names": [
+        "bibi-spring-awakens.jpg"
+      ],
+      "references": [
+        {
+          "record_id": "94158b52-7118-5dc3-a53a-629f89d7112b",
+          "field": "bibi_content_revisions.cover_media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "acef6426-a5da-5048-9a88-3fa2618aa943",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/17f3dde42cac594e11ee964bcf43e81b482cf035aea2d24e0de16021851a3485",
+      "mime_type": "video/mp4",
+      "sha256": "17f3dde42cac594e11ee964bcf43e81b482cf035aea2d24e0de16021851a3485",
+      "byte_count": 2369484,
+      "duration_seconds": 18.018,
+      "source_paths": [
+        "Assets/bibi-cosplay-convention.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-cosplay-convention.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "81f706b5-ee96-5309-824c-df1d8fb31455",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    },
+    {
+      "id": "87abfc5d-0810-55af-ab78-79a46bdbbd84",
+      "bucket_id": "bibi-videos",
+      "object_path": "catalog-v1/a48987fe5ff05081cbad0a5c4f614db96d81a2c119e5db72491a5443ef69e02a",
+      "mime_type": "video/mp4",
+      "sha256": "a48987fe5ff05081cbad0a5c4f614db96d81a2c119e5db72491a5443ef69e02a",
+      "byte_count": 1336621,
+      "duration_seconds": 7.007,
+      "source_paths": [
+        "Assets/bibi-cosplay-garden.mp4"
+      ],
+      "source_asset_names": [
+        "bibi-cosplay-garden.mp4"
+      ],
+      "references": [
+        {
+          "record_id": "17a08c4f-3d4a-506a-b0eb-6b61f3d44603",
+          "field": "bibi_content_revisions.media_id"
+        }
+      ],
+      "upload_status": "verified"
+    }
+  ],
+  "object_count": 43,
+  "byte_count": 19953660
+}

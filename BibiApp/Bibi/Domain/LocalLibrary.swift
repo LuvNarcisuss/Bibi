@@ -14,6 +14,9 @@ struct LocalVideo: Codable, Identifiable, Equatable {
     let id: UUID
     var remoteCreator: CreatorProfile? = nil
     var remoteMediaID: UUID? = nil
+    var remoteCoverMediaID: UUID? = nil
+    var remoteCaption: String? = nil
+    var remoteCredit: String? = nil
     var title: String
     let fileExtension: String
     let duration: Double
@@ -23,7 +26,10 @@ struct LocalVideo: Codable, Identifiable, Equatable {
     // Legacy serialized name: true means explicitly classified for the community feed.
     var isDance: Bool? = nil
 
-    var bundledClip: AnimationClip? { AnimationCatalog.entries.first { $0.id == id } }
+    var bundledClip: AnimationClip? {
+        guard remoteMediaID == nil else { return nil }
+        return AnimationCatalog.entries.first { $0.id == id }
+    }
     var isBundled: Bool { bundledClip != nil }
 
     var durationLabel: String {

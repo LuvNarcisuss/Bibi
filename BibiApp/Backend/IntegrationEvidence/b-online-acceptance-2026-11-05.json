@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-05",
+  "scheme": "BibiOnlineAcceptance",
+  "configuration": "OnlineAcceptance",
+  "device": "Bibi UI Acceptance",
+  "device_id": "0C3DC278-7663-4B7E-9FCD-10F2FF679569",
+  "build": "succeeded",
+  "installed": true,
+  "launched": true,
+  "bundle_id": "com.bibi.quadratic",
+  "online_gate": true,
+  "default_debug_release_gate": false,
+  "external_origin_http": 200,
+  "empty_input_auth_diagnostic_http": 400,
+  "current_state": "Real external B page rendered full-screen; promotional offer overlay visible. No purchase initiated.",
+  "external_socket_or_page_verified": true,
+  "build_log_sha256": "1b70594b53b50c67c90bd126631e0d946252a4a971e1626400a38444e6e9dfd9",
+  "owner_chose_manual_consent": true,
+  "keychain_failure": {
+    "previous_unsigned_build": true,
+    "os_status": -34018,
+    "cause": "Client has neither application-identifier nor keychain-access-groups entitlements",
+    "resolution": "Rebuilt with simulator ad-hoc signing enabled, installed and launched; original secure Keychain retained."
+  },
+  "simulated_application_identifier": "JPTS6M4T5B.com.bibi.quadratic",
+  "signed_build_log_sha256": "20558e1ac9cb95c44c11c85be8e73d7858d44293d45e00c3c6df0a07d08925cf",
+  "observed": {
+    "native_keychain_gate_passed": true,
+    "real_sign_in_continued": true,
+    "external_page_rendered": true,
+    "socket_page_event_path": "Configured receiver -> receivePage -> full-screen WKWebView; no forced URL or fabricated event"
+  },
+  "purchase_verified": false
+}

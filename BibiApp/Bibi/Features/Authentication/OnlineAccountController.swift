@@ -89,6 +89,7 @@ final class OnlineAccountController: StackScreen {
     }
     private func enter() async throws {
         try await store.completeOnlineSignIn()
+        guard store.sessionActive else { throw BackendError.accountChanged }
         password.text = ""; onContinue?()
     }
     func handleCallback(_ url: URL) {

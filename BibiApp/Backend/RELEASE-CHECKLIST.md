@@ -1,117 +1,98 @@
 # Single-cutover release checklist
 
-Keep `BibiBackendEnabled=false` until every applicable item below is satisfied.
-The owner selected one cutover after all modules are complete and a minimum age
-of 18. On October 28 the owner replaced the normal email/password entry with
-one-tap anonymous sign-in, following Toti. SMTP is not required for this flow.
-Apple server keys and the remaining release dependencies are still pending.
+Keep `BibiBackendEnabled=false` until every applicable release item is satisfied.
+The current entry is one-tap anonymous Supabase sign-in with 18+ consent and
+secure session restoration. SMTP is needed only for an exposed optional email
+link/recovery flow. November 4 B uses client-reported native purchase settlement;
+new Apple server keys are not a prerequisite for that selected path.
 
-## External configuration
+## Completed finite integration evidence — November 4, 2026
 
-- [x] Enable anonymous Auth in the Bibi project; public settings confirm it.
-- [ ] Verify real guest creation/enrollment, secure session restoration, isolation,
-  logout warnings, and interrupted account deletion on Bibi UI Acceptance.
-- [ ] Review anonymous-signup rate limits and abuse prevention before public release.
-- [ ] If email account linking/recovery is exposed, configure SMTP and verify
-  exact callback/recovery links before claiming that optional flow works.
-- [ ] Configure Apple server Secrets without putting private keys in chat or
-  source control. Validate all nine product IDs for this Bundle ID; preserve the
-  original seven and register the two additions listed in `../../docs/PURCHASES.md`.
-- [ ] Apply `wallet-products.sql` and read back all nine product/diamond mappings
-  before online purchase acceptance. This supplemental catalog is not deployed.
-- [ ] Register the signed Apple notification endpoint and verify Sandbox and
-  Production isolation, refunds, revocations and transaction reconciliation.
-- [ ] Assign moderation operators and a report/deletion escalation process.
-  Database RPCs alone do not provide staffing or response-time guarantees.
-- [ ] Review and publish the online service/privacy wording, legal operator
-  identity and support contact (Chengdu Yuehui Xingyu Technology Co., Ltd. and trvahai996@icloud.com are now supplied). Existing bundled documents describe the local
-  app; both currently state 18+, but they are not an approved description of
-  the online backend. Agreements now use Supabase-hosted PDFs; the hosting migration did not revise other legal clauses.
-  Refresh the bundled snapshots/provenance and consent version before enabling
-  online registration. The online reader uses those exact bundled snapshots.
+- [x] Complete A community migration: 56 records, seven editorial profiles and
+  43 private media objects, full authenticated byte/hash/MIME readback.
+- [x] Verify isolated business commands, private-media permissions and real
+  persistent bidirectional Realtime chat; clean exact temporary records/accounts.
+- [x] Deploy and verify A gift retirement, cosmetic spending, challenge charge /
+  refund and membership-event privacy changes at owner-approved frozen hashes.
+- [x] Build/install/launch current source on Bibi UI Acceptance for the owner-
+  authorized offline purchase-chain validation; 31 tests passed, zero failures
+  or skips. Inspect identity/resources and retain exact source/log/result hashes.
+- [x] Freeze two console interfaces and fourteen configuration entries; implement
+  native authentication, Socket, web and StoreKit 1 recovery from that contract.
+- [x] Execute eleven offline actual SQL/Edge scenario groups. Controlled local
+  substitutes do not establish live external behavior or concurrency acceptance.
+- [x] Approve/apply exact B financial SQL, deploy both B Edge Functions, and read
+  back privileges, product catalog, migration inventory and JWT configuration.
 
-## Authorized verification
+These are scoped API/build/offline results. They do not check any device-only
+acceptance item below. See `../../docs/backend-api/integration-record.md` and
+`IntegrationEvidence/`. Earlier October runtime evidence is historical only.
 
-Checked items below record the October 27 baseline only. The October 28 guest
-revision still needs a latest-source build/install/launch and runtime acceptance.
+## External configuration and online acceptance
 
+- [ ] Import and validate both generated templates under console AppID
+  `48369038`, then save. Confirm current original Auth/Socket/web contracts.
+- [ ] Validate all nine product IDs for `com.bibi.quadratic`, preserving the
+  original seven and registering the two additions in `../../docs/PURCHASES.md`.
+  The B SQL includes the supplemental catalog; do not replay migrations.
+- [ ] Exercise real Apple Sandbox purchases and duplicate/restart/offline recovery
+  separately from local StoreKit Test. Xcode/Unknown receipts are rejected by
+  B server settlement. Record Production evidence separately.
+- [ ] Confirm the selected client-trust settlement model is acceptable for public
+  release. JWT, receipt syntax and deduplication do not prove Apple payment.
+- [ ] Validate original-service confirmation, authoritative web balance display,
+  reconciliation and supported machine-error/idempotency/status semantics.
+  Unknown sent confirmations must remain blocked from blind resend.
+- [ ] Resolve affected historical purchase ownership/source evidence or explicitly
+  document unsupported recovery. Lost anonymous identities and inaccessible
+  finished consumables cannot be inferred from the current login or SKU.
+- [ ] If using the retained legacy Apple-verification/notification path, update
+  its Bundle-ID deployment and configure Apple credentials/signed endpoint;
+  verify real refund, revocation and environment behavior separately. Those
+  credentials are not required by the selected B client-trust path itself.
+- [ ] Register `com.bibi.quadratic` with team `JPTS6M4T5B`; validate distribution
+  signing, push entitlement/APNs delivery and product association.
+- [ ] Review guest rate limits and abuse prevention; assign moderation operators
+  and a report/deletion escalation process.
+- [ ] Have the owner review existing agreements for service readiness. Agreements
+  are frozen by the current instruction; no wording, public URL, PDF or consent
+  version may be changed without a new explicit request.
 
-- [x] Obtain an explicit user request for builds/tests. Read current AGENTS.md
-  and required project records immediately before executing them.
-- [x] Resolve the pinned SDK/transitive dependencies, build the latest workspace
-  sources, install that exact build, and successfully launch it on the simulator
-  named **Bibi UI Acceptance**. A missing simulator or failed step blocks the
-  entire run; do not substitute an old build or another simulator.
-- [x] Run callback/cache boundary tests and verify that the disabled gate does
-  not initialize online services. Three tests passed on October 27, 2026.
-- [ ] Run the database and Edge scenarios documented in `acceptance.sql` using
-  isolated test accounts and data.
-- [ ] Exercise signup, verification, recovery, logout/relaunch, expired session,
-  rapid callback/account changes, account lock and interrupted deletion.
-- [ ] Verify cross-account RLS for every table and Storage object; verify that
-  unauthenticated clients cannot execute any administrative RPC.
-- [ ] Exercise upload interruption/retry, immutable paths, malformed media,
-  expired signed URLs, pending/approved/rejected revisions and revisions while
-  old approved content remains visible. Confirm original/archived media stays.
-- [ ] Exercise follows, both-direction blocks, saved content, report/unhide,
-  challenge replace/withdraw, comment replies, and real profile statistics.
-- [ ] Exercise concurrent first-contact sends, group invite/accept/decline,
-  owner remove/invite, member leave, old-history denial, reconnect and access
-  loss while a conversation is open. No fabricated delivery receipts.
-- [ ] Exercise duplicate/unknown-ack purchase and gift requests, wrong account,
-  wrong environment, missing secrets, quantity/catalog mismatch, refund before
-  credit, refund after spending, and account deletion during credit.
-- [ ] Verify archived snapshots and balances remain separate across sign-in,
-  logout and remote deletion. Test explicit per-item import and failure cleanup.
-- [ ] Measure feed/inbox load with representative account sizes. Current reads
-  use keyset pages but assemble the authorized snapshot; full-history memory,
-  number of signed URL requests and aggregate RPCs require load acceptance.
-- [ ] Check screen layout, keyboard, VoiceOver, empty/failure/review states,
-  playback lifecycle and large text on the named iPhone simulator.
-- [ ] Record each result separately: static inspection, build, local StoreKit
-  Test, Apple Sandbox and production evidence must not be conflated.
+## Authorized device acceptance still required
 
-The October 27 local run passed all 10 Bibi-scheme tests with zero failures:
-resource/font checks, callback/cache/gate boundaries and five-tab navigation at
-default/XXXL text sizes. See `docs/BACKEND-RUN-VERIFICATION.md`. This does not
-complete the broader online, failure-state, keyboard or VoiceOver checks above.
+The owner subsequently authorized offline purchase-chain tests and their required
+latest-source build/install/launch; 31 tests passed. That does not establish the
+real Apple/external/device acceptance below. Obtain appropriate authorization
+for those remaining checks. Read current project rules,
+build current workspace sources, install that exact build and successfully launch
+it on **Bibi UI Acceptance**. A missing device or failed required step makes the
+run incomplete; never substitute an old build or another simulator.
+
+- [ ] Verify guest consent/creation/restoration, access-loss warnings, logout,
+  account switching, expiry, rapid asynchronous callbacks and interrupted deletion.
+- [ ] Verify native/external cold entry, cover transition, page failure/retry,
+  transparent web layers, keyboard, native permission prompts and all four core
+  Socket events. Confirm actual business ack/replay support before claiming it.
+- [ ] Verify StoreKit UI generation cancellation, original source binding, receipt
+  refresh, durable recovery, wrong user/environment, unknown associations and
+  source-specific balance refresh using actual transactions.
+- [ ] Verify feed/inbox errors, personal data isolation, private uploads/retries,
+  immutable/archived media, moderation visibility and report/block behavior.
+- [ ] Verify account removal while a conversation is open, drafts, membership
+  changes, reconnection and real message persistence without fake receipts.
+- [ ] Verify five-root portrait layout, keyboard, VoiceOver, large text, playback
+  lifecycle and empty/loading/failure states on the named iPhone simulator.
+- [ ] Measure representative feed/inbox load, full-snapshot memory and signed-URL
+  request volume; offline correctness checks are not load acceptance.
+- [ ] Distinguish static, build, iOS tests, local StoreKit Test, Apple Sandbox,
+  actual external service and Production results in the evidence ledger.
 
 ## Cutover
 
-- [ ] Reconcile all independent review findings and failed acceptance checks.
-- [ ] Verify production environment, signing, bundle ID, iPhone-only settings,
-  server secrets, operator readiness and current protocol version.
+- [ ] Reconcile outstanding review and acceptance findings and operational limits.
+- [ ] Verify production environment, signing, identity, iPhone-only settings,
+  operator readiness, service configuration and current protocol version.
 - [ ] Enable the single gate in a reviewed release configuration, regenerate
-  project metadata, and repeat the authorized latest-build acceptance flow.
-- [ ] Archive evidence and monitor operational errors/quotas with a named owner.
-  No ongoing scheduled monitor was created by this task.
-
-## October 27 safety and gift-retirement follow-up (not deployed)
-
-- [ ] Create a new reviewed migration containing only the updated CREATE OR REPLACE
-  command definition from comment-threading.sql; do not replay its existing ALTER.
-  Keep schema.sql and atomic-client-commands.sql consistent for fresh setups.
-- [ ] Verify new gift requests fail without changing wallets or activity. Previously
-  acknowledged operation replay may return its historical result without a debit.
-- [ ] Verify profile reports persist and reappear after refresh, and unhide_report
-  only changes the caller's matching profile report visibility.
-- [ ] Verify report/block actions for posts, replies, video comments, chat senders,
-  group members and profiles, including blocked content disappearing immediately.
-
-These source changes have no deployment receipt or database execution evidence.
-The backend gate remains false. Historical gift-success acceptance is superseded
-by gift-retirement acceptance; historical wallet records must remain readable.
-
-## Bundle identity replacement — October 29, 2026
-
-- [ ] Register `com.bibi.quadratic` with the selected Apple team and configure signing.
-- [ ] Associate and validate the existing nine product IDs with the intended new
-  App Store application; product identifiers in source remain unchanged.
-- [ ] Redeploy functions that import `_shared/apple.ts` before enabling online
-  purchases; local verification source now expects `com.bibi.quadratic`, while
-  the deployed revision has not been updated by this identity change.
-- [ ] Configure the matching Apple application ID and server credentials for the
-  new application before purchase acceptance.
-
-The backend gate remains disabled. No cloud configuration, Apple registration,
-installed application or private data was changed during this replacement.
+  metadata and repeat the authorized latest-build acceptance flow.
+- [ ] Archive evidence and assign an operational owner. No scheduled monitor was
+  created by this task.

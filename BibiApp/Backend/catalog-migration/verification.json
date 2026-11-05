@@ -1,0 +1,23 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "result": "Full export and remote readback match",
+  "content": 56,
+  "videos": 10,
+  "posts": 18,
+  "replies": 28,
+  "circles": 4,
+  "challenges": 4,
+  "editorial_profiles": 7,
+  "media_objects": 43,
+  "media_bytes": 19953660,
+  "private_state_counts_at_readback": {
+    "likes": 0,
+    "follows": 0,
+    "messages": 0,
+    "profiles": 0
+  },
+  "limitations": [
+    "Administrator catalog comparison does not verify fresh-user RLS or signed-URL renewal.",
+    "No app build, launch, simulator, playback, or runtime test was performed by this migration."
+  ]
+}

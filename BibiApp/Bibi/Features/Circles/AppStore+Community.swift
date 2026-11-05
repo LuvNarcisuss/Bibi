@@ -17,19 +17,13 @@ extension AppStore {
     circlePosts().filter { $0.author.id == creatorID }
   }
 
-  /// Authored story baselines are local fiction; real accounts use recorded counts.
+  /// Engagement comes from server records or the owner's explicit saved state.
   func circlePostCounts(for post: CirclePost) -> (likes: Int, saves: Int) {
     if let online {
       let counts = online.counts[post.id]
       return (counts?.likes ?? 0, counts?.saves ?? 0)
     }
-    let seed = post.id.uuidString.utf8.reduce(UInt64(14695981039346656037)) {
-      ($0 ^ UInt64($1)) &* 1099511628211
-    }
-    let isAuthored = post.isCharacterStory || post.isEditorial
-    let likes = isAuthored ? 10 + Int(seed % 17) : 0
-    let saves = isAuthored ? 8 + Int((seed >> 8) % 13) : 0
-    return (likes, saves + (community.savedPostIDs.contains(post.id) ? 1 : 0))
+    return (0, community.savedPostIDs.contains(post.id) ? 1 : 0)
   }
 
   func circleReplies(for postID: UUID) -> [CircleReply] {
@@ -146,7 +140,7 @@ extension AppStore {
   }
 
   func enterChallenge(_ challengeID: String, videoID: UUID) async -> Bool {
-    if isOnline { return await remoteMutation("challenge", payload: ["target_id": .string(videoID.uuidString), "challenge_id": .string(challengeID)]) }
+    if isOnline { return await remoteMutation("challenge", payload: ["target_id": .string(videoID.uuidString), "challenge_id": .string(challengeID), "environment": .string(BackendConfiguration.environment)]) }
     guard CommunityCatalog.challenges.contains(where: { $0.id == challengeID }),
       eligibleChallengeVideos.contains(where: { $0.id == videoID })
     else {
@@ -169,7 +163,7 @@ extension AppStore {
   }
 
   func withdrawChallenge(_ challengeID: String) async -> Bool {
-    if isOnline { return await remoteMutation("challenge", payload: ["challenge_id": .string(challengeID), "selected": .bool(false)]) }
+    if isOnline { return await remoteMutation("challenge", payload: ["challenge_id": .string(challengeID), "selected": .bool(false), "environment": .string(BackendConfiguration.environment)]) }
     var state = community
     state.entries.removeAll { $0.challengeID == challengeID }
     guard await saveCommunity(state) else { return false }

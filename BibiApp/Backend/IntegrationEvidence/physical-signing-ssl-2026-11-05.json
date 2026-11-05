@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-05",
+  "device": "Owner-selected physical iPhone",
+  "observed_layer": "Xcode automatic signing / IDEProvisioningRepair, before App runtime",
+  "host": "developerservices2.apple.com",
+  "xcode_error": -1200,
+  "public_tls_probes": {
+    "developerservices2.apple.com": {
+      "system_proxy": "curl 35 SSL_ERROR_SYSCALL",
+      "direct": "curl 35 SSL_ERROR_SYSCALL"
+    },
+    "developer.apple.com": {
+      "system_proxy": 200,
+      "direct": 200
+    },
+    "idmsa.apple.com": {
+      "system_proxy": 200,
+      "direct": 200
+    }
+  },
+  "proxy_configured": "HTTP/HTTPS/SOCKS localhost:7890",
+  "causality_limit": "Both paths failed; this does not prove a proxy-only cause or certificate expiry.",
+  "separate_signing_blockers": [
+    "Selected wildcard profile does not support Push Notifications.",
+    "Selected wildcard profile lacks aps-environment."
+  ],
+  "current_generated_project_bundle_ids": {
+    "Debug": "im.seex.sao2",
+    "OnlineAcceptance": "im.seex.sao2",
+    "Release": "com.bibi.quadratic"
+  },
+  "canonical_project_yml_bundle_id": "com.bibi.quadratic",
+  "actions": "Read-only inspection only. No trust bypass, proxy/account changes, certificate installation, Bundle-ID edits, build or phone launch."
+}

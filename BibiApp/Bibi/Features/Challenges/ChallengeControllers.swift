@@ -10,7 +10,7 @@ final class ChallengesController: StackScreen {
     content.addArrangedSubview(
       ConstellationBanner(
         eyebrow: "Make something yours", title: "Small prompts.\nNew possibilities.",
-        subtitle: "Start whenever inspiration finds you.", artwork: "ChallengeCover-GothicPair"))
+        subtitle: "Start whenever inspiration finds you.", artwork: "BibiWelcome"))
     let filters = StudioChoice(items: ["All", "Animation", "Cosplay", "Art"])
     filters.onChange = { [weak self] next in
       self?.selection = next
@@ -27,12 +27,18 @@ final class ChallengesController: StackScreen {
   override func refresh() {
     guard isViewLoaded else { return }
     results.arrangedSubviews.forEach { $0.removeFromSuperview() }
+    if let error = store.online?.loadError {
+      results.addArrangedSubview(label("Content could not load. " + error, 16, BibiPalette.muted))
+      results.addArrangedSubview(actionButton("Try again", icon: .refresh) { [weak self] in self?.store.retryOnlineContent() })
+      return
+    }
     let categories = ["All", "Animation", "Cosplay", "Art"]
     var cards: [UIView] = []
     for challenge in store.availableChallenges
     where selection == 0 || challenge.category == categories[selection] {
       let entered = store.community.entries.contains { $0.challengeID == challenge.id }
-      let art = BibiArtwork(asset: challenge.artwork)
+      let art = BibiArtwork(asset: store.isOnline ? nil : challenge.artwork)
+      if store.isOnline { art.load(challenge.artworkURL) }
       art.translatesAutoresizingMaskIntoConstraints = false
       art.heightAnchor.constraint(equalTo: art.widthAnchor).isActive = true
       art.rounded(14)
@@ -72,7 +78,7 @@ final class ChallengeDetailController: StackScreen {
     content.addArrangedSubview(
       ConstellationBanner(
         eyebrow: challenge.category + " / Open prompt", title: challenge.title,
-        subtitle: challenge.summary, artwork: challenge.artwork))
+        subtitle: challenge.summary, artwork: challenge.artwork, artworkURL: challenge.artworkURL))
     if let media = CommunityCatalog.challengeMedia[challenge.artwork] {
       content.addArrangedSubview(actionButton(media.credit, icon: .share, compact: true) {
         guard let url = URL(string: media.source) else { return }
@@ -142,7 +148,9 @@ final class ChallengeDetailController: StackScreen {
     let fee = CosmeticCatalog.challengeEntryDiamonds
     let enteredAlready = store.community.entries.contains { $0.challengeID == challenge.id }
     let paid = store.wallet.snapshot.cosmetics.paidChallengeIDs.contains(challenge.id)
-    let feeNote = enteredAlready
+    let feeNote = store.isOnline && (store.wallet.balanceLoading || store.wallet.balanceError != nil)
+      ? "Joining this challenge uses \(fee.formatted()) diamonds. Refresh your wallet to see the available balance."
+      : enteredAlready
       ? (paid
         ? "Replacing this entry stays free. Withdrawing it returns \(fee.formatted()) diamonds."
         : "Replacing this entry stays free.")

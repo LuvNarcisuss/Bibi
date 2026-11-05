@@ -1,0 +1,11 @@
+﻿scope,semantic_key,actual_field
+requestFields,appVersion,bibi_edition
+requestFields,pushToken,bell_mark
+requestFields,deviceNo,starlight_installation
+requestFields,transactionId,diamond_reference
+requestFields,payload,diamond_proof
+requestFields,callbackResult,orbit_order
+requestFields,roomPushMsgType,constellation_delivery
+h5Fields,orderCode,orbitOrder
+h5Fields,batchNo,orbitProduct
+h5Fields,openUrl,storyDestination

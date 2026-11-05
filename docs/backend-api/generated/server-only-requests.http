@@ -1,0 +1,42 @@
+# Server preflight authenticates once using controlled upstream settings; never forward Supabase JWT or spoof the device IP.
+# Purchase upstream is for Socket orders only; local orders never call it.
+# Never put the purchase URL in the App client. Strip Supabase-only source/product/quantity fields.
+# WithoutReference is valid only when the upstream contract allows omission; it never selects local settlement.
+# Configure existing server authentication separately; no real secrets in this file.
+### bootstrap-preflight-authenticate
+POST https://bibi.byig.top/bibi/constellation/entry
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bibi_edition": "1.0",
+  "bell_mark": "",
+  "starlight_installation": "fixture-installation-id",
+  "constellation_delivery": 2
+}
+
+### upstream-confirmPurchase
+POST https://bibi.byig.top/bibi/diamonds/settle
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bibi_edition": "1.0",
+  "starlight_installation": "fixture-installation-id",
+  "diamond_reference": "fixture-apple-transaction",
+  "diamond_proof": "SYNTHETIC_RECEIPT_NOT_VALID_FOR_PAYMENT",
+  "orbit_order": "fixture-backend-order"
+}
+
+### upstream-confirmPurchaseWithoutReference
+POST https://bibi.byig.top/bibi/diamonds/settle
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bibi_edition": "1.0",
+  "starlight_installation": "fixture-installation-id",
+  "diamond_reference": "fixture-apple-transaction",
+  "diamond_proof": "SYNTHETIC_RECEIPT_NOT_VALID_FOR_PAYMENT"
+}
+

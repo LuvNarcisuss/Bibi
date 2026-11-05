@@ -1,5 +1,11 @@
 project_id = "yepycfnkkfrfmuwdekka"
 
+[functions.bibi-begin]
+verify_jwt = true
+
+[functions.bibi-settlement]
+verify_jwt = true
+
 [functions.verify-purchase]
 verify_jwt = true
 

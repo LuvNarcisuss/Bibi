@@ -3,6 +3,10 @@ packages:
   Supabase:
     url: https://github.com/supabase/supabase-swift.git
     exactVersion: 2.30.0
+configs:
+  Debug: debug
+  Release: release
+  OnlineAcceptance: debug
 fileGroups:
   - Configuration
 options:
@@ -28,10 +32,13 @@ targets:
       SystemCapabilities:
         com.apple.InAppPurchase:
           enabled: 1
+        com.apple.Push:
+          enabled: 1
     sources:
       - path: Bibi
         excludes:
           - Support/Info.plist
+          - Support/Bibi.entitlements
       - path: .generated/Assets.xcassets
         buildPhase: resources
       - path: ../Assets/Kalam-OFL.txt
@@ -46,104 +53,14 @@ targets:
         buildPhase: resources
       - path: ../Assets/TermsOfService.pdf
         buildPhase: resources
-      - path: ../Assets/animation-catalog.json
-        buildPhase: resources
-      - path: ../Assets/bibi-cosplay-convention.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-cosplay-convention.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-cosplay-garden.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-cosplay-garden.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-amber-city.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-amber-city.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-ancient-roots.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-ancient-roots.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-blue-horizon.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-blue-horizon.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-clockwork-streets.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-clockwork-streets.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-dawn-promise.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-dawn-promise.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-forest-guardian.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-forest-guardian.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-forest-path.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-forest-path.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-glowing-staff.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-glowing-staff.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-green-world.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-green-world.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-little-companion.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-little-companion.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-moonlit-mist.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-moonlit-mist.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-paper-sky.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-paper-sky.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-quiet-return.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-quiet-return.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-shared-light.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-shared-light.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-sky-chase.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-sky-chase.mp4
-        buildPhase: resources
-      - path: ../Assets/bibi-spring-awakens.jpg
-        buildPhase: resources
-      - path: ../Assets/bibi-spring-awakens.mp4
-        buildPhase: resources
-      - path: ../Assets/saved-red-robe.jpg
-        buildPhase: resources
-      - path: ../Assets/saved-red-robe.mp4
-        buildPhase: resources
-      - path: ../Assets/saved-gold-kimono.jpg
-        buildPhase: resources
-      - path: ../Assets/saved-gold-kimono.mp4
-        buildPhase: resources
-      - path: ../Assets/saved-chainsaw-mask.jpg
-        buildPhase: resources
-      - path: ../Assets/saved-chainsaw-mask.mp4
-        buildPhase: resources
-      - path: ../Assets/saved-pink-wig.jpg
-        buildPhase: resources
-      - path: ../Assets/saved-pink-wig.mp4
-        buildPhase: resources
-      - path: ../Assets/runtime-asset-inventory.json
-        buildPhase: resources
     dependencies:
       - package: Supabase
         product: Supabase
     preBuildScripts:
       - name: Prepare asset catalog
-        script: /usr/bin/python3 "$SRCROOT/scripts/prepare_asset_catalog.py"
+        script: |
+          /usr/bin/python3 "$SRCROOT/scripts/prepare_asset_catalog.py"
+          /usr/bin/python3 "$SRCROOT/scripts/prepare_online_acceptance.py"
         basedOnDependencyAnalysis: false
     settings:
       base:
@@ -152,12 +69,21 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic
         DEVELOPMENT_TEAM: JPTS6M4T5B
         INFOPLIST_FILE: Bibi/Support/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Bibi/Support/Bibi.entitlements
         GENERATE_INFOPLIST_FILE: false
         INFOPLIST_KEY_UIRequiresFullScreen: YES
         SWIFT_EMIT_LOC_STRINGS: true
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "1"
         SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+      configs:
+        OnlineAcceptance:
+          INFOPLIST_FILE: .generated/OnlineAcceptance-Info.plist
+          BIBI_APNS_ENVIRONMENT: development
+        Debug:
+          BIBI_APNS_ENVIRONMENT: development
+        Release:
+          BIBI_APNS_ENVIRONMENT: production
   BibiBackendTests:
     type: bundle.unit-test
     platform: iOS
@@ -241,3 +167,25 @@ schemes:
       config: Debug
       targets:
         - BibiPurchaseUITests
+
+  BibiPurchaseValidation:
+    build:
+      targets:
+        Bibi: all
+    run:
+      config: Debug
+      environmentVariables:
+        BIBI_OFFLINE_PURCHASE_VALIDATION: "1"
+    test:
+      config: Debug
+      environmentVariables:
+        BIBI_OFFLINE_PURCHASE_VALIDATION: "1"
+      targets:
+        - BibiBackendTests
+
+  BibiOnlineAcceptance:
+    build:
+      targets:
+        Bibi: all
+    run:
+      config: OnlineAcceptance

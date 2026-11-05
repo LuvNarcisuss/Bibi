@@ -1,0 +1,25 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "date": "2026-11-04",
+  "im_diagnostic_2": {
+    "user_ids": ["176cd049-3525-471f-8267-716048c68226", "32384b8b-9f89-4d61-8421-9b7358567326", "d5fbc9de-3e6d-442c-82e2-8d20f3cc420b"],
+    "exact_admin_deleted_conversation_ids": ["5863dd39-8dec-43f5-8daf-2531cebe5628"],
+    "remaining_users": 0
+  },
+  "im_diagnostic_3": {
+    "user_ids": ["a4e45584-41de-45b8-abf1-0f61b4fb7709", "a93982c2-1952-4e60-bfad-435785db164a", "3b39b47e-c4c8-4f82-bf78-462331ccb5cd"],
+    "exact_admin_deleted_conversation_ids": ["bc941d51-46a1-4222-a39c-034a018e36c7", "3ab88c94-288d-413c-b4e4-125d43109007"],
+    "remaining": {"users": 0, "rooms": 0, "messages": 0, "media": 0}
+  },
+  "business_verification": {
+    "user_ids": ["b337289c-96a6-49f1-aebb-983f678ea4f5", "3746631d-51f2-4e46-a0be-baf1170b5bb4", "bcc2a4ff-47c7-4746-a33c-a7f1c7aac5e0"],
+    "remaining": {"auth_users": 0, "content": 0, "media": 0, "storage": 0}
+  },
+  "sandbox_spending_verification": {
+    "user_id": "64d3ee95-ca6c-48e2-9427-85f8dd94d083",
+    "fixture": "1200 temporary Sandbox test units after verified zero baselines; no Apple credit or Production funding",
+    "exact_admin_deleted_source_video_id": "4c4319ce-0c78-4731-ae68-66f433d1dd62",
+    "remaining": {"auth_users": 0, "profiles": 0, "wallets": 0, "wallet_activity": 0, "cosmetics": 0, "challenge_payments": 0, "content": 0, "media": 0, "storage": 0, "apple_transactions": 0}
+  },
+  "method": "Real delete-account requests for exact temporary accounts, followed by exact fixture-only administrator deletions where nullable conversation ownership retained rows, then scoped SQL count readback. No unrelated records were deleted."
+}

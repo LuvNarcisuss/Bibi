@@ -1,0 +1,258 @@
+{
+  "schema_version": "1.0",
+  "audit": {
+    "project_label": "Bibi",
+    "audited_at": "2026-11-03",
+    "skill_version": "1.1.0",
+    "revision": "db3466ab50cdab40c654ea8ade1f4010453744ee; clean before report creation",
+    "target": "Bibi / com.bibi.quadratic / iPhone",
+    "configuration": "Release source configuration; submitted binary unavailable",
+    "scope": "Focused diagnosis of the supplied Guideline 2.1 information request with selected source-path checks; not a full compliance, security or binary audit. No app source changed.",
+    "rule_verification": "live",
+    "rule_checked_at": "2026-11-03",
+    "summary": "Apple explicitly requests additional review information. One submission blocker is confirmed from the notice; disabled-backend mismatch is conditional and is not established as Apple's reason.",
+    "rule_sources": [
+      {
+        "title": "App Review",
+        "url": "https://developer.apple.com/distribute/app-review/",
+        "checked_at": "2026-11-03",
+        "status": "reviewed",
+        "scope": "Review access, incomplete information, physical-device preparation."
+      },
+      {
+        "title": "App Review Guidelines",
+        "url": "https://developer.apple.com/app-store/review/guidelines/",
+        "checked_at": "2026-11-03",
+        "status": "reviewed",
+        "scope": "Sections 2.1, 2.3 and 1.2; completeness, accurate metadata and UGC safeguards."
+      },
+      {
+        "title": "Provide information for a complete review",
+        "url": "https://developer.apple.com/help/app-review/before-submitting-for-review/complete-review",
+        "checked_at": "2026-11-03",
+        "status": "reviewed",
+        "scope": "Purpose, audience, access, external services, regions and rights documentation."
+      },
+      {
+        "title": "Offering account deletion",
+        "url": "https://developer.apple.com/help/app-review/guideline-reference/5-1-1-account-deletion",
+        "checked_at": "2026-11-03",
+        "status": "reviewed",
+        "scope": "Guest accounts also require deletion; logout is insufficient."
+      },
+      {
+        "title": "Submit an In-App Purchase",
+        "url": "https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase",
+        "checked_at": "2026-11-03",
+        "status": "reviewed",
+        "scope": "First submission of each purchase type and app-version association."
+      }
+    ],
+    "coverage": [
+      {
+        "area": "Release configuration",
+        "status": "checked",
+        "detail": "Source plist disables the business backend; project.yml uses that plist. No submitted IPA or final build inspected."
+      },
+      {
+        "area": "Launch and completeness",
+        "status": "needs_evidence",
+        "detail": "No physical-device execution, submitted build identity or current crash evidence provided."
+      },
+      {
+        "area": "Accounts",
+        "status": "checked",
+        "detail": "Traced local consent/session entry and Settings deletion dispatch. Remote deletion not executed."
+      },
+      {
+        "area": "Privacy",
+        "status": "needs_evidence",
+        "detail": "ASC privacy declarations and submitted-build data flows not inspected."
+      },
+      {
+        "area": "Payments",
+        "status": "needs_evidence",
+        "detail": "StoreKit implementation and purchase documentation exist; real product availability and submission association unknown."
+      },
+      {
+        "area": "Content safety",
+        "status": "checked",
+        "detail": "Traced local report persistence and remote branch; moderation staffing remains unchecked in release checklist. No live UGC acceptance."
+      },
+      {
+        "area": "Web and remote behavior",
+        "status": "checked",
+        "detail": "Business-backend gate traced to service initialization. Public agreement hosting is separate from business-backend activation. No general environment-routing audit performed."
+      },
+      {
+        "area": "Dependencies and platform APIs",
+        "status": "needs_evidence",
+        "detail": "No final archive, SDK inventory or privacy aggregation audited in this focused diagnosis."
+      },
+      {
+        "area": "Product and rights",
+        "status": "needs_evidence",
+        "detail": "Asset provenance and credits exist; actual submitted assets and license compliance not independently established."
+      },
+      {
+        "area": "Submission materials",
+        "status": "checked",
+        "detail": "User supplied the Apple information request; existing ASC Notes, recording and metadata were not provided."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "AR-001",
+      "title": "Apple requires additional review information before completing review",
+      "area": "Submission materials",
+      "severity": "P1",
+      "status": "confirmed",
+      "confidence": "high",
+      "release_path": "App Store Connect submission to App Review; reviewer requests completion of the App Review Information Notes field.",
+      "trigger": "The supplied Guideline 2.1 Information Needed notice requests six categories of information and resubmission.",
+      "impact": "Review cannot be completed until the requested evidence is supplied. The notice does not identify a specific crash, infringement or screenshot violation.",
+      "evidence": [
+        {
+          "kind": "metadata",
+          "location": "User-supplied App Review notice in this chat",
+          "line": null,
+          "detail": "Requests physical-device recording, purpose/audience, access instructions, external services, regional behavior and applicable rights or regulated-industry documents. Original submission materials were not inspected."
+        }
+      ],
+      "rules": [
+        {
+          "section": "2.1 and complete-review information",
+          "url": "https://developer.apple.com/help/app-review/before-submitting-for-review/complete-review",
+          "checked_at": "2026-11-03",
+          "applicability": "New apps must provide sufficient information and access for a complete review; the supplied notice makes these six requests specific to this submission."
+        }
+      ],
+      "remediation": [
+        "Add all six responses to App Review Information > Notes, based on the actual submitted build.",
+        "Include an accessible physical-iPhone recording from launch through the main workflow, account access/deletion, report/block and any paid feature flows. Record device model, OS version, app version and build.",
+        "Explain no-password guest access if that is the actual shipped authentication flow; provide valid credentials for any flow that requires them.",
+        "Supply applicable asset permissions and licensing evidence, and accurately identify non-applicable regulated-industry requirements."
+      ],
+      "validation": [
+        "Open the recording link without owner authentication and verify all required steps are visible.",
+        "Reproduce review instructions on the submitted build and compare Notes, screenshots, description and actual functionality."
+      ],
+      "owner": "App owner / release manager",
+      "effort": "S for documentation; physical-device evidence and any defects may increase scope.",
+      "uncertainty": [
+        "No existing ASC Notes or attachments were supplied; cannot identify which requested items were previously omitted or inadequate.",
+        "Internal reviewer rationale beyond the notice is unknown."
+      ]
+    },
+    {
+      "id": "AR-002",
+      "title": "Submitted online-social claims may conflict with the disabled business backend",
+      "area": "Completeness and disclosure",
+      "severity": "P1",
+      "status": "needs_verification",
+      "confidence": "medium",
+      "release_path": "Info.plist BibiBackendEnabled=false -> BackendConfiguration.isEnabled -> AppStore initialization sets online=nil -> local session, chat outbox and report persistence.",
+      "trigger": "Applies if the submitted binary retains this gate and its listing or review notes promise functional online social features.",
+      "impact": "Under those conditions, reviewers cannot complete genuine online authentication, message delivery or server-side report processing as advertised. Source behavior alone does not establish the submitted-binary state or the reason Apple sent this notice.",
+      "evidence": [
+        {
+          "kind": "config",
+          "location": "BibiApp/Bibi/Support/Info.plist",
+          "line": 84,
+          "detail": "Business-backend gate is false in current source."
+        },
+        {
+          "kind": "code",
+          "location": "BibiApp/Bibi/Backend/BackendConfiguration.swift",
+          "line": 5,
+          "detail": "Gate reads the bundled plist and defaults to false."
+        },
+        {
+          "kind": "code",
+          "location": "BibiApp/Bibi/App/AppStore.swift",
+          "line": 99,
+          "detail": "Online service initialization is gated; disabled path sets online=nil."
+        },
+        {
+          "kind": "code",
+          "location": "BibiApp/Bibi/App/AppStore.swift",
+          "line": 119,
+          "detail": "Local entry records agreement acceptance, not remote authentication."
+        },
+        {
+          "kind": "code",
+          "location": "BibiApp/Bibi/App/AppStore.swift",
+          "line": 667,
+          "detail": "Without online services, messages are stored in the local outbox; persistence does not prove delivery."
+        },
+        {
+          "kind": "code",
+          "location": "BibiApp/Bibi/App/AppStore.swift",
+          "line": 1010,
+          "detail": "Reports use a remote operation only online; otherwise persisted locally."
+        },
+        {
+          "kind": "config",
+          "location": "BibiApp/Backend/RELEASE-CHECKLIST.md",
+          "line": 3,
+          "detail": "Explicitly retains disabled gate pending release acceptance and external dependencies."
+        }
+      ],
+      "rules": [
+        {
+          "section": "2.1(a), 2.3 and conditional 1.2",
+          "url": "https://developer.apple.com/app-store/review/guidelines/",
+          "checked_at": "2026-11-03",
+          "applicability": "Backend-dependent advertised functionality must be operational and accurately described; UGC safeguards must operate where UGC service is provided. A local-only product is not automatically prohibited."
+        }
+      ],
+      "remediation": [
+        "Inspect the exact submitted artifact and listing before treating this conditional issue as confirmed.",
+        "If online functionality is part of the shipped product, complete the existing release checklist and genuine service acceptance before enabling the gate and uploading a replacement build. Do not simply flip the gate.",
+        "Make review notes and listing accurately describe the actual approved product scope; documentation cannot substitute for unfinished advertised functionality."
+      ],
+      "validation": [
+        "Inspect the submitted build plist and its source/CI revision correspondence.",
+        "On physical iPhones, verify real cross-account content, message delivery, report handling and account deletion for features claimed online."
+      ],
+      "owner": "Release manager / iOS / backend / moderation operations",
+      "effort": "M-L if online cutover is required; depends on actual submitted scope.",
+      "uncertainty": [
+        "Submitted binary, CI logs and listing not available.",
+        "No live backend or physical-device actions were executed.",
+        "Not asserted as the confirmed cause of the Apple notice."
+      ]
+    }
+  ],
+  "validation_gaps": [
+    {
+      "id": "GAP-001",
+      "priority": "P1",
+      "question": "Which build and runtime scope were submitted?",
+      "needed_evidence": "Exact version/build, matching IPA or archive, CI revision, current ASC description, screenshots and Notes.",
+      "owner": "Release manager"
+    },
+    {
+      "id": "GAP-002",
+      "priority": "P1",
+      "question": "Can the requested physical-device flow be reproduced?",
+      "needed_evidence": "Recording on a physical iPhone running the latest OS, starting with launch; device/build identification and actual QA results.",
+      "owner": "Owner / QA"
+    },
+    {
+      "id": "GAP-003",
+      "priority": "P1",
+      "question": "Are paid features reviewable in the submitted app?",
+      "needed_evidence": "ASC product states, availability and association with this submission; physical-device Apple sandbox evidence and actual diamond uses. Local StoreKit fixtures are insufficient.",
+      "owner": "Owner / payments"
+    },
+    {
+      "id": "GAP-004",
+      "priority": "P2",
+      "question": "Are regional statements and content rights accurate?",
+      "needed_evidence": "Actual distribution regions and differences; applicable licenses and attribution for submitted films, photographs, music and artwork.",
+      "owner": "Owner / content"
+    }
+  ]
+}

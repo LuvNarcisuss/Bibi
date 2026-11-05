@@ -4,6 +4,8 @@ from pathlib import Path
 import re
 import sys
 
+from prepare_asset_catalog import production_entries
+
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "Assets"
 INDEX = ASSETS / "asset-catalog-index.json"
@@ -18,7 +20,7 @@ def main():
         if source.read(len(LFS_HEADER)) == LFS_HEADER:
             sys.exit("ERROR: Download the asset catalog index with Git LFS first.")
     required = {INDEX}
-    for entry in json.loads(INDEX.read_text()):
+    for entry in production_entries(ASSETS):
         required.add(ASSETS / entry["metadata"])
         required.update(ASSETS / name for name in entry["images"].values())
     specification = (ROOT / "BibiApp/project.yml").read_text()

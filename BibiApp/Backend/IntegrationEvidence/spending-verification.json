@@ -1,0 +1,20 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "checks": [
+    "isolated_sandbox_fixture_funding_no_apple_activity_or_production_change",
+    "unlock_atomic_debit_idempotency_owned_reuse_and_free_equip",
+    "challenge_debit_replacement_retry_cross_environment_denial_and_once_refund",
+    "source_video_withdrawal_removes_entry_and_refunds_original_wallet",
+    "source_video_delete_cascade_refund_and_exact_ledger_no_apple_credit"
+  ],
+  "cleanup": {
+    "user_id": "64d3ee95-ca6c-48e2-9427-85f8dd94d083",
+    "status": "deleted"
+  },
+  "failure": null,
+  "limits": [
+    "Sandbox test units only; no Apple purchase or verified credit.",
+    "No Production wallet funding.",
+    "No iOS runtime acceptance."
+  ]
+}

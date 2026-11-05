@@ -1,0 +1,44 @@
+[
+  {
+    "id": "bibi-editor",
+    "biography": "Creative prompts for your next story.",
+    "display_name": "Bibi Editorial",
+    "avatar_media_id": "4547642d-f8aa-5a92-aafa-2d0ac0b90a0f"
+  },
+  {
+    "id": "bibi-story:kai",
+    "biography": "A fictional Bibi character exploring space stations and expressive silhouettes.",
+    "display_name": "Kai Orbit",
+    "avatar_media_id": "55238c93-3a3a-551e-bfce-460eaeaea23e"
+  },
+  {
+    "id": "bibi-story:luna",
+    "biography": "A fictional Bibi character who loves quiet animation and moonlit scenes.",
+    "display_name": "Luna Frames",
+    "avatar_media_id": "f45176a3-e6f4-5cfb-8699-2deda26a2132"
+  },
+  {
+    "id": "bibi-story:mira",
+    "biography": "A fictional Bibi character collecting story ideas in a sketchbook.",
+    "display_name": "Mira Ink",
+    "avatar_media_id": "11e090bd-5143-5af3-8297-eb61b032f18c"
+  },
+  {
+    "id": "bibi-story:nova",
+    "biography": "A fictional Bibi character planning original costumes and lightweight props.",
+    "display_name": "Nova Stitch",
+    "avatar_media_id": "673402e6-75db-50ac-92f9-bb76ded70225"
+  },
+  {
+    "id": "bibi-story:rowan",
+    "biography": "A fictional Bibi character imagining libraries, gardens and gentle adventures.",
+    "display_name": "Rowan Tales",
+    "avatar_media_id": "ffa0f533-f53f-5eb2-a675-e3eeea398eba"
+  },
+  {
+    "id": "bibi-story:theo",
+    "biography": "A fictional Bibi character fascinated by color, lighting and tiny worlds.",
+    "display_name": "Theo Lantern",
+    "avatar_media_id": "99e7f3b4-3307-55ac-8d36-0a3f4d11dffe"
+  }
+]

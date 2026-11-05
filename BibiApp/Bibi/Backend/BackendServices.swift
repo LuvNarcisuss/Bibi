@@ -8,6 +8,7 @@ final class BackendServices: ObservableObject {
     @Published private(set) var phase: Phase = .signedOut
     @Published private(set) var accountID: UUID?
     private(set) var generation = UUID()
+    private(set) var bootstrapContinuation: ConfiguredBootstrapContinuation = .standalone
     let client: SupabaseClient
     private(set) var isAuthenticating = false
     private var authEvents: Task<Void, Never>?
@@ -51,12 +52,15 @@ final class BackendServices: ObservableObject {
         let captured = try beginAuthentication(); defer { isAuthenticating = false }
         phase = .restoring
         do {
+            try await BibiDeviceContext.shared.prepareNetwork()
+            try check(captured)
             let session = try await client.auth.session
             try check(captured)
             let profiles: [RemoteProfile] = try await client.from("bibi_profiles")
                 .select().eq("id", value: session.user.id).limit(1).execute().value
             try check(captured)
             guard profiles.first?.account_status == "active" else { phase = .signedOut; return false }
+            try await bootstrap(captured: captured)
             generation = UUID(); accountID = session.user.id; phase = .signedIn
             return true
         } catch {
@@ -73,6 +77,8 @@ final class BackendServices: ObservableObject {
         }
         let captured = try beginAuthentication(); defer { isAuthenticating = false }
         try BackendKeychain().verifyAvailable()
+        try await BibiDeviceContext.shared.prepareNetwork()
+        try check(captured)
         // A failed enrollment must reuse the existing identity on retry.
         let session: Session
         if client.auth.currentSession != nil {
@@ -164,7 +170,26 @@ final class BackendServices: ObservableObject {
         struct Parameters: Encodable { let p_version: String; let p_adult: Bool; let p_name: String }
         _ = try await client.rpc("bibi_enroll", params: Parameters(p_version: agreement, p_adult: adult, p_name: isGuest ? "Bibi guest" : "Stargazer")).execute()
         try check(captured)
+        try await bootstrap(captured: captured)
         accountID = user; phase = .signedIn
+    }
+
+    private func bootstrap(captured: UUID) async throws {
+        var parameters = try await BibiDeviceContext.shared.prepare()
+        try check(captured)
+        parameters["action"] = .string("bootstrap")
+        let continuation: ConfiguredBootstrapContinuation = try await client.functions.invoke(
+            SupabaseIntegrationContract.bootstrapFunction, options: .init(body: parameters)) { bytes, response in
+            guard (200..<300).contains(response.statusCode), bytes.count <= 1_048_576,
+                  let root = try JSONSerialization.jsonObject(with: bytes) as? [String: Any],
+                  ConfiguredRealtimeJSON.integer(root[ConfiguredWireFields.code]) == 0,
+                  let continuation = ConfiguredBootstrapContinuation.parse(data: root[ConfiguredWireFields.data]) else {
+                throw BackendError.invalidInput("The service configuration is invalid. Please try again later.")
+            }
+            return continuation
+        }
+        try check(captured)
+        bootstrapContinuation = continuation
     }
 
     func resend(email: String) async throws {
@@ -200,7 +225,7 @@ final class BackendServices: ObservableObject {
     }
 
     private func exitAccount() {
-        generation = UUID(); accountID = nil; phase = .signedOut
+        generation = UUID(); accountID = nil; phase = .signedOut; bootstrapContinuation = .standalone
     }
 
     func rows<T: Decodable>(_ table: String, filters: [String: String] = [:],
@@ -216,11 +241,11 @@ final class BackendServices: ObservableObject {
         return result
     }
 
-    func allRows<T: Decodable>(_ table: String, keys: [String] = ["id"]) async throws -> [T] {
+    func allRows<T: Decodable>(_ table: String, keys: [String] = ["id"], columns: String = "*") async throws -> [T] {
         _ = try requireAccount(); let captured = generation
         var rows: [T] = [], cursor: [String]?
         while true {
-            var filtered = client.from(table).select()
+            var filtered = client.from(table).select(columns)
             if let cursor {
                 // All current primary keys are UUIDs or catalog slugs. Never interpolate free text.
                 let predicates = keys.indices.map { index -> String in
@@ -239,7 +264,7 @@ final class BackendServices: ObservableObject {
             guard let raw = try JSONSerialization.jsonObject(with: response.data) as? [[String: Any]], let last = raw.last else { throw BackendError.unavailable }
             cursor = try keys.map { key in
                 guard let value = last[key] as? String, !value.isEmpty,
-                      value.range(of: "^[A-Za-z0-9_-]+$", options: .regularExpression) != nil else { throw BackendError.unavailable }
+                      value.range(of: "^[A-Za-z0-9_:-]+$", options: .regularExpression) != nil else { throw BackendError.unavailable }
                 return value
             }
         }

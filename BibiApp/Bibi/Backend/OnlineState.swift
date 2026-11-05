@@ -11,6 +11,11 @@ final class OnlineState: ObservableObject {
     let wallet: OnlineWallet
     let sync: BackendSync
     @Published private(set) var profiles: [UUID: RemoteProfile] = [:]
+    @Published private(set) var editorialProfiles: [String: RemoteEditorialProfile] = [:]
+    @Published private(set) var loadError: String?
+    @Published private(set) var chatLoadError: String?
+    @Published private(set) var isRefreshing = false
+    @Published private(set) var isChatRefreshing = false
     @Published private(set) var records: [RemoteContent] = []
     @Published private(set) var revisions: [UUID: RemoteRevision] = [:]
     @Published private(set) var assets: [UUID: RemoteMedia] = [:]
@@ -32,6 +37,9 @@ final class OnlineState: ObservableObject {
     private(set) var signedURLs: [UUID: URL] = [:]
     private var refreshTask: Task<Void, Error>?
     private var refreshGeneration: UUID?
+    private var chatRefreshTask: Task<Void, Error>?
+    private var chatRequestID = UUID()
+    private var snapshotRevision = UUID()
 
     init(services: BackendServices) {
         self.services = services; content = ContentRepository(services); media = MediaRepository(services)
@@ -42,15 +50,77 @@ final class OnlineState: ObservableObject {
         let generation = services.generation
         if refreshGeneration == generation, let refreshTask { return try await refreshTask.value }
         refreshTask?.cancel()
+        snapshotRevision = UUID()
+        chatRefreshTask?.cancel(); chatRefreshTask = nil; chatRequestID = UUID(); isChatRefreshing = false
+        isRefreshing = true
         let task = Task { try await loadSnapshot() }
         refreshTask = task; refreshGeneration = generation
-        defer { if refreshGeneration == generation { refreshTask = nil; refreshGeneration = nil } }
-        try await task.value
+        defer { if refreshGeneration == generation { refreshTask = nil; refreshGeneration = nil; isRefreshing = false } }
+        do { try await task.value }
+        catch {
+            if services.generation == generation, !(error is CancellationError) { loadError = error.localizedDescription }
+            throw error
+        }
+    }
+
+    func refreshChat() async throws {
+        if let refreshTask { return try await refreshTask.value }
+        if let chatRefreshTask { return try await chatRefreshTask.value }
+        let generation = services.generation, requestID = UUID()
+        chatRequestID = requestID
+        isChatRefreshing = true
+        conversations = []; members = []; messages = [:]
+        let task = Task {
+            let rooms: [RemoteConversation] = try await services.allRows("bibi_conversations")
+            let memberships: [RemoteMember] = try await services.allRows("bibi_conversation_members", keys: ["conversation_id", "user_id"])
+            var rows: [UUID: [RemoteMessage]] = [:]
+            for room in rooms { rows[room.id] = try await chat.messages(conversation: room.id) }
+            try services.check(generation)
+            guard chatRequestID == requestID else { throw CancellationError() }
+            conversations = rooms; members = memberships; messages = rows; chatLoadError = nil
+        }
+        chatRefreshTask = task
+        defer { if chatRequestID == requestID { chatRefreshTask = nil; isChatRefreshing = false } }
+        do { try await task.value }
+        catch {
+            if services.generation == generation, chatRequestID == requestID, !(error is CancellationError) {
+                chatLoadError = error.localizedDescription
+            }
+            throw error
+        }
+    }
+
+    /// Revalidate authorization without requesting or replacing catalog bodies and media.
+    func refreshVisibility() async throws {
+        if let refreshTask { return try await refreshTask.value }
+        let generation = services.generation, revision = snapshotRevision
+        struct Visible: Decodable { let id: UUID }
+        do {
+            let visible: [Visible] = try await services.allRows("bibi_content", columns: "id")
+            let followRows: [RemoteRelationship] = try await services.allRows("bibi_follows", keys: ["user_id", "target_id"])
+            let blockRows: [RemoteRelationship] = try await services.allRows("bibi_blocks", keys: ["user_id", "target_id"])
+            try services.check(generation)
+            guard snapshotRevision == revision else { return }
+            let allowed = Set(visible.map(\.id))
+            records.removeAll { !allowed.contains($0.id) }
+            revisions = revisions.filter { allowed.contains($0.value.content_id) }
+            counts = counts.filter { allowed.contains($0.key) }
+            follows = followRows; blocks = blockRows
+        } catch {
+            if services.generation == generation, snapshotRevision == revision, !(error is CancellationError) {
+                records = []; revisions = [:]; assets = [:]; counts = [:]; signedURLs = [:]
+                follows = []; blocks = []
+                loadError = error.localizedDescription
+            }
+            throw error
+        }
     }
 
     private func loadSnapshot() async throws {
+        resetSnapshot()
         let account = try services.requireAccount(), generation = services.generation
         let profileRows: [RemoteProfile] = try await services.allRows("bibi_profiles")
+        let editorialRows: [RemoteEditorialProfile] = try await services.allRows("bibi_editorial_profiles")
         let contentRows: [RemoteContent] = try await services.allRows("bibi_content")
         let revisionRows: [RemoteRevision] = try await services.allRows("bibi_content_revisions")
         let mediaRows: [RemoteMedia] = try await services.allRows("bibi_media")
@@ -71,7 +141,7 @@ final class OnlineState: ObservableObject {
         var urls: [UUID: URL] = [:]
         for asset in mediaRows where asset.status == "ready" { urls[asset.id] = try? await media.signedURL(asset) }
         var totals: [UUID: RemoteCounts] = [:]
-        for record in contentRows where record.kind == "video" { totals[record.id] = try await content.counts(record.id) }
+        for record in contentRows where record.kind == "video" || record.kind == "post" { totals[record.id] = try await content.counts(record.id) }
         var profileTotals: [UUID: RemoteProfileCounts] = [:]
         struct Parameters: Encodable { let p_user: UUID }
         for profile in profileRows {
@@ -81,23 +151,32 @@ final class OnlineState: ObservableObject {
         try services.check(generation)
         profileCounts = profileTotals
         profiles = Dictionary(uniqueKeysWithValues: profileRows.map { ($0.id, $0) })
+        editorialProfiles = Dictionary(uniqueKeysWithValues: editorialRows.map { ($0.id, $0) })
         records = contentRows.sorted { $0.created_at > $1.created_at }; revisions = Dictionary(uniqueKeysWithValues: revisionRows.map { ($0.id, $0) })
         assets = Dictionary(uniqueKeysWithValues: mediaRows.map { ($0.id, $0) })
         follows = followRows; blocks = blockRows; circles = circleRows; challenges = challengeRows
         saves = Set(savedRows.map(\.content_id)); likes = Set(likeRows.map(\.content_id))
         entries = entryRows; joins = Set(joinRows.map(\.circle_id)); reports = reportRows
         conversations = roomRows; members = memberRows; messages = messageRows; drafts = draftRows
-        signedURLs = urls; counts = totals
+        signedURLs = urls; counts = totals; loadError = nil; chatLoadError = nil
 
     }
 
     func clear() {
         refreshTask?.cancel(); refreshTask = nil; refreshGeneration = nil
-        profiles = [:]; records = []; revisions = [:]; assets = [:]; conversations = []; members = []
-        messages = [:]; follows = []; blocks = []; circles = []; challenges = []; counts = [:]
-        profileCounts = [:]; drafts = [:]; saves = []; likes = []; entries = []; joins = []; reports = []; signedURLs = [:]
+        chatRefreshTask?.cancel(); chatRefreshTask = nil; chatRequestID = UUID(); isRefreshing = false; isChatRefreshing = false
+        resetSnapshot()
+        drafts = [:]; loadError = nil; chatLoadError = nil
+        media.clearReadAccess()
         wallet.stop()
         chat.stop(); sync.stop()
+    }
+
+    private func resetSnapshot() {
+        profiles = [:]; records = []; revisions = [:]; assets = [:]; conversations = []; members = []
+        editorialProfiles = [:]
+        messages = [:]; follows = []; blocks = []; circles = []; challenges = []; counts = [:]
+        profileCounts = [:]; saves = []; likes = []; entries = []; joins = []; reports = []; signedURLs = [:]
     }
 
     func avatarURL(_ user: UUID) -> URL? {
@@ -107,11 +186,19 @@ final class OnlineState: ObservableObject {
     }
 
     func creator(_ id: UUID?) -> CreatorProfile {
-        guard let id else { return CommunityCatalog.editor }
+        guard let id else { return CreatorProfile(id: "bibi-editor", name: "Bibi Editorial", biography: "", avatarAsset: "BibiMark", following: 0, followers: 0) }
         let profile = profiles[id]
         return CreatorProfile(id: id.uuidString, name: profile?.display_name ?? "Member",
             biography: profile?.biography ?? "", avatarURL: avatarURL(id), avatarAsset: "BibiMark", following: 0, followers: 0,
             isLocalOwner: id == services.accountID)
+    }
+
+    func creator(for record: RemoteContent) -> CreatorProfile {
+        if let reference = record.editorial_profile_id, let author = editorialProfiles[reference] {
+            return CreatorProfile(id: author.id, name: author.display_name, biography: author.biography,
+                avatarURL: author.avatar_media_id.flatMap { signedURLs[$0] }, avatarAsset: "BibiMark", following: 0, followers: 0)
+        }
+        return creator(record.owner_id)
     }
 
     func revision(_ record: RemoteContent) -> RemoteRevision? {
@@ -138,16 +225,20 @@ final class OnlineState: ObservableObject {
             guard let revision = revision(record) else { continue }
             switch record.kind {
             case "post":
-                community.posts.append(CirclePost(id: record.id, circleID: record.circle_id ?? "", author: creator(record.owner_id),
+                community.posts.append(CirclePost(id: record.id, circleID: record.circle_id ?? "", author: creator(for: record),
                     body: revision.body, videoID: revision.video_id, createdAt: record.created_at, isEditorial: record.editorial,
                     remotePhotoURL: revision.media_id.flatMap { signedURLs[$0] }, remoteStatus: revision.status))
             case "reply":
-                if let parent = record.parent_id { community.replies.append(CircleReply(id: record.id, postID: parent, author: creator(record.owner_id), text: revision.body, createdAt: record.created_at)) }
+                if let parent = record.parent_id { community.replies.append(CircleReply(id: record.id, postID: parent, author: creator(for: record), text: revision.body, createdAt: record.created_at)) }
             case "video":
                 guard let assetID = revision.media_id, let asset = assets[assetID] else { continue }
                 var video = LocalVideo(id: record.id, title: revision.title, fileExtension: "mp4", duration: asset.duration_seconds ?? 0,
                     importedAt: record.created_at, isSaved: saves.contains(record.id), isDance: true)
-                video.remoteCreator = creator(record.owner_id); video.remoteMediaID = assetID
+                var author = creator(for: record)
+                author.sourceURL = revision.source_url.flatMap(URL.init(string:))
+                video.remoteCreator = author; video.remoteMediaID = assetID
+                video.remoteCoverMediaID = revision.cover_media_id
+                video.remoteCaption = revision.body; video.remoteCredit = revision.credit
                 library.videos.append(video)
                 if record.approved_revision == nil, record.owner_id == services.accountID {
                     var submission = CreationSubmission(kind: .shortVideo, title: revision.title, caption: revision.body, category: "Animation")

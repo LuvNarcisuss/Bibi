@@ -1,0 +1,38 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "checks": [
+    "new_account_personal_state_empty",
+    "authenticated_catalog_read",
+    "authenticated_a_bootstrap_empty_configuration",
+    "new_user_complete_content_editorial_and_media_visibility",
+    "all_43_private_media_objects_user_download_hash_mime_and_video_range",
+    "expired_private_signature_denied_and_new_signature_restores_access"
+  ],
+  "cleanup": [
+    {
+      "label": "C",
+      "user_id": "601c18cd-ee9a-40ec-aac5-819acf338e3e",
+      "status": "deleted"
+    },
+    {
+      "label": "B",
+      "user_id": "37c7a275-5e9e-44bd-925d-e0a51b6bce11",
+      "status": "deleted"
+    },
+    {
+      "label": "A",
+      "user_id": "72c6becc-d015-49aa-9d5b-f016518fd251",
+      "status": "deleted"
+    }
+  ],
+  "failure": "Persistent message event timed out.",
+  "scoped_admin_cleanup_conversation_ids": [
+    "394138df-91ab-4890-9591-7246787e88b0"
+  ],
+  "limits": [
+    "No iOS UI or simulator acceptance.",
+    "No real purchase or fabricated wallet credit.",
+    "No RTC, push, presence or typing claim.",
+    "DELETE transport metadata needs separate privacy verification."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "project_ref": "yepycfnkkfrfmuwdekka",
+  "approved_sql_sha256": "2b65b5e3e607838d35e18af24927748c858a7b78a297fd809d77b7484313f5f9",
+  "owner_explicitly_approved_exact_sql_and_functions": true,
+  "deployment_order": [
+    "bibi_dual_source_settlement",
+    "bibi-settlement",
+    "bibi-begin"
+  ],
+  "database": {
+    "products": [
+      {
+        "id": "ldbsrbbhebevxdjf",
+        "diamonds": 400
+      },
+      {
+        "id": "fxvrdbmlwopeasti",
+        "diamonds": 800
+      },
+      {
+        "id": "akafhhbydyymfpzk",
+        "diamonds": 2450
+      },
+      {
+        "id": "ffzwgpuvsyyhaeeg",
+        "diamonds": 5150
+      },
+      {
+        "id": "ofgjvlbwtzchgvbx",
+        "diamonds": 10800
+      },
+      {
+        "id": "fyongbrslseicxya",
+        "diamonds": 16800
+      },
+      {
+        "id": "azacbzpzvvvpblzu",
+        "diamonds": 29400
+      },
+      {
+        "id": "xutwylpejsdvkwpm",
+        "diamonds": 42700
+      },
+      {
+        "id": "lghwqjsuuxivrdrf",
+        "diamonds": 63700
+      }
+    ],
+    "migration": [
+      {
+        "name": "bibi_dual_source_settlement",
+        "version": "20261104030119"
+      }
+    ],
+    "table_grants": {
+      "anon": false,
+      "service_role": true,
+      "authenticated": false
+    },
+    "settlement_pk": "PRIMARY KEY (bundle_id, environment, transaction_id)",
+    "settlements_rls": true,
+    "public_rpc_grants": {
+      "anon": false,
+      "service_role": true,
+      "authenticated": false
+    },
+    "settlements_count": 0,
+    "private_rpc_grants": {
+      "anon": false,
+      "service_role": true,
+      "authenticated": false
+    },
+    "credit_source_guard": true,
+    "provenance_constraint": "CHECK ((verification_source = ANY (ARRAY['apple_server'::text, 'client_reported'::text])))"
+  },
+  "functions": [
+    {
+      "name": "bibi-begin",
+      "version": 2,
+      "status": "ACTIVE",
+      "verify_jwt": true,
+      "source_files_exact_match": [
+        "bibi-begin/index.ts",
+        "_shared/http.ts",
+        "_shared/bibi-config.ts",
+        "_shared/bibi-settings.json",
+        "_shared/bibi-upstream.ts"
+      ],
+      "ezbr_sha256": "62fbdaa2a63e0e3829daaaee8e8470b366947e4d991993639956ab6bb608c7da"
+    },
+    {
+      "name": "bibi-settlement",
+      "version": 1,
+      "status": "ACTIVE",
+      "verify_jwt": true,
+      "source_files_exact_match": [
+        "bibi-settlement/index.ts",
+        "_shared/http.ts",
+        "_shared/bibi-config.ts",
+        "_shared/bibi-settings.json",
+        "_shared/bibi-upstream.ts"
+      ],
+      "ezbr_sha256": "983f0f346d73fa744d30fab15ed99ea355daa2600ec6a6519f7ba3ea76f63929"
+    }
+  ],
+  "real_external_auth_socket_confirmation_or_apple_request": false,
+  "release_gate_enabled": false,
+  "limits": [
+    "Deployment/source/privilege readback is not App runtime or real payment acceptance.",
+    "No paid or fabricated transaction was submitted."
+  ]
+}

@@ -45,7 +45,8 @@ final class ChatRepository {
                 await reconcile()
             }
         }
-        await next.subscribe()
+        do { try await BackendSync.subscribe(next, services: services, generation: generation) }
+        catch { stop(); throw error }
         try services.check(generation)
         await reconcile()
     }

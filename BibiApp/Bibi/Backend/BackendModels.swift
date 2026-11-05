@@ -17,6 +17,7 @@ struct RemoteContent: Codable, Identifiable {
     let approved_revision: UUID?
     let pending_revision: UUID?
     let editorial: Bool
+    let editorial_profile_id: String?
     let withdrawn: Bool
     let removed: Bool
     let created_at: Date
@@ -27,13 +28,16 @@ struct RemoteRevision: Codable, Identifiable {
     let title: String
     let body: String
     let media_id: UUID?
+    let cover_media_id: UUID?
+    let source_url: String?
+    let credit: String?
     let video_id: UUID?
     let status: String
     let created_at: Date
 }
 struct RemoteMedia: Codable, Identifiable {
     let id: UUID
-    let owner_id: UUID
+    let owner_id: UUID?
     let bucket_id: String
     let object_path: String
     let mime_type: String
@@ -49,9 +53,14 @@ struct RemoteSaved: Codable { let user_id: UUID; let content_id: UUID }
 struct RemoteCircleMembership: Codable { let user_id: UUID; let circle_id: String }
 struct RemoteCircle: Codable, Identifiable {
     let id: String; let title: String; let subtitle: String; let prompt: String; let artwork: String
+    let artwork_media_id: UUID?
 }
 struct RemoteChallenge: Codable, Identifiable {
     let id: String; let title: String; let category: String; let summary: String; let artwork: String; let steps: [String]
+    let artwork_media_id: UUID?
+}
+struct RemoteEditorialProfile: Codable, Identifiable {
+    let id: String; let display_name: String; let biography: String; let avatar_media_id: UUID?
 }
 struct RemoteEntry: Codable, Identifiable {
     let id: UUID; let user_id: UUID; let challenge_id: String; let video_id: UUID; let created_at: Date

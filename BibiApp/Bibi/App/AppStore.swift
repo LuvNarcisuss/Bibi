@@ -11,7 +11,8 @@ final class AppStore: ObservableObject {
   @Published private(set) var busyMessage: String?
   @Published var notice: AppNotice?
   @Published private(set) var accountExitRevision = 0
-  private var sessionActive = false
+  private(set) var sessionActive = false
+  private var onlineEntryGeneration = UUID()
   var canUseGifts: Bool { false }
   var canEndSession: Bool {
     isLoaded && sessionActive && !isBusy && !shortsSocial.isSaving && !wallet.isBusy
@@ -21,6 +22,7 @@ final class AppStore: ObservableObject {
   private var ownerAvatarStamp: Date?
 
   let online: OnlineState?
+  var configuredEntry: (() async throws -> Void)?
   var isOnline: Bool { BackendConfiguration.isEnabled }
   private var onlineObservation: AnyCancellable?
   let wallet = WalletStore()
@@ -189,10 +191,10 @@ final class AppStore: ObservableObject {
   func load() async {
     if isOnline {
       guard let online else { loadError = BackendError.unavailable.localizedDescription; return }
+      do {
+        if try await online.services.restore() { try await completeOnlineSignIn() }
+      } catch { loadError = error.localizedDescription }
       isLoaded = true
-      if (try? await online.services.restore()) == true {
-        do { try await completeOnlineSignIn() } catch { loadError = error.localizedDescription }
-      }
       return
     }
     guard !isBusy, !isLoaded else { return }
@@ -224,13 +226,12 @@ final class AppStore: ObservableObject {
 
   func videoURL(_ video: LocalVideo) -> URL {
     if let id = video.remoteMediaID { return online?.signedURLs[id] ?? storageRoot.appendingPathComponent("Unavailable") }
-    if let clip = video.bundledClip { return clip.resourceURL(fileExtension: "mp4") }
     return storageRoot.appendingPathComponent("Media/\(video.id.uuidString).\(video.fileExtension)")
   }
 
   func coverURL(_ video: LocalVideo) -> URL {
+    if let id = video.remoteCoverMediaID, let url = online?.signedURLs[id] { return url }
     if video.remoteMediaID != nil { return storageRoot.appendingPathComponent("UnavailableCover") }
-    if let clip = video.bundledClip { return clip.resourceURL(fileExtension: "jpg") }
     return storageRoot.appendingPathComponent("Media/\(video.id.uuidString).jpg")
   }
 
@@ -263,7 +264,9 @@ final class AppStore: ObservableObject {
       do {
         let asset = try await online.media.uploadVideoCopy(source: videoURL)
         let id = try await online.content.publish(kind: "video", title: title, body: caption, media: asset, challenge: challengeID)
-        try? await refreshOnline(); return id
+        try? await refreshOnline()
+        if challengeID != nil { await refreshWalletAfterCommit() }
+        return id
       } catch { noteSaveError(error.localizedDescription); return nil }
     }
     guard isLoaded, sessionActive, !isBusy,
@@ -534,7 +537,7 @@ final class AppStore: ObservableObject {
           "title": .string(String(people.map(\.name).joined(separator: ", ").prefix(80))),
           "members": .array(peers.map(AnyJSON.string))])
         guard let id = result["id"]?.stringValue else { return nil }
-        try? await refreshOnline()
+        try? await refreshOnlineChats()
         return chatConversations.first { $0.id.lowercased() == id.lowercased() }
           ?? CommunityConversation(id: UUID(uuidString: id)?.uuidString ?? id, name: String(people.map(\.name).joined(separator: ", ").prefix(80)), avatars: ["BibiMark"], kind: .group, time: "", initialUnread: 0, initiallyPinned: false, story: nil, messages: [])
       } catch { noteSaveError(error.localizedDescription); return nil }
@@ -866,7 +869,7 @@ final class AppStore: ObservableObject {
 
   func statistics(for creator: CreatorProfile) -> CreatorStatistics {
     if let online {
-      let works = online.records.filter { $0.owner_id?.uuidString == creator.id && ($0.kind == "video" || $0.kind == "post") }
+      let works = online.records.filter { ($0.owner_id?.uuidString == creator.id || $0.editorial_profile_id == creator.id) && ($0.kind == "video" || $0.kind == "post") }
       return CreatorStatistics(likes: works.reduce(0) { $0 + (online.counts[$1.id]?.likes ?? 0) },
         saves: works.reduce(0) { $0 + (online.counts[$1.id]?.saves ?? 0) },
         following: UUID(uuidString: creator.id).flatMap { online.profileCounts[$0]?.following } ?? 0,
@@ -903,6 +906,7 @@ final class AppStore: ObservableObject {
   }
 
   func toggleCreatorFollow(_ id: String) async {
+    if isOnline, UUID(uuidString: id) == nil { return }
     if isOnline { _ = await remoteMutation("follow", payload: ["target_id": .string(id), "selected": .bool(!isFollowingCreator(id))]); return }
     guard isLoaded, !isBusy, !isCreatorBlocked(id) else { return }
     var updated = library
@@ -981,6 +985,10 @@ final class AppStore: ObservableObject {
   }
 
   func blockCreator(_ creator: CreatorProfile) async -> Bool {
+    if isOnline, UUID(uuidString: creator.id) == nil {
+      noteSaveError("Report a specific work from this collection.")
+      return false
+    }
     guard !creator.isLocalOwner,
       creator.id.lowercased() != CreatorProfile.signedIn(library.profile).id.lowercased() else { return false }
     if isOnline { return await remoteMutation("block", payload: ["target_id": .string(creator.id), "selected": .bool(true)]) }
@@ -1013,6 +1021,10 @@ final class AppStore: ObservableObject {
     guard !target.creator.isLocalOwner,
       target.creator.id.lowercased() != CreatorProfile.signedIn(library.profile).id.lowercased() else { return false }
     if isOnline {
+      if target.kind == .profile, UUID(uuidString: target.id) == nil {
+        noteSaveError("Report a specific work from this collection.")
+        return false
+      }
       let key = target.kind == .profile ? "user_id" : "target_id"
       return await remoteMutation("report", payload: [key: .string(target.id), "reason": .string(reason.rawValue), "details": .string(details)])
     }
@@ -1070,25 +1082,77 @@ final class AppStore: ObservableObject {
   func completeOnlineSignIn() async throws {
     guard let online else { throw BackendError.unavailable }
     let generation = online.services.generation
+    let entryGeneration = UUID()
+    onlineEntryGeneration = entryGeneration
+    // Enable the sole observer before Socket checkout can arrive during entry.
+    await wallet.startPayments()
+    try online.services.check(generation)
+    try checkOnlineEntry(entryGeneration)
+    try await configuredEntry?()
+    try online.services.check(generation)
+    try checkOnlineEntry(entryGeneration)
+    try await online.sync.start(reconcile: { [weak self] in try? await self?.refreshOnline() },
+      reconcileChat: { [weak self] in try? await self?.refreshOnlineChats() },
+      reconcileVisibility: { [weak self] in try? await self?.refreshOnlineVisibility() })
+    try checkOnlineEntry(entryGeneration)
     try await refreshOnline()
     try online.services.check(generation)
+    try checkOnlineEntry(entryGeneration)
     sessionActive = true; isLoaded = true; loadError = nil
-    Task { [weak self] in
-      await online.sync.start { [weak self] in try? await self?.refreshOnline() }
-    }
-    await online.wallet.start()
     try online.services.check(generation)
     _ = try online.services.requireAccount()
   }
 
+  private func checkOnlineEntry(_ captured: UUID) throws {
+    guard onlineEntryGeneration == captured else { throw BackendError.accountChanged }
+    try Task.checkCancellation()
+  }
+
+  func commitOnlinePresentation() {
+    sessionActive = true; isLoaded = true; loadError = nil
+  }
+
   func refreshOnline() async throws {
     guard let online else { throw BackendError.unavailable }
+    // This projection never writes the preserved device archive or wallet.
+    library = LocalLibrary()
+    defer {
+      library = online.projectLibrary()
+      shortsSocial.adoptRemote(online)
+    }
     try await online.refresh()
-    library = online.projectLibrary()
-    shortsSocial.adoptRemote(online)
+  }
+
+  func retryOnlineContent() {
+    Task { @MainActor [weak self] in
+      guard let self else { return }
+      do { try await refreshOnline() }
+      catch { noteSaveError(error.localizedDescription) }
+    }
+  }
+
+  func refreshOnlineChats() async throws {
+    guard let online else { throw BackendError.unavailable }
+    try await online.refreshChat()
+  }
+
+  func refreshOnlineVisibility() async throws {
+    guard let online else { throw BackendError.unavailable }
+    defer {
+      library = online.projectLibrary()
+      shortsSocial.adoptRemote(online)
+    }
+    try await online.refreshVisibility()
+  }
+
+  private func refreshWalletAfterCommit() async {
+    guard let online else { return }
+    do { try await online.wallet.refreshBalance() }
+    catch { notice = AppNotice(title: "Saved online", message: "The wallet could not refresh. Open Diamonds to retry.") }
   }
 
   func endOnlineSession(notify: Bool = true) {
+    onlineEntryGeneration = UUID()
     online?.clear(); library = LocalLibrary(); sessionActive = false
     shortsSocial.clearAccountMemory(); wallet.clearAccountMemory()
     if notify { accountExitRevision += 1 }
@@ -1099,7 +1163,12 @@ final class AppStore: ObservableObject {
     busyMessage = "Saving online…"; defer { busyMessage = nil }
     do {
       _ = try await online.content.mutate(action, payload: payload)
-      do { try await refreshOnline() } catch { notice = AppNotice(title: "Saved online", message: "Refresh to update this view.") }
+      do {
+        if ["send", "direct", "group", "invite", "accept_invite", "remove_member", "leave", "chat_preferences"].contains(action) {
+          try await refreshOnlineChats()
+        } else { try await refreshOnline() }
+      } catch { notice = AppNotice(title: "Saved online", message: "Refresh to update this view.") }
+      if ["challenge", "publish", "withdraw"].contains(action) { await refreshWalletAfterCommit() }
       return true
     } catch { noteSaveError(error.localizedDescription); return false }
   }
@@ -1123,11 +1192,13 @@ final class AppStore: ObservableObject {
 
   var availableCircles: [InterestCircle] {
     guard let online else { return CommunityCatalog.circles }
-    return online.circles.map { InterestCircle(id: $0.id, title: $0.title, subtitle: $0.subtitle, artwork: $0.artwork, prompt: $0.prompt) }
+    return online.circles.map { InterestCircle(id: $0.id, title: $0.title, subtitle: $0.subtitle, artwork: "", prompt: $0.prompt,
+      artworkURL: $0.artwork_media_id.flatMap { online.signedURLs[$0] }) }
   }
   var availableChallenges: [CreativeChallenge] {
     guard let online else { return CommunityCatalog.challenges }
-    return online.challenges.map { CreativeChallenge(id: $0.id, title: $0.title, category: $0.category, summary: $0.summary, artwork: $0.artwork, steps: $0.steps, exampleIndex: 0) }
+    return online.challenges.map { CreativeChallenge(id: $0.id, title: $0.title, category: $0.category, summary: $0.summary, artwork: "", steps: $0.steps, exampleIndex: 0,
+      artworkURL: $0.artwork_media_id.flatMap { online.signedURLs[$0] }) }
   }
 
   private func showSaveFailure() {

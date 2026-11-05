@@ -46,6 +46,7 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
   private var sharing = false
   private var searchText = ""
   private var syncingFeed = false
+  private var refreshSelection: UUID?
   /// Home hides its create control while the comment sheet covers that corner.
   var onCommentChrome: ((Bool) -> Void)?
   private var commentsOpen = false
@@ -329,17 +330,23 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
   private func reconcileDiscovery() {
     guard discovery, !syncingFeed, collection != nil else { return }
     let source = store.shortsDiscoveryVideos
+    if source.isEmpty, store.online?.isRefreshing == true, refreshSelection == nil,
+       videos.indices.contains(currentIndex) { refreshSelection = videos[currentIndex].id }
+    if store.online?.loadError != nil { refreshSelection = nil }
     let allowed = Set(source.map(\.id))
     let known = Set(allVideos.map(\.id))
     let restored = source.filter { !known.contains($0.id) }
     let removed = allVideos.contains { !allowed.contains($0.id) }
-    guard removed || !restored.isEmpty else { return }
+    let latest = Dictionary(uniqueKeysWithValues: source.map { ($0.id, $0) })
+    let changed = allVideos.contains { previous in latest[previous.id].map { $0 != previous } == true }
+    guard removed || !restored.isEmpty || changed else { return }
     syncingFeed = true
     defer { syncingFeed = false }
-    let previous = videos.indices.contains(currentIndex) ? videos[currentIndex].id : nil
-    allVideos.removeAll { !allowed.contains($0.id) }
+    let previous = refreshSelection ?? (videos.indices.contains(currentIndex) ? videos[currentIndex].id : nil)
+    allVideos = allVideos.compactMap { latest[$0.id] }
     allVideos.append(contentsOf: restored)
     videos = visibleVideos(from: allVideos)
+    if !source.isEmpty { refreshSelection = nil }
     if let previous, let index = videos.firstIndex(where: { $0.id == previous }) {
       currentIndex = index
     } else {
@@ -389,11 +396,16 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
   private func selectCurrent() {
     guard let video = current else {
       playback.stop()
-      status.text = "No videos found."
+      let loadError = store.online?.loadError
+      status.text = loadError == nil ? "No videos found." : "Videos could not load."
       header.arrangedSubviews.forEach { $0.removeFromSuperview() }
       footer.arrangedSubviews.forEach { $0.removeFromSuperview() }
       rail.arrangedSubviews.forEach { $0.removeFromSuperview() }
-      header.addArrangedSubview(label("No videos found", 16, .white))
+      header.addArrangedSubview(label(loadError == nil ? "No videos found" : "Videos could not load", 16, .white))
+      if let loadError {
+        footer.addArrangedSubview(label(loadError, 14, .white))
+        footer.addArrangedSubview(actionButton("Try again", icon: .refresh) { [weak self] in self?.store.retryOnlineContent() })
+      }
       var find: UIButton!
       find = iconButton(.search, "Search", color: .white) { [weak self] in
         self?.openSearch(from: find)
@@ -475,7 +487,8 @@ final class VideoFeedController: BibiScreen, UICollectionViewDataSource,
     footer.addArrangedSubview(label("@" + creator.name, 18, .white, title: true))
     let uploadCaption = store.pendingSubmissions.first { $0.videoID == video.id }?.caption
       .trimmingCharacters(in: .whitespacesAndNewlines)
-    let description = uploadCaption.flatMap { $0.isEmpty ? nil : "\(video.title) · \($0)" }
+    let description = video.remoteCaption.flatMap { $0.isEmpty ? nil : "\(video.title) · \($0)" }
+      ?? uploadCaption.flatMap { $0.isEmpty ? nil : "\(video.title) · \($0)" }
       ?? video.communityDescription
     let desc = label(description, 14, .white)
     desc.numberOfLines = 3

@@ -7,7 +7,14 @@ enum BackendConfiguration {
     static let recoveryURL = URL(string: "bibi://auth/recovery")!
     static let projectURL = URL(string: "https://yepycfnkkfrfmuwdekka.supabase.co")!
     static let publishableKey = "sb_publishable_dbqQ-uuTU6z0XcHLCpbwxg_wMQ4zE3p"
-    static let environment = "Production"
+    static var environment: String { BibiReceiptEvidence.environment }
+    static func requireSupportedEnvironment() throws -> String {
+        let current = environment
+        guard ["Sandbox", "Production"].contains(current) else {
+            throw BackendError.invalidInput("Apple purchase services are unavailable for this receipt environment. No wallet change was made.")
+        }
+        return current
+    }
 
     static func acceptsCallback(_ url: URL) -> Bool {
         url.scheme == callbackURL.scheme && url.host == callbackURL.host

@@ -1,114 +1,75 @@
 # Bibi backend
 
-The backend is provisioned in `LuvNarcisuss's Org` as project
-`yepycfnkkfrfmuwdekka`, region `ap-southeast-1`, at the owner's accepted
-$0/month project quote. No paid upgrade was requested. Quotas and external
-SMTP/Apple services are separate release considerations.
+Bound project: `yepycfnkkfrfmuwdekka`. Keep `BibiBackendEnabled=false` until
+`RELEASE-CHECKLIST.md` is satisfied. The November 4 owner request completes A
+before connecting external AppID `48369038` and origin `https://bibi.byig.top`.
+See `../../docs/backend-api/integration-record.md` for current authoritative
+stage/deployment/evidence records. Historical deployment files apply to their
+named revisions; do not replay their migrations against this existing project.
 
-The application has one `BibiBackendEnabled` Info.plist gate, currently **false**.
-Do not enable it until `RELEASE-CHECKLIST.md` is satisfied. The existing local
-experience remains active. Deployment and static inspection are not evidence
-that the iOS app compiles or that end-to-end operations work.
+## Current data and account boundary
 
-## Private CI build assets
+A holds 56 community records, seven fictional/editorial profiles without Auth
+identities, four circles, four challenges and 43 private media objects. New users
+start without personal relationships, content, wallet grants or inbox messages.
+Private objects require authorized reads and short-lived signed URLs. Original
+source media and mapping/provenance remain in `catalog-migration/`; business
+catalogs and media are absent from production bundle resources. The disabled
+gate leaves the offline community catalog empty while retaining actual private
+user data. Source assets are never a failed-request fallback.
 
-Codemagic build inputs use a separate private Storage bucket named
-`bibi-build-assets`. It is not a user-media bucket and has no public read or
-write policy. A trusted operator uploads the reviewed `RemoteAssets.json`
-`buildResources` set with `BibiApp/scripts/upload_ci_resources.py` using
-`SUPABASE_BUILD_ASSETS_SERVICE_ROLE_KEY`. Codemagic receives the same secret in
-its environment group, downloads only the pinned objects, and verifies each
-SHA-256 before generating the asset catalog. Never commit or print the service
-role key.
+Anonymous Auth with adult consent is the normal online entry. Supabase Swift
+2.30.0 stores the session in device-only Keychain and binds asynchronous work to
+account generations. Logout clears online memory; archives are not automatically
+uploaded or credited. Per-item archive import requires explicit user activity.
+Remote deletion does not erase original Photos or independent device archives.
+No SMTP is needed unless optional email-link/recovery is actually exposed.
 
-## Applied database sources
+## Current database and functions
 
-Apply these files in order when reconstructing an empty project. The connected
-project already contains these migrations; do not replay them against it.
+The existing baseline migrations are documented in `DEPLOYMENT.md`. November 4
+adds the editorial/media mapping, required Realtime publications and the exact
+owner-approved `online-spending.sql` / `membership-event-privacy.sql`. Cosmetics
+and challenge charges/refunds use atomic server commands; new gifts are retired.
+Membership events have an opaque UUID primary key and retain pair uniqueness.
 
-1. `schema.sql` — authoritative tables, scoped grants, RLS, command journal,
-   Storage policies, wallet ledger, and service-only administrative RPCs.
-2. `hardening.sql` — missing indexes, explicit private deny policies, editorial
-   circle/challenge catalogs. There are no fabricated member accounts, messages,
-   published media, engagement totals, or wallet credits.
-3. `client-read-policies.sql` — recipient-visible invitation metadata,
-   independently counted profile relationships, and reversible report hiding.
-4. `atomic-client-commands.sql` — atomic group creation/invitations and combined
-   video publication/challenge entry.
-5. `refund-ordering.sql` — durable Apple revocation tombstones, including
-   notifications that arrive before a purchase is first credited.
-6. `comment-threading.sql` — real comment reply targets, preserving the previous
-   command changes.
+B source `b-settlement.sql` is frozen, offline verified and deployed following
+exact owner approval. It supplies all nine selected native product mappings,
+a private source/owner settlement journal and service-only RPCs. Migration `20261104030119 bibi_dual_source_settlement` is applied;
+`bibi-settlement` v1 and B `bibi-begin` v2 are ACTIVE with JWT verification.
+Readback verifies exact source/settings, nine products and service-only grants.
 
-7. `guest-auth.sql` — anonymous account eligibility with adult consent and live
-   session checks; preserves existing ownership policies.
+| Function | Current role |
+| --- | --- |
+| `bibi-begin` | Authenticated B bootstrap with a fixed server preflight and returns the chosen origin/AppID without forwarding a ticket |
+| `bibi-settlement` | Deployed: source-specific durable confirmation, local atomic credit or original-service forwarding |
+| `media-finalize` | Session-authorized uploaded image/video validation |
+| `delete-account` | Session-authorized deletion/cleanup with retained reconciliation evidence |
+| `verify-purchase` | Retained legacy Apple-verification compatibility path; not the B purchase entry |
+| `apple-notifications` | Retained signed Apple refund/revocation path; real configuration and delivery unverified |
+| `bibi-catalog-transfer` | Retired migration endpoint, deny-all; never a production upload path |
 
-Twenty public business tables and six private tables have RLS enabled. Clients
-receive read access through RLS and scoped command RPCs; they cannot directly
-write balances, moderation decisions, transactions, or other users' records.
-An active session requires a genuine anonymous account or verified email,
-explicit adult consent and a live Auth session. Command UUIDs are durable retry identities; a reused UUID with
-changed parameters is rejected. The app's account-specific journal is separate
-from the old local library.
+B local purchases explicitly trust the client's purchase declaration and mark
+`client_reported` provenance. They are not Apple server-verified purchases. No
+new Apple verifier/p8 was added. Supabase is the only native diamond writer.
+Socket orders use a distinct original-service web entitlement authority and do
+not credit native diamonds. Sandbox and Production remain separate; Xcode and
+Unknown cannot be submitted as B settlement environments. Existing Apple-server
+keys apply only to the retained legacy verification/notification functions.
 
-## Pending wallet catalog extension
+Ownership/source is immutable and transaction uniqueness spans users and both
+sources. Unknown history cannot be guessed from SKU/current login. An external
+confirmation that might have been sent remains `needsReconciliation` without
+blind resend; upstream status-query/idempotency semantics were not supplied.
+See `../../docs/backend-api/b-stage-decisions.md` for the exact recovery limits.
 
-`wallet-products.sql` adds the owner-approved 16,800 and 42,700 diamond products.
-Apply it after the seven existing SQL sources for both fresh and existing setups.
-It is prepared but not deployed, preserves existing products and balances, and
-rejects a conflicting mapping instead of overwriting it. Apple registration of
-the new IDs remains required; see `../../docs/PURCHASES.md`. The backend gate
-remains false.
+## Build assets
 
-## Edge Functions
-
-| Function | Authentication | Behavior |
-| --- | --- | --- |
-| `media-finalize` | Supabase JWT plus current user/session checks | Validates immutable uploaded image/video bytes before marking media ready |
-| `delete-account` | Supabase JWT and password confirmation | Locks business access, revokes sessions, removes account Storage, then deletes Auth identity |
-| `verify-purchase` | Supabase JWT plus current user/session checks | Validates Apple evidence, queries Apple for current transaction state, then credits once |
-| `apple-notifications` | Apple signed payload; Supabase JWT intentionally disabled | Records verified refunds/revocations and adjusts authoritative balances |
-
-All four functions were returned ACTIVE, version 1, by the deployment inventory.
-No function request, account flow, or purchase was runtime-tested. Deno imports
-are pinned to `@supabase/supabase-js@2.57.4` and the official
-`@apple/app-store-server-library@3.1.0`.
-
-Required Apple server secrets (never ship these in the client):
-`APPLE_PRIVATE_KEY`, `APPLE_KEY_ID`, `APPLE_ISSUER_ID`, `APPLE_APP_ID`,
-`APPLE_ROOT_CA_BASE64_JSON`, and `APPLE_ALLOWED_ENVIRONMENTS`.
-The certificate value is a JSON array of base64-encoded Apple root DER
-certificates. Obtain certificates from Apple, validate their provenance, and
-configure them directly in Supabase Secrets. The user has not supplied this
-configuration. Missing or invalid configuration fails closed.
-
-The iOS client currently selects `Production`. For authorized Apple Sandbox
-acceptance, explicitly select `Sandbox` in `BackendConfiguration.environment`
-and configure that server environment. Ledgers and transaction identities are
-separated by environment. Local StoreKit configuration transactions are not
-accepted as Apple-signed server evidence. Restore Production before distribution.
-Never make production accept arbitrary environment values or local test receipts.
-
-## Authentication and account lifecycle
-
-The client pins Supabase Swift 2.30.0 and uses PKCE with device-only Keychain
-storage. Allowlist exactly `bibi://auth/callback` and `bibi://auth/recovery` in
-Supabase Auth, require email confirmation, and configure working SMTP before
-public registration. Email links must be opened on the iPhone that initiated
-the PKCE flow. This configuration has not been verified with real delivery.
-
-Authentication requests are serialized and asynchronous results are bound to
-an account generation. Account exit clears visible online state and cancels
-subscriptions. The device archive is read without running legacy migrations
-or cleanup; it is never uploaded or credited automatically. Per-video import
-requires explicit confirmation. Remote deletion does not erase original Photos
-files or the independent device archive.
-
-If deletion fails after locking the account, the sign-in screen exposes Resume
-account deletion with email/password. Operators must reconcile private
-`deletion_jobs` against Auth/Storage after interrupted cleanup; a missing
-`completed_at` alone is not proof that Auth deletion failed. Apple transaction
-and revocation evidence is intentionally retained for reconciliation.
+Codemagic uses the separate public `bibi-build-assets` bucket and pinned
+size/SHA-256 downloads; no service key is shipped to the client or Codemagic.
+Trusted operator upload remains separate from private user-media buckets.
+Production resource policy retains interface assets and excludes retired
+business media. CI execution/signing remain separate release operations.
 
 ## Media and moderation operations
 
@@ -129,7 +90,7 @@ has been configured by this code deployment.
 
 Realtime events trigger fresh authorized reads. Foreground refresh and an
 active-app reconciliation interval also remove data whose membership changes
-are no longer visible through Realtime. There is no APNs push integration,
+are no longer visible through Realtime. APNs device registration is wired, but real delivery remains unverified. There is no
 peer calling, voice/video transport, fabricated online status, or delivered/read
 receipt claim. Messages are marked saved only after the database acknowledges
 persistence. Group invite recipients cannot read messages until accepting;
@@ -137,9 +98,22 @@ message history starts at their accepted join sequence.
 
 ## Verification record
 
-See `DEPLOYMENT.md` for actual deployment receipts and
-`../../docs/STATIC-AUDIT.md` for source/configuration evidence. Swift boundary
-tests in `../Tests/Backend/` and scenarios in `acceptance.sql` are authored but
-**not executed**. The owner has not authorized compilation, typechecking,
-simulator use, or tests for this integration. Swift package resolution and
-transitive lockfile generation remain part of the first authorized build.
+November 4 A full authenticated media readback, isolated business operations,
+real bidirectional persistent Realtime and Sandbox-only spending/refunds passed;
+exact temporary fixtures were cleaned. Latest B source compiled successfully
+without signing as a generic simulator artifact. Eleven offline SQL/Edge
+scenario groups passed with controlled substitutes. B SQL/function deployment and exact readback completed after owner approval. No App/simulator launch, iOS tests, original Auth/Socket/
+confirmation or actual Apple purchase ran in this task. Authored iOS recovery
+tests are not executed evidence. See `IntegrationEvidence/` and the integration
+record for precise scope, hashes and initial failures retained honestly.
+
+### Subsequent iOS purchase-chain validation
+
+The owner subsequently authorized the missing actual iOS service-chain checks.
+Latest source built, installed and launched on Bibi UI Acceptance; 31 tests passed
+with zero failures/skips. The original observer, protected journal, receipt
+coordinator, actual URLSession DTO/parser and delivery/finish/recovery logic ran
+with isolated system boundaries. This supersedes the earlier no-iOS-test status
+for this bounded run. No real payment/live settlement was performed. See
+`IntegrationEvidence/B-Purchase-Chain-Verification-2026-11-04.md` for demonstrated
+fixes, matrix coverage and remaining device/online/capability limits.
