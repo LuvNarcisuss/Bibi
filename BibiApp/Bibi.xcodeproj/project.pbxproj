@@ -1009,7 +1009,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = im.seex.sao2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1171,7 +1171,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = im.seex.sao2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1230,7 +1230,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = im.seex.sao2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
