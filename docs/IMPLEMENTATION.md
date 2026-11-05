@@ -1,5 +1,23 @@
 # Bibi implementation record
 
+## Confirmed App Store signing team — November 5, 2026
+
+The owner confirmed that `com.bibi.quadratic` belongs to Apple Developer team
+`93BX5X327N`. The generator configuration, regenerated Xcode project, current
+identity documentation and static identity assertions now use that team.
+Codemagic pins `APPLE_TEAM_ID=93BX5X327N`, restricts profile application to App
+Store profiles, sets export `teamID` and passes the same team to Archive.
+Bundle ID, scheme, product mapping and backend gates are unchanged.
+
+YAML/plist parsing, signing identity readback, shared scheme inspection, shell
+syntax checks and whitespace checks were performed without compiling or running
+the application. No cloud build, certificate/profile upload or publishing ran.
+The Codemagic Bibi integration must retain access to the intended app and valid
+matching distribution credentials with production push entitlement. Earlier
+entries record the original team used for their specific historical runs;
+they do not define the current signing configuration. A successful cloud
+archive/export remains unverified; exit code 65 alone does not identify its cause.
+
 ## Physical B entry with temporary identity — November 5, 2026
 
 The owner authorized temporarily aligning all configuration and generated Bundle

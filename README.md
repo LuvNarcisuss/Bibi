@@ -2,7 +2,7 @@
 
 A native anime social application with server-backed community content and private account state. The release gate remains disabled pending acceptance.
 
-Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `com.bibi.quadratic` and signing team is `JPTS6M4T5B`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
+Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `com.bibi.quadratic` and signing team is `93BX5X327N`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
 
 The app supports iPhone only. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. A standalone `simctl launch` does not activate that scheme configuration. Use **BibiAppStore** only when verifying Apple's catalog; local test success does not establish App Store Connect availability.
 
@@ -16,7 +16,7 @@ The root `codemagic.yaml` defines `bibi-ios-app-store`, using Xcode `26.5`,
 the shared `Bibi` scheme in `BibiApp/Bibi.xcodeproj`, Bundle ID
 `com.bibi.quadratic` and App Store Apple ID `6828253391`. Configure the Codemagic
 App Store Connect integration with the exact name `Bibi`, access to this app and
-App Store signing certificates/profiles for team `JPTS6M4T5B`.
+App Store signing certificates/profiles for team `93BX5X327N`.
 
 The workflow restores build assets from the public Supabase Storage bucket
 `bibi-build-assets` without a Codemagic secret, checks required files, prepares the

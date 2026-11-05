@@ -6,7 +6,10 @@ The owner selected Codemagic Code signing identities. The workflow selects store
 signing files with environment.ios_signing, distribution_type app_store and
 bundle_identifier com.bibi.quadratic. Codemagic installs the matching certificate
 and provisioning profile before scripts. The Set up App Store signing script
-only applies those files with xcode-project use-profiles from BibiApp.
+applies App Store profiles with xcode-project use-profiles from BibiApp.
+APPLE_TEAM_ID is pinned to 93BX5X327N; generated export options use that teamID
+and Archive receives the same DEVELOPMENT_TEAM override. The owner confirmed
+that com.bibi.quadratic belongs to this team on November 5, 2026.
 
 The workflow no longer references the bibi_signing environment group or the
 CERTIFICATE_PRIVATE_KEY environment variable. Script-based keychain initialization,
@@ -38,7 +41,7 @@ iOS certificates.
   to create a new one. Respect Apple's certificate limit; do not revoke unrelated
   signing credentials to make room without the owner's approval.
 
-The certificate must be valid, unrevoked and belong to team JPTS6M4T5B.
+The certificate must be valid, unrevoked and belong to team 93BX5X327N.
 Do not put certificate packages, passwords or private keys in Git or chat.
 Reference names are labels in the UI; the workflow selects by bundle/type,
 so it does not require the illustrative reference name above.
@@ -65,9 +68,10 @@ Before retrying, confirm all of these in the profile's displayed metadata:
 | --- | --- |
 | Type | App Store, not Development or Ad Hoc |
 | Bundle ID | com.bibi.quadratic |
-| Team | JPTS6M4T5B |
+| Team | 93BX5X327N |
 | Expiration | Future date; profile and certificate both valid |
 | Certificate | Matching uploaded certificate, shown with a green checkmark |
+| Push entitlement | aps-environment = production |
 
 If the profile names another certificate, regenerate it using the uploaded
 certificate or upload the matching certificate/private-key package. A green

@@ -8,7 +8,7 @@ the missing A work before B. The existing Supabase project
 `yepycfnkkfrfmuwdekka` is retained. No additional project or anonymous identity
 is created at application launch merely to switch stages.
 
-The app remains Bibi, `com.bibi.quadratic`, team `JPTS6M4T5B`, iOS 16+, Swift 5,
+The app remains Bibi, `com.bibi.quadratic`, team `93BX5X327N`, iOS 16+, Swift 5,
 UIKit, iPhone-only and portrait-only. `BibiBackendEnabled=false` remains the
 single release cutover gate. Implementation, deployment, activation and device
 acceptance are separate facts.

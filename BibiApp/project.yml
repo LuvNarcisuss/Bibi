@@ -67,7 +67,7 @@ targets:
         ENABLE_USER_SCRIPT_SANDBOXING: NO
         PRODUCT_NAME: Bibi
         PRODUCT_BUNDLE_IDENTIFIER: com.bibi.quadratic
-        DEVELOPMENT_TEAM: JPTS6M4T5B
+        DEVELOPMENT_TEAM: 93BX5X327N
         INFOPLIST_FILE: Bibi/Support/Info.plist
         CODE_SIGN_ENTITLEMENTS: Bibi/Support/Bibi.entitlements
         GENERATE_INFOPLIST_FILE: false

@@ -14,6 +14,7 @@ workflows:
 
       vars:
         BUNDLE_ID: "com.bibi.quadratic"
+        APPLE_TEAM_ID: "93BX5X327N"
         XCODE_PROJECT: "BibiApp/Bibi.xcodeproj"
         XCODE_SCHEME: "Bibi"
         APP_STORE_APPLE_ID: "6828253391"
@@ -58,7 +59,9 @@ workflows:
         script: |
           set -euo pipefail
           cd "$CM_BUILD_DIR/BibiApp"
-          xcode-project use-profiles
+          xcode-project use-profiles \
+            --archive-method app-store \
+            --custom-export-options "{\"teamID\":\"$APPLE_TEAM_ID\"}"
 
       - name: Set next App Store build number
         script: |
@@ -90,7 +93,7 @@ workflows:
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME" \
             --config Release \
-            --archive-xcargs "CURRENT_PROJECT_VERSION=$BIBI_BUILD_NUMBER" \
+            --archive-xcargs "CURRENT_PROJECT_VERSION=$BIBI_BUILD_NUMBER DEVELOPMENT_TEAM=$APPLE_TEAM_ID" \
             --ipa-directory "$CM_BUILD_DIR/build/ios/ipa"
 
     artifacts:
