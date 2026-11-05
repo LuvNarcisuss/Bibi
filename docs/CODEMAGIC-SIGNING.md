@@ -122,13 +122,18 @@ error again. The YAML alone cannot create the missing backend files.
 Resource restoration remains the pinned CI workflow in CI-RESOURCES.md.
 Publishing uses auth: integration. Automatic beta/App Store review remains off.
 
-## Verification scope
+## Verified result
 
-Static checks cover YAML parsing, exact bundle/type selection, absence of PEM/group
-and CLI-fetch dependencies, preserved resource/publishing settings and all five
-Bash script syntaxes. No certificate/profile was uploaded or inspected remotely,
-and no keychain operation, build, simulator, Codemagic job or Apple upload was run.
-The first authorized cloud run must confirm signing selection and archive/export.
+Signing-validation build `6aec34e0004ce28f20ee1117`, source commit `5258fcd`,
+passed Archive and IPA export with Xcode 26.5 (17F42). The IPA passed local
+`codesign --verify --deep --strict`; its Bundle ID, team and production APNs
+entitlement match Bibi App Store Push 2 (UUID
+8bc9273a-e442-44f7-a228-1cc5b910782d). That profile is stored in Codemagic as
+`bibi_app_store_push` and matches the existing uploaded distribution certificate.
+No certificate was created/revoked or private key exported. No App Store upload,
+push delivery, purchase or iOS runtime suite ran. Existing actor-isolation
+warnings did not prevent the Swift 5 archive. Full evidence is in
+BibiApp/Backend/IntegrationEvidence/app-store-push-repair-2026-11-05.json.
 
 Official references:
 - https://docs.codemagic.io/yaml-code-signing/signing-ios/

@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-05",
+  "rollback_baseline": "08acb968bd58c4912ef729aea00f737a1af5111a",
+  "rollback_backup": "/private/tmp/bibi-before-1500-rollback-3b5ppdji",
+  "confirmed_original_errors": [
+    "Provisioning profile Bibi lacks Push Notifications capability.",
+    "Provisioning profile Bibi lacks aps-environment entitlement."
+  ],
+  "source_commit_built": "5258fcddfeb5a4a93ca4a608d2ec74387d1ebeca",
+  "cloud_build": {
+    "id": "6aec34e0004ce28f20ee1117",
+    "workflow": "bibi-ios-signing-validation",
+    "index": 3,
+    "status": "finished",
+    "duration_seconds": 242,
+    "url": "https://codemagic.io/app/6adebaf10d69a639689133f2/build/6aec34e0004ce28f20ee1117",
+    "archive": "succeeded",
+    "export": "succeeded",
+    "xcode": "26.5 (17F42)"
+  },
+  "profile": {
+    "bundle_id": "com.bibi.quadratic",
+    "team": "93BX5X327N",
+    "name": "Bibi App Store Push 2",
+    "uuid": "8bc9273a-e442-44f7-a228-1cc5b910782d",
+    "aps_environment": "production",
+    "expires": "2027-10-29T02:52:02",
+    "matching_private_key_installed": true
+  },
+  "codemagic_stored_profile_reference": "bibi_app_store_push",
+  "ipa": {
+    "path": "/Users/apple/Downloads/Bibi.ipa",
+    "sha256": "be2bff1cd8c7d77003f7ca53e367df44857aca56e87d31e4d59a4e53e2d492a4",
+    "bundle_id": "com.bibi.quadratic",
+    "build_number": "20",
+    "team": "93BX5X327N",
+    "application_identifier": "93BX5X327N.com.bibi.quadratic",
+    "aps_environment": "production",
+    "get_task_allow": false,
+    "device_family": [
+      1
+    ],
+    "backend_gate": false,
+    "codesign_deep_strict": "passed"
+  },
+  "evidence_archive_sha256": "38ac0a3d518e11c99ae2deefc94d9f6e929372436ec71c3bd203f2e422ae102b",
+  "raw_build_log_sha256": "a592272cce440d065d11bfaf7901e6b6bf35422645a66ea1fcb8475e5395f5c0",
+  "repair_execution": {
+    "existing_Bibi_API_integration_used": true,
+    "push_capability_enabled_and_read_back": true,
+    "new_profile_created_with_existing_certificate": true,
+    "profile_installed_in_Xcode_lookup_directory": true,
+    "profile_saved_in_Codemagic": true,
+    "certificate_created_revoked_or_private_key_exported": false,
+    "app_store_upload_or_review_submission": false
+  },
+  "intermediate_validations": [
+    {
+      "id": "6aec3284004ce28f20ee106b",
+      "result": "Push enabled and read back; missing profile-list --bundle-ids argument then corrected."
+    },
+    {
+      "id": "6aec3342004ce28f20ee10b1",
+      "result": "Production push profile created and verified; missing installation in Xcode profile directory then corrected."
+    }
+  ],
+  "limits": [
+    "No iOS runtime test suite ran for this signing repair.",
+    "No push notification delivery, Apple purchase or App Store upload was tested.",
+    "Existing Swift 5 actor-isolation warnings in BibiReceiptEvidence.swift remain; Archive and export succeeded."
+  ]
+}

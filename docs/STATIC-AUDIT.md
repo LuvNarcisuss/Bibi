@@ -1,33 +1,33 @@
 # Static audit — Bibi
 
-## Rollback baseline and production push repair — November 5, 2026
+## Verified App Store push signing repair — November 5, 2026
 
-The owner requested rollback to the 15:00 state. Commit `08acb96`, authored at
-14:57:20 +08:00 and used by cloud build 22, is the restored baseline. The ten
-later modified files and two later evidence files were backed up outside the
-repository at `/private/tmp/bibi-before-1500-rollback-3b5ppdji`. The restored
-Bundle ID/team are `com.bibi.quadratic` / `93BX5X327N`.
+The owner requested restoration of the 15:00 baseline, commit `08acb96` from
+14:57:20 +08:00. Later changes were backed up outside the repository at
+`/private/tmp/bibi-before-1500-rollback-3b5ppdji`. The targeted repair retains
+`com.bibi.quadratic` and team `93BX5X327N`; application code and backend gates
+are unchanged from that baseline.
 
-The supplied build-21 Bibi.log contains two signing prerequisite errors at lines
-835–836: profile Bibi lacks Push Notifications and aps-environment. The targeted
-repair uses the existing Bibi Codemagic API integration to enable that capability
-on the exact existing App ID and reuse/create a matching App Store profile using
-the installed distribution certificate. It verifies the returned profile before
-applying it. No new certificate, private-key export or unrelated App ID change
-is implemented. API permission failures stop before Archive. The independent
-signing-validation workflow has no publishing actions.
+The supplied build-21 log identifies the original blocker: profile Bibi lacks
+Push Notifications and aps-environment. The existing Bibi Codemagic API
+integration enabled Push Notifications on the existing App ID and generated
+Bibi App Store Push 2 using the existing distribution certificate. The profile
+was verified for team, identifier, expiration, App Store type, usable signing
+identity and production APNs, installed in Xcode's profile directory and fetched
+into Codemagic as `bibi_app_store_push`. No certificate was created/revoked,
+private key exported or unrelated App ID modified.
 
-Static Python/YAML/plist parsing and workflow shell syntax checks passed. Cloud
-validation `6aec3284004ce28f20ee106b` confirmed successful Push Notifications
-enablement and readback through the existing Bibi API integration. It then stopped
-on a missing --bundle-ids option in the profile-list CLI command. That argument
-is corrected. Validation `6aec3342004ce28f20ee10b1` then created and verified
-Bibi App Store Push 2 (UUID 8bc9273a-e442-44f7-a228-1cc5b910782d), production
-APNs and the existing certificate/private-key match. The new profile was fetched
-into Codemagic as bibi_app_store_push. Archive reported that the profile was not
-installed in Xcode's lookup directory. The helper now installs the verified UUID
-file in Library/Developer/Xcode/UserData/Provisioning Profiles before applying it.
-Archive/export remain pending the next validation.
+Cloud signing-validation build `6aec34e0004ce28f20ee1117` (index 3, source
+`5258fcd`, Xcode 26.5 / 17F42) completed Archive and IPA export successfully in
+4m 2s. The downloaded IPA passed deep/strict codesign verification; its team,
+Bundle ID and production push entitlement match the profile. It remains
+an iPhone-only Release artifact with the default backend gate disabled.
+The validation workflow has no publishing actions. No App Store upload,
+notification delivery, real purchase or iOS runtime test suite was performed.
+Existing Swift 5 actor-isolation warnings in BibiReceiptEvidence.swift remain.
+
+Evidence, artifact hashes and intermediate validation results:
+`BibiApp/Backend/IntegrationEvidence/app-store-push-repair-2026-11-05.json`.
 
 ## Confirmed App Store signing team — November 5, 2026
 
