@@ -23,7 +23,8 @@ def run(command):
         label = " ".join(command[:3])
         status = re.search(rb"\b(401|403|409|429|5\d\d)\b", result.stderr)
         suffix = f" (HTTP {status[0].decode()})" if status else ""
-        raise RuntimeError(f"{label} failed{suffix}. Check the Bibi integration's signing permissions.")
+        reason = "CLI arguments were rejected" if result.returncode == 2 else "the signing API operation failed"
+        raise RuntimeError(f"{label}: {reason}{suffix}.")
     return result.stdout
 
 
@@ -128,7 +129,8 @@ def main():
             raise RuntimeError("Push Notifications was not present on Apple's capability readback.")
         print("Enabled Push Notifications on Bibi's existing App ID.")
 
-    for item in asc("bundle-ids", "profiles", bundle_id):
+    for item in asc("bundle-ids", "profiles", "--bundle-ids", bundle_id,
+                    "--type", "IOS_APP_STORE", "--state", "ACTIVE"):
         attributes = item.get("attributes", {})
         if attributes.get("profileType") != "IOS_APP_STORE" or attributes.get("profileState") != "ACTIVE":
             continue

@@ -17,9 +17,12 @@ applying it. No new certificate, private-key export or unrelated App ID change
 is implemented. API permission failures stop before Archive. The independent
 signing-validation workflow has no publishing actions.
 
-Static Python/YAML/plist parsing and workflow shell syntax checks passed. Actual
-API repair, Codemagic profile storage and Archive/export are pending the cloud
-validation run. No success is inferred from these configuration changes.
+Static Python/YAML/plist parsing and workflow shell syntax checks passed. Cloud
+validation `6aec3284004ce28f20ee106b` confirmed successful Push Notifications
+enablement and readback through the existing Bibi API integration. It then stopped
+on a missing --bundle-ids option in the profile-list CLI command. That argument
+is corrected. Profile generation/storage and Archive/export remain pending the
+next validation; capability enablement alone does not establish package success.
 
 ## Confirmed App Store signing team — November 5, 2026
 
