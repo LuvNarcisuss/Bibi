@@ -1,5 +1,26 @@
 # Bibi implementation record
 
+## Rollback baseline and production push repair — November 5, 2026
+
+The owner requested rollback to the 15:00 state. Commit `08acb96`, authored at
+14:57:20 +08:00 and used by cloud build 22, is the restored baseline. The ten
+later modified files and two later evidence files were backed up outside the
+repository at `/private/tmp/bibi-before-1500-rollback-3b5ppdji`. The restored
+Bundle ID/team are `com.bibi.quadratic` / `93BX5X327N`.
+
+The supplied build-21 Bibi.log contains two signing prerequisite errors at lines
+835–836: profile Bibi lacks Push Notifications and aps-environment. The targeted
+repair uses the existing Bibi Codemagic API integration to enable that capability
+on the exact existing App ID and reuse/create a matching App Store profile using
+the installed distribution certificate. It verifies the returned profile before
+applying it. No new certificate, private-key export or unrelated App ID change
+is implemented. API permission failures stop before Archive. The independent
+signing-validation workflow has no publishing actions.
+
+Static Python/YAML/plist parsing and workflow shell syntax checks passed. Actual
+API repair, Codemagic profile storage and Archive/export are pending the cloud
+validation run. No success is inferred from these configuration changes.
+
 ## Confirmed App Store signing team — November 5, 2026
 
 The owner confirmed that `com.bibi.quadratic` belongs to Apple Developer team

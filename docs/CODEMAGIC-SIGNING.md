@@ -6,7 +6,8 @@ The owner selected Codemagic Code signing identities. The workflow selects store
 signing files with environment.ios_signing, distribution_type app_store and
 bundle_identifier com.bibi.quadratic. Codemagic installs the matching certificate
 and provisioning profile before scripts. The Set up App Store signing script
-applies App Store profiles with xcode-project use-profiles from BibiApp.
+checks those files with scripts/ensure_app_store_profile.py before applying the
+exact verified profile with xcode-project use-profiles from BibiApp.
 APPLE_TEAM_ID is pinned to 93BX5X327N; generated export options use that teamID
 and Archive receives the same DEVELOPMENT_TEAM override. The owner confirmed
 that com.bibi.quadratic belongs to this team on November 5, 2026.
@@ -17,6 +18,28 @@ certificate import and fetch-signing-files --create were removed. No automatic
 certificate creation or revocation runs in the workflow. Private signing material
 is still required inside the uploaded certificate package; this mode delegates
 its secure management to Codemagic instead of a PEM environment variable.
+
+## Production push profile repair
+
+Build 21's archive log confirms that the stored Bibi profile lacks Push
+Notifications and aps-environment. The repair is restricted to com.bibi.quadratic
+and its confirmed team 93BX5X327N. A valid installed production-push profile is
+reused. Otherwise the helper uses the existing Bibi API integration to look up
+the exact App ID, enable only Push Notifications, and reuse or create an App
+Store profile tied to the already installed distribution certificate/private key.
+It does not create, export or revoke a certificate or register another Bundle ID.
+Missing API permissions fail the signing step before Archive.
+
+The selected profile must pass team, Bundle ID, expiration, App Store type,
+usable signing identity and production APNs checks. The build applies only
+build/signing/Bibi-AppStore-Push.mobileprovision and retains that public profile
+and a sanitized profile-summary.json as artifacts. After a successful repair,
+fetch the new Bibi App Store Push profile into Codemagic Code signing identities.
+No new environment group or certificate private-key variable is required.
+
+The bibi-ios-signing-validation workflow shares the build configuration but has
+an empty publishing section. Use it to verify Archive/export without uploading
+an IPA to App Store Connect or sending publishing notifications.
 
 ## Configure the certificate in Codemagic
 

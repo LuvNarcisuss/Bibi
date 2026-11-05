@@ -1,5 +1,5 @@
 workflows:
-  bibi-ios-app-store:
+  bibi-ios-app-store: &bibi_app_store
     name: Bibi iOS App Store
     max_build_duration: 120
     instance_type: mac_mini_m2
@@ -59,7 +59,9 @@ workflows:
         script: |
           set -euo pipefail
           cd "$CM_BUILD_DIR/BibiApp"
+          python3 scripts/ensure_app_store_profile.py
           xcode-project use-profiles \
+            --profile "$CM_BUILD_DIR/build/signing/Bibi-AppStore-Push.mobileprovision" \
             --archive-method app-store \
             --custom-export-options "{\"teamID\":\"$APPLE_TEAM_ID\"}"
 
@@ -97,6 +99,8 @@ workflows:
             --ipa-directory "$CM_BUILD_DIR/build/ios/ipa"
 
     artifacts:
+      - build/signing/Bibi-AppStore-Push.mobileprovision
+      - build/signing/profile-summary.json
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
@@ -115,3 +119,8 @@ workflows:
         auth: integration
         submit_to_testflight: false
         submit_to_app_store: false
+
+  bibi-ios-signing-validation:
+    <<: *bibi_app_store
+    name: Bibi signing validation
+    publishing: {}
