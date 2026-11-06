@@ -6,7 +6,6 @@ packages:
 configs:
   Debug: debug
   Release: release
-  OnlineAcceptance: debug
 fileGroups:
   - Configuration
 options:
@@ -60,7 +59,6 @@ targets:
       - name: Prepare asset catalog
         script: |
           /usr/bin/python3 "$SRCROOT/scripts/prepare_asset_catalog.py"
-          /usr/bin/python3 "$SRCROOT/scripts/prepare_online_acceptance.py"
         basedOnDependencyAnalysis: false
     settings:
       base:
@@ -77,9 +75,6 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
       configs:
-        OnlineAcceptance:
-          INFOPLIST_FILE: .generated/OnlineAcceptance-Info.plist
-          BIBI_APNS_ENVIRONMENT: development
         Debug:
           BIBI_APNS_ENVIRONMENT: development
         Release:
@@ -146,46 +141,7 @@ schemes:
         - BibiTypographyTests
         - BibiBackendTests
         - BibiUITests
+        - name: BibiPurchaseUITests
+          skipped: true
     archive:
       config: Release
-  BibiAppStore:
-    build:
-      targets:
-        Bibi: all
-    run:
-      config: Debug
-    archive:
-      config: Release
-  BibiPurchases:
-    build:
-      targets:
-        Bibi: all
-    run:
-      config: Debug
-      storeKitConfiguration: Configuration/BibiDiamonds.storekit
-    test:
-      config: Debug
-      targets:
-        - BibiPurchaseUITests
-
-  BibiPurchaseValidation:
-    build:
-      targets:
-        Bibi: all
-    run:
-      config: Debug
-      environmentVariables:
-        BIBI_OFFLINE_PURCHASE_VALIDATION: "1"
-    test:
-      config: Debug
-      environmentVariables:
-        BIBI_OFFLINE_PURCHASE_VALIDATION: "1"
-      targets:
-        - BibiBackendTests
-
-  BibiOnlineAcceptance:
-    build:
-      targets:
-        Bibi: all
-    run:
-      config: OnlineAcceptance

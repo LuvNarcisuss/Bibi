@@ -9,9 +9,15 @@ the missing A work before B. The existing Supabase project
 is created at application launch merely to switch stages.
 
 The app remains Bibi, `com.bibi.quadratic`, team `93BX5X327N`, iOS 16+, Swift 5,
-UIKit, iPhone-only and portrait-only. `BibiBackendEnabled=false` remains the
-single release cutover gate. Implementation, deployment, activation and device
-acceptance are separate facts.
+UIKit, iPhone-only and portrait-only. On November 6, 2026 the owner explicitly
+required the existing `BibiBackendEnabled` gate to remain true for every
+configuration and simulator, and to retain only the Bibi shared scheme. Debug
+and Release both read the true-valued canonical plist. Auxiliary schemes,
+OnlineAcceptance configuration and generated runtime plists are retired. This decision
+supersedes earlier closed-gate instructions in
+the dated records below. Implementation, deployment, activation and device
+acceptance are separate facts; this configuration change is verified statically
+and does not establish App Store runtime entry or payment acceptance.
 
 ## A: deployed data and media
 

@@ -1,5 +1,11 @@
 # Purchase runtime verification
 
+This is historical runtime evidence. Since November 6, 2026, only the Bibi
+scheme remains. For current reproduction, use Bibi: select the local StoreKit
+fixture or None under Run options, and explicitly enable BibiPurchaseUITests
+under Test for an isolated purchase UI run. Earlier auxiliary scheme names below
+describe the recorded run and are not current execution instructions.
+
 Paths to application source, configuration, scripts and `Design/` evidence in this report are relative to `BibiApp/` unless explicitly prefixed. `docs/` and `Assets/` refer to repository-root directories.
 
 Date: October 26, 2026 (Asia/Shanghai).

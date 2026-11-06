@@ -1,6 +1,11 @@
 # Single-cutover release checklist
 
-Keep `BibiBackendEnabled=false` until every applicable release item is satisfied.
+On November 6, 2026 the owner explicitly required `BibiBackendEnabled=true`
+for every configuration and simulator, superseding earlier closed Debug and
+Release instructions. The only shared scheme is Bibi, with Debug for Run and
+Release for Archive; both read the enabled canonical plist. This configuration change does
+not complete the outstanding acceptance items below or update any previously
+installed binary.
 The current entry is one-tap anonymous Supabase sign-in with 18+ consent and
 secure session restoration. SMTP is needed only for an exposed optional email
 link/recovery flow. November 4 B uses client-reported native purchase settlement;
@@ -99,7 +104,10 @@ run incomplete; never substitute an old build or another simulator.
 - [ ] Reconcile outstanding review and acceptance findings and operational limits.
 - [ ] Verify production environment, signing, identity, iPhone-only settings,
   operator readiness, service configuration and current protocol version.
-- [ ] Enable the single gate in a reviewed release configuration, regenerate
-  metadata and repeat the authorized latest-build acceptance flow.
+- [x] Enable the existing gate in every owner-authorized configuration and
+  synchronize project metadata on November 6, 2026. Static inspection only.
+- [ ] Repeat authorized latest-build acceptance with the enabled Release
+  configuration and inspect the actual distribution artifact before claiming
+  App Store entry is verified.
 - [ ] Archive evidence and assign an operational owner. No scheduled monitor was
   created by this task.

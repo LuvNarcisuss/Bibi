@@ -72,6 +72,17 @@
                ReferencedContainer = "container:Bibi.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F22A97830ECD2E5440BB1931"
+               BuildableName = "BibiPurchaseUITests.xctest"
+               BlueprintName = "BibiPurchaseUITests"
+               ReferencedContainer = "container:Bibi.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

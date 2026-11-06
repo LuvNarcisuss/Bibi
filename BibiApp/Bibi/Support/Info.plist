@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BibiBackendEnabled</key>
-	<false/>
+	<true/>
 	<key>BibiDiamondProducts</key>
 	<dict>
 		<key>10800</key>

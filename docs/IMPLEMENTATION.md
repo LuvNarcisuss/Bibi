@@ -1,5 +1,33 @@
 # Bibi implementation record
 
+## Single Bibi scheme and always-enabled online entry - November 6, 2026
+
+The owner's final requirement is a single shared scheme, Bibi, with online
+entry enabled independently of simulator selection. Run and Test use Debug;
+Archive uses Release. Both configurations read the canonical Info.plist with
+`BibiBackendEnabled=true`. Auxiliary schemes, the OnlineAcceptance configuration
+and the redundant runtime-plist generator are removed. Codemagic and both
+acceptance scripts use Bibi. The regenerated project matches `project.yml`.
+
+All four test targets remain available through Bibi. Purchase UI tests are
+skipped by default and require explicit selection. The purchase-chain script
+passes its isolated runtime flag using xcodebuild's TEST_RUNNER_ environment
+mechanism and uses ad-hoc simulator signing for the enabled Keychain path.
+The existing backend initialization check expects online services; that XCTest
+method was updated but not executed. Bibi retains its local StoreKit Run option;
+select None in the same scheme when checking Apple's actual catalog.
+Authentication, Socket and page responses still determine native/external entry;
+no destination or ticket is forced. Simulator names are not routing conditions.
+The owner's decision supersedes earlier gate-freeze statements in dated records.
+All unrelated identity, signing, products, agreements and private data remain intact.
+
+Verification covers scheme/configuration inventory, canonical plist values,
+source/project/script/CI alignment, shell syntax, plist/project syntax and
+whitespace. No build, typecheck, launch, simulator,
+runtime tests, cloud run or store submission was performed. A new distribution
+build is required; previously installed simulator and store binaries retain their own settings.
+Outstanding online/payment/operational acceptance remains in the release checklist.
+
 ## Marketing version alignment - November 5, 2026
 
 The owner selected marketing version `0.1.1` after App Store Connect rejected

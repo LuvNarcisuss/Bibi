@@ -822,7 +822,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/bin/python3 \"$SRCROOT/scripts/prepare_asset_catalog.py\"\n/usr/bin/python3 \"$SRCROOT/scripts/prepare_online_acceptance.py\"\n";
+			shellScript = "/usr/bin/python3 \"$SRCROOT/scripts/prepare_asset_catalog.py\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -976,48 +976,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E748E1D4FBF5E6219FD9F74 /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.backend-tests";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
-			};
-			name = OnlineAcceptance;
-		};
-		1B30634F2C67CD63F1316ABB /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BIBI_APNS_ENVIRONMENT = development;
-				CODE_SIGN_ENTITLEMENTS = Bibi/Support/Bibi.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 93BX5X327N;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = ".generated/OnlineAcceptance-Info.plist";
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
-				PRODUCT_NAME = Bibi;
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = OnlineAcceptance;
-		};
 		1CFD4CD4A74669633DE7F892 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1034,75 +992,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
 			};
 			name = Release;
-		};
-		24E2CC7E94A21C0DCECF3CF3 /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"DEBUG=1",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 0.1.1;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = OnlineAcceptance;
 		};
 		39E06806C155C94E1A447902 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1197,23 +1086,6 @@
 			};
 			name = Debug;
 		};
-		99D299931E24CA04B890CABF /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.purchase-ui-tests";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bibi;
-			};
-			name = OnlineAcceptance;
-		};
 		AA50358ECAC46AFCFC1AFAF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1238,23 +1110,6 @@
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
-		};
-		B6D6DD5629334D0A0B3B8836 /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.ui-tests";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Bibi;
-			};
-			name = OnlineAcceptance;
 		};
 		C9F587119DDCB9A18755DA84 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1438,23 +1293,6 @@
 			};
 			name = Release;
 		};
-		F87FF26DB161F6376AA773D3 /* OnlineAcceptance */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bibi.quadratic.typography-tests";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bibi.app/Bibi";
-			};
-			name = OnlineAcceptance;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1462,7 +1300,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B80486377A9C7CFF471E2BD /* Debug */,
-				1B30634F2C67CD63F1316ABB /* OnlineAcceptance */,
 				AA50358ECAC46AFCFC1AFAF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1472,7 +1309,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F02423A4F7530B398C9282B5 /* Debug */,
-				24E2CC7E94A21C0DCECF3CF3 /* OnlineAcceptance */,
 				CA96C3A8CE2618FD0BB66E59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1482,7 +1318,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D483C2511B3F843D8B58CF8 /* Debug */,
-				B6D6DD5629334D0A0B3B8836 /* OnlineAcceptance */,
 				F41829668A2E03E95B778CE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1492,7 +1327,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3E35CBE4DD38B48F3D0DDBD /* Debug */,
-				0E748E1D4FBF5E6219FD9F74 /* OnlineAcceptance */,
 				1CFD4CD4A74669633DE7F892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1502,7 +1336,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				53F9BCA50A772C30260F8AD3 /* Debug */,
-				F87FF26DB161F6376AA773D3 /* OnlineAcceptance */,
 				39E06806C155C94E1A447902 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1512,7 +1345,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9F587119DDCB9A18755DA84 /* Debug */,
-				99D299931E24CA04B890CABF /* OnlineAcceptance */,
 				3D949E46A26320C264C2EE67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

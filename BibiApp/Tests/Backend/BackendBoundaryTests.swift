@@ -15,18 +15,13 @@ final class BackendBoundaryTests: XCTestCase {
     }
 
     @MainActor
-    func testDisabledBackendGateKeepsOnlineServicesUninitialized() {
-        XCTAssertEqual(Bundle.main.object(forInfoDictionaryKey: "BibiBackendEnabled") as? Bool, false)
-        XCTAssertFalse(BackendConfiguration.isEnabled)
+    func testEnabledBackendGateInitializesOnlineServices() throws {
+        XCTAssertEqual(Bundle.main.object(forInfoDictionaryKey: "BibiBackendEnabled") as? Bool, true)
+        XCTAssertTrue(BackendConfiguration.isEnabled)
         let store = AppStore()
-        XCTAssertFalse(store.isOnline)
-        XCTAssertNil(store.online)
-        XCTAssertThrowsError(try BackendServices()) { error in
-            guard case BackendError.unavailable = error else {
-                XCTFail("Unexpected backend initialization error: \(error)")
-                return
-            }
-        }
+        XCTAssertTrue(store.isOnline)
+        XCTAssertNotNil(store.online)
+        _ = try BackendServices()
     }
 
     func testCallbacksRejectForeignOriginsAndAmbiguousCredentials() {

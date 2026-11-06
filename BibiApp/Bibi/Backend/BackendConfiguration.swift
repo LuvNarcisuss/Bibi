@@ -1,6 +1,6 @@
 import Foundation
 
-/// One release gate: do not enable until every item in the backend release checklist passes.
+/// The single Bibi scheme enables online services in Debug and Release.
 enum BackendConfiguration {
     static let isEnabled = Bundle.main.object(forInfoDictionaryKey: "BibiBackendEnabled") as? Bool ?? false
     static let callbackURL = URL(string: "bibi://auth/callback")!

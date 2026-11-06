@@ -1,5 +1,24 @@
 # Static audit — Bibi
 
+## Single Bibi scheme and always-enabled online entry - November 6, 2026
+
+Only Bibi remains in the generator and local shared-scheme inventory. Debug and
+Release both read the canonical `BibiBackendEnabled=true` plist; the unused
+OnlineAcceptance configuration and runtime-plist generator are removed. All
+four test targets are retained, with purchase UI tests skipped by default.
+Acceptance scripts and Codemagic select Bibi; isolated purchase validation
+passes its flag to test runners explicitly and retains simulator signing.
+Static checks cover scheme/configuration inventory, XcodeGen/project/script/CI
+agreement, canonical plist values and retained identity/iPhone/signing settings.
+Shell/plist/project syntax and whitespace checks pass.
+
+The existing backend initialization XCTest now expects enabled online services
+and is unexecuted. This owner-authorized change supersedes the earlier closed-gate instructions;
+dated evidence below still describes its original artifacts. No authentication,
+Socket, page, purchase or persistence behavior was changed. No build, typecheck,
+app launch, simulator, runtime test, cloud build or publication was performed.
+The current App Store binary and enabled Release runtime entry remain unverified.
+
 ## Marketing version alignment - November 5, 2026
 
 The owner selected marketing version `0.1.1` after App Store Connect rejected

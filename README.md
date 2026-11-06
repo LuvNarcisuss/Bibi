@@ -4,7 +4,7 @@ A native anime social application with server-backed community content and priva
 
 Open **BibiApp/Bibi.xcodeproj** and select the shared **Bibi** scheme. The stack is iOS 16+, Swift 5, UIKit, and AVFoundation. The user-selected bundle identifier is `com.bibi.quadratic` and signing team is `93BX5X327N`. Both values are recorded in the Xcode project and `BibiApp/project.yml`.
 
-The app supports iPhone only. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. A standalone `simctl launch` does not activate that scheme configuration. Use **BibiAppStore** only when verifying Apple's catalog; local test success does not establish App Store Connect availability.
+The app supports iPhone only and has one shared scheme, **Bibi**. For local purchase testing, select **Bibi UI Acceptance** and use Xcode **Product > Run** with **BibiDiamonds.storekit** selected under the scheme's Run options. To verify Apple's actual catalog, use the same scheme and set **Edit Scheme > Run > Options > StoreKit Configuration > None**. A standalone `simctl launch` does not activate the local scheme fixture; local test success does not establish App Store Connect availability.
 
 ## Repository layout
 
@@ -68,7 +68,7 @@ Dedicated `BibiPalette`, `StarlightCanvas`, `ConstellationBanner`, and `BibiConf
 
 ## Capability boundaries
 
-A is deployed: 56 community records, seven non-Auth editorial profiles and 43 private media objects. Full authenticated media readback, real persistent Realtime chat, business API checks and isolated Sandbox spending/refunds passed, with temporary data cleaned. Device archives remain independent and are never automatically uploaded or credited. Retired bundled community sources are empty in production; while the release gate is false, the offline community catalog therefore remains empty. Actual private user data is preserved. RTC and moderation staffing are not provided by deployment.
+A is deployed: 56 community records, seven non-Auth editorial profiles and 43 private media objects. Full authenticated media readback, real persistent Realtime chat, business API checks and isolated Sandbox spending/refunds passed, with temporary data cleaned. Device archives remain independent and are never automatically uploaded or credited. Retired bundled community sources are empty; offline configurations therefore have no bundled community catalog. Actual private user data is preserved. RTC and moderation staffing are not provided by deployment.
 
 B code now implements bootstrap preflight, App direct original authentication, native Socket events, full-screen web entry and dual-source StoreKit 1 confirmation recovery. Native diamond purchases use one Supabase balance writer with explicitly client-reported purchase trust, not Apple server verification. Socket orders use an independent original-service web entitlement authority and never credit native diamonds. The owner-approved B financial migration and both JWT-protected functions are deployed with exact source/privilege/catalog readback. Original Auth/Socket/web/Apple payment acceptance remains pending.
 
@@ -94,19 +94,26 @@ The consent and Settings screens reference the public Supabase [Terms of Service
 
 ## Backend integration
 
-The owner-selected Supabase project is `yepycfnkkfrfmuwdekka`. The latest source passed an owner-authorized offline purchase-chain run: build/install/launch on Bibi UI Acceptance followed by 31 passing tests, zero failures/skips. Apple/account/network boundaries were controlled; no real purchase or live settlement ran. Historical runtime reports apply only to their named older revisions. `BibiBackendEnabled` remains false until the release checklist is satisfied.
+The owner-selected Supabase project is `yepycfnkkfrfmuwdekka`. The November 4 revision passed an owner-authorized offline purchase-chain run: build/install/launch on Bibi UI Acceptance followed by 31 passing tests, zero failures/skips. Apple/account/network boundaries were controlled; no real purchase or live settlement ran. Historical runtime reports apply only to their named revisions. On November 6, 2026 the owner required one Bibi scheme with `BibiBackendEnabled=true` in Debug and Release, independently of simulator selection. The configuration change is statically verified; the remaining release checklist and actual runtime/store entry still require acceptance.
 
 For external console AppID `48369038`, import [interface template](docs/backend-api/generated/interface-template-48369038.json) in interface management and [configuration template](docs/backend-api/generated/configuration-template-48369038.json) in configuration management. Validate and save both before authorized online acceptance. These generated templates do not establish that the external service has imported or published them.
 
 ## Explicit online acceptance run
 
-Use scheme **BibiOnlineAcceptance**, configuration **OnlineAcceptance**, on
-**Bibi UI Acceptance** for the owner-authorized real B entry. The pre-build step
-derives `.generated/OnlineAcceptance-Info.plist` from the canonical plist and
-enables the existing backend gate for this configuration only. The default
-Debug and Release configurations remain closed. Authentication and Socket events
-must actually provide continuation and page data; this scheme does not force a
-web destination or establish store/release readiness.
+Use scheme **Bibi**, configuration **Debug**, on **Bibi UI Acceptance** for
+owner-authorized online acceptance. Archive and Codemagic use the same scheme
+with **Release**. Both configurations read `Bibi/Support/Info.plist` with online
+services enabled. The former auxiliary schemes, OnlineAcceptance configuration
+and generated runtime plists are retired. Simulator names do not control routing.
+Authentication and Socket events must actually provide continuation and page
+data; the scheme does not force a web destination or establish release readiness.
+Existing simulator installations need a fresh build/install, and store
+installations need a newly distributed update to receive configuration changes.
+
+The Bibi scheme retains all test targets. Purchase UI tests are skipped by
+default; enable that target explicitly in Edit Scheme > Test for an authorized
+isolated StoreKit Test run. `BibiApp/scripts/verify_purchase_chain.sh` also uses
+Bibi and injects its isolated payment runtime flag only during explicit validation.
 
 The November 5 signed online run reached and rendered the actual external B page
 on Bibi UI Acceptance. Use `BibiApp/scripts/run_online_acceptance.sh`; simulator

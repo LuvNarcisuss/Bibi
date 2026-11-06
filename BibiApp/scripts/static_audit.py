@@ -118,10 +118,11 @@ check('url.path == onlineURL.path' in agreement and 'url.query == nil' in agreem
 check('response.response.mimeType?.lowercased() != "application/pdf"' in app, 'Agreement reader rejects non-PDF responses')
 
 scheme_directory=ROOT/'Bibi.xcodeproj/xcshareddata/xcschemes'
-for name in ['Bibi', 'BibiPurchases']:
- reference=ET.parse(scheme_directory/(name+'.xcscheme')).find('LaunchAction/StoreKitConfigurationFileReference')
- check(reference is not None and reference.get('identifier') == '../../Configuration/BibiDiamonds.storekit', name+' Run selects the Bibi local StoreKit fixture')
-check(ET.parse(scheme_directory/'BibiAppStore.xcscheme').find('.//StoreKitConfigurationFileReference') is None, 'Apple catalog scheme has no local StoreKit fixture')
+check({p.stem for p in scheme_directory.glob('*.xcscheme')} == {'Bibi'}, 'Bibi is the only shared scheme')
+scheme=ET.parse(scheme_directory/'Bibi.xcscheme')
+reference=scheme.find('LaunchAction/StoreKitConfigurationFileReference')
+check(reference is not None and reference.get('identifier') == '../../Configuration/BibiDiamonds.storekit', 'Bibi Run retains the explicit local StoreKit fixture option')
+check(info.get('BibiBackendEnabled') is True, 'All configurations use the enabled canonical online gate')
 fixture=json.loads((ROOT/'Configuration/BibiDiamonds.storekit').read_text())['products']
 check(len(fixture)==9 and {p['productID'] for p in fixture}==set(expected_products.values()) and all(p['type']=='Consumable' for p in fixture), 'Local fixture contains only the nine Bibi consumables')
 fixture_prices = {p['productID']: p['displayPrice'] for p in fixture}
