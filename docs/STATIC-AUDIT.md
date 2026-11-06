@@ -1,5 +1,17 @@
 # Static audit — Bibi
 
+## Marketing version alignment - November 6, 2026
+
+The owner-selected next version is `0.1.2`. XcodeGen, both generated project
+configurations and Codemagic's explicit MARKETING_VERSION Archive argument agree
+on it. The Info.plist keeps the build-setting substitution; CI build numbering,
+the sole Bibi scheme, online activation, signing identity and iPhone settings
+are preserved. YAML/plist/project parsing and whitespace checks pass.
+
+This corrects the version configuration identified by upload errors 90186/90062.
+No compilation, launch, runtime tests, cloud build, upload or App Store Connect
+version-record creation ran. Actual upload acceptance remains unverified.
+
 ## Single Bibi scheme and always-enabled online entry - November 6, 2026
 
 Only Bibi remains in the generator and local shared-scheme inventory. Debug and

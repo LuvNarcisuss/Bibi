@@ -17,7 +17,7 @@ workflows:
         APPLE_TEAM_ID: "93BX5X327N"
         XCODE_PROJECT: "BibiApp/Bibi.xcodeproj"
         XCODE_SCHEME: "Bibi"
-        BIBI_MARKETING_VERSION: "0.1.1"
+        BIBI_MARKETING_VERSION: "0.1.2"
         APP_STORE_APPLE_ID: "6828253391"
         GIT_LFS_SKIP_SMUDGE: "1"
 

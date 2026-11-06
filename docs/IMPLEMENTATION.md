@@ -1,5 +1,19 @@
 # Bibi implementation record
 
+## Marketing version alignment - November 6, 2026
+
+The owner authorized marketing version `0.1.2` after the build-27 upload was
+rejected with Apple errors 90186 and 90062: approved version `0.1.1` no longer
+accepts builds in its closed release train. The XcodeGen source, regenerated
+Debug/Release project settings and Codemagic Archive override now agree on
+`0.1.2`. Existing CI build-number selection remains unchanged.
+
+Static checks cover YAML/plist/project parsing, version propagation, the single
+Bibi scheme, the enabled online gate and preserved signing/iPhone identity.
+No build, typecheck, app launch, runtime test, cloud build, upload or App Store
+Connect version-record mutation was performed. A fresh build from this source
+is required; the failed `0.1.1 (27)` IPA is not updated by these changes.
+
 ## Single Bibi scheme and always-enabled online entry - November 6, 2026
 
 The owner's final requirement is a single shared scheme, Bibi, with online
