@@ -26,6 +26,7 @@ final class BibiConfiguredSession {
     private var waitingPage = false
     private var pendingPage: (url: URL, id: String)?
     private var page: BibiConfiguredWebController?
+    private var checkoutToken: UUID?
     private var pageWait: BibiForegroundTimeout?
     private var coverWait: BibiForegroundTimeout?
     private var committedPageID: String?
@@ -212,6 +213,7 @@ final class BibiConfiguredSession {
         page.onLoaded = { [weak self] id in self?.pageLoaded(id) }
         page.onBack = { [weak self] in self?.closePage() }
         page.loadViewIfNeeded()
+        page.setCheckout(checkoutToken)
         host.present(page, animated: false) { [weak self] in self?.checkCover() }
     }
 
@@ -265,6 +267,7 @@ final class BibiConfiguredSession {
     }
 
     func stop(clearReceipts: Bool, preservePurchaseAuthorization: Bool = false) {
+        checkoutToken = nil
         if !preservePurchaseAuthorization { store.wallet.invalidatePendingPurchases() }
         entryGeneration = UUID()
         let waiting = continuation; continuation = nil
@@ -291,6 +294,21 @@ final class BibiConfiguredSession {
         if transport.client?.state == .ready { receipts?.ready(reason: "foreground") }
     }
     func becameInactive() { page?.becameInactive() }
+    func enteredBackground() { page?.enteredBackground() }
+    func beginCheckout(context: BibiConfiguredMessageContext) -> UUID? {
+        guard accepts(context), checkoutToken == nil else { return nil }
+        let token = UUID(); checkoutToken = token
+        page?.setCheckout(token)
+        return token
+    }
+    func endCheckout(_ token: UUID) {
+        guard checkoutToken == token else { return }
+        checkoutToken = nil; page?.setCheckout(nil)
+    }
+    func reportPurchaseIssue(_ message: String) {
+        if let page { page.showPurchaseIssue(message, diagnostics: store.wallet.diagnostics) }
+        else { store.notice = AppNotice(title: "Payment update", message: message) }
+    }
     func networkChanged(available: Bool) { transport.networkChanged(available: available) }
 
     private func loadMarker() throws -> BibiConfiguredIdentity? {

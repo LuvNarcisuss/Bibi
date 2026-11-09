@@ -18,7 +18,7 @@ struct BibiPurchaseRuntime {
     var snapshot: () -> [SKPaymentTransaction]
     var submit: (SKPayment) -> Void
     var finish: (SKPaymentTransaction) -> Void
-    var resolve: (String) async -> SKProduct?
+    var resolve: (String) async throws -> SKProduct?
     var canPay: () -> Bool
     var environment: () -> String
     var deviceContext: () throws -> (String, String)
@@ -34,7 +34,7 @@ struct BibiPurchaseRuntime {
             return SKPaymentQueue.default().transactions
         }, snapshot: { SKPaymentQueue.default().transactions }, submit: { SKPaymentQueue.default().add($0) },
              finish: { SKPaymentQueue.default().finishTransaction($0) },
-             resolve: { await BibiSingleProductQuery().resolve($0) },
+             resolve: { try await BibiSingleProductQuery().resolve($0) },
              canPay: { SKPaymentQueue.canMakePayments() },
              environment: { BibiReceiptEvidence.environment },
              deviceContext: {

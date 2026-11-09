@@ -47,17 +47,27 @@ final class BibiConfiguredReceiver {
                     guard let url = core.pageURL else { seen.remove(id); return }
                     session.receivePage(url, messageID: id)
                 case .purchase:
-                    guard let purchase = core.purchase else { seen.remove(id); return }
+                    guard let purchase = core.purchase else {
+                        seen.remove(id)
+                        session.reportPurchaseIssue("The checkout request is incomplete. Please reopen checkout and try again. No payment was started.")
+                        return
+                    }
                     let context = envelope.context
+                    guard let checkoutToken = session.beginCheckout(context: context) else {
+                        // A second event is ignored, never queued for later presentation.
+                        return
+                    }
                     Task { @MainActor [weak self, weak session] in
-                        guard let session, session.accepts(context) else { return }
+                        guard let session else { return }
+                        defer { session.endCheckout(checkoutToken) }
+                        guard session.accepts(context) else { return }
                         let identity = context.identity
                         let purchaseContext = BibiExternalPurchaseContext(supabaseAccountID: identity.accountID,
                             origin: identity.origin, appID: identity.appID, authenticationAttemptID: context.requestID)
                         if let error = await session.store.wallet.purchaseFromSocket(productID: purchase.sku,
                             reference: purchase.reference, messageID: id, context: purchaseContext) {
                             guard session.accepts(context) else { return }
-                            session.store.notice = AppNotice(title: "Purchase pending", message: error)
+                            session.reportPurchaseIssue(error)
                             self?.seen.remove(id)
                         } else if session.accepts(context) {
                             do { try session.receipts?.record(messageID: id, signal: IntegrationContract.purchaseSignal) }
@@ -67,6 +77,7 @@ final class BibiConfiguredReceiver {
                 case .expire: session.expire()
                 case .externalOpen:
                     guard let url = core.externalURL else { seen.remove(id); return }
+                    guard !BibiWebInteractionPolicy.blocksPayment(url) else { return }
                     let context = envelope.context
                     UIApplication.shared.open(url, options: [:]) { [weak session] opened in
                         Task { @MainActor in

@@ -1,5 +1,49 @@
 # Static audit — Bibi
 
+## B side history swipe sensitivity - November 9, 2026
+
+The previous recognizer required a system screen-edge start and 60 points of
+travel for a slow swipe. The replacement accepts touches in wider side bands
+and recognizes a 32-point inward swipe. The delegate checks current history
+eligibility and horizontal intent before recognition, then checks both again on
+release. Review covers the root, checkout overlay, and same-origin restrictions.
+Device gesture recognition and scrolling remain pending runtime acceptance.
+
+## B side follow-up state transitions - November 6, 2026
+
+Static tracing found serialized readiness/product requests, a retained Apple
+interaction owner after some late paid callbacks, in-memory-only receipt retry
+permission, disabled history gestures and track-ending provisional-navigation
+operations. Follow-up source addresses those paths, adds checkout loading
+ownership and separates paid-delivery recovery from Apple presentation ownership.
+Same-SKU unfinished paid evidence remains a submission guard, never a reason to
+finish early or submit another charge. Media state changes are serialized per
+resource and bound to their own WebView; canceled provisional loads retain the
+existing streams. The prior blanket history restriction is replaced by validated
+edge history traversal.
+
+Regression XCTest source has not been compiled or run. Runtime reproduction,
+actual sheet timing, Apple catalog availability, offline settlement, relaunch
+delivery and repeated RTC calls are not established by static inspection. No
+project regeneration or identity change is part of this follow-up.
+
+## B side interaction and purchase repairs - November 6, 2026
+
+Static tracing identified active history gestures, elastic transparent web edges,
+inactive-time capture shutdown, unrestricted external-open dispatch, collapsed
+single-SKU errors and terminal-failure checkout deduplication. Source changes
+address those paths and apply the owner's Socket-page-scoped media grant policy.
+Embedded payment/viewport JavaScript passes syntax inspection. Source checks
+cover navigation/popup/Socket blocking, background-only capture teardown, visible
+B-side purchase errors, safe retry guards and retained project/configuration
+identity. Updated XCTest cases are present but unexecuted.
+
+The existing pbxproj user edits are unchanged; no regeneration, app compilation,
+typecheck, launch, simulator, runtime tests or Apple purchase ran. The public B
+origin returned only a health response and exposed no real checkout DOM/payload.
+Actual Apple product ownership/availability, payment-sheet loading, call media
+and the live five-issue acceptance remain pending. See `B-SIDE-REPAIR-2026-11-06.md`.
+
 ## Marketing version alignment - November 6, 2026
 
 The owner-selected next version is `0.1.2`. XcodeGen, both generated project

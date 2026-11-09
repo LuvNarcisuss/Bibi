@@ -58,7 +58,10 @@ final class WalletStore: ObservableObject {
     }
 
     func purchaseFromSocket(productID: String, reference: String?, messageID: String, context: BibiExternalPurchaseContext) async -> String? {
-        await purchasing.purchaseFromSocket(productID: productID, reference: reference, messageID: messageID, context: context)
+        guard !isBusy else { return "Please wait for the current request to finish." }
+        isBusy = true
+        defer { isBusy = false }
+        return await purchasing.purchaseFromSocket(productID: productID, reference: reference, messageID: messageID, context: context)
     }
 
     func prepareProducts() {

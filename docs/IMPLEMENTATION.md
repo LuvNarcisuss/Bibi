@@ -1,5 +1,77 @@
 # Bibi implementation record
 
+## B side history swipe sensitivity - November 9, 2026
+
+History swipes can start within 64 points of either side, capped at one fifth of
+the WebView width per side. A normal inward swipe completes at 32 points of
+horizontal travel, and a short, fast flick still works. The start and release
+direction checks separate history gestures from vertical scrolling. Eligible
+swipes traverse one existing same-origin history entry. Device acceptance is
+pending.
+
+## B side checkout and call recovery follow-up - November 6, 2026
+
+The owner's six-item follow-up supersedes the initial blanket history-gesture
+restriction below. Custom left/right screen-edge gestures traverse eligible
+same-origin web history without interactive snapshot dragging or root dismissal.
+Elastic edges and horizontal overflow remain constrained. Same-document history
+does not preemptively enter document loading; cache-backed history commits retain
+their validated navigation path.
+
+The Socket receiver acquires scene-scoped checkout ownership before scheduling
+purchase work. A full-screen accessible loading overlay blocks page interaction;
+token-matched cleanup prevents old tasks from unlocking newer checkouts. Native
+and Socket purchases share WalletStore's busy boundary. Errors and paid-pending
+updates appear after the overlay is removed.
+
+Settlement readiness and real Apple product lookup run concurrently. Successfully
+returned checkout products can be reused briefly, while every checkout still
+requires current settlement authorization. Real Apple terminal evidence releases
+the presentation lock independently of durable delivery. Foreground/network
+recovery rechecks the actual queue and resumes eligible paid evidence/status
+work for the original account. A same-product paid unfinished order is reconciled
+before another payment is submitted; unknown results are never blindly retried.
+
+Provisional navigation and redirects no longer end the visible document's media
+tracks. Existing active capture is muted in the background and resumed only for
+the same live WebView when the app returns. Serial per-resource state changes
+reconcile delayed callbacks with the latest foreground/background/terminal goal.
+Actual teardown stops capture; error retry creates a fresh WebView.
+
+Only static verification is authorized. Added regression source is unexecuted;
+the six tester scenarios, real Apple checkout and repeated physical-device calls
+remain pending. See `B-SIDE-REPAIR-2026-11-06.md` and the follow-up plan.
+
+## B side interaction and purchase repairs - November 6, 2026
+
+The owner reported horizontal white edges, unavailable purchase interactions,
+missing call camera/audio after consent, Paytm/PhonePe leaving B, and native Apple
+payment content failing to load. WebView history gestures and elastic scrolling
+are disabled; a root viewport policy limits horizontal document overflow.
+Identified Paytm/PhonePe controls and their verified URL schemes are suppressed
+before webpage handlers, navigation, popups and Socket external-open dispatch.
+Ignored payment redirects retain the previously committed document.
+
+Per the owner's later explicit instruction, the actual Socket page URL defines
+the current WebView media scope. That active instance grants known webpage
+capture requests, including embedded frames, without the superseded origin/commit
+grant checks. System camera/microphone authorization still applies. Transient
+inactive periods pause loading feedback; actual background entry and page/session
+teardown stop capture. Main-document origin and popup checks remain separate.
+
+StoreKit lookup and failed-transaction callbacks retain distinct categories and
+bounded, non-secret diagnostics. A known unpaid terminal failure can accept a
+fresh checkout event; replayed, unknown and paid attempts remain protected.
+Purchase errors are shown above B with an explicit Copy diagnostics action.
+The existing ledger, settlement authority and transaction finish rules remain
+intact. Real Apple catalog/sheet availability is not established by these changes.
+
+Only static inspection, embedded-JavaScript syntax, source/configuration checks
+and read-only review were performed. Regression XCTest source was updated but
+not compiled or run. No application build/launch, simulator, real purchase or
+backend mutation occurred. Existing owner pbxproj identity edits were preserved
+byte-for-byte. See `B-SIDE-REPAIR-2026-11-06.md` for scope and remaining evidence.
+
 ## Marketing version alignment - November 6, 2026
 
 The owner authorized marketing version `0.1.2` after the build-27 upload was

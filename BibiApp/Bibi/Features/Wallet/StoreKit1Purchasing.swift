@@ -29,10 +29,13 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
     private var productTimeout: Task<Void, Never>?
     private var ledger = WalletLedger.empty
     private var products: [String: SKProduct] = [:]
+    private var checkoutProducts: [String: (product: SKProduct, obtainedAt: Date)] = [:]
     private var prices: [String: String] = [:]
     private var productWaiters: [CheckedContinuation<Void, Never>] = []
     private var productRequestInFlight = false
     private var productRequestGeneration = 0
+    private var lastProductLookupFailure: BibiProductLookupFailure?
+    private var lastPaymentFailure: BibiProductLookupFailure?
     private var persist: ((WalletLedger) async -> Bool)?
     private var observing = false
     private var acceptingPurchases = false
@@ -138,6 +141,8 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
 
     func resumeRecovery(userInitiated: Bool = false) {
         if !journal.isReady { reloadJournal() }
+        // Foreground/network recovery must also observe terminal queue updates missed by the UI.
+        if journal.isReady { for transaction in runtime.snapshot() { handle(transaction) } }
         reconcileFinishedQueue()
         guard journal.isReady else { return }
         for var record in journal.state.records where record.accountID == online?.accountID
@@ -145,6 +150,20 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
             record.phase = record.receiptBase64 == nil ? .awaitingEvidence : .awaitingConfirmation
             try? journal.save(record)
         }
+        for var record in journal.state.records where record.accountID == online?.accountID
+                && record.transactionID != nil && !record.phase.hasDelivery && record.phase != .failed {
+            // Missing evidence for a known paid owner survives process restarts. Rejected
+            // evidence still requires the explicit retry path and can never be reused.
+            if record.phase == .awaitingEvidence && record.rejectedFingerprint == nil {
+                receiptAllowed.insert(record.id)
+                if record.nextRetryAt != nil { record.nextRetryAt = nil; try? journal.save(record) }
+            }
+            if record.phase == .retryWait && ["transient", "processing"].contains(record.category ?? "") {
+                record.nextRetryAt = nil
+                try? journal.save(record)
+            }
+        }
+        releaseResolvedAppleInteraction()
         if userInitiated {
             for var record in journal.state.records where !record.phase.hasDelivery && record.transactionID != nil {
                 if record.accountID == online?.accountID || record.accountID == nil {
@@ -166,7 +185,9 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
     var diagnostics: String {
         let unresolved = journal.state.records.filter { !$0.phase.hasDelivery && $0.phase != .failed }.count
         let unknown = journal.state.records.filter { $0.phase == .needsReconciliation }.count
-        return "Bibi StoreKit 1\nBundle ID: \(Bundle.main.bundleIdentifier ?? "unknown")\nCatalog: \(catalog.phase.rawValue)\nUnfinished purchase records: \(unresolved)\nAssociations requiring reconciliation: \(unknown)\n\(journal.failure ?? "")"
+        let lookup = lastProductLookupFailure.map { "\nLast checkout lookup:\n" + $0.diagnostics } ?? ""
+        let payment = lastPaymentFailure.map { "\nLast failed Apple transaction:\n" + $0.diagnostics } ?? ""
+        return "Bibi StoreKit 1\nBundle ID: \(Bundle.main.bundleIdentifier ?? "unknown")\nCatalog: \(catalog.phase.rawValue)\nUnfinished purchase records: \(unresolved)\nAssociations requiring reconciliation: \(unknown)\n\(journal.failure ?? "")\(lookup)\(payment)"
     }
 
     func stop() async {
@@ -182,6 +203,7 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
 
     private func invalidatePurchaseUI() {
         purchaseUIGeneration = UUID(); acceptingPurchases = false
+        checkoutProducts = [:]
         for id in Array(waits.keys) {
             if var record = journal.record(id), record.phase.awaitsApple {
                 record.phase = .outcomeUnknown; record.category = "ui_session_ended"
@@ -209,17 +231,37 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
         guard journal.isReady, observing else { return journal.failure ?? "Purchase recovery is not ready. No payment was started." }
         guard acceptingPurchases, let online, let account = online.accountID else { return "Sign in to your Bibi account before purchasing." }
         guard !productID.isEmpty, productID.count <= 255, runtime.canPay() else { return "Apple purchases are unavailable. No payment was started." }
-        if source == .socket, let existing = journal.state.records.first(where: {
-            $0.accountID == account && $0.source == .socket &&
-                ($0.messageID == messageID || (reference != nil && $0.orderReference == reference))
-        }) {
-            guard existing.productID == productID, existing.orderReference == reference,
-                  existing.externalContext?.origin == context?.origin, existing.externalContext?.appID == context?.appID else { return "This order conflicts with an existing purchase association." }
-            resumeRecovery(userInitiated: true)
-            return existing.phase == .completed ? nil : "This order is already recorded. Its original payment is being reconciled; no new payment was started."
+        resumeRecovery()
+        guard journal.isReady else { return journal.failure ?? "Purchase recovery is not ready. No payment was started." }
+        if source == .socket {
+            let associated = journal.state.records.filter {
+                $0.accountID == account && $0.source == .socket &&
+                    ($0.messageID == messageID || (reference != nil && $0.orderReference == reference))
+            }
+            guard associated.allSatisfy({
+                $0.productID == productID && $0.orderReference == reference &&
+                    $0.externalContext?.origin == context?.origin && $0.externalContext?.appID == context?.appID
+            }) else { return "This order conflicts with an existing purchase association." }
+            // Replaying the same checkout event must never reopen Apple's payment UI.
+            // Inspect every attempt so an older failed attempt cannot hide a later paid one.
+            if let existing = associated.first(where: { $0.messageID == messageID })
+                ?? associated.first(where: { !Self.isExplicitlyUnpaidFailure($0) }) {
+                resumeRecovery(userInitiated: true)
+                if existing.phase == .completed { return nil }
+                if Self.isExplicitlyUnpaidFailure(existing) {
+                    return "This checkout attempt ended without a completed payment. Start a new checkout to try again. No payment was started."
+                }
+                return "This order is already recorded. Its original payment is being reconciled; no new payment was started."
+            }
         }
         if journal.state.records.contains(where: { $0.accountID == account && $0.productID == productID && $0.phase.awaitsApple }) {
             return "Apple has not resolved an earlier purchase request for this product. Its association has been kept; no duplicate payment was started."
+        }
+        if journal.state.records.contains(where: {
+            $0.productID == productID && $0.environment == runtime.environment()
+                && $0.transactionID != nil && $0.phase != .completed
+        }) {
+            return "An earlier payment for this product is still being confirmed or finished with Apple. Recovery will continue for its original account. No new payment was started."
         }
         guard appleOwner == nil else { return "Please finish the current Apple purchase interaction." }
         let requestID = UUID(), capturedUIGeneration = purchaseUIGeneration; appleOwner = requestID
@@ -230,10 +272,26 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
             return "This receipt environment is not enabled for online settlement. No payment was started."
         }
         do {
-            guard try await online.purchaseAvailable(source: source, productID: productID, environment: environment, account: account) else {
+            // Product lookup and settlement readiness are independent reads. Neither may submit a payment.
+            async let settlementAvailable = online.purchaseAvailable(source: source, productID: productID,
+                environment: environment, account: account)
+            let product: SKProduct
+            do {
+                guard let resolved = try await resolveCheckoutProduct(productID) else {
+                    throw BibiProductLookupFailure(reason: .emptyResponse, productID: productID)
+                }
+                product = resolved
+                lastProductLookupFailure = nil
+            } catch {
+                let failure = (error as? BibiProductLookupFailure)
+                    ?? BibiProductLookupFailure(reason: .requestFailed, productID: productID, underlying: error)
+                lastProductLookupFailure = failure
+                logger.error("Checkout lookup failed: \(failure.diagnostics, privacy: .public)")
+                return failure.localizedDescription
+            }
+            guard try await settlementAvailable else {
                 return "Purchase settlement is not configured for this product and source. No payment was started."
             }
-            guard let product = await runtime.resolve(productID) else { return "This Apple product is unavailable. No payment was started." }
             guard appleOwner == requestID, acceptingPurchases, purchaseUIGeneration == capturedUIGeneration, online.accountID == account else { return "Your account changed before payment. No payment was started." }
             let (version, device) = try runtime.deviceContext()
             guard !version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, version.count <= 64,
@@ -274,6 +332,28 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
                 if wait.settled { continuation.resume(returning: wait.message) } else { wait.continuation = continuation }
             }
         } catch { return journal.failure ?? "The purchase could not be prepared. No payment was started." }
+    }
+
+    private static func isExplicitlyUnpaidFailure(_ record: BibiPurchaseRecord) -> Bool {
+        record.phase == .failed && record.transactionID == nil &&
+            ["apple_failed", "not_submitted_ui_session_ended", "prepared_not_submitted"].contains(record.category ?? "")
+    }
+
+    private func resolveCheckoutProduct(_ productID: String) async throws -> SKProduct? {
+        if let product = products[productID] { return product }
+        if let cached = checkoutProducts[productID], Date().timeIntervalSince(cached.obtainedAt) < 300 {
+            return cached.product
+        }
+        let product = try await runtime.resolve(productID)
+        if let product { checkoutProducts[productID] = (product, Date()) }
+        return product
+    }
+
+    private func releaseResolvedAppleInteraction() {
+        guard let id = appleOwner, let record = journal.record(id),
+              record.transactionID != nil || record.phase.hasDelivery || Self.isExplicitlyUnpaidFailure(record) else { return }
+        endWait(id, message: record.phase.hasDelivery ? nil :
+            "Apple has returned a final result. Any paid purchase is being confirmed for its original account; do not pay again to recover it.")
     }
     /// Retained for callers compiled against the previous wallet interface.
     func spend(_ gift: StarGift, quantity: Int, target: GiftTarget,
@@ -481,6 +561,10 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
                 endWait(record.id, message: "Apple is waiting for approval. No entitlement has been delivered.")
             }
         case .failed:
+            let failure = BibiProductLookupFailure(reason: .paymentFailed,
+                productID: transaction.payment.productIdentifier, underlying: transaction.error)
+            lastPaymentFailure = failure
+            logger.error("Apple transaction failed: \(failure.diagnostics, privacy: .public)")
             if var record = association, !record.phase.hasDelivery, record.transactionID == nil {
                 record.phase = .failed; record.category = "apple_failed"
                 do { try journal.save(record) } catch { bufferedCallbacks[ObjectIdentifier(transaction)] = transaction; reportRecovery(); return }
@@ -500,13 +584,17 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
                 if let attempted = association, attempted.id != known.id, attempted.transactionID == nil {
                     var unresolved = attempted; unresolved.phase = .outcomeUnknown; unresolved.category = "earlier_transaction_returned"
                     do { try journal.save(unresolved) } catch { bufferedCallbacks[ObjectIdentifier(transaction)] = transaction; reportRecovery(); return }
-                    endWait(attempted.id, message: "Apple returned an earlier transaction. Its original confirmation is being resumed; this request has no new transaction yet.")
+                    endWait(attempted.id, message: "Apple returned an earlier transaction. Its original confirmation is being resumed; this request has no new transaction yet.", releaseApple: false)
                 }
                 if known.source == nil, ledger.creditedTransactionIDs.contains(transactionID) {
                     known.legacyDeviceDelivery = true; known.phase = .deliveryCommitted
                     known.category = "legacy_device_delivery"
                     do { try journal.save(known) } catch { bufferedCallbacks[ObjectIdentifier(transaction)] = transaction; reportRecovery(); return }
                 }
+                if known.accountID == online?.accountID, known.phase == .awaitingEvidence,
+                   known.rejectedFingerprint == nil { receiptAllowed.insert(known.id) }
+                endWait(known.id, message: known.phase.hasDelivery ? nil :
+                    "Payment was received. Entitlement confirmation is pending; do not pay again to recover this purchase.")
                 if known.phase.hasDelivery { finishDelivered(known); return }
                 scheduleRecovery(); return
             }
@@ -597,8 +685,16 @@ final class StoreKit1Purchasing: NSObject, SKPaymentTransactionObserver {
                     let evidence: BibiReceiptSnapshot
                     do { evidence = try await receiptEvidence.refreshed(after: observed) }
                     catch {
-                        receiptAllowed.remove(id)
-                        suspend(id, category: "awaiting_evidence", phase: .awaitingEvidence)
+                        let cancelled = error is CancellationError || (error as? SKError)?.code == .paymentCancelled
+                        if record.rejectedFingerprint == nil && !cancelled {
+                            // A temporary receipt failure must not permanently disable a paid order.
+                            // The bounded retry runs only while active and never adds another payment.
+                            receiptAllowed.insert(id)
+                            suspend(id, category: "awaiting_evidence", phase: .awaitingEvidence, delay: 60)
+                        } else {
+                            receiptAllowed.remove(id)
+                            suspend(id, category: "awaiting_evidence", phase: .awaitingEvidence)
+                        }
                         return
                     }
                     guard var current = journal.record(id), !current.phase.hasDelivery,
@@ -888,39 +984,103 @@ final class BibiStoreProductFetcher: NSObject, SKProductsRequestDelegate {
     }
 }
 
+/// Safe StoreKit diagnostics contain identity and error codes, never error payloads or receipts.
+struct BibiProductLookupFailure: LocalizedError {
+    enum Reason: String, Equatable { case invalidIdentifier, emptyResponse, timedOut, requestFailed, paymentFailed }
+    let reason: Reason
+    private let productID: String
+    private let context: String
+    private let codes: String
+
+    @MainActor
+    init(reason: Reason, productID: String, underlying: Error? = nil) {
+        self.reason = reason
+        self.productID = Self.field(productID, limit: 255)
+        let bundle = Self.field(Bundle.main.bundleIdentifier ?? "unknown", limit: 255)
+        let version = Self.field(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown", limit: 64)
+        let environment = Self.field(BibiReceiptEvidence.environment, limit: 20)
+        context = "Bundle: \(bundle)\nVersion: \(version)\nEnvironment: \(environment)\nProduct: \(self.productID)"
+        var next = underlying.map { $0 as NSError }
+        var chain: [String] = []
+        while let error = next, chain.count < 5 {
+            chain.append("\(Self.field(error.domain, limit: 80)) (\(error.code))")
+            next = error.userInfo[NSUnderlyingErrorKey] as? NSError
+        }
+        codes = chain.joined(separator: " -> ")
+    }
+
+    var diagnostics: String {
+        "Failure: \(reason.rawValue)\n\(context)" + (codes.isEmpty ? "" : "\nErrors: " + codes)
+    }
+
+    var errorDescription: String? {
+        let message: String
+        switch reason {
+        case .invalidIdentifier: message = "The App Store did not recognize this product for this app."
+        case .emptyResponse: message = "The App Store returned no matching product."
+        case .timedOut: message = "The App Store product request timed out after 20 seconds."
+        case .requestFailed: message = "The App Store product request failed."
+        case .paymentFailed: return "Apple reported that this payment did not complete."
+        }
+        return message + " No payment was started."
+    }
+
+    private static func field(_ value: String, limit: Int) -> String {
+        let allowed = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._-")
+        return String(value.unicodeScalars.prefix(limit).map { allowed.contains($0) ? Character(String($0)) : "_" })
+    }
+}
+
 /// Exact one-SKU lookup is independent of the native nine-package catalog.
 @MainActor
 final class BibiSingleProductQuery: NSObject, SKProductsRequestDelegate {
     private var request: SKProductsRequest?
-    private var waiter: CheckedContinuation<SKProduct?, Never>?
+    private var waiter: CheckedContinuation<SKProduct?, Error>?
     private var timeout: Task<Void, Never>?
     private var productID = ""
-    func resolve(_ productID: String) async -> SKProduct? {
+    func resolve(_ productID: String) async throws -> SKProduct? {
         self.productID = productID
-        return await withCheckedContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             waiter = continuation
             let next = SKProductsRequest(productIdentifiers: [productID]); request = next
             next.delegate = self; next.start()
             timeout = Task { @MainActor [weak self] in
                 do { try await Task.sleep(nanoseconds: 20_000_000_000) } catch { return }
-                self?.complete(nil)
+                guard let self else { return }
+                self.complete(.failure(BibiProductLookupFailure(reason: .timedOut, productID: self.productID)))
             }
         }
     }
-    private func complete(_ product: SKProduct?) {
+    private func complete(_ result: Result<SKProduct?, Error>) {
         guard let waiter else { return }
         self.waiter = nil; timeout?.cancel(); timeout = nil
         request?.delegate = nil; request?.cancel(); request = nil
-        waiter.resume(returning: product)
+        waiter.resume(with: result)
+    }
+
+    static func resolvedProduct(_ products: [SKProduct], invalid: [String], productID: String) throws -> SKProduct {
+        guard !invalid.contains(productID) else {
+            throw BibiProductLookupFailure(reason: .invalidIdentifier, productID: productID)
+        }
+        let exact = products.filter { $0.productIdentifier == productID }
+        guard exact.count == 1 else {
+            throw BibiProductLookupFailure(reason: .emptyResponse, productID: productID)
+        }
+        return exact[0]
     }
     nonisolated func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         Task { @MainActor in
             guard request === self.request else { return }
-            let exact = response.products.filter { $0.productIdentifier == self.productID }
-            self.complete(exact.count == 1 && !response.invalidProductIdentifiers.contains(self.productID) ? exact[0] : nil)
+            do {
+                let product = try Self.resolvedProduct(response.products, invalid: response.invalidProductIdentifiers, productID: self.productID)
+                self.complete(.success(product))
+            } catch { self.complete(.failure(error)) }
         }
     }
     nonisolated func request(_ request: SKRequest, didFailWithError error: Error) {
-        Task { @MainActor in guard request === self.request else { return }; self.complete(nil) }
+        Task { @MainActor in
+            guard request === self.request else { return }
+            self.complete(.failure(BibiProductLookupFailure(reason: .requestFailed, productID: self.productID, underlying: error)))
+        }
     }
 }

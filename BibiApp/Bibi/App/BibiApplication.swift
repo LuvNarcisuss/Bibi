@@ -44,6 +44,7 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   func sceneDidBecomeActive(_ scene: UIScene) { coordinator?.refreshAccount() }
   func sceneWillResignActive(_ scene: UIScene) { coordinator?.sceneResignedActive() }
+  func sceneDidEnterBackground(_ scene: UIScene) { coordinator?.sceneEnteredBackground() }
   func sceneDidDisconnect(_ scene: UIScene) { coordinator?.stop() }
   func sceneWillEnterForeground(_ scene: UIScene) { coordinator?.returnToDefaultHome() }
 }
@@ -138,6 +139,7 @@ final class BibiSceneDelegate: UIResponder, UIWindowSceneDelegate {
     Task { try? await store.refreshOnline() }
   }
   func sceneResignedActive() { if store.isOnline { configured.becameInactive() } }
+  func sceneEnteredBackground() { if store.isOnline { configured.enteredBackground() } }
   func stop() { startup?.cancel(); if store.isOnline { configured.stop(clearReceipts: false) } }
   func returnToDefaultHome() { (host.content as? BibiTabController)?.returnToDefaultHome() }
   func handleCallback(_ url: URL) {

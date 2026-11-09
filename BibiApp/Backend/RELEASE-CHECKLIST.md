@@ -94,10 +94,23 @@ run incomplete; never substitute an old build or another simulator.
 - [ ] Distinguish static, build, iOS tests, local StoreKit Test, Apple Sandbox,
   actual external service and Production results in the evidence ledger.
 
-- [ ] Validate the November 5 WebView origin/media source fix on the required
-  latest-source device run, including iframe origins, redirects/fragments,
-  replacement/logout and stopping active capture. The five new XCTest methods
-  are written but unexecuted; see `../../docs/WEBVIEW-MEDIA-PERMISSIONS.md`.
+- [ ] Validate the November 6 owner-selected Socket-page media grant and
+  interaction repairs on the required latest-source run: first permission
+  prompts, transient inactivity, background capture suspension/resume, embedded frames,
+  replacement/logout, horizontal swipes and inert Paytm/PhonePe controls/events.
+  Updated XCTest cases are written but unexecuted; see
+  `../../docs/WEBVIEW-MEDIA-PERMISSIONS.md` and `../../docs/B-SIDE-REPAIR-2026-11-06.md`.
+- [ ] Verify real B SKU/App Store catalog association, native payment-sheet
+  loading, fresh checkout after known unpaid failure and protection of unknown
+  or paid attempts. Record the bounded B-page diagnostics and distinguish
+  actual Apple results from local StoreKit Test.
+- [ ] Exercise the six-item checkout/call follow-up: cold/warm sheet timing,
+  double-tap loading exclusion, paid offline recovery, same/different SKU second
+  checkout after reconciliation, background immediately after charge and process
+  relaunch. Confirm durable delivery before finish and no duplicate charge.
+- [ ] Exercise two consecutive physical-device calls, originally muted media,
+  rapid foreground/background reversals and page replacement. Confirm no active
+  capture in the background and no delayed resume affecting an old WebView.
 
 ## Cutover
 

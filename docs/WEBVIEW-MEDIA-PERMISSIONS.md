@@ -1,5 +1,39 @@
 # Business WebView media permission boundary
 
+## Current owner-selected behavior - November 6, 2026
+
+The owner explicitly replaced the per-request/frame-origin grant policy below:
+the media scope is the actual URL supplied by the authenticated Socket page event
+when creating/replacing the WebView. Its current live WebView grants known camera,
+microphone and combined media requests without origin/commit-timing denials.
+Embedded HTTP(S) and inherited about:blank/about:srcdoc frames are accepted within
+that page scope. Old instances, invalidated pages, ended sessions, background
+scenes and unknown capture resources remain outside that scope. iOS system
+permissions and WebKit's own secure-context/permissions rules still apply.
+
+Permission and payment sheets can make the scene temporarily inactive; that
+transition pauses loading feedback without destroying capture. Provisional loads
+and redirects also retain the current document's tracks until WebKit replaces
+that document. Canceled provisional loads can restore the committed document
+without attempting to revive ended tracks.
+
+The six-item follow-up changes real background handling from `.none` to `.muted`
+for previously active capture: no audio/video is actively captured while muted,
+but tracks are not deliberately ended. Only capture suspended by this owner can
+resume on returning to the same live WebView; previously muted/inactive resources
+are not activated. Per-resource mutations are serialized and completion rechecks
+the latest desired state, including a foreground request followed immediately by
+background or teardown. Replacement, abandoned-page failure and teardown still
+request `.none`; error retry constructs a fresh WebView. No JS stream or synthetic
+call is created. The main-document origin stays frozen to the Socket page origin;
+popup permission remains a separate committed-origin rule.
+
+Updated regression source covers this current contract, but is not compiled or
+executed. Source/static inspection does not prove an actual RTC call. See
+`B-SIDE-REPAIR-2026-11-06.md` for current work and remaining device acceptance.
+
+## Historical November 5 policy - superseded for media grants
+
 Date: November 5, 2026. Scope: the owner requested the P1 fix for unconditional webpage media authorization, following the updated integration skill's B origin policy.
 
 ## Root cause and changes

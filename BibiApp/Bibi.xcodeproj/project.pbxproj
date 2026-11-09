@@ -741,7 +741,6 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					49444D8A4874FD3D5F054BCB = {
-						DevelopmentTeam = 93BX5X327N;
 						SystemCapabilities = "[\"com.apple.InAppPurchase\": [\"enabled\": 1], \"com.apple.Push\": [\"enabled\": 1]]";
 					};
 					BFB47608D5613DC5C05FC19F = {
@@ -1051,7 +1050,7 @@
 				BIBI_APNS_ENVIRONMENT = development;
 				CODE_SIGN_ENTITLEMENTS = Bibi/Support/Bibi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 93BX5X327N;
+				DEVELOPMENT_TEAM = JPTS6M4T5B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Bibi/Support/Info.plist;
@@ -1060,7 +1059,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
+				PRODUCT_BUNDLE_IDENTIFIER = im.seex.sao2;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1093,7 +1092,7 @@
 				BIBI_APNS_ENVIRONMENT = production;
 				CODE_SIGN_ENTITLEMENTS = Bibi/Support/Bibi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 93BX5X327N;
+				DEVELOPMENT_TEAM = JPTS6M4T5B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Bibi/Support/Info.plist;
@@ -1102,7 +1101,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bibi.quadratic;
+				PRODUCT_BUNDLE_IDENTIFIER = im.seex.sao2;
 				PRODUCT_NAME = Bibi;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
